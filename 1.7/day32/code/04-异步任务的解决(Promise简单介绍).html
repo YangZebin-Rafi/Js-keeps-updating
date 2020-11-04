@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 基本使用 */
+
+        /* 如果有两个异步任务需要控制顺序task1-task2 */
+        // new Promise(function(resolve, reject) {
+
+        //     setTimeout(function() {
+        //         console.log("task1");
+        //         resolve();
+        //     }, 1000);
+
+        // }).then(function() {
+        //     setTimeout(function() {
+        //         console.log("task2");
+        //     }, 1000);
+        // });
+
+
+        /* 如果有三个异步任务：task1-task2-task3 */
+        new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    console.log("task1");
+                    resolve();
+                }, 1000);
+
+            })
+            .then(function() {
+                return new Promise(function(resolve, reject) {
+                    setTimeout(function() {
+                        console.log("task2");
+                        resolve();
+                    }, 1000);
+                })
+            })
+            .then(function() {
+                return new Promise(function(resolve, reject) {
+                    setTimeout(function() {
+                        console.log("task3");
+                        resolve();
+                    }, 1000);
+                })
+            })
+            .then(function() {
+                setTimeout(function() {
+                    console.log("task4")
+                }, 1000);
+            })
+    </script>
+</body>
+
+</html>

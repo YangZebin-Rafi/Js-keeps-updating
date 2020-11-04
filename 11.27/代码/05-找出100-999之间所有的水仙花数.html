@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 需求-找出100-999之间所有的水仙花数  1*1*1+ 2*2o*2+ 4*4*4 = 124 */
+        /* 输出100-999间整数 */
+        for (var i = 100; i <= 999; i++) {
+            /* 个位数的立方 + 十位数的立方 + 百位数的立方 == 数字本身 */
+            var b = parseInt(i / 100);
+            var s = parseInt(i / 10) % 10;
+            var g = i % 10;
+            if (g * g * g + s * s * s + b * b * b == i) {
+                console.log(i);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bird-class {
+            width: 206px;
+            position: absolute;
+            left: 0;
+            top: 0
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/bird.gif" class="bird-class">
+    <script>
+        var offset = 10;
+        var oImg = document.querySelector("img");
+        /* 目标值 */
+        var targetOffset = window.innerWidth - oImg.offsetWidth;
+        var timer = setInterval(function() {
+            /* 001-先获取当前的left值 */
+            var left = oImg.offsetLeft + offset;
+            // console.log(left);
+            if (left >= targetOffset) {
+                left = targetOffset;
+                clearInterval(timer);
+            }
+            /* 002-在当前left值的基础上 +offset */
+            oImg.style.left = left + "px";
+
+
+        }, 50);
+    </script>
+</body>
+
+</html>

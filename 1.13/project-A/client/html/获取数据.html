@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let lis = $(".general").find("li");
+        let data = [];
+        lis.each(function() {
+            let o = {};
+            o.src = $(this).find("img")[0].src;
+            o.price = Number($.trim($(this).find(".def-price").text()).slice(1));
+            o.title = $.trim($(this).find(".title-selling-point").text());
+            o.disCount = $.trim($(this).find(".info-evaluate").text());
+            o.storeName = $(this).find(".store-stock").text();
+            data.push(o);
+        })
+        JSON.stringify(data);
+    </script>
+</body>
+
+</html>

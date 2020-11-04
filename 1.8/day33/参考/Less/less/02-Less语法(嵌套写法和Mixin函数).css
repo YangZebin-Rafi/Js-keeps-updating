@@ -1,0 +1,50 @@
+/* 嵌套写法 */
+/* Less语言允许我们直接以嵌套的方式来组织CSS样式代码，更方便和直观。 */
+/* Mixin混入 */
+/* Mixin混入语法类似于JavaScript代码中的函数，可以把需要复用的代码进行抽取。 */
+/* 声明和调用语法 */
+/* .函数名(形参1，形参2...){内容} */
+/* .函数名(实参1，实参2...) */
+body .header {
+  background: #ccc;
+  border: 1px solid #000;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+}
+body .content {
+  width: 100%;
+  height: 500px;
+  line-height: 500px;
+}
+body .content div {
+  margin: 5px;
+  width: 20%;
+  height: 25px;
+  line-height: 25px;
+}
+body .content div:nth-of-type(1) {
+  background: #cc0000;
+}
+body .content div:nth-of-type(2) {
+  background: #990000;
+}
+body .content div:nth-of-type(3) {
+  background: #660000;
+}
+body .content div:nth-of-type(4) {
+  background: #330000;
+}
+body .content div:nth-of-type(5) {
+  background: #190000;
+}
+body .content div:nth-of-type(6) {
+  background: #000000;
+}
+body .footer {
+  background: #ccc;
+  border: 1px solid #000;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+}

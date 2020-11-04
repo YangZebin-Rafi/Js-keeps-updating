@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <form id="formID">
+        <input type="text" id="emailID" placeholder="邮箱" name="email">
+        <input type="text" id="phoneID" placeholder="电话" name="num">
+    </form>
+    <button id="btnID">发送请求(POST)</button>
+    <script>
+        $("#btnID").click(() => {
+
+            // let _email = $("#emailID").val();
+            // let _num = $("#phoneID").val();
+
+            // $.ajax({
+            //     type: "post",
+            //     url: "../server/08-ajax.php",
+            //     data: `num=${_num}&email=${_email}`,
+            //     success: function(response) {
+            //         console.log(response);
+            //     }
+            // });
+
+            /* 001-表单序列化方法 自动的把表单中的所有数据都转换为查询字符串 */
+            /* 语法:jQ.serialize() */
+            let queryString = $("#formID").serialize();
+
+            /* 002-$.param() */
+            /* 作用：把对象转换为查询字符串 */
+            // $.param({"name":"zs",age:19,address:"广州市"})
+            // "name=zs&age=19&address=%E5%B9%BF%E5%B7%9E%E5%B8%82"
+
+            $.ajax({
+                type: "post",
+                url: "../server/08-ajax.php",
+                data: queryString,
+                success: function(response) {
+                    console.log(response);
+                }
+            });
+
+        })
+    </script>
+</body>
+
+</html>

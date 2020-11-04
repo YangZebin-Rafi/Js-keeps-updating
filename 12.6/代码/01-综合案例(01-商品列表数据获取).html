@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-先分析标签的结构，获取所有需要处理的标签 */
+        var lis = document.getElementsByClassName("gl-item");
+
+        /* 002-初始化数组，准备接收数据*/
+        var data = new Array();
+
+        /* 003-开启循环，没循环一次就获取当前标签 */
+        for (var i = 0, len = lis.length; i < len; i++) {
+            var ele = lis[i];
+
+            /* 004-从当前标签中提取我们需要的数据 */
+            var src = ele.getElementsByTagName("img")[0].src;
+            var title = ele.getElementsByTagName("img")[0].title;
+            var name = ele.getElementsByClassName("p-name")[0].innerText;
+            var commit = ele.getElementsByClassName("p-commit")[0].innerText;
+            var press = ele.getElementsByClassName("p-shopnum")[0].innerText;
+            var price = ele.getElementsByClassName("p-price")[0].innerText;
+
+            /* 005-把提取的数据组织到一个对象中 */
+            var o = {};
+            o.src = src;
+            o.title = title;
+            o.name = name;
+            o.commit = commit;
+            o.price = price;
+            o.press = press;
+
+            /* 006-把对象添加到数组中 */
+            data.push(o)
+        }
+
+        console.log(JSON.stringify(data));
+    </script>
+</body>
+
+</html>

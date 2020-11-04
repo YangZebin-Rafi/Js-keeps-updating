@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<abc>
+    <product id="nz">
+        <title>大牌女装222</title>
+        <des>换季清仓大甩卖,哈哈哈</des>
+        <src>./img/1.png</src>
+    </product>
+    <product id="bb">
+        <title>品牌包包</title>
+        <des>最贵的包包 只卖99999.99</des>
+        <src>./img/2.png</src>
+    </product>
+    <product id="xz">
+        <title>金牌男鞋</title>
+        <des>温州皮革厂倒闭啦！！</des>
+        <src>./img/3.jpg</src>
+    </product>
+</abc>

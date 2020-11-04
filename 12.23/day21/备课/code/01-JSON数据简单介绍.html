@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* JSON是一种通用的数据传输(交换)的格式，常用来表示和传输数据。 */
+        /* 本质上：JSON是一种特殊的字符串(有自己的格式和规则) */
+
+        /* 开发团队： */
+        // [1] 项目负责人     1     
+        // [2] 前端开发团队   2-3 (写前端代码)
+        // [3] iOS开发团队   0        Object-C | swift   
+        // [4] 安卓开发团队   1-2     java
+        // [5] 测试团队      1        (测试-提bug)
+        // [6] UI设计师      1        高保真图片 和 切片
+        // [7] 后台开发团队   2-3      后台的业务逻辑和数据库(接口文档)
+        // [8] 产品经理(需求分析师)  1  需求说明书
+
+
+        var json = `
+        {
+    "users": [
+        {
+            "id": 1404376560,
+            "screen_name": "zaku",
+            "name": "zaku",
+            "province": "11",
+            "city": "5",
+            "location": "北京 朝阳区",
+            "description": "人生五十年，乃如梦如幻；有生斯有死，壮士复何憾。",
+            "url": "http://blog.sina.com.cn/zaku",
+            "profile_image_url": "http://tp1.sinaimg.cn/1404376560/50/0/1",
+            "domain": "zaku",
+            "gender": "m",
+            "followers_count": 1204,
+            "friends_count": 447,
+            "statuses_count": 2908,
+            "favourites_count": 0,
+            "created_at": "Fri Aug 28 00:00:00 +0800 2009",
+            "following": false,
+            "allow_all_act_msg": false,
+            "remark": "",
+            "geo_enabled": true,
+            "verified": false,
+            "status": {
+                "created_at": "Tue May 24 18:04:53 +0800 2011",
+                "id": 11142488790,
+                "text": "我的相机到了。",
+                "source": "<a href="http://weibo.com" rel="nofollow">新浪微博</a>",
+                "favorited": false,
+                "truncated": false,
+                "in_reply_to_status_id": "",
+                "in_reply_to_user_id": "",
+                "in_reply_to_screen_name": "",
+                "geo": null,
+                "mid": "5610221544300749636",
+                "annotations": [],
+                "reposts_count": 5,
+                "comments_count": 8
+            },
+            "allow_all_comment": true,
+            "avatar_large": "http://tp1.sinaimg.cn/1404376560/180/0/1",
+            "verified_reason": "",
+            "follow_me": false,
+            "online_status": 0,
+            "bi_followers_count": 215
+        },
+        ...
+    ],
+    "next_cursor": 5,
+    "previous_cursor": 0,
+    "total_number": 668
+}`
+
+        console.log(json);
+
+        /* JSON数据和javaScript对象的区别 */
+        /* 001-JSON数据中所有的key都必须使用双引号 */
+        /* 002-JSON数据中没有函数 */
+        /* 003-JSON数据中没有 undefined */
+
+        /* JSON跨平台的通用的数据格式，在Object-C | JAVA | C++   */
+        var o = {
+            name: "zs"
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* call和apply方法 */
+        /* 作用：借用其它对象的方法，并且绑定函数中的this,this绑定给call方法和apply方法的第一个参数。*/
+
+        var o1 = {
+            name: "zs",
+            showName: function() {
+                console.log("姓名：" + this.name);
+            }
+        }
+
+        var o2 = {
+            name: "lw"
+        }
+
+        o1.showName();
+
+        /* 方案A：直接赋值(共享) */
+        // o2.showName = o1.showName;
+        // o2.showName();
+
+        /* 方案B：借用 */
+        // o1.showName.call(o2); //o2.showName()
+        // o1.showName.apply(o2); //o2.showName()
+
+
+        function fn() {
+            console.log('fn', this);
+        }
+
+        /* 需求：使用02这个对象来调用fn方法 */
+        // console.log(window.fn == fn); /* true */
+        // window.fn.call(o2); // o2.fn();  在调用fn这个函数的时候，修改了里面的this让内部的this指向了o2
+        // fn.call(o2);
+    </script>
+</body>
+
+</html>

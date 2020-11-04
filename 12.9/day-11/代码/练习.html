@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            width: 2000px;
+            height: 2000px;
+        }
+
+        #demoID {
+            height: 40px;
+            width: 200px;
+            background: #58bc58;
+            line-height: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        #gun {
+            height: 100px;
+            width: 100px;
+            background: yellow;
+            position: relative;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="demoID">你是猪</div>
+    <div id="gun"></div>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('demoID')
+            window.onresize = function () {
+                oDiv.style.left = (window.innerWidth - oDiv.offsetWidth) / 2 + 'px';
+
+                oDiv.style.top = (window.innerHeight - oDiv.offsetHeight) / 2 + 'px'
+            }
+            var oGun = document.getElementById('gun')
+            window.onscroll = function () {
+                
+
+
+                console.log('监听页面滚动',
+                    window.scrollX, window.scrollY);
+
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div id="demoID">
+        <div>1</div>
+        <div>2</div>
+        <div class="box2">
+            <div>111</div>
+            <div>222</div>
+        </div>
+        <div>4</div>
+        <div>5</div>
+        <span>A</span>
+        <span>B</span>
+    </div>
+    <div class="box1">div2</div>
+    <div class="box1">div3</div>
+    <div>div4</div>
+    <script>
+        /* {1} 父节点相关的方法 */
+        /* 001 jQ.parent()  获取父节点 */
+        /* 002 jQ.parents() 获取祖先节点 */
+        /* 003-jQ.parentsUntil()  获取祖先节点直到某个节点为止*/
+        // $(".box2").parent().css("background", "red");
+
+        /* 先获取所有的祖先节点，然后在这些祖先节点中应用选择器 选择id为demoID的标签 */
+        // $(".box2").parents("#demoID").css("background", "red");
+        // $(".box2").parentsUntil("html").css("background", "red");
+
+
+
+        /* {2} 子节点相关的方法 */
+        // $("#demoID").children().css("background", "red")
+        // $("#demoID").children("span").css("background", "red")
+
+        /* {3} 获取兄弟节点 */
+        // $(".box2").next().css("background", "red")
+        // $(".box2").nextAll().css("background", "red")
+
+        // $(".box2").prev().css("background", "red")
+        // $(".box2").prevAll().css("background", "red")
+
+        $(".box2").siblings().css("background", "red")
+    </script>
+</body>
+
+</html>

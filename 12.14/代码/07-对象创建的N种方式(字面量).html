@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 对象的创建 */
+        /* [1] 字面量创建  简单快速，不适合批量的创建对象*/
+        var o1 = {}; //空对象
+        var o2 = {
+            name: "zs",
+            age: 19
+        }
+
+        var goods1 = {
+            name: "包包1",
+            src: "",
+            price: "",
+        }
+
+        var goods2 = {
+            name: "包包1",
+            src: "",
+            price: "",
+        }
+
+        var goods3 = {
+            name: "包包1",
+            src: "",
+            price: "",
+        }
+
+        /* [2] 内置构造函数(Object) */
+        var personA = new Object(); //空对象 var obj1 = {}
+        personA.name = "zs";
+        personA.age = 100;
+        personA.price = 5000;
+
+
+        var personB = new Object(); //空对象 var obj1 = {}
+        personB.name = "ls";
+        personB.age = 100;
+        personB.price = 5000;
+
+
+        /* [3] 工厂函数来创建 : 对内置构造函数(Object)方式封装,解决了代码复用的问题*/
+        /* 问题：无法区分对象的类型 */
+        function createPerson(name, age, price) {
+            var personA = new Object();
+            personA.name = name;
+            personA.age = age;
+            personA.price = price;
+            personA.showName = function() {
+                console.log("姓名：" + this.name);
+            }
+            return personA;
+        }
+
+        function createDog(name, age, price) {
+            var dog = new Object();
+            dog.name = name;
+            dog.age = age;
+            dog.price = price;
+            dog.showName = function() {
+                console.log("姓名：" + this.name);
+            }
+            return dog;
+        }
+
+        var p1 = createPerson("zs", 21, 3000);
+        var p2 = createPerson("ls", 23, 3200);
+        var p3 = createPerson("ww", 28, 30000);
+        console.log(p1, p2, p3);
+
+        var d1 = createDog("wc", 3, 20000);
+        console.log(d1);
+    </script>
+</body>
+
+</html>

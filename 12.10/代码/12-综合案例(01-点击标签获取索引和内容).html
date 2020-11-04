@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+        <li>li4</li>
+        <li>li5</li>
+    </ul>
+    <script>
+        /* 给这些li标签都添加点击事件，当点击这些标签的时候，打印当前标签的索引(编号) 和 内容。 */
+        /* 001-获取页面中所有的li标签 */
+        var lis = document.querySelectorAll("li");
+
+        /* 002-遍历它们 */
+        /* 003-每循环一次就给当前的标签添加点击事件 */
+        for (var i = 0, len = lis.length; i < len; i++) {
+
+            /* 方案1：把索引添加到标签的身上 */
+            /* (1) 作为属性存储 */
+            // lis[i].index = i;
+            /* (2) 作为属性节点存储 */
+            lis[i].dataset.index = i;
+            lis[i].onclick = function() {
+                /* this->当前的标签 */
+                // console.log(this.index, this.innerText);
+                console.log(this.dataset.index, this.innerText);
+            }
+
+            /* 了解 */
+            // lis[i].onclick = (function(index) {
+            //     return function() {
+            //         console.log(index, this.innerText);
+            //     }
+            // })(i)
+
+            // (function(index) {
+            //     lis[index].onclick = function() {
+            //         console.log(index, this.innerText);
+            //     }
+            // })(i)
+        }
+    </script>
+</body>
+
+</html>

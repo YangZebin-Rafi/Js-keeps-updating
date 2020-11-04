@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* Set集合：和数组很像 */
+        /* Map映射：和对象很像 */
+
+        /* Map的基本操作(方法) */
+        // 清空：clear: ƒ clear()
+        // 删除：delete: ƒ delete()
+        // 遍历：forEach: ƒ forEach()
+        // 获取：get: ƒ()
+        // 检查：has: ƒ has()
+        // 设置：set: ƒ()
+        // 长度：size: (...)
+        // get size: ƒ size()
+
+        /* 001-创建实例对象 */
+        let mapData = new Map();
+
+        /* 002-添加数据 */
+        mapData.set("name", "zs");
+        mapData.set("age", 18);
+        mapData.set("id", "3");
+
+        /* 003-删除数据,参数是指定的key,如果删除成功那么返回true,否则返回false */
+        //console.log(mapData.delete("id"));
+
+        /* 004-清空数据 */
+        // mapData.clear();
+
+        /* 005- 检查映射中是否存在指定的数据*/
+        console.log(mapData.has("id"), mapData.has("xx")); //true false
+
+        /* 006-获取数据 */
+        console.log(mapData.get("age")); //18
+
+        /* 007-遍历数据 */
+        // mapData.forEach((ele, key) => {
+        //     console.log(key, ele);
+        // })
+
+        /* for..of循环遍历的时候 当前的每一项是["name","zs"] */
+        // for (let item of mapData) {
+        //     console.log(item[0], item[1]);
+        // }
+        for (let [key, val] of mapData) {
+            console.log(key, val);
+        }
+
+        /* 008-映射的长度(数据的个数) */
+        console.log(mapData.size);
+
+        console.log(mapData);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-声明函数 */
+        function computed(n1, n2, type) {
+            var result;
+            switch (type) {
+                case "+":
+                    result = n1 + n2;
+                    break;
+                case "-":
+                    result = n1 - n2;
+                    break;
+                case "*":
+                    result = n1 * n2;
+                    break;
+                case "/":
+                    result = n1 / n2;
+                    break;
+                case "%":
+                    result = n1 % n2;
+                    break;
+                default:
+                    result = "不支持当前运算符，请检查参数!!!"
+                    break;
+            }
+            return result;
+        }
+
+        var res1 = computed(2, 5, "+");
+        var res2 = computed(2, 5, "-");
+        var res3 = computed(2, 5, "*");
+        var res4 = computed(2, 5, "/");
+        var res5 = computed(2, 5, "%");
+        var res6 = computed(3, 3, ")");
+        console.log(res1, res2, res3, res4, res5, res6);
+    </script>
+</body>
+
+</html>

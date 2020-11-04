@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demoID">div1</div>
+    <div class="box1">div2</div>
+    <div class="box1">div3</div>
+    <p>我是p1</p>
+
+    <p name="test">我是p2</p>
+    <span name="test">我是span</span>
+
+    <form name="formA" id="formID" class="formA-class">
+        <input type="text" placeholder="请输入用户名">
+        <input type="text" placeholder="请输入密码">
+    </form>
+
+    <form name="formB">
+        <input type="text" placeholder="请输入电话号码">
+        <input type="text" placeholder="请输入电子邮箱">
+    </form>
+
+
+
+
+    <script>
+        /* 知识点：获取标签(elementNode) */
+        /* 001-getElementById() 根据标签的id来获取标签 */
+        /* 该方法得到的是单个标签，如果找到那么就返回单个标签，否则返回的使null */
+        var ele1 = document.getElementById("demoID");
+        console.log(ele1);
+
+        /* 002-getElementsByClassName() 根据标签的class来获取标签 */
+        /* 该方法返回的是数组(伪)，里面保存着找到的所有的标签,如果一个标签都没有找到那么返回的就是空数组 */
+        var ele2 = document.getElementsByClassName("box");
+        console.log(ele2);
+
+        /* 003-getElementsByTagName() 根据标签的名字(类型)来获取标签 */
+        /* 该方法返回的是数组(伪)，里面保存着找到的所有的标签,如果一个标签都没有找到那么返回的就是空数组 */
+        var ele3 = document.getElementsByTagName("p");
+        console.log(ele3);
+
+        /* 004-getElementsByName()  根据标签中name属性节点的值来获取标签 */
+        var ele4 = document.getElementsByName("test");
+        /* 该方法返回的是数组(伪)，里面保存着找到的所有的标签,如果一个标签都没有找到那么返回的就是空数组 */
+        console.log(ele4);
+
+        /* 备注：getElementsByName() 方法主要用来处理表单 */
+        /* 说明：但是我们在处理表单并不使用getElementsByName()方法，而是使用其它的方法 */
+        /* 获取表单的几种方式 */
+
+        /* 第一种:通过name */
+        // var _a = document.getElementsByName("formA")[0];
+        // var _b = document.getElementsByName("formB")[0];
+        // console.log(_a, _b);
+
+        /* 第二种：通过id */
+        // console.log(document.getElementById("formID"));
+
+        /* 第三种：通过标签名 */
+        // console.log(document.getElementsByTagName("form")[0]);
+
+        /* 第四种：通过class */
+        // console.log(document.getElementsByClassName("formA-class")[0]);
+
+
+        /* 第五种：通过快捷属性 document.forms 获取页面中所有的表单*/
+        // console.log(document.forms);
+        // console.log(document.forms[0], document.forms[1]);
+
+        /* 第六种： */
+        // console.log(document.forms.namedItem("formA"));
+    </script>
+</body>
+
+</html>

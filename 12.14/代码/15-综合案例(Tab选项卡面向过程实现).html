@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Manager.css">
+</head>
+
+<body>
+    <script src="./Manger.js"></script>
+    <script>
+        var data = {
+            color: "red",
+            tabTitles: ["热点", "广州", "美女", "体育"],
+            tabContents: ["热点：老田昨晚又被抓了", "广州：是班长去解救的", "美女：我们班的都是美女", "体育：老田昨晚被追的时候跑的可快了"]
+        };
+
+
+        /* 代码的复用 */
+        (new Manager(data)).init();
+
+        (new Manager({
+            color: "green",
+            tabTitles: ["新闻", "房产", "动物", "军事"],
+            tabContents: ["新闻：中美贸易战结束了", "房产：广州房价降价了", "动物：震惊了老田家的猫竟然开口说话了", "军事：朝鲜发射了核弹！！"]
+        })).init();
+    </script>
+</body>
+
+</html>

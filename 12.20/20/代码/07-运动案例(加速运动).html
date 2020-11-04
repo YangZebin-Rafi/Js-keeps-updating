@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: #000
+        }
+        
+        .ball {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/basketball.jpg" class="ball">
+    <script>
+        let oImg = document.querySelector("img");
+        let offset = 10;
+        let timer = setInterval(() => {
+            offset += 4; /* 加速运算 */
+            let top = oImg.offsetTop + offset;
+            if (top >= window.innerHeight - oImg.offsetHeight) {
+                clearInterval(timer);
+                return;
+            }
+            oImg.style.top = top + "px";
+        }, 100);
+    </script>
+</body>
+
+</html>

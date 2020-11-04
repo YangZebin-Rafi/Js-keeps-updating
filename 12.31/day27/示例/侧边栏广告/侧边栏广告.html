@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="src/jquery-3.4.1.js"></script>
+  <style>
+    body {height: 1000px}
+
+    .ad{
+      width: 150px;
+      height: 300px;
+      display: inline-block;
+      background: #eee;
+      position: fixed;
+      top: 50%;
+      margin-top: -150px;
+      right: 0;
+      border: 2px solid #555;
+    }
+
+    .close{
+      width: 20px;
+      height: 20px;
+      float: right;
+    }
+  </style>
+</head>
+<body>
+<span class="ad"><img src="src/close.png" alt="" class="close"></span>
+<script>
+  $(".close").click(function () {
+    //$(this).parent().css("display","none");
+    $(this).parent().hide(300);
+  })
+</script>
+</body>
+</html>

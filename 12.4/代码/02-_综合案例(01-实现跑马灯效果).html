@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #000;
+            overflow: hidden;
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        var str = "下一站天河客运站，请下车的乘客做好准备！";
+        /* 001-先获取div标签，设置标签的内容 */
+        var oDiv = document.getElementsByTagName("div")[0];
+        oDiv.innerText = str;
+
+        /* 思路：每隔固定的时间就把字符串的第一个字符剪切拼接后面去。 */
+        /* 难点1： 每隔固定的时间就要执行任务*/
+        /* 难点2： 剪切操作(字符串截取 + 拼接) */
+
+        /* 每隔1s就执行函数的代码 ， 单位是ms  1s == 1000ms */
+        // var i = 0;
+        // setInterval(function() {
+        //     console.log(`这是第${++i}秒，我说的 I like u `);
+        // }, 1000);
+
+
+        /* 实现 */
+        setInterval(function() {
+            var firstChar = str.substr(0, 1);
+            var resetChar = str.slice(1);
+            str = resetChar + firstChar;
+            oDiv.innerText = str;
+            /* 一站天河客运站，请下车的乘客做好准备！下 */
+            /* 站天河客运站，请下车的乘客做好准备！下一 */
+            /* 天河客运站，请下车的乘客做好准备！下一站 */
+            console.log(resetChar);
+        }, 200);
+        
+    </script>
+</body>
+
+</html>

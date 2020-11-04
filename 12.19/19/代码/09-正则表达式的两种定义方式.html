@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* [1] 字面量方式来创建正则表达式 */
+        let reg1 = /123/g;
+
+        /* [2] 通过构造函数方式来创建 */
+        let reg2 = new RegExp("123", "g");
+        console.log(reg1, reg2);
+
+        /* test方法的基本使用 */
+        /* 作用：测试字符串能够匹配这个正则表达式 */
+
+        console.log(/123/.test("123456")); //true
+        console.log(/124/.test("123456")); //表示匹配连续的124 false
+
+        let str = "2345";
+        let reg3 = /str/g;
+        let reg4 = new RegExp(str, "g");
+        console.log(reg3, reg4); //  /str/g /2345/g
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="10000px" height="10000px"></canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        function draw(offsetX, n) {
+            var dig = Math.PI / 15 * n;
+            ctx.beginPath();
+            for (var i = 0; i < 30; i++) {
+                var x = Math.sin(i * dig);
+                var y = Math.cos(i * dig);
+                ctx.lineTo(offsetX + x * 80, 150 + y * 80);
+            }
+            //闭合路径
+            ctx.closePath();
+            //设置样式并填充
+            ctx.fillStyle = "#fff";
+            ctx.fill();
+            //设置样式并描边
+            ctx.strokeStyle = "#666";
+            ctx.stroke();
+        }
+
+        var data = [14, 13, 19, 7, 26];
+        data.forEach(function(n, i) {
+            draw((i + 1) * 160, n);
+        })
+    </script>
+</body>
+
+</html>

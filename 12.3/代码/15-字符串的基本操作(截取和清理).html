@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 字符串的截取： */
+        /* str.slice(startIndex,endIndex) */
+        /* str.substr(from,length) */
+        /* str.substring(start,end)   该方法要求第一个数字必须比第二个数字小*/
+        var targetString = "How are You?";
+
+        console.log(targetString.slice(2, 5)); /* "w a" */
+        console.log(targetString.slice(2)); /* 从指定位置开始截取字符串，直到末尾 "w are You?" */
+        console.log(targetString.slice()); /* 截取整个字符串 "How are You?"*/
+
+        /* 如果参数是负数这种情况 */
+        /* -1 倒数第一个字符   正着数11个   -1  + 12*/
+        /* -2 倒数第二个字符   正着数10个   -2  2+ 12*/
+        /* -3 倒数第三个字符   正着数9个     9 -3 + 12*/
+        console.log(targetString.slice(2, -2)); /* "w are Yo" 内部在处理的时候会先把负数转换成正数 -2 + targetString.length*/
+
+
+        console.log("__________");
+        // console.log(targetString.substr(1, 3)); /* "ow " */
+        // console.log(targetString.substr(2, 2)); /* "w " */
+        // console.log(targetString.substr(2)); /* 从指定位置开始截取字符串，直到末尾 "w are You?" */
+        // console.log(targetString.substr()); /* 截取整个字符串 "How are You?"*/
+        /* substr(2, 0) */
+        console.log(targetString.substr(2, -2)); /* ""  因为该函数的第二个参数是长度，如果该数据<0,那么会默认被设置为0  */
+
+
+        console.log("__________");
+        console.log(targetString.substring(1, 3)); /* "ow" */
+        console.log(targetString.substring(1)) /* "ow are You?" */
+        console.log(targetString.substring()) /* How are You? */
+        console.log(targetString.substring(3, -2));
+        /* "How"   内部逻辑：该方法的参数不支持负数，如果有负数那么就默认设置为0 (3,0),又因为要求第一个参数必须比第二个参数小,
+               这里会交换两个参数的位置 targetString.substring(3, -2)) => targetString.substring(0,3))
+        */
+    </script>
+</body>
+
+</html>

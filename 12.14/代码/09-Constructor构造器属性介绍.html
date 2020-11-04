@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-提供构造函数(首字母大写) */
+        function Person(name, age) {
+            /* 002-通过this设置对象的成员(属性和方法) */
+            this.name = name;
+            this.age = age;
+        }
+        /* 003-通过new来调用构造函数 */
+        var p1 = new Person("zs", 18);
+
+        function Dog(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        var d1 = new Dog("wc", 3);
+
+        // CCB(china construction Bank) 建设银行
+
+        console.log(p1.constructor == Person); //构造器属性(构造函数)
+        console.log(d1.constructor == Dog); //构造器属性(构造函数)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+{
+    "title": "智能",
+    "srcA": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/45c23f5b9a927b2dc49c25277e07727c.jpg?w=468&h=600",
+    "srcB": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a660ce095e8f553a9ed1515265f4e9fc.jpg?w=468&h=600",
+    "types": ["热门", "安防", "出行"],
+    "data": [
+        [{
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/011dd8493ad62f3793dbb63d9fbd3bc0.jpg",
+                "price": "429元",
+                "title": "小米「小爱老师」"
+            },
+            {
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0baacf6e54cbf89cab2c543cc02344e9.jpg",
+                "price": "1599元",
+                "title": "小米米家智能门锁 推拉式"
+            },
+            {
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e7c6e79433c883e1a022ec21402c1679.jpg",
+                "price": "99元",
+                "title": "小米小爱音箱 Play"
+            },
+            {
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/44a30f0da2aacb66a0f896293ebc703f.jpg",
+                "price": "99元",
+                "title": "小爱音箱万能遥控版"
+            },
+            {
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b42e49c6c0208f2de5a2f7a491a3af46.jpg",
+                "price": "249元",
+                "title": "米家电饭煲4L"
+            },
+            {
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e850fa029579ba886e3d5c81f00ae534.jpg",
+                "price": "169元",
+                "title": "小米手环4"
+            },
+            {
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0c65d472682f0679e192dc7b4cd6e64c.jpg",
+                "price": "799元",
+                "title": "米家九号平衡轮"
+            }
+        ],
+        [{
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2f33baec53cc73e2942277640ba6e710.jpg",
+                "price": "1199元",
+                "title": "米家智能门锁 标准锁体 碳素黑"
+            },
+            {
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1840f64ea310ca8013385885baaf16a8.jpg",
+                "price": "1199元",
+                "title": "米家智能门锁 标准锁体 磨砂金"
+            },
+            {
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0baacf6e54cbf89cab2c543cc02344e9.jpg",
+                "price": "1599元",
+                "title": "米家智能门锁 推拉式 通用版"
+            },
+            {
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0245498a0e08b87ba8c323871c5d48bc.jpg",
+                "price": "999元",
+                "title": "米家智能门锁 青春版"
+            },
+            {
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e83e1ab5947337d7b631e056b3e0f23d.jpg",
+                "price": "1499元",
+                "title": "米家智能门锁 霸王锁体 碳素黑"
+            },
+            {
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fa7cdb455f106da904e8c3f6156abc06.jpg",
+                "price": "1499元",
+                "title": "米家智能门锁 霸王锁体 磨砂金"
+            },
+            {
+                "src": "http://i8.mifile.cn/b2c-mimall-media/98c51f977ac5b590dbaf7b8445b30fa6.jpg",
+                "price": "349元",
+                "title": "小米米家小白智能摄像机增强版"
+            }
+        ],
+        [{
+                "src": "http://i8.mifile.cn/v1/a1/768992ca-4136-92f1-244a-0194a81a6360.jpg",
+                "price": "1899元",
+                "title": "小米米家电动滑板车"
+            },
+            {
+                "src": "http://i8.mifile.cn/b2c-mimall-media/18a82e7cda6ecbc22ecee7ac927d6ff9.jpg",
+                "price": "599元",
+                "title": "米兔折叠婴儿推车"
+            },
+            {
+                "src": "http://i8.mifile.cn/b2c-mimall-media/553b5c01820c844565abe64e50bba323.jpg",
+                "price": "199元",
+                "title": "米兔遥控小飞机"
+            },
+            {
+                "src": "http://i8.mifile.cn/v1/a1/877d3ce8-68ab-7506-2a78-55a8c0fba946.png",
+                "price": "3199元",
+                "title": "九号平衡车 Plus"
+            },
+            {
+                "src": "http://i8.mifile.cn/b2c-mimall-media/61472c3fcd181959055551e5c73aafec.jpg",
+                "price": "189元",
+                "title": "米家车载逆变器"
+            },
+            {
+                "src": "http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0294e2f3997bf0cffb7bf48361d03588.jpg",
+                "price": "199元",
+                "title": "米家充气宝"
+            }
+        ]
+    ]
+}

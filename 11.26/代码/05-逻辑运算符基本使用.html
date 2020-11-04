@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 逻辑运算符 */
+        /* 001-逻辑非  */
+        /* 符号:! */
+        /* 语法:!操作数 */
+        /* 规则：取反，总是会返回一个布尔类型的值，true | false */
+
+        /* 其它类型->布尔值 */
+        /* 数字->布尔值     所有的数字都可以转换伪布尔值，0转换为false，其它的所有数字都转换为true */
+        /* 字符串->布尔值   空字符串转换伪false,其它所有的字符串都转换伪true.  空字符("") ，(" ")不是空字符串*/
+        /* null->布尔值   false*/
+        /* undefined->布尔值 false */
+        console.log(!123); //123->布尔值 Boolean(123) 取反 123->true->false
+        console.log(!0); /* 0->false->true */
+        console.log(!"佩琪"); //"佩琪"->true->false
+        console.log(!""); //""->false->true
+        console.log(!null); //null->false->true
+        console.log(!undefined); //undefined->false->true
+
+        /* 002-逻辑或 */
+        /* 短路运算符 */
+        /* 符号：|| */
+        /* 语法：操作数1 || 操作数2 */
+        /* 规则：检查第一个操作数是否为真(当该数据转换为布尔值的时候是否为true),如果为真那么就返回第一个操作数，否则返回第二个操作数 */
+        /* 返回：要么返回操作数1，要么返回操作数2 */
+        /* 检查123是否为真，如果为真那么就返回123，否则就返回234 */
+        console.log(123 || 234); //123
+        console.log(0 || 2); //检查0是否为真，0不为真，因此返回的实第二个操作数 2
+        console.log(0 || 0); //检查0是否为真，0不为真，因此返回的实第二个操作数 0
+        console.log(2 || 0); //检查2是否为真，2为真，因此返回的是第1个操作数 2
+        console.log(2 || 1); //检查2是否为真，2为真，因此返回的是第1个操作数 2
+        console.log(true || false); //检查true是否为真，true为真，因此返回的是第1个操作数 true
+        console.log(true || undefined); //检查true是否为真，true为真，因此返回的是第1个操作数 true
+        console.log(false || undefined); //检查false是否为真，false不为真，因此返回的是第2个操作数 undefined
+        console.log(2 == "2" || 3); //检查2 == "2"是否为真，为真，因此返回的是 2 == "2"=> true
+
+        /* 003-逻辑与 */
+        /* 符号：&& */
+        /* 语法：操作数1 && 操作数2 */
+        /* 规则：检查第一个操作数是否为真(当该数据转换为布尔值的时候是否为true),如果为真那么就返回第2个操作数，否则返回第1个操作数 */
+
+        console.log(123 && 234); //234
+        console.log(0 && 2); //检查0是否为真，0不为真，因此返回的实第1个操作数 0
+        console.log(0 && 0); //检查0是否为真，0不为真，因此返回的实第1个操作数 0
+        console.log(2 && 0); //检查2是否为真，2为真，因此返回的是第2个操作数 0
+        console.log(2 && 1); //检查2是否为真，2为真，因此返回的是第2个操作数 1
+
+        console.log(true && false); //检查true是否为真，true为真，因此返回的是第2个操作数 false
+        console.log(true && undefined); //检查true是否为真，true为真，因此返回的是第2个操作数 undefined
+        console.log(false && undefined); //检查false是否为真，false不为真，因此返回的是第1个操作数 false
+        console.log(2 == "2" && 3); //检查2 == "2"是否为真，为真，因此返回的是3
+    </script>
+</body>
+
+</html>

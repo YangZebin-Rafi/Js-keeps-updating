@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let o1 = {
+            name: "zs",
+            age: 19,
+            friends: ["张思瑞", "张思明"]
+        }
+
+
+        let o2 = {};
+
+        /* 拷贝：o2要能够获取o1的name和age */
+        /* [1] 直接赋值(共享) */
+        // o2 = o1;
+        // o1.name = "lw";
+
+        /* 浅拷贝 在实现数据拷贝的时候只会拷贝一层，如果属性的值是引用类型的数据，那么会存在共享的问题。*/
+        /* [2] 遍历o1这个对象，把这个对象中每个键值对都添加到o2身上 */
+        for (const key in o1) {
+            if (o1.hasOwnProperty(key)) {
+
+                //o2.name = o1.name;         => o2.name  | "zs";
+                //o2.friends = o1.friends; => o2.friends  | ox1111
+                o2[key] = o1[key];
+            }
+        }
+        // o1.name = "lw";
+
+        /* [3] Object.assign() */
+        // Object.assign(o2, o1);
+        // o1.name = "lw";
+        console.log(o1, o2);
+
+
+        /* 深拷贝：两个对象的数据没有任何共享问题。 */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jq仿京东商品详细页图片放大镜 - 站长素材</title>
+
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jqzoom.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+
+</head>
+
+<body>
+
+    <div class="right-extra" style="margin:100px;">
+        <!--产品参数开始-->
+        <div>
+            <div id="preview" class="spec-preview"> <span class="jqzoom"><img jqimg="images/b1.jpg" src="images/s1.jpg" /></span> </div>
+            <!--缩图开始-->
+            <div class="spec-scroll"> <a class="prev">&lt;</a> <a class="next">&gt;</a>
+                <div class="items">
+                    <ul>
+                        <li><img alt="佳能" bimg="images/b1.jpg" src="images/s1.jpg" onmousemove="preview(this);"></li>
+                        <li><img alt="佳能" bimg="images/b2.jpg" src="images/s2.jpg" onmousemove="preview(this);"></li>
+                        <li><img alt="佳能" bimg="images/b3.jpg" src="images/s3.jpg" onmousemove="preview(this);"></li>
+                        <li><img alt="佳能" bimg="images/b1.jpg" src="images/s1.jpg" onmousemove="preview(this);"></li>
+                        <li><img alt="佳能" bimg="images/b3.jpg" src="images/s3.jpg" onmousemove="preview(this);"></li>
+                        <li><img alt="佳能" bimg="images/b1.jpg" src="images/s1.jpg" onmousemove="preview(this);"></li>
+                        <li><img alt="佳能" bimg="images/b2.jpg" src="images/s2.jpg" onmousemove="preview(this);"></li>
+                        <li><img alt="佳能" bimg="images/b1.jpg" src="images/s1.jpg" onmousemove="preview(this);"></li>
+                        <li><img alt="佳能" bimg="images/b2.jpg" src="images/s2.jpg" onmousemove="preview(this);"></li>
+                        <li><img alt="佳能" bimg="images/b2.jpg" src="images/s2.jpg" onmousemove="preview(this);"></li>
+                        <li><img alt="佳能" bimg="images/b1.jpg" src="images/s1.jpg" onmousemove="preview(this);"></li>
+                        <li><img alt="佳能" bimg="images/b2.jpg" src="images/s2.jpg" onmousemove="preview(this);"></li>
+                    </ul>
+                </div>
+            </div>
+            <!--缩图结束-->
+        </div>
+        <!--产品参数结束-->
+        <div style="clear:both;height:10px;"></div>
+        <div class="m" id="comment">
+            <ul class="tab clearfix">
+                <li onclick="tabs('#comment',0)" class="curr">图文介绍<strong></strong><span></span></li>
+                <li onclick="tabs('#comment',1)">评论<strong>(1)</strong><span></span></li>
+            </ul>
+            <div class="mc tabcon hide" style="display:block;">
+                <div class="norecode"> 暂无好评！</div>
+            </div>
+            <div class="mc tabcon hide" style="display:none;">
+                <div class="item">
+                    <div class="user"> <span class="u-name">网友：studiolovecat</span> <span class="u-level"> <font style="color:#999999"> 银牌会员 </font> </span> <span class="date-ask">2011-03-20 13:36</span> </div>
+                    <dl class="ask">
+                        <dt> <b></b> 咨询内容： </dt>
+                        <dd> 请问这款机器用什么电池，续航能力最强的电池型号与价格是什么</dd>
+                    </dl>
+                    <dl class="answer">
+                        <dt> <b></b> 京东回复： </dt>
+                        <dd>
+                            <div class="content"> 您好！专用锂电池BP－950G，7.4V，5200mAh。感谢您对京东的支持！祝您购物愉快！</div>
+                            <div class="date-answer"> 2011-03-21 10:45</div>
+                        </dd>
+                    </dl>
+                    <div id="6727709" class="useful"> 您对我们的回复： <a class="btn-pleased" href="javascript:void(0)" name="2">满意</a> ( <span>0</span> )&nbsp;&nbsp; <a class="btn-unpleased" href="javascript:void(0)" name="4">不满意</a> ( <span>0</span> ) </div>
+                </div>
+                <div class="item odd">
+                    <div class="user"> <span class="u-name">网友：yefa888</span> <span class="u-level"> <font style="color:#999999"> 铜牌会员 </font> </span> <span class="date-ask">2011-01-16 01:36</span> </div>
+                    <dl class="ask">
+                        <dt> <b></b> 咨询内容： </dt>
+                        <dd> 请问这个MiniDV带是可以重复使用还是一次消费品?我是生手,想买一台可是不太了解.</dd>
+                    </dl>
+                    <dl class="answer">
+                        <dt> <b></b> 京东回复： </dt>
+                        <dd>
+                            <div class="content"> 您好！可以重复使用,感谢您对京东的支持！祝您购物愉快！</div>
+                            <div class="date-answer"> 2011-01-17 09:47</div>
+                        </dd>
+                    </dl>
+                    <div id="6195867" class="useful"> 您对我们的回复： <a class="btn-pleased" href="javascript:void(0)" name="2">满意</a> ( <span>0</span> )&nbsp;&nbsp; <a class="btn-unpleased" href="javascript:void(0)" name="4">不满意</a> ( <span>0</span> ) </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+        <p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+        <p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+    </div>
+</body>
+
+</html>

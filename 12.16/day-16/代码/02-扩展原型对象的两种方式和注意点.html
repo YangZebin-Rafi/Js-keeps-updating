@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        /* 方案A：在原先的原型对象上面直接添加 */
+        // Person.prototype.xx = "我是xx";
+        // Person.prototype.showName = function() {
+        //     console.log("showName", this.name);
+        // }
+        // Person.prototype.showAge = function() {
+        //     console.log("showAge", this.age);
+        // }
+
+        /* 方案B：替换默认的原型对象 */
+        /* 注意：如果替换了原型对象，那么会存在潜在的问题 */
+        Person.prototype = {
+            /* 修正构造器属性 */
+            constructor: Person,
+            xx: "我是xxxxxx",
+            showName: function() {
+                console.log("showName", this.name);
+            },
+            showAge: function() {
+                console.log("showAge", this.age);
+            }
+        };
+
+        var p1 = new Person("zs", 19);
+        var p2 = new Person("lw", 21);
+
+
+        // console.log(p1.constructor == Person);
+        // console.log(p2.constructor == Person);
+        // console.log(p2.constructor);
+
+        /* 思考：p1.constructor是怎么回事？ */
+    </script>
+</body>
+
+</html>

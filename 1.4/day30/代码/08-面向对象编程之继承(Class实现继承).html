@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 父类 */
+        class Animal {
+            constructor(color, age) {
+                this.color = color;
+                this.age = age;
+            }
+            run() {}
+            eat() {}
+        }
+
+        /* 子类 */
+        /* 备注1：通过extends关键字来实现Class的继承 */
+        /* 备注2: 必须通过super(color, age)来先调用父构造函数，之后才能使用this*/
+        class Dog extends Animal {
+            constructor(name, color, age) {
+                super(color, age);
+                this.name = name;
+            }
+            yaoRen() {}
+        }
+
+        let d1 = new Dog("wc", "红色", 3);
+        let d2 = new Dog("xq", "黑色", 8);
+        console.log(d1, d2);
+    </script>
+</body>
+
+</html>

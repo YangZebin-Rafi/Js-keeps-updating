@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .right {
+            transform: rotateY(180deg)
+        }
+        
+        .top {
+            transform: rotateZ(45deg)
+        }
+        
+        .bottom {
+            transform: rotateZ(-45deg)
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./img/1.jpg" alt="">
+    <script>
+        // 获取图片标签
+        var oImg = document.querySelector('img')
+        // 监听键盘事件
+        document.onkeydown = function (e) {
+            // 做兼容处理
+            e = e || window.event
+            var code = e.which || e.keyCode;
+            var offset = 50;
+            switch (code) {
+                case 37:
+
+                    console.log("left");
+                    oImg.className = ''
+                    var left = oImg.offsetLeft - offset;
+                    if (left <= -oImg.offsetWidth) {
+                        left = window.innerWidth
+                    }
+                    oImg.style.left = left + 'px'
+                    break;
+                case 38:
+
+                    console.log("top");
+                    oImg.className = 'top'
+                    var top = oImg.offsetTop - offset;
+                    if (top <= -oImg.offsetHeight) {
+                        top = window.innerHeight;
+                    }
+                    oImg.style.top = top + 'px'
+                    break;
+                case 39:
+
+                    console.log("right");
+                    oImg.className = 'right'
+                    var left = oImg.offsetLeft + offset;
+                    if (left >= window.innerWidth) {
+                        left = -oImg.offsetWidth;
+                    }
+                    oImg.style.left = left + 'px'
+                    break;
+                case 40:
+
+                    console.log("bottom");
+                    oImg.className = ''
+                    var top = oImg.offsetTop + offset;
+                    if (top >= window.innerHeight) {
+                        top = -oImg.offsetHeight
+                    }
+                    oImg.style.top = top + 'px'
+                    break;
+                default:
+                    break;
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

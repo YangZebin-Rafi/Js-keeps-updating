@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* [1] 字面量         无法创建很多同类型的数据 */
+        /* [2] 内置构造函数    无法创建很多同类型的数据 && 繁琐*/
+        /* [3] 工厂函数       无法区分不同对象的类型 */
+        /* [4] 自定义构造函数  浪费性能 */
+
+        /* 方案A ：把函数放在外面声明，解决浪费性能的问题，但是破坏了代码的封装性 */
+        // function fn() {
+        //     console.log("姓名：" + this.name);
+        // }
+
+        // function Person(name, age) {
+        //     /* var o ={} */
+        //     /* this = o; */
+        //     this.name = name;
+        //     this.age = age;
+        //     this.showName = fn;
+        //     /* return this */
+        // }
+
+        // fn = 123;
+        /* 方案B：把属性添加到实例对象身上，把方法添加在原型对象身上 */
+        function Person(name, age) {
+            this.name = name;
+            this.age = age
+        }
+
+        /* 原型对象： Person.prototype */
+        Person.prototype.showName = function() {
+            console.log("姓名：" + this.name);
+        }
+        var p1 = new Person("zs", 19);
+        var p2 = new Person("ls", 29);
+        var p3 = new Person("lw", 39);
+        console.log(p1.showName == p2.showName, p1.showName == p3.showName);
+    </script>
+</body>
+
+</html>

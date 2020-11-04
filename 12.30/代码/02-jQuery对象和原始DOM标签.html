@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div>我是div1</div>
+    <div>我是div2</div>
+    <script>
+        /* 方案1 */
+        window.onload = function() {
+            let dom = document.querySelector("div");
+            // dom.innerText = "1"
+            // dom.text("1");
+            // console.log("dom", dom);
+
+            // $(dom).text("1111");
+
+        }
+
+        /* 方案2 */
+        $(() => {
+            let jq = $("div");
+            console.log("jq", jq);
+            console.log(jq[0], jq[1]);
+            console.log(jq.get(0), jq.get(1));
+
+
+            // console.log(jq[0]);
+            //jq.text("2")
+            // jq.innerText = "3";  错误的演示
+        })
+
+
+        /* 001-dom标签和jQuery实例对象是不一样的。 */
+        /* dom : <div>我是div</div>*/
+        /* jq : jQuery.fn.init [div, prevObject: jQuery.fn.init(1)] ==> new jQuery.fn.init() */
+
+        /* 002-dom标签和jQuery实例对象的关系 */
+        /* 可以理解为是包含的关系，jQuery实例对象中保存0个或者是多个标签 */
+
+        /* 003-dom标签和jQuery实例对象是不对等的，因此dom可以访问自己的成员(innerHTML innerText cloneNoce())但是无法直接访问jQuery的成员 */
+        /* jQuery实例对象可以访问自己的成员(length text() html() addClass() )但是无法直接访问dom的成员 */
+        /* 总结：dom标签和jQuery对象是不同的东西，不能混着用 */
+
+        /* 004- dom <=>  jQ  */
+        /* (1) dom->jQ   $(dom) */
+        /* (2) dom<-jQ   jQ[index] | jQ.get(index) */
+    </script>
+</body>
+
+</html>

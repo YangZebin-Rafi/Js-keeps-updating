@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        /* 001-值类型的赋值操作 */
+        // var str1;
+        // str1 = "zs";
+        // var str2;
+        // str2 = str1; //赋值操作：把变量保存的内容(具体的数据)拷贝一份给目标变量
+
+        // console.log(str1, str2); //"zs" "zs"
+        // str1 = "lw";
+        // console.log(str1, str2); //"lw" "zs"
+
+        /* 002-引用类型赋值操作 */
+        var o1;
+        o1 = {
+            age: 18
+        };
+
+        var o2;
+        o2 = o1;  //赋值操作：把变量保存的内容(指向数据的一个地址)拷贝一份给目标变量
+        console.log(o1.age, o2.age); /* 18 18 */
+        o1.age = 99;
+        console.log(o1.age, o2.age); /* 99 99 */
+
+        /* 值类型的数据赋值：数据是相互独立的，修改了其中的某个数据对另外一个数据没有什么影响。 */
+        /* 引用类型的数据赋值：数据是共享的，修改了其中的某个对象，另外一个对象也会随之变化。 */
+    </script>
+</body>
+
+</html>

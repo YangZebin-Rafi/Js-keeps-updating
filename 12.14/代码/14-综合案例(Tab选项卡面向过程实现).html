@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            list-style: none
+        }
+        
+        #tabItem ul {
+            /* width: 400px; */
+            height: 44px;
+            line-height: 44px;
+            padding: 0;
+            margin: 0;
+        }
+        
+        #tabItem ul li {
+            user-select: none;
+            width: 100px;
+            height: 44px;
+            border: 1px dashed #ccc;
+            border-left: none;
+            border-bottom: none;
+            text-align: center;
+            float: left;
+        }
+        
+        #tabItem ul li:nth-child(1) {
+            border-left: 1px dashed #ccc;
+            ;
+        }
+        
+        .active {
+            background: #195;
+            color: #fff;
+        }
+        
+        .tab-content {
+            border: 1px solid #ccc;
+            width: 403px;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            display: none
+        }
+        
+        .current {
+            display: block
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="tabItem">
+        <ul>
+            <li data-index="0" class="">关注</li>
+            <li data-index="1" class="">新闻</li>
+            <li data-index="2" class="">本地</li>
+            <li data-index="3" class="active">体育</li>
+        </ul>
+        <div class="tab-content">关注+</div>
+        <div class="tab-content">新闻+</div>
+        <div class="tab-content">本地+</div>
+        <div class="tab-content current">体育+</div>
+    </div> -->
+    <script>
+        /* 001-提供构造函数 */
+        function Manager() {
+            this.root = null;
+        }
+
+        /* 002-设置原型对象 */
+        Manager.prototype = {
+            init: function() {
+                /* 核心业务逻辑 */
+                this.renderUI()
+                this.insertView()
+                this.addEventHandler()
+            },
+            renderUI: function() {
+                this.root = document.createElement("div");
+                this.root.id = "tabItem";
+                var html = `
+                 <ul>
+                     <li data-index="0" class="">关注</li>
+                     <li data-index="1" class="">新闻</li>
+                     <li data-index="2" class="">本地</li>
+                     <li data-index="3" class="active">体育</li>
+                 </ul>
+                 <div class="tab-content">关注+</div>
+                 <div class="tab-content">新闻+</div>
+                 <div class="tab-content">本地+</div>
+                 <div class="tab-content current">体育+</div>
+                `;
+                this.root.innerHTML = html;
+            },
+            insertView: function() {
+                document.body.appendChild(this.root);
+            },
+            addEventHandler: function() {
+                var ul = this.root.querySelector("ul");
+                var items = this.root.querySelectorAll(".tab-content");
+                var lis = ul.children;
+
+                /* 002-给指定添加点击事件 */
+                ul.onclick = function(e) {
+                    e = e || window.event;
+                    var target = e.target || e.srcElement;
+                    var index = target.dataset.index;
+
+                    /* 003-设置当前标签为选中状态 */
+                    for (var i = 0, len = lis.length; i < len; i++) {
+                        lis[i].classList.remove("active");
+                        items[i].classList.remove("current");
+                    }
+                    target.classList.add("active"); /* 004-切换显示对应的内容 */
+                    items[index].classList.add("current");
+                }
+            }
+        };
+
+
+        /* 003-创建实例对象 */
+        var manager = new Manager();
+        manager.init();
+    </script>
+</body>
+
+</html>

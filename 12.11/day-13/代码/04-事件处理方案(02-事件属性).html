@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 第二种方式： 以事件属性的方式来添加 -->
+    <button>按钮</button>
+    <script>
+        /* 下面的这些都是标签的事件属性，默认它们都是null */
+        // onabort: null
+        // onauxclick: null
+        // onbeforecopy: null
+        // onbeforecut: null
+        // onbeforepaste: null
+        // onblur: null
+        // oncancel: null
+        // oncanplay: null
+        // oncanplaythrough: null
+        // onchange: null
+        // onclick: null
+        // onclose: null
+        // oncontextmenu: null
+        // oncopy: null
+        // oncuechange: null
+        // oncut: null
+        // ondblclick: null
+        // ondrag: null
+        // ondragend: null
+        // ondragenter: null
+        // ondragleave: null
+        // ondragover: null
+        // ondragstart: null
+        // ondrop: null
+        // ondurationchange: null
+        // onemptied: null
+        // onended: null
+        // onerror: null
+        // onfocus: null
+        // onformdata: null
+        // onfullscreenchange: null
+        // onfullscreenerror: null
+        // ongotpointercapture: null
+        // oninput: null
+        // oninvalid: null
+        // onkeydown: null
+        // onkeypress: null
+        // onkeyup: null
+        // onload: null
+        // onloadeddata: null
+        // onloadedmetadata: null
+        // onloadstart: null
+        // onlostpointercapture: null
+        // onmousedown: null
+        // onmouseenter: null
+        // onmouseleave: null
+        // onmousemove: null
+        // onmouseout: null
+        // onmouseover: null
+        // onmouseup: null
+        // onmousewheel: null
+        // onpaste: null
+        // onpause: null
+        // onplay: null
+        // onplaying: null
+        // onpointercancel: null
+        // onpointerdown: null
+        // onpointerenter: null
+        // onpointerleave: null
+        // onpointermove: null
+        // onpointerout: null
+        // onpointerover: null
+        // onpointerrawupdate: null
+        // onpointerup: null
+        // onprogress: null
+        // onratechange: null
+        // onreset: null
+        // onresize: null
+        // onscroll: null
+        // onsearch: null
+        // onseeked: null
+        // onseeking: null
+        // onselect: null
+        // onselectionchange: null
+        // onselectstart: null
+        // onstalled: null
+        // onsubmit: null
+        // onsuspend: null
+        // ontimeupdate: null
+        // ontoggle: null
+        // onvolumechange: null
+        // onwaiting: null
+        // onwebkitfullscreenchange: null
+        // onwebkitfullscreenerror: null
+        // onwheel: null
+
+
+        var oBtn = document.querySelector("button");
+        console.dir(oBtn);
+
+        /* 注意点1：给标签添加多个同类型的事件会(覆盖) */
+        oBtn.onclick = function() {
+            console.log("click--1");
+        }
+
+        oBtn.onclick = function() {
+            console.log("click--2");
+        }
+
+        oBtn.onclick = function() {
+            console.log("click--3");
+        }
+
+        oBtn.onmouseover = function() {
+            console.log("onmouseover");
+        }
+    </script>
+</body>
+
+</html>

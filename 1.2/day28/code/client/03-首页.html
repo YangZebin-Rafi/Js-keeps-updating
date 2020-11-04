@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+    <style>
+        #content {
+            width: 100%;
+            height: 800px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div id="content">首页的标签</div>
+    <div id="footer"></div>
+    <script>
+        $(() => {
+            $("#header").load("../server/04-header.html");
+            $("#footer").load("../server/05-footer.html")
+        })
+    </script>
+</body>
+
+</html>

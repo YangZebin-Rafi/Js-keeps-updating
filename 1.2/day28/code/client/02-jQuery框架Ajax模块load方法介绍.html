@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div>我是div</div>
+    <button>按钮</button>
+    <script>
+        /* 当点击按钮的时候发请求获取服务器的数据，拿到结果之后替换div的内容 */
+        $(() => {
+            // $("button").click(function() {
+            //     $.ajax({
+            //         type: "GET",
+            //         // url: "../server/01-getData.php",
+            //         // url: "../server/02-getData.txt",
+            //         url: "../server/03-getData.html",
+            //         success: function(response) {
+            //             console.log(response);
+            //             $("div").html(response)
+            //         }
+            //     });
+            // })
+
+
+            /* load 根据路径来发送网络请求加载服务器端的数据并且设置为标签的内容*/
+            $("button").click(function() {
+                /* 如果返回的是HTML标签，那么支持对返回的数据进行过滤 */
+                $("div").load("../server/03-getData.html .box,span");
+            });
+        })
+    </script>
+</body>
+
+</html>

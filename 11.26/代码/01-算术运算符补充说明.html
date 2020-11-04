@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 算术运算符 : + - * / %*/
+        /* 001-模运算的符号问题:结果的符号跟第一个操作数一致 */
+        console.log(10 % 3); /* 10 = 3 * 3 + 1 */
+        console.log(-10 % 3); /* -1 */
+        console.log(-10 % -3); /* -1 */
+        console.log(10 % -3); /* 1 */
+
+        /* 002-除法和0的问题 */
+        console.log(5 / 2); /* 2.5 */
+        console.log(0 / 2); /* 0 */
+        console.log(5 / 0); /* Infinity 无穷大的数据 */
+
+        /* 003-加法计算 */
+        console.log(10 + 20); /* 数字的加 30 */
+        console.log("nice" + "好"); /* 字符串的拼接  "nice好" */
+
+        /* + 要求两个操作数是相同类型的(数字+数字  或者 字符串 + 字符串) */
+        /* 如果+两边的操作数类型不一样，那么在计算的时候会存在隐式的转换*/
+        // 操作数1 + 操作数2
+
+        /* 如果两个操作数中有一个是字符串，那么就会把另一个操作数转换为字符串。 */
+        console.log(100 + "nice"); //"100" + "nice"  => "100nice";
+        console.log(true + "nice"); //"true" + "nice" =>"truenice"
+        console.log(101 + "102" + 103 + "5");
+        /* ((101 + "102") + 103) + "5" */
+        /* (("101" + "102") + 103) + "5" */
+        /* ("101102" + 103) + "5" */
+        /* ("101102" + "103") + "5" */
+        /* "1011021035" */
+        console.log(101 + "102" * 1 + 103 + "5");
+        /* ((101 + ("102" * 1)) + 103) + "5" */
+        /* ((101 + 102) + 103) + "5" */
+        /* (203 + 103) + "5" */
+        /* 306 + "5" */
+        /* "3065" */
+
+        /* 强制转换的几个方法 */
+        /* Number() Number("哈哈") Number(true) Number(null) Number(undefined)*/
+        /* String() String(100) String(true) String(null) String(undefined)*/
+        /* Boolean() Boolean(10) Boolean("sa") .. */
+
+        var str = "12314";
+        // var result = str * 1 + 50;
+        var result = Number(str) + 50;
+        console.log(result);
+    </script>
+</body>
+
+</html>

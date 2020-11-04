@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js">
+    </script>
+</head>
+
+<body>
+    <a>一无所有</a>
+    <a href="http://www.baidu.com">百度一下</a>
+    <a href="http://www.jd.com">京东</a>
+    <a href="http://www.qq.com">腾讯</a>
+    <a href="file://www.qq.cn">腾讯2</a>
+    <a href="ftp://www.qq.cn">腾讯3</a>
+    <a href="ftp://www.qq.cn" title="标题">腾讯3</a>
+    <script>
+        /* 001-选中所有的a标签 */
+        // $("a").css("background", "red");
+
+        /* 002-选中所有拥有href属性节点的标签 */
+        // $("a[href]").css("background", "red");
+
+        /* 003-href的内容必须是http://www.qq.com */
+        // $("a[href='http://www.qq.com']").css("background", "red");
+
+        /* 004-href的内容以特定的字符开头或者是结尾|包含特定的子串 */
+        // $("a[href^='file:']").css("background", "red");
+        // $("a[href$='.cn']").css("background", "red");
+
+        // $("a[href*='qq']").css("background", "red");
+
+        /* 005-多个属性 */
+        // $("a[href='ftp://www.qq.cn'][title]").css("background", "red");
+        $("a[href!='ftp://www.qq.cn']").css("background", "red");
+    </script>
+</body>
+
+</html>

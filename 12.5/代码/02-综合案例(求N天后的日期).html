@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="date">
+    <input type="text" placeholder="请输入天数">
+    <button>点击我，查看指定天数后的日期</button>
+    <span></span>
+    <script>
+        /* 001-先获取页面中的标签 */
+        var oBtn = document.getElementsByTagName("button")[0];
+        var oInputA = document.getElementsByTagName("input")[0];
+        var oInputB = document.getElementsByTagName("input")[1];
+        var oSpan = document.getElementsByTagName("span")[0];
+
+        /* 002-给按钮添加点击事件 */
+        oBtn.onclick = function() {
+            /* 003-获取日期 */
+            var dateText = oInputA.value;
+
+            /* 004-获取天数 */
+            var dayCount = oInputB.value * 1;
+            console.log(dateText, dayCount);
+
+            /* 005-计算出目标日期 */
+            /* 先根据日期字符串 2019-12-04 获得Date类型的对象 */
+            var a = new Date(dateText);
+            var currentDate = a.getDate();
+
+            date.setDate(currentDate + dayCount);
+            console.log(date);
+
+            /* 006-显示结果 */
+            var week = date.getDay();
+            oSpan.innerText = "星期" + "日一二三四五六".charAt(week);
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="get">获取</button>
+    <button class="add">添加</button>
+    <button class="update">修改</button>
+    <button class="remove">删除</button>
+    <button class="clear">清空</button>
+
+    <script>
+        /* Cookie */
+        /* 大小：4KB */
+        /* 期限：默认时当前会话，支持设置 */
+
+        /* sessionStorage存储技术 */
+        /* 大小：2M-5M */
+        /* 期限：当前会话，不能设置。 */
+
+        /* localStorage 本地存储技术 */
+        /* 大小：20M */
+        /* 期限：无限(数据保存到本地的，保存在电脑的硬盘上) */
+
+        // document.body.onclick = (e) => {
+        //     e = e || window.event;
+        //     let target = e.target || e.srcElement;
+        //     if (target.className == "get") {
+        //         console.log(sessionStorage.getItem("name"));
+        //     } else if (target.className == "add") {
+        //         sessionStorage.setItem("name", "zs");
+        //         sessionStorage.setItem("age", 18);
+        //     } else if (target.className == "update") {
+        //         sessionStorage.setItem("name", "lw");
+        //     } else if (target.className == "remove") {
+        //         sessionStorage.removeItem("age");
+        //     } else if (target.className == "clear") {
+        //         sessionStorage.clear();
+        //     }
+        // }
+
+
+        document.body.onclick = (e) => {
+            e = e || window.event;
+            let target = e.target || e.srcElement;
+            if (target.className == "get") {
+                console.log(localStorage.getItem("name"));
+            } else if (target.className == "add") {
+                localStorage.setItem("name", "zs");
+                localStorage.setItem("age", 18);
+            } else if (target.className == "update") {
+                localStorage.setItem("name", "lw");
+            } else if (target.className == "remove") {
+                localStorage.removeItem("age");
+            } else if (target.className == "clear") {
+                localStorage.clear();
+            }
+        }
+
+        /* 补充  下面这些时标准的API，我们可以通过调用下面的方法来操作数据*/
+        /* setItem 设置 */
+        /* getItem 读取 */
+        /* removeItem 删除 */
+        /* clear      清空 */
+
+        /* 其实，我们可以像普通对象一样来操作它们 */
+        /* document.cookie 本身是一个字符串。 */
+        /* localStorage 和 sessionStorage 本身就是对象。 */
+    </script>
+</body>
+
+</html>

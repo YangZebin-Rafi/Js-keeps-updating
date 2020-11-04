@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        /* 监听 */
+        /* 监听页面中的网络请求，只要请求失败就会触发这个方法 */
+        $(document).ajaxError(function(e, xhr, setting) {
+            console.log("ajaxError", e, xhr, setting.url);
+        })
+
+        /* 监听页面中的网络请求，只要请求成功就会触发这个方法 */
+        $(document).ajaxSuccess(function(e, xhr, setting) {
+            console.log("ajaxSuccess", e, xhr, setting.url);
+        })
+
+        /* 第一个网络请求开始发送(只会触发1次) */
+        $(document).ajaxStart(() => console.log("ajaxStart"));
+        /* 最后一个网络请求结束(只会触发1次) */
+        $(document).ajaxStop(() => console.log("ajaxStop"));
+
+        /* 监听每个网络请求开始发送(N次) */
+        $(document).ajaxSend(() => console.log("ajaxSend"));
+        /* 监听每个网络请求完成(N次) */
+        $(document).ajaxComplete(() => console.log("ajaxComplete"));
+       
+
+        /* 补充1 */
+        /* 默认所有的网络请求都会被全局事件监听 */
+        /* 如果某个网络请求不想要被全局事件监听，那么可以考虑配置 */
+        /* 补充2 */
+        /* 设置全局网络请求配置，默认配置 */
+        /* 这个方法本质上修改的是ajaxSetting配置对象 */
+         $.ajaxSetup({
+            type:"get"
+        })
+
+        $.ajax({
+            url: "../server/08-getJSON.php",
+            dataType: "json",
+            success: function(response) {
+                console.log("response--请求1");
+            }
+        });
+
+        $.ajax({
+            url: "../server/01-getData.php",
+            success: function(response) {
+                console.log("response--请求2");
+            }
+        });
+
+        $.ajax({
+            global: false,
+            url: "../server/01-getData.php",
+            success: function(response) {
+                console.log("response--请求3");
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./slider.css">
+    <script src="./data.js"></script>
+    <script src="./jquery-3.4.1.js"></script>
+
+</head>
+
+<body>
+
+    <script>
+        class Slider {
+            constructor(data) {
+                this.index = 0;
+                this.data = data;
+                this.num = 4;
+                this.count = Math.ceil(this.data.length / this.num);
+            }
+            init() {
+                this.renderUI();
+                this.clickHandler();
+            }
+            renderUI() {
+                let html = this.data.map(ele => {
+                    return `<li class="slider-list-item">
+                         <img src=${ele.src}>
+                         <h3 class="title">${ele.title}</h3>
+                         <p class="desc">${ele.desc}</p>
+                         <p class="price">
+                             <span>${ele.priceA}</span>元
+                             <del>${ele.priceB}</del>
+                             </p>
+                     </li>`
+                }).join("");
+
+                this.slider = $(`
+                 <div class="box">
+                     <div class="left">
+                     <img src="./Snip20191231_53.png">
+                     </div>
+                     <div class="right">
+                        <div class="slider">
+                            <div class="swiper-controls"><span class="prev">
+                                    <</span> <span class="next">>
+                                </span></div>
+                            <ul class="slider-list">${html}</ul>
+                        </div>
+                    </div>
+                 </div>`);
+
+                $("body").append(this.slider);
+            }
+            next() {
+                this.index++;
+                if (this.index >= this.count) {
+                    this.index = this.count - 1;
+                    return;
+                }
+                this.slider.find(".slider-list").animate({
+                    "left": -(this.index) * 250 * this.num
+                }, 1000)
+            }
+            prev() {
+                this.index--;
+                if (this.index <= -1) {
+                    this.index = 0;
+                    return;
+                }
+                this.slider.find(".slider-list").animate({
+                    "left": -(this.index) * 250 * this.num
+                }, 1000)
+            }
+            clickHandler() {
+                this.slider.find(".next").click(() => this.next());
+                this.slider.find(".prev").click(() => this.prev())
+            }
+        }
+        let slider = new Slider(data);
+        slider.init();
+    </script>
+</body>
+
+</html>

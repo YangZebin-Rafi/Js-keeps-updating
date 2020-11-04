@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inputID" placeholder="请输入0-100之间的整数">
+    <button>你猜一猜</button>
+    <script>
+        /* 001-当页面加载完的时候，应该先提供一个目标值  */
+        /* 需求：尝试获取一个0-100之间的随机整数 */
+        /* Math.random()   获取一个0~1之间的浮点数 */
+        /* (1) (Math.random() * 100).toFixed(0) * 1 */
+        /* (2) parseInt(Math.random() * 100)*/
+        var target = parseInt(Math.random() * 100);
+
+        /* 002-获取输入框和按钮标签 */
+        var oInput = document.getElementById("inputID");
+        var oBtn = document.getElementsByTagName("button")[0];
+
+        /* 003-给按钮添加点击事件 */
+        oBtn.onclick = function() {
+            /* 004-获取输入框的值(字符串)->数字 */
+            var val = oInput.value * 1;
+
+            /* 005-把得到的数字和目标值进行对比 */
+            /* 005-1 如果大了，那么提示 猜错了，大了。 */
+            if (val > target) {
+                alert(" 猜错了，大了。")
+            } else if (val < target) {
+                /* 005-2 如果小了，那么提示 猜错了，小了。 */
+                alert(" 猜错了，小了")
+            } else {
+                /* 005-3 如果相等，那么提示 恭喜你，猜对了，奖励劳斯莱斯五元代金券！！！ */
+                alert(" 恭喜你，猜对了，奖励劳斯莱斯五元代金券！！！ ")
+            }
+        }
+    </script>
+</body>
+
+</html>

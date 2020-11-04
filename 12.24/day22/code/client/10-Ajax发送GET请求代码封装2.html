@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>GET_A</button>
+    <button>GET_B</button>
+    <script>
+        let oBtnA = document.querySelectorAll("button")[0];
+        let oBtnB = document.querySelectorAll("button")[1];
+        oBtnA.onclick = () => {
+            /* 版本1 */
+            // get("../server/05-get_a.php?t=" + Date.now());
+            /* 版本2 */
+            get("../server/05-get_a.php", null);
+        }
+
+        oBtnB.onclick = () => {
+            /* 版本1 */
+            // get("../server/05-get_b.php?username=张三&password=123456");
+
+            /* 版本2 */
+            get("../server/05-get_b.php", {
+                username: "张三",
+                password: "123456"
+            });
+        }
+
+        /* 版本2 */
+        function get(url, data) {
+            let xhr = new XMLHttpRequest;
+            url = url + obj2QueryString(data);
+            url = encodeURI(url); //中文转码的处理
+            xhr.open("get", url, true);
+            xhr.send();
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4) {
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+
+        function obj2QueryString(o) {
+            // "username=zs&password=123456"
+            if (o == null) return "?t=" + Math.random();
+
+            let arr = [];
+            for (const key in o) {
+                if (o.hasOwnProperty(key)) {
+                    const val = o[key];
+                    arr.push(`${key}=${val}`);
+                }
+            }
+            // ["username=zs","password=123456"];
+            return "?" + arr.join("&");
+        }
+
+        /* 版本1 */
+        // function get(url) {
+        //     let xhr = new XMLHttpRequest;
+        //     url = encodeURI(url); //中文转码的处理
+        //     xhr.open("get", url, true);
+        //     xhr.send();
+        //     xhr.onreadystatechange = () => {
+        //         if (xhr.readyState == 4) {
+        //             console.log(xhr.responseText);
+        //         }
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

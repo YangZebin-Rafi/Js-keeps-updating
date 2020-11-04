@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" placeholder="请输入用户名" name="username">
+    </form>
+    <script>
+        /* formData 的作用是用来模拟和处理表单数据，主要用于POST请求和文件上传。 */
+        /* 构造函数 FormData */
+
+        // 读取：get: ƒ ()
+        // 设置：set: ƒ ()
+        // 删除：delete: ƒ delete()
+        // 检查：has: ƒ has()
+        // 遍历：forEach: ƒ forEach()
+
+        console.dir(FormData);
+
+        /* 001-创建实例对象 */
+        let data = new FormData();
+
+        /* 002-设置数据 */
+        /* 语法: 实例对象.set(key,val) */
+        data.set("username", "zs");
+        data.set("password", "123456");
+        data.set("email", "123456@vip.com");
+
+        console.log(data);
+
+        /* 003-遍历数据 */
+        data.forEach((val, key) => console.log(key, val));
+
+        /* 004-读取操作 */
+        /* 语法: 实例对象.get(key) */
+        console.log(data.get("email"));
+
+        /* 005-检查操作 */
+        /* 语法: 实例对象.has(key) */
+        console.log(data.has("password")); //true
+
+        /* 006-删除操作 */
+        /* 语法: 实例对象.delete(key) */
+        data.delete("email");
+        data.forEach((val, key) => console.log(key, val));
+
+        // keys: ƒ keys()
+        // values: ƒ values()
+        // console.log(data.keys(), data.values());
+        // let keys = data.keys();
+        // console.log("_______");
+
+        // console.log(keys.next()); //{done: false, value: "username"}
+        // console.log(keys.next()); //{done: false, value: "password"}
+        // console.log(keys.next()); //{done: true, value: undefined}
+
+        /* 007-使用for..of循环来进行遍历 */
+        /* for..of 可以遍历：数组 集合(Set) 映射(Map) FormData(表单数据) 但是不能遍历普通对象(报错：o is not iterable)*/
+        // let o = {
+        //     name: "zs",
+        //     age: 19
+        // };
+        // for (const iterator of o) {
+        //     console.log(iterator);
+        // }
+        // for (const [key, val] of data) {
+        // console.log(key, val);
+        // }
+
+        // 008-append: ƒ append()
+        /* 思考：发请求获取某个城市的天气预报 */
+        /* 路径：http://xsdfsgd.com?city=广州 */
+        /* 思考：发请求获取多个城市的天气预报 */
+        /* 路径1：http://xsdfsgd.com?city=广州&东莞 */
+        /* 路径2：http://xsdfsgd.com?city=广州&city=东莞   正确*/
+        /* 在发送网络请求传递参数的时候，可能会遇上某个key对应多个value值？ */
+        data.set("city", "GuangZhou");
+        // data.set("city", "DongGuan"); //覆盖
+        data.append("city", "DongGuan"); //追加
+        data.forEach((val, key) => console.log(key, val));
+
+
+        // 009-获取某个key对应的值 get()
+        // 获取某个key对应的所有值 getAll: ƒ getAll()
+        console.log(data.get("city")); //GuangZhou
+        console.log(data.getAll("city")); //["GuangZhou", "DongGuan"]
+    </script>
+</body>
+
+</html>

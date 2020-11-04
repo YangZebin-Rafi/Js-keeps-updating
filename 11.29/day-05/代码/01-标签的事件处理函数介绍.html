@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btnID">点击事件</button>
+    <button id="btnID2">点石成金</button>
+    <input type="text" id="inputID">
+    <span>我是最厉害的!!!</span>
+    <script>
+        /* 简单介绍标签相关的事件 */
+        /* (1) click 点击*/
+        /* (2) focus 获得焦点*/
+        /* (3) blur  失去焦点*/
+        /* (4) input 输入框的内容发生变化*/
+        /* (5) mouseenter  鼠标移入 | mouseleave 鼠标离开*/
+
+        /* 001-先获取按钮，给页面中的按钮添加点击事件 */
+        var oBtn = document.getElementById("btnID");
+        /* 说明：给按钮添加(设置)点击事件的事件处理函数，如果按钮被点击(事件被触发)，那么就会执行函数中的代码 */
+        /* 写法A */
+        // oBtn.onclick = function() {
+        //     console.log("按钮被点击了--click1");
+        //     console.log("按钮被点击了--click2");
+        // };
+
+        /* 写法B */
+        function handler() {
+            console.log("按钮被点击了--click1");
+            console.log("按钮被点击了--click2");
+        };
+        oBtn.onclick = handler;
+
+        /* 002-演示输入框获得焦点和失去焦点的事件 */
+        var oInput = document.getElementById("inputID");
+        oInput.onfocus = function() {
+            console.log("监听到输入框获得焦点");
+        };
+        /* 当输入框失去焦点的时候，总是要设置输入框的值为测试 */
+        oInput.onblur = function() {
+            console.log("监听到输入框失去焦点");
+            oInput.value = "测试";
+        }
+
+        /*003-演示input事件的使用：当输入框的内容发生变化的时候会触发 */
+        oInput.oninput = function() {
+            console.log("监听到输入框的内容发送了变化，当前输入框值=" + oInput.value);
+        }
+
+        /* 004-演示鼠标的移入和移出事件 */
+        /* 需求：当鼠标进入到span标签的时候，修改标签的内容韦：我是全宇宙最丑的！！！设置颜色为红色。 */
+        var oSpan = document.getElementsByTagName("span")[0];
+        oSpan.onmouseenter = function() {
+            console.log("监听到鼠标移入事件--span");
+            /* 修改标签的内容 */
+            oSpan.innerText = "我是全宇宙最丑的！！！";
+            /* 修改标签的样式 */
+            oSpan.style.color = "red";
+        }
+
+        oSpan.onmouseleave = function() {
+            console.log("监听到鼠标移出事件--span");
+            /* 修改标签的内容 */
+            oSpan.innerText = "我是最厉害的!!!";
+            /* 修改标签的样式 */
+            oSpan.style.color = "#000";
+        }
+// 练习
+        let oBtn2=document.getElementById('btnID2')
+        oBtn2.onclick=function(){
+            let i =0
+            i++
+            oBtn2.style.backgroundColor='darkcyan'
+            console.log(`我被点击了${i}次`);
+        }
+
+    </script>
+</body>
+
+</html>

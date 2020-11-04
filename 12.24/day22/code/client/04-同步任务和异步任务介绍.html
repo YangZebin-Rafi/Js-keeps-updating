@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 同步和异步：指的是任务的两种执行方式 */
+        /* 同步执行：在执行任务的时候必须要等当前任务执行完，才能执行后面的任务(同一时间只能有一个任务执行)。 */
+        /* 异步执行：在执行任务的时候可以不必等当前任务执行完就执行后面的任务(同一时间可以有多个任务在同时执行)。 */
+        /* 异步任务有哪些：定时器任务 */
+
+
+        /* 多个任务的执行： */
+        /* (1) N个同步任务:在执行的时候会按顺序一个接着一个的执行 */
+        /* 开始执行任务的顺序：1-2-3-4 */
+        /* 结束执行任务的顺序：1-2-3-4 */
+        // console.log("1");
+        // console.log("2");
+        // console.log("3");
+        // console.log("4");
+
+        /* (2) N个异步任务：在执行的时候谁先执行完不确定得看具体的情况*/
+        /* 开始执行任务的顺序：1-2-3-4 */
+        /* 结束执行任务的顺序：3-2-1-4*/
+        // setTimeout(() => console.log("task1"), 100);
+        // setTimeout(() => console.log("task2"), 2000);
+        // setTimeout(() => console.log("task3"), 10);
+        // setTimeout(() => console.log("task4"), 300);
+
+        /* (3) N个同步和异步任务 */
+        /* 按顺序先一个接一个把同步任务执行完，然后异步任务才执行结束。 */
+        /* 1-2-3-4 task3-task1-task4-task2 */
+        console.log("1");
+        setTimeout(() => console.log("task1"), 100);
+        setTimeout(() => console.log("task2"), 2000);
+        console.log("2");
+        setTimeout(() => console.log("task3"), 10);
+        console.log("3");
+        setTimeout(() => console.log("task4"), 300);
+        console.log("4");
+    </script>
+</body>
+
+</html>

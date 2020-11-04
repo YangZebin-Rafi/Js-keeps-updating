@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* in关键字 */
+        /* in关键字在JavaScript代码中用在两个地方：(1) for..in循环  (2) 用来检查对象中是否存在指定的键值对(属性) */
+        var o = {
+            name: "zs",
+            age: 18,
+            id: "0001",
+            price: "1",
+            color: undefined
+        };
+
+        console.log(o.name); //zs
+        console.log(o.class); //undefined
+        console.log(o.color); //undefined
+
+        /* 语法 "属性名" in 对象   检查对象中是否存在对应的属性，如果存在那么就返回true,否则就返回false*/
+        console.log("name" in o); //true
+        console.log("class" in o); //false
+        console.log("color" in o); //true
+
+        /* 补充：in关键字可以检查对象中是否存在指定的属性，ES6+推出了新的写法 */
+        /* 语法：Reflect.has(对象,"属性") */
+        console.log(Reflect.has(o, "name"));
+        console.log(Reflect.has(o, "class"));
+    </script>
+</body>
+
+</html>

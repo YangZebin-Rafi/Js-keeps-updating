@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-JSON对象的方法介绍 */
+        /* [1] JSON.stringify()    序列化：JavaScript对象 ->JSON */
+        /* 语法: JSON.stringify(data,[fn|arr],format)*/
+        /* 参数1：要处理的JavaScript对象|数组 */
+        /* 参数2：数组或者是函数(中间处理) */
+        /* (1) 如果是数组，你那么表示只会序列化数组中指定的这些数据 */
+        /* 参数3：JSON的格式  如果传递的是数字，那么表示空格的个数(<=10) 如果是字符串那么就使用字符串来填充(len <=10)*/
+        let obj = {
+            name: "zs",
+            age: 18,
+            address: "广州",
+            className: "H5-1913"
+        };
+        let jsonStr1 = JSON.stringify(obj);
+        console.log(jsonStr1); //{"name":"zs","age":18}
+        let jsonStr2 = JSON.stringify(obj, null, 4);
+        console.log(jsonStr2);
+        let jsonStr3 = JSON.stringify(obj, null, "0123456789qwe");
+        console.log(jsonStr3);
+
+        let jsonStr4 = JSON.stringify(obj, ["name", "className"], 4);
+        console.log(jsonStr4);
+
+        let jsonStr5 = JSON.stringify(obj, (key, val) => {
+                //001
+                // return val;   默认
+                //002
+                // 如果return的是undefined ，那么这个键值对将不会被序列化(删除)
+                // if (key == "name" || key == "age") {
+                //     return undefined;
+                // } else {
+                //     return val;
+                // }
+                //003
+                if (key == "age") {
+                    return val * 2;
+                } else {
+                    return val;
+                }
+            },
+            4);
+        console.log(jsonStr5);
+
+
+
+        /* [2] JSON.parse()        反序列化：JavaScript对象<-JSON */
+        let data1 = JSON.parse(jsonStr2);
+        console.log(data1);
+
+        console.log("_______");
+
+        let o = JSON.parse(jsonStr2, (key, val) => {
+
+            if (key == "name" || key == "age") {
+                return undefined; //当返回undefined的时候，表示要删除当前的键值对
+            } else if (key == "address") {
+                return "东莞";
+            } else {
+                return val;
+            }
+        });
+        console.log(o, "+++");
+
+        /* 002-eval()函数的基本使用 */
+        /* 作用：把字符串转换为JS的代码并且马上执行 */
+        // eval("var a = 1234; var b = 100; var c = 300;")
+        // console.log(c);
+
+        //方案1
+        let o1 = eval("(" + '{"name":"zs","age":19}' + ")");
+        console.log(o1);
+        // ({"name":"zs","age":19});  //把数据包装成表达式
+
+        //方案2
+        eval("var o2 = " + '{"name":"zs","age":19}');
+        console.log(o2);
+
+        /* 要把jsonStr2这个json字符串转换为JavaScript对象 */
+        eval("var o3 = " + jsonStr2);
+        console.log(o3);
+    </script>
+</body>
+
+</html>

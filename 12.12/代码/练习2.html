@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 创建一个命名函数
+     -->
+     <script>
+         var sum
+         function show(sum){
+            console.log(sum);
+            // show(sum--)死循环 
+            sum--;
+
+            if(sum<0){
+                return sum
+            }
+            show(sum)
+            console.log(sum);
+                    
+         }
+         show(5)
+         
+         
+        
+     </script>
+</body>
+
+</html>

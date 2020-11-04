@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <div id="demoID">
+            DIV1
+        </div>
+        <span>我是span</span>
+    </div>
+
+    <button>按钮</button>
+    <script>
+        /* 001-删除标签  */
+        /* [1] removeChild()       */
+        /* [2] remove()        方法 */
+        var oBtn = document.querySelector("button");
+        var target = document.querySelector("#demoID");
+
+        // oBtn.onclick = function() {
+        //     // target.remove();
+        //     target.parentElement.removeChild(target);
+        // }
+
+
+        /* 002-清空标签 */
+        var oBox = document.querySelector(".box");
+        oBtn.onclick = function() {
+            // oBox.innerHTML = "";
+
+
+            /* 003-替换标签 */
+            /* replaceWith(string|Node)      替换自己，使用文本或者使标签来替换当前的标签 */
+            /* replaceChild(newNode,oldNode) 替换子节点  */
+            /* [1] 使用文本来替换标签 */
+            // oBox.replaceWith("标题");
+
+            /* [2] 使用标签来替换标签 */
+            var ele = document.createElement("p");
+            ele.innerText = "我是个p";
+            // oBox.replaceWith(ele);
+
+            /* [3] 命令box，使用ele(p标签)来替换它内部的那个span子标签*/
+            var oSpan = document.querySelector("span");
+            oBox.replaceChild(ele, oSpan);
+        }
+    </script>
+</body>
+
+</html>

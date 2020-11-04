@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <li>li1</li>
+    <li>li2</li>
+    <li>li3</li>
+    <li>li4</li>
+    <li>li5</li>
+    <li>li6</li>
+    <li>li7</li>
+    <li>li8</li>
+    <script>
+        /* 筛选选择器 */
+        /* :first */
+        /* :last */
+        /* :eq() */
+        /* :not() */
+        /* :lt() */
+        /* :gt() */
+        /* :even */
+        /* :odd */
+
+
+        //$("li")； 获取页面中所有的li标签
+
+        /* 001-第一个 */
+        // $("li:first").css("background", "#195");
+
+        /* 002-最后一个 */
+        // $("li:last").css("background", "#195");
+
+        /* 003-指定某一个 */
+        /* 第一个 */
+        // $("li:eq(0)").css("background", "#195");
+        /* 最后一个 */
+        // $("li:eq(-1)").css("background", "#195");
+        // $("li:eq(3)").css("background", "#195");
+
+        /* 004-索引为奇数|偶数的标签 */
+        // $("li:odd").css("background", "#195");
+        // $("li:even").css("background", "#f09");
+
+        /* 005-排除 */
+        /* 排除索引为1的那个标签 */
+        // $("li:not(:eq(1))").css("background", "#195");
+        /* 排除最后一个标签 */
+        // $("li:not(:eq(1))").css("background", "#195");
+
+        /* 006-范围(大于|小于) */
+        // $("li:lt(3)").css("background", "#195");
+        // $("li:gt(3)").css("background", "#f00");
+    </script>
+</body>
+
+</html>

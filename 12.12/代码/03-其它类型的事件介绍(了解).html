@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="http://www.baidu.com">
+        <input type="text" placeholder="用户名">
+        <input type="text" placeholder="密码">
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+    </form>
+    <button>按钮</button>
+    <script>
+        var oEle = document.querySelector("form");
+        /* 监听到点击了表单的重置按钮 */
+        oEle.onreset = function() {
+            console.log("reset");
+        }
+
+        oEle.onsubmit = function() {
+            console.log("onsubmit");
+        }
+
+        var oBtn = document.querySelector("button");
+        oBtn.onclick = function() {
+            var ele = document.createElement("p");
+            ele.innerText = "我是p";
+            document.body.appendChild(ele);
+        }
+
+        /* 错误的演示 */
+        document.onDOMNodeInserted = function() {
+            console.log("监听到有节点插入到页面中");
+        }
+
+        /* 正确的写法 */
+        document.addEventListener("DOMNodeInserted", function() {
+            console.log("监听到有节点插入到页面中");
+        })
+    </script>
+</body>
+
+</html>

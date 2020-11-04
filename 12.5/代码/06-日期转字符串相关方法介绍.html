@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 转换伪字符串的相关方法 */
+        // toDateString: ƒ toDateString()
+        // toGMTString: ƒ toUTCString()
+        // toISOString: ƒ toISOString()
+        // toJSON: ƒ toJSON()
+        // toLocaleDateString: ƒ toLocaleDateString()
+        // toLocaleString: ƒ toLocaleString()
+        // toLocaleTimeString: ƒ toLocaleTimeString()
+        // toString: ƒ toString()
+        // toTimeString: ƒ toTimeString()
+        // toUTCString: ƒ toUTCString()
+
+        // valueOf: ƒ valueOf()
+
+        var date = new Date();
+        console.log(date.toDateString()); //"Thu Dec 05 2019"
+        console.log(date.toGMTString()); //"Thu, 05 Dec 2019 08:20:28 GMT"
+        console.log(date.toISOString()); //"2019-12-05T08:20:28.196Z"
+        console.log(date.toJSON()); //"2019-12-05T08:20:28.196Z"
+        console.log(date.toLocaleDateString()); //"2019/12/5"
+        console.log(date.toLocaleString()); //"2019/12/5 下午4:20:28"
+        console.log(date.toLocaleTimeString()); //"下午4:20:28"
+        console.log(date.toString()); //"Thu Dec 05 2019 16:20:28 GMT+0800 (中国标准时间)"
+        console.log(date.toTimeString()); //"16:20:28 GMT+0800 (中国标准时间)"
+        console.log(date.toUTCString()); //"Thu, 05 Dec 2019 08:20:28 GMT"
+
+        // "2019-20-03 12:09:23"
+        /* valueOf() 获取时间戳 */
+        console.log(date.valueOf()); //1575534237575
+        console.log(date.getTime());
+
+        /* 补充 */
+        /* getYear:  */
+        /* getFullYear: */
+
+        console.log(date.getFullYear()); /* 2019 */
+        /* 下面的方法再IE浏览器中能够正确的获取年份，但是再其它浏览器中无法获取，得到的是当前年份-1900年的差值。 */
+        console.log(date.getYear()); /* 119 = 2019 - 1900 */
+    </script>
+</body>
+
+</html>

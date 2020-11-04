@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 需求：封装函数，根据传入的数据来计算分数和 */
+        /* 参数：3 1/1 + 1/3 */
+        /* 参数：7 1/1 + 1/3 + 1/5 + 1/7 */
+
+        /* 参数：4 1/2 + 1/4 */
+        /* 参数：8 1/2 + 1/4 + 1/6 + 1/8 */
+        // function f(n) {
+        //     var result = 0;
+        //     if (n % 2 != 0) {
+        //         /* 奇数 */
+        //         for (var i = 1; i <= n; i = i + 2) {
+        //             result += 1 / i;
+        //         }
+        //     } else {
+        //         /* 偶数 */
+        //         for (var i = 2; i <= n; i = i + 2) {
+        //             result += 1 / i;
+        //         }
+        //     }
+        //     return result;
+        // }
+
+        // function f(n) {
+        //     var result = 0;
+        //     var flag = 0;
+        //     if (n % 2 != 0) {
+        //         /* 奇数 */
+        //         flag = 1;
+        //     } else { /* 偶数 */
+        //         flag = 2;
+        //     }
+
+        //     for (var i = flag; i <= n; i = i + 2) {
+        //         result += 1 / i;
+        //     }
+        //     return result;
+        // }
+
+        function f(n) {
+            var result = 0;
+            for (var i = n % 2 == 0 ? 2 : 1; i <= n; i = i + 2) result += 1 / i;
+            return result;
+        }
+
+
+        var res1 = f(1); //1
+        var res2 = f(3); //1.333
+        var res3 = f(5); //1.5333
+        console.log(res1, res2, res3);
+        var res4 = f(2); //0.5
+        var res5 = f(4); //0.75
+        var res6 = f(6); //
+        console.log(res4, res5, res6);
+    </script>
+</body>
+
+</html>

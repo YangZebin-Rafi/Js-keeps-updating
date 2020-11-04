@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <script>
+        //0 100
+        //1 200
+        /* 001-each方法 */
+        /* 总结：该方法用来遍历数组、对象和伪数组，支持退出循环(在回调函数中返回false)  */
+        /* 补充：在each方法的回调函数中，this指向的是？ 我们发现this->当前的value值？为什么 */
+        /* 语法：$.each(arr|likeArr|obj,fn) */
+        /* 语法：$().each(fn) */
+
+        /* [1] 数组遍历：for  for..in(包含原型成员) forEach(不能中途退出) for..of */
+        /* [2] 对象遍历：for..in */
+        /* [3] 伪数组变量：for..in for */
+
+        /* (1) 遍历数组 */
+        Array.prototype.XXX = "XXXX";
+        let arr = [100, 200, 300, 400];
+        $.each(arr, function(index, ele) {
+            console.log(index, ele, this);
+
+            /* 如果：回调函数中返回了false，那么就表示要结束循环 */
+            if (ele == 300) return false;
+        })
+
+        /* (2) 遍历对象 */
+        let o = {
+            name: "zs",
+            age: 18,
+            id: 1
+        };
+        $.each(o, function(key, val) {
+            console.log(key, val);
+        })
+
+        /* (3) 遍历伪数组 */
+        let likeArr = {
+            0: "zs",
+            1: "ls",
+            2: "ww",
+            length: 3
+        };
+        $.each(likeArr, function(key, val) {
+            console.log(key, val);
+        })
+
+        /* jQuery实例对象其实是一个伪数组 */
+        // $.each($("div"), function(key, val) {
+        //     console.log(key, val, this);
+        // })
+
+        $.each($("div"), function() {
+            console.log(this);
+        })
+
+        /* 补充:jQ.each(fn) */
+        $("div").each(function(key, val) {
+            console.log(key, val);
+        })
+    </script>
+</body>
+
+</html>

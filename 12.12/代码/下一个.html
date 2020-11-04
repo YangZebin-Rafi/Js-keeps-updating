@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <h1>买彩票</h1> -->
+    <script>
+        (function () {
+
+
+            // function getNum(total, n) {
+            //     var arr = []
+            //     console.log(arr);
+            //     for (var i = 0; i < arr.length; i++) {
+            //         var num = ranNum(1, 42)
+            //         if (arr.indexOf(num) == -1) {
+            //             arr.push(num)
+            //         }
+            //         if (arr.length == n) {
+            //             break
+            //         }
+            //         return arr
+            //     }
+            //     var arr2 = getNum(100, 10)
+            //     console.log(arr2);
+
+            // }
+
+                var arr=['car','dog','fish','tiger','panda']
+                console.log(arr);
+                arr.sort()
+                console.log(arr);
+                var arr1=[3,2,6,1,8,4]
+                arr1.sort()
+                console.log(arr1);
+                arr2=[12,13,15,56,88]
+                arr2.sort(function(a,b){
+                    return a-b;
+                })
+                console.log(arr2);
+                arr2.sort(function(a,b){
+                    return b-a;
+                })
+                console.log(arr2);
+                var arr3=[2,4,3]
+                arr3.reverse()
+                console.log(arr3);
+                var arr4=[2,3,7,4,5]
+                console.log(arr4);
+                var str=arr4.join()
+                console.log(str);
+                var str1=arr4.join('')
+                console.log(str1);
+                
+                
+        })()
+    </script>
+</body>
+
+</html>

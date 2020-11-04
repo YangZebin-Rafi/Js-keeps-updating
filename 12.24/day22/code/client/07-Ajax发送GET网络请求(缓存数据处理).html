@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <script>
+        /* 中文参数问题 */
+        // http://127.0.0.1/h5-1913/day22/code/server/04-test.php?username=zs
+        // http://127.0.0.1/h5-1913/day22/code/server/04-test.php?username=%E4%BD%A9%E7%90%AA
+
+        /* 注意点：URL路径中不允许存在中文 */
+        /* 说明：有的浏览器在发送网络请求的时候会自动处理中文，会把中文转换为特定的字符串 */
+        /* 要求：如果URL路径中存在中文，建议我们主动转码 */
+        /* 方法 */
+        /* [1] encodeURI() 中文->%形式的字符串 */
+        /* [2] decodeURI() */
+        /* URI = URL + URN */
+        let oBtn = document.querySelector("button");
+        oBtn.onclick = () => {
+            let xhr = new XMLHttpRequest;
+            let url = encodeURI("../server/04-test.php?username=佩琪");
+            xhr.open("get", url, true);
+            xhr.send();
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        console.log(xhr.responseText);
+                    } else {
+                        console.log(xhr.statusText);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

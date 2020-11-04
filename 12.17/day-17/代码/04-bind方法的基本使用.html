@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* bind绑定的方法：该方法用来绑定函数中的this并且把绑定之后的函数返回。 */
+        function fn() {
+            console.log("fn", this);
+        }
+
+        var o = {
+            name: "zs"
+        };
+
+        fn.call(o); //o.fn()   借用方法并且绑定this之后直接调用
+
+        /* 如果没有传递参数(null undefined)，默认绑定的是window */
+        var f = fn.bind([1, 2, 3, 4]); //绑定this之后会把这个函数返回。
+        f();
+    </script>
+</body>
+
+</html>

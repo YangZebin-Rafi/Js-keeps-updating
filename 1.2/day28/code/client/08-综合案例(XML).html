@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 500px;
+            height: 400px;
+            border: 1px solid #195;
+            box-sizing: border-box;
+            margin: 50px auto;
+        }
+        
+        h3,
+        h4 {
+            text-align: center;
+        }
+        
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 300px;
+            height: 300px;
+            background-size: cover;
+        }
+        
+        .box>div {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <h3>类别名称</h3>
+        <h4>描述信息</h4>
+        <img src="./img/0.png" alt="">
+        <div id="btn">
+            <button data-type="nz">女装</button>
+            <button data-type="bb">包包</button>
+            <button data-type="xz">鞋子</button>
+        </div>
+    </div>
+    <script>
+        $(() => {
+            $("#btn").on("click", "button", function() {
+
+                let type = $(this).data("type");
+
+                $.ajax({
+                    type: "get",
+                    url: "../server/10-get.php",
+                    dataType: "xml",
+                    success: function(doc) {
+                        console.log(doc);
+                        let root = doc.getElementById(type);
+                        let title = root.getElementsByTagName("title")[0].innerHTML;
+                        let des = root.getElementsByTagName("des")[0].innerHTML;
+                        let src = root.getElementsByTagName("src")[0].innerHTML;
+                        console.log(root, title, des, src);
+
+                        $("h3").text(title);
+                        $("h4").text(des);
+                        $("img").attr("src", src);
+                    }
+                });
+
+                /* JSON和XML对比： */
+                /* (JSON数据90%  XML10%)   */
+            })
+        })
+    </script>
+</body>
+
+</html>

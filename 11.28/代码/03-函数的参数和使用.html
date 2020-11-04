@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 函数的参数 */
+        /* (1) 形式参数(形参)  msg */
+        /* (2) 实际参数(实参) "I like u" */
+        function logString(msg, count) {
+            for (var i = 0; i < count; i++) {
+                console.log(`i=${i}`, msg);
+            }
+        }
+
+
+        /* 函数调用 */
+        /* 当函数调用的时候，会做两件事情 */
+        /* [1] 会把实参的值依次赋值给形参 var msg = "I like u" ； var count = 3*/
+        /* [2] 会执行函数中代码
+          for (var i = 0; i < 3; i++) { console.log(msg); }
+         */
+        logString("I like u", 3);
+        console.log("__________");
+        // logString("I love u", 5);
+        // console.log("__________");
+        // logString("I miss u", 10);
+        let j=10
+        function test(id,num) {
+            for(let i=0;i<num;i++){
+                console.log(`i=${i}`,id);
+                console.log(`数量=${j}`);
+            }
+        }
+
+        test('金金',6)
+        console.log('结束');
+    </script>
+</body>
+
+</html>

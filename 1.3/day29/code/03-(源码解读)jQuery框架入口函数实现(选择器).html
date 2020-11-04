@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="./lib/jquery-3.4.1.js"></script> -->
+    <script src="./lib/jq-1.0.1.js"></script>
+</head>
+
+<body>
+    <div id="demoID">div1</div>
+    <div class="box">div2</div>
+    <script>
+        /* 001-作为选择器来处理 */
+        /* 如果该函数的参数是一个选择器字符串，那么内部会根据该选择器来获取页面中对应的标签并且把这些标签保存到jQuery对象中返回 */
+        // console.log($("div"));
+        // console.log($("#demoID"));
+        // console.log($(".box"));
+
+        /* 002-创建标签 */
+        /* 如果是标签字符串那么会创建对应的标签并且把这个标签保存到jQuery对象中返回 */
+        let jq = $("<div>我是新创建的div1</div><div>我是新创建的div2</div>");
+        console.log(jq);
+        console.log(jq[0], jq[1]);
+
+
+        // console.log($([100, 200, 300]));
+
+        // console.log($({
+        //     name: "zs",
+        //     age: 18
+        // }));
+
+        // $(function() {
+
+        // })
+    </script>
+</body>
+
+</html>

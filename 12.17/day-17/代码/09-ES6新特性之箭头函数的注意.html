@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>我是div</div>
+    <script>
+        /* 001-箭头函数中注意点 */
+        /* [1] this 箭头函数中没有this，箭头函数中访问的this来源于离当前作用域最近的那个this */
+        /* [2] 箭头函数不能作为构造函数来调用，因为没有this */
+        /* [3] 箭头函数中没有arguments */
+        var oDiv1 = document.querySelector("div");
+
+        /* 方案A */
+        // oDiv.onclick = function() {
+        //     console.log(this);
+        // }
+
+        /* 方案B */
+        // console.log(this);
+        // oDiv.onclick = () => {
+        //     console.log(this) //在当前作用域中查找变量this, 因为箭头函数中没有this所以会向外层做作用域查找(全局作用域)
+        // };
+
+
+        //oDiv.onclick();  this->oDiv
+        oDiv1.onclick = function() {
+            console.log("click--", this);
+            /* 当点击该标签的时候，延迟3秒设置div标签的样式(颜色-红色) */
+
+            /* task内部的this-> task函数如何调用? task()   this-window*/
+            // function task() {
+            //     window.style.color = "red";
+            // }
+            // setTimeout(task, 3000);
+
+            // var self = this;
+            // setTimeout(function() {
+            //     /* 错误的写法 */
+            //     // this.style.color = "red"; //this->window
+
+            //     /* 正确的写法(不建议) */
+            //     // oDiv1.style.color = "red";
+
+            //     /* 正确的写法(常用的方式) */
+            //     self.style.color = "red";
+            // }, 2000);
+
+            setTimeout(() => {
+                // this.style.color = "red";
+                console.log("t-", this);
+            }, 3000);
+
+            console.log("click++", this);
+        }
+
+
+
+        let F = function(name) {
+            this.name = name;
+        }
+        let G = (name) => this.name = name;
+
+        // let o1 = new F("zs"); //正确
+        // let o2 = new G("lw"); //报错：Uncaught TypeError: G is not a constructor  这不是一个构造函数
+
+        let H = () => {
+            console.log(arguments); //报错：Uncaught ReferenceError: arguments is not defined 
+        }
+        H(100, 200, 300);
+    </script>
+</body>
+
+</html>

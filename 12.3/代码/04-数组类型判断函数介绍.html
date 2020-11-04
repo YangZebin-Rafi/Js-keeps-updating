@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(typeof "字符串"); //"string"
+        console.log(typeof 123); //"number"
+
+        var arr = [10, 20, 30];
+        console.log(typeof arr); /* object */
+        console.log(typeof null); /* object */
+        console.log(typeof undefined); /* undefined */
+        // console.log(typeof {name:"zs"}); /* object */
+
+
+        /* 问题：如何检查数组的类型 */
+        /* ES5(2009年) JavaScript提供一个Array.isArray(变量) ，如果是数组那么返回true,否则就返回false*/
+        /* Array.isArray() ES5+ 存在兼容性问题 */
+        // console.log(Array.isArray(123)); /* false */
+        // console.log(Array.isArray([100, 200])); /* TRUE */
+
+        // console.log(Object.prototype.toString.call([10, 20, 30]) == "[object Array]");
+
+        /* 设计一个函数，该函数能够检查参数是否是数组，如果是数组那么就返回true,否则就返回false.要解决兼容问题 */
+        function isArray(arrT) {
+            if (Array.isArray) {
+                return Array.isArray(arrT);
+            } else {
+                return Object.prototype.toString.call(arrT) == "[object Array]";
+            }
+        }
+
+        console.log(isArray([1, 2, 3]));
+        console.log(isArray({}));
+    </script>
+</body>
+
+</html>

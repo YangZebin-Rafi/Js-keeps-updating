@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 5px auto;
+        }
+        
+        .box1 {
+            width: 200px;
+            height: 150px;
+            background: #000;
+        }
+        
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        
+        .box3 {
+            width: 50px;
+            height: 50px;
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2">
+            <div class="box3"></div>
+        </div>
+    </div>
+    <script>
+        var oBox1 = document.querySelector(".box1");
+        var oBox2 = document.querySelector(".box2");
+        var oBox3 = document.querySelector(".box3");
+
+        /* 事件冒泡： 当标签的事件被触发的时候，该事件会往上层冒泡层层传递到文档，在传递的过程中如果遇到的标签也注册了相同的事件那么这个事件也会被触发*/
+        /* 注册事件的方式 */
+        /* ele.onclick */
+        /* ele.addEventListener("click") */
+        /* 上面的两种方式添加的事件都支持事件冒泡，但是只有ele.addEventListener("click") 支持事件捕获(了解）。*/
+        // oBox1.onclick = function() {
+        //     console.log(this);
+        // }
+
+        // oBox2.onclick = function() {
+        //     console.log(this);
+        // }
+
+        // oBox3.onclick = function() {
+        //     console.log(this);
+        // }
+
+        oBox1.addEventListener("click", function() {
+            console.log("box1-捕获");
+        }, true)
+        oBox2.addEventListener("click", function() {
+            console.log("box2-捕获");
+        }, true)
+        oBox3.addEventListener("click", function() {
+            console.log("box3-捕获");
+        }, true)
+
+        /* 当第三个参数为true的时候，事件捕获 */
+        /* 当第三个参数为false的时候，事件冒泡 */
+        oBox1.addEventListener("click", function() {
+            console.log("box1-冒泡");
+        }, false)
+        oBox2.addEventListener("click", function() {
+            console.log("box2-冒泡");
+        }, false)
+        oBox3.addEventListener("click", function() {
+            console.log("box3-冒泡");
+        }, false)
+    </script>
+</body>
+
+</html>

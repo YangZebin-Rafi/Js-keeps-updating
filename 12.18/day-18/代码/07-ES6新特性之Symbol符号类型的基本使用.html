@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 基本数据类型：string number boolean null undefined  Symbol(符号类型)*/
+
+        /* 符号类型是唯一的 */
+        let s1 = Symbol();
+        let s2 = Symbol();
+        console.log(s1, s2, s1 == s2); /* Symbol() Symbol() false */
+
+        /* 创建符号类型数据的时候传递参数(名字) */
+        let s3 = Symbol("zs");
+        let s4 = Symbol("xl");
+        console.log(s3, s4); //Symbol(zs) Symbol(xl)
+
+        /* 符号类型的作用：符号类型主要用来作为对象的私有属性(在for..in循环中无法被遍历出来的成员) */
+        let o = {
+            name: "zs",
+            age: 100,
+            id: 1,
+            [s3]: "张三的数据",
+            [s4]: "小刘的数据"
+        }
+        console.log(o);
+
+        for (let key in o) {
+            console.log(key, o[key]);
+        }
+    </script>
+</body>
+
+</html>

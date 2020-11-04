@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <li>li1</li>
+    <li>li2</li>
+    <li>li3</li>
+    <li>li4</li>
+    <li>li5</li>
+    <script>
+        /* var   声明变量 */
+        /* let   声明变量*/
+        /* const 声明常量*/
+
+
+        /* let 声明变量*/
+        /* 001-不允许声明同名的变量 */
+        // let a = 123;
+        // console.log(a);
+        // /* Uncaught SyntaxError: Identifier 'a' has already been declared */
+        // let a = 234;
+        // console.log(a);
+
+        /* 002-let必须要先声明才能使用,不会进行变量声明的提升 */
+        /* var声明的变量会进行变量声明的提升，会提升到当前作用域的最顶端 */
+        // console.log(a); //undefined
+        // var a = 123;
+
+        /* 报错：Uncaught ReferenceError: Cannot access 'a' before initialization */
+        // console.log(a);
+        // let a = 123;
+
+        /* 003-let + {} 会形成局部作用域(块级作用域) */
+        /* 好处：更安全，并且在处理特殊问题的时候跟方便 */
+        /* JavaScript原本没有块级作用域{} */
+        // for (var i = 0; i < 3; i++) {
+        //     console.log("i=" + i);
+        // }
+        // console.log(i, "++"); //3 "++"
+
+        // for (let i = 0; i < 3; i++) {
+        //     console.log("i=" + i);
+        // }
+        // console.log(i, " ++"); //Uncaught ReferenceError: i is not defined
+
+        var lis = document.querySelectorAll("li");
+
+        /* 以前的处理方式 */
+        // for (var i = 0, len = lis.length; i < len; i++) {
+        //     lis[i].index = i;
+        //     // lis[i].setAttribute("index", i);
+        //     lis[i].dataset.index = i;
+        //     lis[i].onclick = function() {
+        //         // console.log(`索引=${i} 内容=${this.innerText}`);
+        //         // console.log(`索引=${this.index} 内容=${this.innerText}`);
+        //         // console.log(`索引=${this.getAttribute("index")} 内容=${this.innerText}`);
+        //         console.log(`索引=${this.dataset.index} 内容=${this.innerText}`);
+        //     }
+        // }
+
+        for (let i = 0, len = lis.length; i < len; i++) {
+            lis[i].onclick = function() {
+                console.log(`索引=${i} 内容=${this.innerText}`);
+            }
+        };
+
+
+        /* const 声明常量 常量的名字建议使用大写(约定)*/
+        /* 变量的值是可以变化的，是可以改变和修改的 */
+        /* 常量的值是不可以变化的，是不可以被修改的。 */
+        let n = 100;
+        console.log(n);
+        n++;
+        console.log(n);
+
+        const PI = 3.14159;
+        console.log(PI);
+        /* 报错：Uncaught TypeError: Assignment to constant variable */
+        // PI = 1000;
+        // console.log(PI);
+    </script>
+</body>
+
+</html>

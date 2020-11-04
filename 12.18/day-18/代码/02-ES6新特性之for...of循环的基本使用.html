@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 扩展数组 */
+        Array.prototype.show = function() {
+            console.log("show-");
+        };
+
+        /* for..of遍历数组 */
+        let data = [100, "黄金", "白银", "青铜", "黑铁"];
+        /* [1] for循环 */
+        console.log("[1] for循环");
+        for (let index = 0; index < data.length; index++) {
+            const element = data[index];
+            console.log(index, element);
+            if (element == "黄金") break;
+        }
+        /* [2] forEach循环，无法中途退出*/
+        console.log("[2] forEach循环");
+        data.forEach((element, index) => {
+            console.log(index, element);
+        });
+
+        /* [3] for..in循环(不推荐) */
+        /* in关键字：for..in循环 && 检查对象中是否存在指定的成员   实例成员 && 原型成员*/
+        console.log("[3] for..in循环(不推荐)");
+        for (let key in data) {
+            console.log(key, data[key]);
+        }
+
+        /* [4] for...of循环 */
+        /* 简单，但是无法获取索引 ， element就代表当前的元素*/
+        console.log("[4] for..of循环(不推荐)");
+        for (let element of data) {
+            console.log(element);
+        }
+    </script>
+</body>
+
+</html>

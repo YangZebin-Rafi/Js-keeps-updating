@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <span>点击我生成验证码</span>
+    <br>
+    <br>
+    <br>
+    <br>
+    <span>我会变</span>
+    <button>点我改变</button>
+    <script>
+        /* 综合案例(02-生成随机验证码案例)  */
+        /* 需求1：要求的验证码格式：4位数字  3256 */
+        // console.log(03);
+        
+        /* 001-先获取页面的span标签 */
+        var oSpan = document.getElementsByTagName("span")[0];
+        var oSpan2=document.getElementsByTagName('span')[1]
+        var oBtn=document.getElementsByTagName('button')[0]
+        /* 002-添加点击事件 */
+        oSpan.onclick = function() {
+            /* 003-点击事件发生的时候，生成一个随机验证码 */
+            // var result = getVerificationCode();
+            var result = getVerificationCode("我你他它她塔恨爱看爱烦");
+            // var result = getVerificationCode("23e$@›#rywfrgfshjcbsdfv3264545@!34", 6);
+            /* 004-把验证码显示在标签中 */
+            oSpan.innerText = result;
+        };
+        // 事件二
+        let num=0
+        oBtn.onclick=function(){
+            
+            num++
+            let result = getVerificationCode('ad解放啦附加按劳动法激烈的附近埃里克的附近埃里克房间卡')
+            oSpan2.innerText=result
+            console.log(`随机到的文字为[     ${result}     ]`);
+            console.log(num);
+            if (num%2==0) {
+                oSpan2.style.color='green'
+                oSpan2.style.fontSize='50px'
+            } else {
+                oSpan2.style.color='red'
+                oSpan2.style.fontSize='20px'
+            }
+        }
+
+
+
+        /* 封装一个函数，这个函数的作用就是当调用该函数的时候就返回一个验证码 */
+        /* 方案(A) */
+        // function getVerificationCode() {
+        //     // return (Math.random() * 10000).toFixed(0);
+        //     // return parseInt(Math.random() * 10000) ;  //数字(9235 - 0214)
+        //     var val = parseInt(Math.random() * 10000);
+        //     val = val < 1000 ? "0" + val : val;
+        //     return val;
+        // }
+
+        /* 方案(B) */
+        // function getVerificationCode() {
+        //     var val = "";
+        //     for (var i = 0; i < 4; i++) {
+        //         val += parseInt(Math.random() * 10);
+        //     }
+        //     return val;
+        // }
+
+
+        /* 需求2：要求在指定的字符中随机选择4个字符生成一个验证码： */
+        /* "21343353765AEFRSNRGHBHFDEGG" => 1234 FRSN 2A3R*/
+        /* "我你他它她塔恨爱看爱烦" => "我你他爱" */
+        function getVerificationCode(str, len) {
+            len = len || 4; //如果len有值，那么结果就是len的值，如果len没有值，那么长度总是设置为4
+            var res = "";
+            for (var i = 0; i < len; i++) {
+                /* 字符串编号(0 ~ length-1)  [0-19] */
+                var index = parseInt(Math.random() * str.length);
+
+                /* i = 0 index = 2 res = "" + "他" = "他"*/
+                /* i = 1 index = 0 res = "他" + "我" = "他我"*/
+                res += str.charAt(index)
+            }
+            return res;
+        }
+        // getVerificationCode("2354", 4)
+        // getVerificationCode("2354")
+    </script>
+</body>
+
+</html>

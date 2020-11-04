@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <script>
+        /* 001-$.trim( ) 清理字符串开头和结尾位置的空格 */
+        /* ES5+ str.trim()    */
+        console.log($.trim("   ascb   "));
+
+        /* 002-toArray()   把jQuery实例对象转换数组 */
+        console.log($("div"));
+        /* 方案A */
+        let arr = [];
+        for (let i = 0, len = $("div").length; i < len; i++) {
+            arr.push($("div")[i]);
+        }
+        console.log(arr);
+        /* 方案B */
+        console.log(Array.from($("div")));
+        /* 方案C */
+        console.log($("div").toArray());
+
+        /* 003-makeArray() 把伪数组转换数组 */
+        console.log($.makeArray($("div")));
+        let likeArr = {
+            0: "zs",
+            1: "ls",
+            2: "ww",
+            length: 3
+        };
+        console.log($.makeArray(likeArr));
+
+        likeArr.toArray(); //错误的演示： Uncaught TypeError: likeArr.toArray is not a function
+    </script>
+</body>
+
+</html>

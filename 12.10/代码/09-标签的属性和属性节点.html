@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demoID" class="box" title="我是标题" xx="信息"></div>
+    <script>
+        /* 001-区分清除DOM标签的属性和属性节点 */
+        /* DOM标签是一种特殊的对象。 */
+        /* 标签的属性: innerHTML innerText baseURI title ...       直接保存在标签对象身上*/
+        /* 标签的属性节点： id="demoID" class="box" title="我是标题" 保存在标签对象的attributes属性上面  */
+
+        // var o = {
+        //     name: "as"
+        // };
+
+        /* 验证DOM标签是对象 */
+        /* (1) typeof 关键字  */
+        /* (2) 对象是键值对(key-value)的集合,只有对象才会有键值对。 */
+        var oDiv = document.querySelector("div");
+        // console.log(typeof o); /* object */
+        // console.log(typeof oDiv); /* object */
+        console.log(oDiv);
+
+        /* 002-如何操作属性？如何操作属性节点 */
+        /* 属性：像普通对象一样正常的进行操作 */
+        /* 添加属性 */
+        // oDiv.a1 = "我是a1";
+        // oDiv["a2"] = "我是a2";
+
+        // /* 修改属性 */
+        // oDiv.a1 = "我是a11111111";
+        // oDiv["a2"] = "我是a222222222";
+
+        // /* 查询属性 */
+        // console.log(oDiv.a1, oDiv["a2"]);
+
+        // /* 删除属性 */
+        // console.dir(oDiv);
+
+        // delete oDiv["a1"];
+        // Reflect.deleteProperty(oDiv, "a2");
+
+
+        /* 属性节点操作：调用对应的API方法来操作 */
+        /* 操作方式1 */
+        /* 查询属性节点 */
+        // console.log(oDiv.getAttribute("xx"));
+
+        // /* 添加属性节点(属性节点的名字，属性节点的值) */
+        // console.log(oDiv.setAttribute("index", 100));
+
+        // /* 修改属性节点(属性节点的名字，属性节点的值) */
+        // console.log(oDiv.setAttribute("index", 300));
+
+        // /* 删除属性节点 */
+        // oDiv.removeAttribute("xx");
+
+        /* 操作方式2 */
+        console.log(oDiv.attributes);
+        console.log(oDiv.attributes.getNamedItem("xx").nodeValue);
+        var attr = document.createAttribute("t");
+        attr.nodeValue = "兔兔兔兔兔兔图";
+        console.log(oDiv.attributes.setNamedItem(attr));
+        console.log(oDiv.attributes.removeNamedItem("t"));
+        // console.log(oDiv.attributes.removeNamedItemNS());
+    </script>
+</body>
+
+</html>

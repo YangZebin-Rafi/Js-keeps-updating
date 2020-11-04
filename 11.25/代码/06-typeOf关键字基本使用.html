@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 关键字:typeof */
+        /* 作用：检查数据的类型 */
+        /* 语法：typeof 变量 或者  typeof 数据 */
+        var str = "你好";
+        var num = 100;
+        var bool = false;
+        var testA = null;
+        var testB;
+
+        /* 表示查看str这个变量保存的数据是什么类型的？ */
+        console.log(typeof str); /* string */
+        console.log(typeof "哈哈"); /* string */
+
+        console.log(typeof num); /* number */
+        console.log(typeof bool); /* boolean */
+        console.log(typeof testB); /* undefined */
+
+        /* 注意1：typeof null == "object"  其实这是JavaScript语言设计的一个错误。 */
+        console.log(typeof testA); /* object */
+
+        /* 注意2：typeof关键字返回的是指定数据的类型,这个类型本身是字符串类型的 */
+        var result = typeof "嘿嘿";
+        console.log(result); /* string */
+        console.log(typeof "哈哈"); /* string */
+        console.log(typeof typeof "哈哈"); /* => typeof "string" => "string" */
+        console.log(typeof typeof 123); /* => typeof "number" => "string" */
+        console.log(typeof typeof typeof typeof typeof typeof typeof 123); /* "string" */
+    </script>
+</body>
+
+</html>

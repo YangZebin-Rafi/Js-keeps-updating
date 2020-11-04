@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 方式(1) -->
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
+    <!-- 方式(2) -->
+    <script src="./lib/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <button id="getID">GET请求</button>
+    <button id="postID">POST请求</button>
+    <script>
+        /* 语法：$.ajax(options) */
+        /*  options 的配置项有哪些： */
+        /*  type：请求方法 */
+        /*  data:提交的参数 */
+        /*  url: 请求路径 */
+        /*  success：请求成功的回调函数*/
+        /*  error  : 请求失败的回调函数 */
+        /*  cache  : 是否使用缓存(true/false) */
+        /*  async  : 是否发送异步请求 */
+        /*  dataType: 服务器返回的数据类型：text json xml jsonp... */
+
+        $("#getID").click(() => {
+            $.ajax({
+                cache: true,
+                async: false,
+                type: "get",
+                // data: {
+                //     username: "zs",
+                //     password: "123456"
+                // },
+                data: "username=lw&password=123456",
+                url: "../server/06-jq_ajax.php",
+                success(data) {
+                    console.log("成功 ", data);
+                },
+                error(xhr, status) {
+                    console.log("失败 ", xhr, status);
+                }
+            })
+        })
+
+
+        $("#postID").click(() => {
+            // $.ajax({
+            //     type: "post",
+            //     data: "username=lw&password=123456",
+            //     url: "../server/06-jq_ajax.php",
+            //     success(data) {
+            //         console.log("成功 ", data);
+            //     },
+            //     error(xhr, status) {
+            //         console.log("失败 ", xhr, status);
+            //     }
+            // })
+
+            $.ajax({
+                type: "post",
+                url: "../server/07-jq_ajax.php",
+                dataType: "json", //表示告诉jQuery框架，服务器返回的是JSON数据
+                success(data) {
+                    console.log("成功 ", data);
+                    // /* 如果服务器返回的数据是JSON数据，那么需要把JSON数据转换为JavaScript对象，然后再处理 */
+                    // let o = JSON.parse(data);
+                    // console.log(o, o.name, o.age);
+                },
+                error(xhr, status) {
+                    console.log("失败 ", xhr, status);
+                }
+            })
+
+        })
+    </script>
+</body>
+
+</html>

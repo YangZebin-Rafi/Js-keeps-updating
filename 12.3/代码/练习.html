@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 200px;
+            border: 2px solid #000;
+            border-radius: 20px;
+            padding: 5px;
+        }
+        
+        * {
+            list-style: none
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <strong>本报讯.前方记者文顶顶最新消息：</strong>
+        <ul id="list">
+
+        </ul>
+    </div>
+    <input type="text" placeholder="请输入新闻标题">
+    <button>添加最新的新闻数据</button>
+    <script>
+        
+        let oList=document.getElementById('list')
+        let oInput=document.getElementsByTagName('input')[0]
+        let oBtn=document.getElementsByTagName('button')[0]
+
+        var news = [
+            "今天我起床的时候看到了星星！",
+            "陈老师终于结束20多年单身生活。",
+            "今天雷雨交加，泪水打湿了双眼。",
+            // "知名记者昨晚在金丰会所拍到了田田。",
+            // "爆炸新闻，蔡童靴高调宣布进军娱乐圈。"
+        ];
+        renderUI()
+        function renderUI(){
+            let res=news.map(function (item,index) {
+                return `<li>${item}</li>`
+            }).join('')
+            oList.innerHTML=res
+        }
+        oBtn.onclick=function () {
+            let text=oInput.value
+            news.unshift(text)
+            if (news.length>5) {
+                news.pop()
+            }
+            renderUI()
+        }
+
+
+    </script>
+</body>
+</html>

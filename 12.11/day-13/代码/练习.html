@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            list-style: none
+        }
+
+        .box {
+            margin: 50px auto;
+            width: 600px;
+            position: relative;
+        }
+
+        ul {
+            width: 100%;
+            /* margin: 5px; */
+            padding: 2px;
+            min-height: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 2px solid #666;
+            border-radius: 10px;
+        }
+
+        li {
+            padding: 0 8px;
+            margin: 2px;
+            background: #ccc;
+            float: left;
+            line-height: 30px;
+            height: 30px;
+            border-radius: 10px;
+            clear: both;
+        }
+
+        .my-msg {
+            float: right;
+            background: #58bc58;
+            color: #fff
+        }
+
+        textarea {
+            margin: 5px;
+            width: 100%;
+            min-height: 50px;
+        }
+
+        .status {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #555;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+
+        </ul>
+        <textarea class="text"></textarea>
+        <button>发送消息</button>
+        <div class="status">对方正在输入......</div>
+    </div>
+    <script>
+        // 先给按钮添加点击事件，当点击的时候获取输入框的内容，并根据内容来创建li标签插入到页面中
+        var oBtn = document.querySelector('button')
+        var oTextarea = document.querySelector('textarea')
+        var oUl = document.querySelector('ul')
+        var oStatus = document.querySelector('.status')
+        oBtn.onclick = function () {
+            var text = oTextarea.value;
+
+            // 清空输入框
+            oTextarea.value = "";
+            // 创建li标签
+            var oLi = document.createElement('li');
+            // 把数据传入li里面
+            oLi.innerText = text;
+            oLi.className='my-msg'
+            oLi.setAttribute('class','my-msg')
+            // 创建li的类
+            oLi.classList.add('my-msg')
+            oUl.appendChild(oLi)
+            // 把提示信息文字设置为块
+            oStatus.style.display = 'block'
+            // 当发送消息按钮被点击就回复（li标签插入ul中）
+            var q = ["在吗", "我喜欢你", "今晚我能去你家吗？", "你今天真好看。", "你有对象了吗？", "今晚出来方便吗？"];
+            var a = ["不在。", "遇见你真好", ["不好意思，我四海为家。", "好呀 好呀", "今晚不方便，改天", "我们出去吧，今晚酒店打折"], "我每天都好看",
+                "正在发展，我正在和我的目标对象聊天？", "我家有厕所"
+            ];
+            // 判断q里面有没有输入的text的文字，有的话输出1，没有就-1
+            var index = q.indexOf(text)
+
+            // 有问必回的方式
+            var responseText = index == -1 ? "我晚点再回复你，我现在去洗澡了" : (!Array.isArray(a[index]) ? a[index]:a[index][getNumber(0,a[index].length-1)]);
+            // 创建标签
+            var oLiB=document.createElement('li')
+            // 创建文本节点
+            oLiB.innerText=responseText;
+            // 设置回答的时间
+            setTimeout(function(){
+                // 把oLiB标签添加到oul
+                oUl.appendChild(oLiB);
+                oStatus.style.display='none'
+
+            },getNumber(500,5000) )
+            function getNumber(min,max){
+                return parseInt(Math.random()*(max-min+1)+min)
+            }
+        }
+    </script>
+</body>
+
+</html>

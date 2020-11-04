@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="请输入用户名" value="123">
+    <script>
+        /* input事件：当输入框的内容发生变化的时候会触发，触发N次 */
+        var oInput = document.querySelector("input");
+        oInput.oninput = function() {
+            console.log(oInput.value, this.value);
+        }
+
+        /* change:当输入框失去焦点的时候，会比较输入框当前的值和以前的值，如果发现不同(那么就触发该事件) */
+        oInput.onchange = function() {
+            console.log("监听到输入框改变-change");
+        }
+    </script>
+</body>
+
+</html>

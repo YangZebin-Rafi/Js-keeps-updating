@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 获取跟当前网页地址相关的信息：location */
+        console.log(window.location);
+        // hash: ""             哈希值
+        // host: ""             主机地址
+        // hostname: ""         主机地址名字
+        // href:                当前网页的地址(URL)
+        // origin: "file://"    域：协议(决定访问资源 如果是file协议表示要在当前电脑中查找，如果是HTTP表示要在互联网上查找，FTP://要在共享主机上面查找)
+        // pathname:            资源路径
+        // port: ""             端口号(默认HTTP的端口号是80 , HTTPS默认的端口号是443)
+        // protocol: "file:"    协议
+        // search: ""           查询字符串(queryString)
+        // replace: ƒ()         替换(加载一个新的页面以替换当前页面)  
+        // reload: ƒ reload()   重新加载(刷新)
+
+        // hash:  哈希(锚点)
+        // host: "search.jd.com"
+        // hostname: "search.jd.com"
+        // href: "https://search.jd.com/Search?keyword=p30&enc=utf-8&wq=p30&pvid=84244de501d04209aef41b06e9c27101#123"
+        // origin: "https://search.jd.com"
+        // pathname: "/Search"
+        // port: ""  443
+        // protocol: "https:"  协议
+        // reload: ƒ reload()
+        // replace: ƒ()
+        // search: "?keyword=p30&enc=utf-8&wq=p30&pvid=84244de501d04209aef41b06e9c27101"  
+
+
+        /* URL:统一资源定位符(身份证)，通过URL可以找到互联网上的唯一一个资源。 */
+        /* 格式： https://search.jd.com/Search?keyword=p30&enc=utf-8&wq=p30&pvid=84244de501d04209aef41b06e9c27101*/
+        /* 格式： 协议：+ 主机地址：端口号 + 资源路径 + 查询字符串  */
+
+        /* reload 重新加载(刷新) */
+        /* window.location.replace("http://www.baidu.com")   加载百度来替换当前页面 */
+    </script>
+</body>
+
+</html>

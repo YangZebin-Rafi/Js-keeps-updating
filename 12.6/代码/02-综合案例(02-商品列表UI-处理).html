@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none
+        }
+        
+        .box {
+            width: 900px;
+            /* height: 800px; */
+            /* border: 1px solid #000; */
+            margin: 10px auto
+        }
+        
+        .list-item {
+            width: 200px;
+            height: 300px;
+            border: 1px solid #aaa;
+            margin: 5px;
+            float: left;
+            text-align: center
+        }
+        
+        .list-item img {
+            margin-top: 2px;
+            width: 150px;
+        }
+        
+        .list-item .item-price {
+            color: red;
+            font-size: 20px;
+            /* text-align: left; */
+            /* margin-left: 10px; */
+        }
+        
+        .list-item .item-name {
+            color: #666;
+            font-size: 16px;
+            overflow: hidden;
+            width: 180px;
+            margin: 8px;
+            height: 30px;
+            line-height: 30px;
+            /* text-align: left; */
+            /* margin-left: 10px; */
+        }
+        
+        .list-item .item-press {
+            color: goldenrod;
+            font-size: 14px;
+            /* text-align: left; */
+            /* margin-left: 10px; */
+        }
+        
+        .list-item .item-commit {
+            color: #000;
+            font-size: 14px;
+            /* text-align: left; */
+            /* margin-left: 10px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="list">
+            <!-- <li class="list-item">
+                <img src="https://img12.360buyimg.com/n1/jfs/t18727/11/537625758/296118/938d791f/5a93c36fN44a747c0.jpg" alt="">
+                <div class="item-price">$99.8</div>
+                <div class="item-name">C语言编程从入门到放弃</div>
+                <div class="item-commit">总计9999评价</div>
+                <div class="item-press">哈哈哈出版社</div>
+            </li>
+            <li class="list-item">
+                <img src="https://img12.360buyimg.com/n1/jfs/t18727/11/537625758/296118/938d791f/5a93c36fN44a747c0.jpg" alt="">
+                <div class="item-price">$99.8</div>
+                <div class="item-name">C语言编程从入门到放弃</div>
+                <div class="item-commit">总计9999评价</div>
+                <div class="item-press">哈哈哈出版社</div>
+            </li>
+            <li class="list-item">
+                <img src="https://img12.360buyimg.com/n1/jfs/t18727/11/537625758/296118/938d791f/5a93c36fN44a747c0.jpg" alt="">
+                <div class="item-price">$99.8</div>
+                <div class="item-name">C语言编程从入门到放弃</div>
+                <div class="item-commit">总计9999评价</div>
+                <div class="item-press">哈哈哈出版社</div>
+            </li>
+            <li class="list-item">
+                <img src="https://img12.360buyimg.com/n1/jfs/t18727/11/537625758/296118/938d791f/5a93c36fN44a747c0.jpg" alt="">
+                <div class="item-price">$99.8</div>
+                <div class="item-name">C语言编程从入门到放弃</div>
+                <div class="item-commit">总计9999评价</div>
+                <div class="item-press">哈哈哈出版社</div>
+            </li> -->
+        </ul>
+    </div>
+
+    <!-- 001 引入数据 -->
+    <script src="./data.js"></script>
+    <script>
+        /* 002-获取页面中的ul标签 */
+        var oUl = document.getElementsByClassName("list")[0];
+        console.log(oUl);
+
+        /* 003-数据渲染 */
+        var res = books.map(function(item, index) {
+            var html = `
+              <li class="list-item">
+                <img src=${item.src} alt="" title=${item.title}>
+                <div class="item-price">${item.price}</div>
+                <div class="item-name" title=${item.title}>${item.name}</div>
+                <div class="item-commit">${item.commit}</div>
+                <div class="item-press">${item.press}</div>
+              </li>`
+            return html;
+        }).join("");
+        // console.log(res);
+
+        /* 004-设置显示在页面中 */
+        oUl.innerHTML = res;
+    </script>
+</body>
+
+</html>

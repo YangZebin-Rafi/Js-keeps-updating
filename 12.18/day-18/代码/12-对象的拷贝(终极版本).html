@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let o1 = {
+            name: "zs",
+            age: 19,
+            car: {
+                color: "白色",
+                price: "10000",
+                info: {
+                    xx: "ssda"
+                }
+            },
+            regExp: /^1[3-9]\d{9}$/, //正则的内容会丢失
+            id: undefined, //JSON数据中没有undefined这种类型
+            friends: ["张思瑞", "张思明", [100, 200], {
+                name: "zs"
+            }],
+        }
+
+        // let o2 = {};
+
+        // function deepCopy(target) {
+        //     if (target == null) return target; //null && undefined
+        //     if (typeof target != "object") return target;
+        //     /* 引用类型的数据：数组|对象|日期|正则表达式 */
+        //     /* new Date(2019，10，20) | new Date("2019-10-02")  | new Date(2344565454)*/
+        //     if (target instanceof Date) return new Date(target.getTime());
+        //     if (target instanceof RegExp) return new RegExp(target);
+        //     if (Array.isArray(target)) {
+        //         let t = [];
+        //         for (const key in target) {
+        //             if (target.hasOwnProperty(key)) {
+        //                 t[key] = deepCopy(target[key])
+        //             }
+        //         }
+        //         return t;
+        //     } else {
+        //         let t = {};
+        //         for (const key in target) {
+        //             if (target.hasOwnProperty(key)) {
+        //                 t[key] = deepCopy(target[key])
+        //             }
+        //         }
+        //         return t;
+        //     }
+
+        // }
+
+        function deepCopy(target) {
+            if (target == null) return target;
+            if (typeof target != "object") return target;
+            if (target instanceof Date) return new Date(target.getTime());
+            if (target instanceof RegExp) return new RegExp(target);
+            let t = new target.constructor;
+            for (const key in target) {
+                if (target.hasOwnProperty(key)) {
+                    t[key] = deepCopy(target[key])
+                }
+            }
+            return t;
+        }
+        console.log(deepCopy(null)); //null
+        console.log(deepCopy(undefined)); //undefined
+        console.log(deepCopy("晴天")); //晴天
+        console.log(deepCopy(123)); //123
+        console.log(deepCopy(true)); //true
+
+        let date = new Date();
+        console.log(deepCopy(date));
+        console.log(deepCopy(["张思瑞", "张思明", [100, 200], {
+            name: "zs"
+        }]));
+
+        let o2 = deepCopy(o1);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 在其它的典型的面向对象编程语言中，继承是基于class来实现(父类-子类)  动物类-狗类-哈士奇类 */
+        /* JavaScript早期并没有class的概念，因此它的继承基于来对象来实现。 */
+        /* 继承：子类获取父类的属性和方法的一种行为 | 子对象获取父对象的属性和方法的一种行为 */
+
+        /* 001-面向对象编程之继承(混入式继承) */
+        let o = {
+            name: "zs",
+            showName: function() {
+                console.log(this.name);
+            }
+        }
+
+        let t = {};
+        /* 拷贝：浅拷贝和深拷贝 */
+        // for (let key in o) {
+        //     t[key] = o[key]
+        // }
+        Object.assign(t, o);
+        console.log(t);
+    </script>
+</body>
+
+</html>

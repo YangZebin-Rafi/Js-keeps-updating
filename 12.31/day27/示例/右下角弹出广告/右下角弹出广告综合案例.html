@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    body{
+      height: 1000px;
+    }
+    .ad{
+      width: 357px;
+      height: 181px;
+      background: url("src/123.png");
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      display: none;
+    }
+
+    .close
+    {
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      /*background: indianred;*/
+      float: right;
+      right: 5px;
+      top: 5px;
+      position: relative;
+    }
+  </style>
+  <script src="src/jquery-3.4.1.js"></script>
+
+</head>
+<body>
+<div class="ad"><span class="close"></span></div>
+<script>
+  $(function () {
+    $(".ad").slideDown().fadeOut().fadeIn().delay(3000).slideUp();
+
+    $(".close").click(function () {
+      $(this).parent().stop().slideUp();
+    })
+  })
+</script>
+</body>
+</html>

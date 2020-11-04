@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: #000
+        }
+        
+        .ball {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/basketball.jpg" class="ball">
+    <script>
+        var offset = 10;
+        var oImg = document.querySelector("img");
+        /* 目标值 */
+        var targetOffset = window.innerHeight - oImg.offsetHeight;
+        var timer = setInterval(function() {
+            offset++;
+            /* 001-先获取当前的left值 */
+            var top = oImg.offsetTop + offset;
+            if (top >= targetOffset) {
+                top = targetOffset;
+                clearInterval(timer);
+            }
+            /* 002-在当前left值的基础上 +offset */
+            oImg.style.top = top + "px";
+
+        }, 100);
+    </script>
+</body>
+
+</html>

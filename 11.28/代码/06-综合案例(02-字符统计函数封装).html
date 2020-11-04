@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // [2] 封装函数，该函数接收两个参数，一个参数是目标字符串，一个参数为指定的单字符，作用是统计指定字符在目标字符串中出现的次数。
+        // 示例：传入 "Xiao Xia and Xiao Ming" 和"X"，函数调用的结果应该为3(即在目标字符串中X这个字符总共出现了3次)。
+
+        /* 分析：声明函数，该函数拥有两个参数，要把结果返回 */
+        /* 参数：第一个参数是目标字符串，第二个参数是要统计的字符 */
+        /* 返回值：统计的字符出现次数 */
+        function charCount(str, s) {
+            var count = 0;
+            /* 思路：遍历字符串，依次获取字符串中每一个字符，拿当前的字符和目标字符进行比较，如果匹配那么就+1 */
+            for (var i = 0, len = str.length; i < len; i++) {
+                if (str.charAt(i) == s) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        var res1 = charCount("Xiao Xia and Xiao Ming", "X"); //3
+        var res2 = charCount("Nice to meet u", "X"); //0
+        var res3 = charCount("Nice to meet u", "N"); //1
+        var res4 = charCount("Nice to meet u", "e"); //3
+        console.log(res1, res2, res3, res4);
+// 实例2
+        
+        function select(len,j) {
+            let count2=0
+            for (let i = 0; i < len.length; i++) {
+                // const element = array[i];
+                if (len.charAt(i)==j) {
+                    count2++
+                }                
+            }
+            return count2;
+        }
+        let w=select('jinjin what a nice girl','j')
+        console.log(`w=${w}`);
+    </script>
+</body>
+
+</html>

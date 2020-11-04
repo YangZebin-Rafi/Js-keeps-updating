@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* ① 单分支结构  */
+        /* 语法：if(条件){代码段} */
+        /* 用法：如果条件满足，那么就执行代码段，否则就当什么都每发生 */
+        // var flag = false;
+        // if (flag) {
+        //     console.log("请假一天");
+        // }
+        // console.log("____");
+
+        /* ② 双分支结构 */
+        /* 语法：if(条件){代码段1}else{代码段2} */
+        /* 用法：如果条件满足，那么就执行代码段1，否则就执行代码段2 */
+        // var isHot = false;
+        // if (isHot) {
+        //     console.log("我就不穿衣服出门，裸奔");
+        // } else {
+        //     console.log("我就把自己裹成一个粽子，滚着出发");
+        // }
+        // console.log("+++");
+
+        /* ③ 多分支结构 */
+        /* 语法：if(条件1){代码段1}else if(条件2){代码段2} else if(条件3){代码段3}else{代码段4} */
+        /* 用法：如果条件1满足，那么就执行代码段1，如果不满足那么就检查条件2是否满足，
+                如果条件2满足就执行代码段2，如果条件2不满足那么就检查条件3是否满足，
+                如果条件3满足就执行代码段3，否则就执行代码段4
+                */
+        var m = -100;
+        if (m == 0) {
+            console.log("乖乖起床去坐30站公交上班");
+        } else if (m == 5) {
+            console.log("在路边买早餐的时候+鸡蛋");
+        } else if (m == 1000) {
+            console.log("飘了+请朋友大保健一次 花费5000块");
+        } else if (m == 10000) {
+            console.log("买一个iphone 11 pro 送给对象");
+        } else if (m == 10000000000) {
+            console.log("哥们要睡上一整天");
+        } else {
+            console.log("再说吧，今晚做梦先到这里吧")
+        }
+    </script>
+</body>
+
+</html>

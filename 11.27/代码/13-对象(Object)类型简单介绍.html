@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 对象：把很多数据以特定的方式组织在一起就形成一个对象。 */
+        // var name = "lt";
+        // var age  =  19;
+        // var address = "天上人间";
+        // var price   = 88888;
+
+
+        var person = {
+            name: "lt",
+            /* name是key,lt是value */
+            age: 19,
+            address: "天上人间",
+            price: 88888,
+            info: {
+                color: "yellow",
+                className: "1913"
+            },
+            friends: ["佩琪", "乔治", "猪爸爸", "猪坚强", "猪妈妈"]
+        }
+
+        /* 001-对象相关的概念 : 对象可以认为是键值对的集合。*/
+        /* 键值对(key-value) key:value */
+
+        console.log(person);
+
+        /* 002-访问对象的内容 */
+        /* [1] 点语法(建议) */
+        console.log(person.name, person.friends, person.price);
+        /* [2] []语法 */
+        console.log(person["name"], person["friends"], person["price"]);
+
+        /* 003-遍历对象，把对象中的每个成员都列举出来 */
+        /* for...in循环 */
+        for (var key in person) {
+            console.log(`key = ${key} , value = `, person[key]);
+            console.log(key,person[key]);
+        }
+    </script>
+</body>
+
+</html>

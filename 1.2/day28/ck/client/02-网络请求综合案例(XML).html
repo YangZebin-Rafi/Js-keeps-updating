@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 500px;
+            height: 400px;
+            border: 1px solid #195;
+            box-sizing: border-box;
+            margin: 50px auto;
+        }
+        
+        h3,
+        h4 {
+            text-align: center;
+        }
+        
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 300px;
+            height: 300px;
+            background-size: cover;
+        }
+        
+        .box>div {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+    <script src="./js/ajax.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <h3>类别名称</h3>
+        <h4>描述信息</h4>
+        <img src="./img/0.png" alt="">
+        <div id="btn">
+            <button data-type="nz">女装</button>
+            <button data-type="bb">包包</button>
+            <button data-type="xz">鞋子</button>
+        </div>
+    </div>
+    <script>
+        /* 000-获取页面的标签 */
+        let oTitle = document.querySelector("h3");
+        let oDes = document.querySelector("h4");
+        let oImg = document.querySelector("img");
+
+        /* 001-先获取按钮给按钮添加点击事件(事件委托) */
+        let oBtn = document.querySelector("#btn");
+        oBtn.onclick = function(e) {
+            e = e || window.event;
+            let target = e.target || e.srcElement;
+            if (target.nodeName == "BUTTON") {
+                // console.log(target);
+                let typeValue = target.dataset.type; /* 获取按钮标签的data-type属性节点值 */
+                netWork(typeValue);
+            }
+        };
+
+        netWork("nz");
+
+        /* 002-当点击按钮的时候，发送网络请求给服务器获取对应的数据(传递参数) */
+        function netWork(val) {
+            $.get({
+                url: "../server/02-ajax.php",
+                data: null,
+                success(xhr) {
+                    /* 001-打印服务器返回的XML数据 */
+                    // console.log(xhr.responseXML);
+                    let xml = xhr.responseXML;
+                    let productXml = xml.getElementById(val);
+
+                    /* xml节点中没有innerText属性 */
+                    let title = productXml.getElementsByTagName("title")[0].innerHTML;
+                    let des = productXml.getElementsByTagName("des")[0].innerHTML;
+                    let src = productXml.getElementsByTagName("src")[0].innerHTML;
+                    oTitle.innerText = title;
+                    oDes.innerText = des;
+                    oImg.src = src;
+                    // console.log(productXml, title);
+                },
+                error(xhr) {
+                    console.log("失败", xhr.statusText);
+                },
+                timeout: 1000
+            })
+        }
+        console.log($);
+
+        /* 数据过滤操作：(1) 在后台处理[JSON]   (2) 在前端处理[XML] */
+    </script>
+</body>
+
+</html>

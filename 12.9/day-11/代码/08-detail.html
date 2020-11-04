@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>详情页面</h1>
+    <h1 id="name">商品名字：</h1>
+    <div id="price">商品价格：</div>
+    <img src="" alt="" id="imgID">
+    <script>
+        /* 获取当前页面URL路径中的查询字符串并并且中文转码处理 */
+        var queryString = decodeURI(window.location.search.slice(1)); //删除字符串中的？
+        var data = queryString2Obj(queryString);
+        // console.log(data);
+
+        var _name = document.getElementById("name");
+        var _price = document.getElementById("price");
+        var _img = document.getElementById("imgID");
+        _name.innerText = data.name;
+        _price.innerText = data.price;
+        _img.src = data.src;
+
+        /* 注意点：URL中不允许有中文，如果有中文那么会进行字符转码 */
+        /* encodeURI()  中文->字符串*/
+        /* decodeURI()  字符串->中文*/
+
+        function queryString2Obj(str) {
+            /* name=zs&age=19&address=广州 */
+            var obj = {};
+            var arr1 = str.split("&"); /* ["name=zs","age=19"] */
+            for (var i = 0, len = arr1.length; i < len; i++) {
+                var arr2 = arr1[i].split("="); //["name","zs"]
+                obj[arr2[0]] = arr2[1];
+            }
+            return obj;
+        }
+    </script>
+</body>
+
+</html>

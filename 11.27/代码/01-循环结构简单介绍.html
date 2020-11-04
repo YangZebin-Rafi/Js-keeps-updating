@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 循环结构：重复的执行某些特定的操作。 */
+        /* 实现： */
+        /* (1) while */
+        /* (2) do..while */
+        /* (3) for */
+
+        /* 要素： */
+        /* [1] 是否要开始循环的条件检查 */
+        /* [2] 是否要结束循环的条件检查  */
+        /* [3] 具体的任务 */
+        /* 需求：打印1-10之间的数字 */
+
+        /* 语法 */
+        /* while(循环条件){ 循环体 } */
+
+        var i = 100;
+        while (i <= 3) {
+            // console.log(i);
+            // i++;
+            console.log(i++);
+        }
+        console.log("end");
+
+        /* 内部执行逻辑 */
+        /* ① 先初始化变量 i = 1 */
+        /* ② 检查循环条件是否成立 (i <= 3是否成立) */
+        /* ③ 如果成立，那么就会执行一次循环体[console.log(i); i++; ] => i = 2*/
+        /* ④ 重新检查循环条件是否成立( 2 <= 3 ) 成立 */
+        /* ⑤ 执行循环体 [console.log(i); i++; ] => i = 3 */
+        /* ⑥ 重新检查循环条件是否成立( 3 <= 3 ) 成立 */
+        /* 7 执行循环体 [console.log(i); i++; ] => i = 4 */
+        /* 8 重新检查循环条件是否成立( 4 <= 3 ) 不成立 */
+        /* 9 循环结束了，执行循环后面的代码 */
+    </script>
+</body>
+
+</html>

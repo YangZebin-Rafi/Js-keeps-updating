@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            list-style: none
+        }
+        
+        .box {
+            margin: 50px auto;
+            width: 600px;
+            position: relative;
+        }
+        
+        ul {
+            width: 100%;
+            /* margin: 5px; */
+            padding: 2px;
+            min-height: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 2px solid #666;
+            border-radius: 10px;
+        }
+        
+        li {
+            padding: 0 8px;
+            margin: 2px;
+            background: #ccc;
+            float: left;
+            line-height: 30px;
+            height: 30px;
+            border-radius: 10px;
+            clear: both;
+        }
+        
+        .my-msg {
+            float: right;
+            background: #58bc58;
+            color: #fff
+        }
+        
+        textarea {
+            margin: 5px;
+            width: 100%;
+            min-height: 50px;
+        }
+        
+        .status {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #555;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <!-- <li class="my-msg">在吗？</li>
+            <li>在！</li>
+            <li class="my-msg">有空吗？</li>
+            <li>没空</li>
+            <li>今天天气如何?</li> -->
+        </ul>
+        <textarea class="text"></textarea>
+        <button>发送消息</button>
+        <div class="status">对方正在输入....</div>
+    </div>
+    <script>
+        /* 核心： ① 发送消息  ② 智能回复AI*/
+
+        /* ① 发送消息  */
+        /* 先给按钮添加点击事件，当点击的时候获取输入框的内容，并且根据该内容来创建li标签插入到页面中 */
+        var oBtn = document.querySelector("button");
+        var oTextarea = document.querySelector("textarea");
+        var oUl = document.querySelector("ul");
+        var oStatus = document.querySelector(".status");
+
+        oBtn.onclick = function() {
+            var text = oTextarea.value;
+
+            /* 清空输入框 */
+            oTextarea.value = "";
+            var oLi = document.createElement("li");
+            oLi.innerText = text;
+            // oLi.className = "my-msg";
+            // oLi.setAttribute("class","my-msg");
+            oLi.classList.add("my-msg");
+            oUl.appendChild(oLi);
+            oStatus.style.display = "block";
+
+            /* ② 智能回复AI */
+            /* AI:预设 */
+            /* 在吗？  你猜一猜？ */
+            /* 我喜欢你。   遇见你真好。 */
+            /* 今晚我能去你家吗？  不好意思，我四海为家。 */
+            /* 你今天真好看。     我每天都好看。 */
+            /* 你有对象了吗？     正在发展，我正在和我的目标对象聊天？ */
+
+            // 女孩：我喜欢上一个了男生，我想跟他表白。
+            // 男孩：祝福你们。
+            // 女孩：我已经暗示他了，但是他还没听懂。
+            // 男孩：我也喜欢你。
+            // 女孩：李峰刚答应和我在一起了。
+
+            /* 思路：当发送消息按钮被点击后就应该 回复(创建li标签插入ul中)。 */
+            var q = ["在吗？", "我喜欢你", "今晚我能去你家吗？", "你今天真好看。", "你有对象了吗？", "今晚出来方便吗？"];
+            var a = ["不在。", "遇见你真好", ["不好意思，我四海为家。", "好呀 好呀", "今晚不方便，改天", "我们出去吧，今晚酒店打折"], "我每天都好看", "正在发展，我正在和我的目标对象聊天？", "我家有厕所"];
+            var index = q.indexOf(text); //1 ? -1 
+
+            var responseText = index == -1 ? "我晚点再回复你，我现在去洗澡了" : (!Array.isArray(a[index]) ? a[index] :
+                a[index][getNumber(0, a[index].length - 1)]);
+
+            var oLiB = document.createElement("li");
+            oLiB.innerText = responseText;
+
+            setTimeout(function() {
+                oUl.appendChild(oLiB);
+                oStatus.style.display = "none";
+            }, getNumber(500, 5000))
+        }
+
+        function getNumber(min, max) {
+            return parseInt(Math.random() * (max - min + 1)) + min
+        }
+    </script>
+</body>
+
+</html>

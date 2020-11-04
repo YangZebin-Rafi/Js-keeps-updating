@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let o1 = {
+            name: "zs",
+            age: 19,
+            car: {
+                color: "白色",
+                price: "10000",
+                info: {
+                    xx: "ssda"
+                }
+            },
+            regExp: /^1[3-9]\d{9}$/, //正则的内容会丢失
+            id: undefined, //JSON数据中没有undefined这种类型
+            friends: ["张思瑞", "张思明"],
+        }
+
+        let o2 = {};
+
+        /* 深拷贝：两个对象的数据没有任何共享问题。 */
+        /* 递归函数：自己调用自己。 */
+        /* [2] 封装函数 : 遍历对象检查每个要拷贝的数据类型，如果是值类型的数据那么就直接拷贝否则就再拷贝一层*/
+        function deepCopy(target, o) {
+            for (const key in target) {
+                if (target.hasOwnProperty(key)) {
+                    if (typeof target[key] == "object" && target[key] != null) {
+                        /* 引用类型的数据 */
+                        // o.car = {};
+                        // o.car.color = o1.car.color;
+                        // o.car.price = o1.car.price;
+                        // for (const t in target[key]) {
+                        //     if (target[key].hasOwnProperty(t)) {
+                        //         o[key][t] = target[key][t];
+                        //     }
+                        // }
+                        o[key] = Array.isArray(target[key]) ? [] : {};
+                        deepCopy(target[key], o[key]);
+                    } else {
+                        /* 值类型的数据 */
+                        o[key] = target[key];
+                    }
+                }
+            }
+        }
+
+        deepCopy(o1, o2);
+    </script>
+</body>
+
+</html>

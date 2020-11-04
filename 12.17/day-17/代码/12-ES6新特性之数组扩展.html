@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-Array.from(likeArray)  */
+        /* 作用：把伪数组转换为真正的数组 */
+        /* 伪数组：本身是对象，但是跟数组很像(key从0开始依次递增，并且拥有length属性，length属性的值==最大key +1) */
+        var likeArray = {
+            0: "zs",
+            1: "lw",
+            2: "wv",
+            length: 3
+        }
+        var arr = ["zs", "lw", "wc"];
+        console.log(arr);
+        console.log(likeArray);
+
+        console.log(Array.from(likeArray));
+
+        /* 002-Array.of() */
+        /* 作用：以统一的方式来创建数组 */
+        /* 复习：创建数组的方式 */
+        /* (1) 字面量 */
+        var a1 = [10, 20, 30];
+        /* (2) 构造函数 */
+        var a2 = new Array(200, 300, 400); //[200,300,400]
+        var a3 = new Array("皮皮虾", "屁屁球"); //["皮皮虾"，"屁屁球"]；
+        var a4 = new Array("熊大"); //["熊大"]
+        var a5 = new Array(3); //[3] 错误！！！ [undefined,undefined,undefined]
+
+        let a6 = Array.of(200, 300, 400); //[200,300,400]
+        let a7 = Array.of("皮皮虾", "屁屁球"); //["皮皮虾"，"屁屁球"]；
+        let a8 = Array.of("熊大"); //["熊大"]
+        let a9 = Array.of(3); //[3]
+
+        /* 003-Array.includes()  */
+        /* 作用：检查数组中是否包含某个特定的元素 */
+        /* 复习： */
+        /* (1) 遍历查找 */
+        function hasEleWithArrA(arr, target) {
+            let flag = false;
+            for (let index = 0; index < arr.length; index++) {
+                const element = arr[index];
+                if (element == target) {
+                    flag = true;
+                    break;
+                }
+            }
+            return flag;
+        }
+        var arrT = ["佩琪", "乔治", "吉吉", "毛毛", "熊大", "小奶狗"];
+        let isHasA = hasEleWithArrA(arrT, "小奶狗");
+        console.log(isHasA);
+        /* (2) arr.indexOf() 查找数组中指定元素，如果存在那么就返回索引，否则就返回-1 */
+        function hasEleWithArrB(arr, target) {
+            return arr.indexOf(target) != -1;
+        }
+        let isHasB = hasEleWithArrA(arrT, "光头强");
+        console.log(isHasB);
+
+        /* (3) includes*/
+        console.log(arrT.includes("吉吉"), arrT.includes("光头强")); /* true false */
+
+
+        /* 004- arr.find() arr.findIndex()  查找满足条件的元素，如果找到那么就返回该元素|索引。 */
+        let data = [100, 200, true, "吉吉", 50, "毛啊摸"];
+        let ele = data.find(function(ele, index) {
+            // return typeof ele == "string";
+            return typeof ele == "number" && ele <= 80;
+        });
+
+        let index = data.findIndex(function(ele, index) {
+            return typeof ele == "number" && ele <= 80;
+        });
+        console.log(ele, index); //50,4
+    </script>
+</body>
+
+</html>

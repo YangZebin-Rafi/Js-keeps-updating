@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var oItem = oList.children[0];
+        // var index = oItem.querySelector(".num-top").innerText;
+        // var name = oItem.querySelector(".list-title").innerText;
+        // var src = oItem.querySelector("img").src;
+        // var detail = oItem.querySelector(".suolve").innerText;
+        // console.log(oList);
+        var arr = [];
+        var oList = document.querySelectorAll(".item-list")[1].children;
+        Array.from(oList).forEach((element, index) => {
+            console.log(element);
+            var o = {};
+            o.name = element.querySelector(".list-title").innerText;
+            o.src = element.querySelector("img") ? element.querySelector("img").src : "";
+            o.detail = element.querySelector(".suolve").innerText;
+            o.index = index;
+            console.log(arr);
+            arr.push(o);
+        })
+    </script>
+</body>
+
+</html>

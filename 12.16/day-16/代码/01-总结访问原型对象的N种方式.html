@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-构造函数 */
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        /* 02-设置原型对象 */
+        Person.prototype.show = function() {}
+
+        /* 03-创建实例对象 */
+        var p1 = new Person("zs", 19);
+        var p2 = new Person("lw", 21);
+
+
+        /* 概念： */
+        /* 构造函数：Person */
+        /* 实例对象：p1 、 p2 */
+        /* 原型对象：Person.prototype  */
+
+        /* 总结访问原型对象的方式 */
+        /* [1] 构造函数.prototype    ex:Person.prototype*/
+        /* [2] 实例对象.__proto__    ex:p1.__proto__ p2.__proto__ */
+        /* [3] Object.getPrototypeOf(实例对象) */
+
+        /* 备注 */
+        /* __proto__ 属性是ES6+(2015)新特性,因此在ES6-前不能直接使用该属性，需要使用Object.getPrototypeOf方法来获取。 */
+        console.log(Person.prototype);
+        console.log(p1.__proto__, p2.__proto__, p2.__proto__ == Person.prototype);
+        console.log("+++++");
+
+        console.log(Object.getPrototypeOf(p1));
+        console.log(Object.getPrototypeOf(p2));
+        console.log(Object.getPrototypeOf(p2) == p1.__proto__); /* true */
+    </script>
+</body>
+
+</html>

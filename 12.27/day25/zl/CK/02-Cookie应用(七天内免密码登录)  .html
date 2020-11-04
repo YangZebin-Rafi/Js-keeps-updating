@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        body {
+            background-color: rgb(177, 208, 224);
+            font: normal 12px Trebuchet MS;
+            color: #000;
+        }
+        
+        form {
+            width: 220px;
+            padding: 10px;
+            background-color: #DDEEF6;
+            box-shadow: 0px 0px 10px 0px #888888;
+            border: 1px solid #DDEEF6;
+            border-radius: 6px;
+            margin: auto;
+        }
+        
+        .roundedCorners-textbox {
+            border: 1px solid #999;
+            width: 160px;
+        }
+        
+        .checkbox {
+            margin-left: 30px;
+            border: 1px solid #999;
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="04success.html" method="get">
+        <label>账号</label>
+        <input id="username" name="username" type="text" /><br /><br />
+        <label>密码</label>
+        <input id="password" name="password" type="text" /><br /><br />
+        <label><input id="checkbox" type="checkbox" class="checkbox" />
+                7天免登录</label>
+        <br/><br/>
+        <input type="submit" value="确定" id="btnSubmit" />
+        <input type="reset" value="清空" />
+    </form>
+    <script src="./src/jquery-3.4.1.js"></script>
+    <script>
+        //实现思路：
+        //[1] 检查Cookie中是否保存有用户名和密码，如果保存那么就直接发送请求登录
+        //[2] 如果没有保存有Cookie数据，那么当用户勾选7天免密码登录的时候，应该保存该数据
+        //[3] 网络请求成功后应该跳转
+    </script>
+</body>
+
+</html>

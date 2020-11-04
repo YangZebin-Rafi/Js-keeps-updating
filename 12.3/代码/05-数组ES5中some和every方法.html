@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 数组中的断言函数 */
+        /* some() every() */
+
+        /* 需求：检查这个数组中的每个元素是否都是数字。 */
+        var arr1 = [10, 20, 30, 40, 1];
+
+        /* 方案A */
+        // function fn(arr) {
+        //     var flag = true; /* 先假设数组中的每个数据都是数字 */
+        //     for (var i = 0, len = arr.length; i < len; i++) {
+        //         if (typeof arr[i] != "number") {
+        //             flag = false;
+        //             break;
+        //         }
+        //     }
+        //     return flag;
+        // }
+
+        // console.log(fn(arr1));
+
+            function fn(arr1) {
+                let flag=true
+                for (let i = 0; i < arr1.length; i++) {
+                    // const element = array[i];
+                    if (typeof arr1[i] !='number') {
+                        flag=false
+                        break
+                    }
+                }
+                return flag
+            }
+
+
+        /* 方案B */
+        /* 执行逻辑：遍历数组，拿到数组中的每个元素和条件进行匹配，如果所有的都满足那么就返回true. */
+        // var res1 = arr1.every(function(item, index) {
+        //     return typeof item == "number";
+        // });
+
+        /* 如果数组中的每一项都能通过断言条件，那么最终的结果就是true,只要有一个无法通过那么结果就是false. */
+        // var res1 = arr1.every(function(item, index) {
+        //     return typeof item == "number" && item % 2 == 0;
+        // });
+        // console.log(res1);
+
+
+        /* every()  所有的元素都要满足 */
+        /* some()   只要有一个元素满足即可 */
+        var res1 = [10, 20, 30, 1].every(function(item, index) {
+            return typeof item == "number" && item % 2 == 0;
+        });
+        console.log(res1);
+
+        var res2 = [1, 7, 3, 9].some(function(item, index) {
+            return typeof item == "number" && item % 2 == 0;
+        });
+        console.log(res2);
+
+
+        var res3=arr1.every(function (item,index) {
+            return typeof item=='number'&& item%2==0
+        })
+        console.log(res3);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery-3.4.1.js"></script>
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">我是box</div>
+    <script>
+        /* 鼠标移入mouseenter和移出mouseleave事件 */
+        // $(".box").on("mouseenter", function() {
+        //     console.log("mouseenter");
+        // })
+
+        // $(".box").mouseleave(function() {
+        //     console.log("mouseleave");
+        // })
+
+        /* 001-语法1：jQ.hover(f1,f2)  当鼠标移入的时候触发第一个回调函数，移出的时候会触发第二个回调函数。*/
+        // $(".box").hover(() => console.log("in"), () => console.log("out"));
+
+        /* 002-语法2：jQ.hover(fn) 当鼠标移入或者是移出的时候都会触发该回调函数。*/
+        $(".box").hover(() => console.log("in|out"));
+    </script>
+</body>
+
+</html>

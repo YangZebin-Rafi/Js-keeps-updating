@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [100, 200, 300, 400, 200];
+        console.log(arr.indexOf(100));
+        console.log(arr.lastIndexOf(100));
+
+        /* indexOf()     左->右 */
+        // /* lastIndexOf() 右->左 */ 因为 lastIndexOf（）是找某个字符串在数组里最后出现的哪一个的位置
+        console.log(arr.indexOf(200)); //1
+        console.log(arr.lastIndexOf(200)); //4
+
+        /* 思考题：检查数组中是否存在指定的数据且只存在一个。 */
+        // function arrHasItemPlus(arrT, item) {
+        //     var index = arrT.indexOf(item);
+        //     var flag = false;
+        //     if (index != -1 && index == arrT.lastIndexOf(item)) {
+        //         flag = true;
+        //     }
+        //     return flag;
+        // }
+
+
+        function arrHasItemPlus(arrT, item) {
+            var index = arrT.indexOf(item);
+            return index != -1 && index == arrT.lastIndexOf(item);
+        }
+
+        console.log(arrHasItemPlus(arr, 100)); //true
+        console.log(arrHasItemPlus(arr, 200)); //false
+        console.log(arrHasItemPlus(arr, 500)); //false
+    </script>
+</body>
+
+</html>

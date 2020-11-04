@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 设计一个函数数组去重ArrNoRepeat ， 该函数接收一个数组作为参数，返回去重之后的结果 */
+        function ArrNoRepeat(arr) {
+            /* 思路：先初始化一个临时的空数组,遍历目标数组，拿到数组中的每一个数据，检查该数据在临时数组中是否存在，如果不存在那么就添加进去 */
+            /* 001-初始化空数组 */
+            var temp = [];
+            /* 002-遍历目标数组 */
+            for (var i = 0, len = arr.length; i < len; i++) {
+                /* 003-到数组中的每一个数据，检查该数据在临时数组中是否存在 */
+                var flag = arrHasItem(temp, arr[i]);
+                if (!flag) {
+                    temp.push(arr[i])
+                }
+            }
+            return temp;
+        }
+
+
+
+        var arr1 = ArrNoRepeat([10, 20, 30, 14, 20]); //[10,20,30,14] arrHasItem([10,20,30,14])
+        console.log(arr1);
+
+
+        // 设计一个数组去重的函数2
+        function ArrNoRepeat2(arr) {
+            var temp=[]
+            for (let i = 0; i < arr.length; i++) {
+                // const element = array[i];
+                var flag=arrHasItem2(temp,arr[i])
+                if (!flag) {
+                    temp.push(arr[i])
+                }
+            }
+            return temp
+
+        }
+        var arr5= ArrNoRepeat2([55,66,77,88,55])
+        console.log(`ArrNoRepeat2去重后的值数组为${arr5}`);
+
+
+        /* 设计函数，arrHasItem 检查数组中是否存在指定的元素，如果存在那么就返回true,否则返回false */
+        function arrHasItem(arr, item) {
+            var flag = false;
+            /* 遍历目标数组，拿到每一个元素和目标数据进行比对，如果发现相等(匹配)，那么修改flag值为true并且结束循环。 */
+            for (var i = 0, len = arr.length; i < len; i++) {
+                if (arr[i] == item) {
+                    flag = true;
+                    break;
+                }
+            }
+            return flag;
+        }
+
+        // 设计一个判断有没有重复的函数2
+        function arrHasItem2(arr,item) {
+            var flag=false
+            for (let i = 0; i < arr.length; i++) {
+                // const element = arr[i];
+                if (arr[i]==item) {
+                    flag=true
+                }
+                
+            }
+            return flag
+        }
+        var res3=arrHasItem2([11,22,33],11)
+        var res4=arrHasItem2([11,22,33],44)
+
+        var res1 = arrHasItem([10, 20, 30], 10); //true
+        var res2 = arrHasItem([10, 20, 30], 100); //false
+        console.log(res1, res2);
+        console.log(`res3的值为${res3}`);
+        console.log(`res4的值为${res4}`);
+    </script>
+</body>
+
+</html>

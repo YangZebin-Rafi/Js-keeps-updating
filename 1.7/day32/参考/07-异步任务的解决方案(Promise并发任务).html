@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        /* 异步任务的顺序执行：A-B-C-D */
+        /* 异步任务的并发执行：[A,B,C]-D */
+        /* 需求：异步的发送三个网络请求，每隔请求都获取一份数据，等三个异步任务都执行完之后，再把这三个数据都合并(异步) */
+
+        let a = new Promise(function(resolve, reject) {
+            $.getJSON("../server/dataA.json", function(data, textStatus, jqXHR) {
+                console.log(data);
+                resolve(data);
+            });
+        });
+
+        let b = new Promise(function(resolve, reject) {
+            $.getJSON("../server/dataB.json", function(data, textStatus, jqXHR) {
+                console.log(data);
+                resolve(data);
+            });
+        });
+
+        let c = new Promise(function(resolve, reject) {
+            $.getJSON("../server/dataC.json", function(data, textStatus, jqXHR) {
+                console.log(data);
+                resolve(data);
+            });
+        });
+
+        /* a\b\三个异步任务同时执行，如果三个异步任务都执行完了，那么就会转到then方法执行 */
+        Promise.all([a, b, c]).then(function(data) {
+            console.log("then", data);
+            /* then方法的第一个参数：是一个数组，接收了所有异步任务成功后传递进来的参数。 */
+            let json = JSON.stringify(data);
+            console.log(json);
+        })
+    </script>
+</body>
+
+</html>

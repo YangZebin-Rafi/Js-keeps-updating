@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ruoxin {
+            height: 20px;
+            width: 400px;
+            border: darkcyan solid 1px;
+            overflow: hidden;
+            color: purple;
+            line-height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ruoxin"></div>
+    <script>
+        var arr = 'redfsdgagagagagafgafgafgafgfsfadfafadfadfadfadfadfadfadfadfadsfadfasdfadsfadfadsfadfsfdsfsdf'
+        var str = document.getElementById('ruoxin')
+        str.innerText = arr
+        // 定时器
+        setInterval(function () {
+            
+            var firstChar1 = arr.substr(0, 1);
+            var resetChar1 = arr.slice(1);
+            arr = resetChar1 + firstChar1;
+            str.innerText = arr;
+            console.log(arr);
+        }, 200);
+    </script>
+</body>
+
+</html>

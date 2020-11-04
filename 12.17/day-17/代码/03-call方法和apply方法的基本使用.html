@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* call和apply方法 */
+        /* 作用：借用其它对象的方法，并且绑定函数中的this,this绑定给call方法和apply方法的第一个参数。*/
+        /* 区别：*/
+        // (1) call方法传递给函数的实际参数以参数列表的方式来处理，apply方法传递的实际参数以数组或者是伪数组的方式来处理 
+        // (2) 形参的个数(call的形参个数=1，apply方法的形参个数=2)
+        /* 语法：对象1.方法名.call(绑定this,参数1，参数2，参数3...) */
+        /* 语法：对象1.方法名.apply(绑定this,[参数1，参数2，参数3...]) */
+        /* 语法：对象1.方法名.apply(绑定this,伪数组) */
+        /* allay和call方法是在Function.prototype上面定义。 */
+        function sum(a, b) {
+            console.log(this);
+            return a + b;
+        }
+
+        var o = {
+            name: "zs"
+        };
+
+        // var res1 = sum(1, 2);
+        // console.log(res1);
+
+        /* call的参数 */
+        /* 第一个参数：绑定this           this->o*/
+        /* 后面的参数：传递给函数的实际参数  100,250是传递给sum方法的实际参数*/
+        var res2 = window.sum.call(o, 100, 250); //o.sum(100，250);
+        console.log(res2);
+
+        // ArrayLike 数组([10,20,30])或者是伪数组{0:"zs",1:18,length:2}
+        //Uncaught TypeError: CreateListFromArrayLike called on non-object
+        // var res3 = window.sum.apply(o, 100, 400);  错误的写法
+        // var res3 = window.sum.apply(o, [100, 400]);
+        var res3 = window.sum.apply(o, {
+            0: 100,
+            1: 99,
+            length: 2
+        });
+        console.log(res3);
+
+        function f(a, b, c, d, e) {
+            console.log(arguments, arguments.length);
+        }
+
+        /* 函数的两个重要事属性：name(函数的名字)  &&  length(形参的个数) */
+        /* 函数的形参个数：f.length */
+        /* 函数调用时候的实参个数：arguments.length */
+        // f(1, 2, 3, 4, 5, 6);
+        // console.log(f.length);
+
+        /* 为什么不能直接这样打印？ */
+        console.log(Function.prototype.call.length);
+        console.log(Function.prototype.apply.length);
+    </script>
+</body>
+
+</html>

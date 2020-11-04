@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var o = {
+            name: "zs",
+            age: 18,
+            id: "0001",
+            price: "1",
+        };
+
+        /* 删除掉对象中的某个属性 */
+        // o.name = null; /* 这种方式不可行 */
+        // console.log(o);
+
+        /* 基本使用 */
+        /* 语法：delete 对象["属性名"] */
+        /* 语法：delete 对象.属性      */
+        /* 注意：如果使用该关键字删除不存在的属性返回的是true*/
+        // console.log(delete o["age"]); //如果删除成功，返回true，否则返回false
+        // console.log(delete o.id);
+        // console.log(delete o.xxx); /* true */
+        // console.log(delete window.o);
+
+        /* 说明：ES6+提供了新的方法用来替代delete关键 */
+        /* Reflect.deleteProperty(对象，属性) */
+        console.log(Reflect.deleteProperty(o, "price"));
+        console.log(Reflect.deleteProperty(o, "class"));
+        console.log(o);
+    </script>
+</body>
+
+</html>

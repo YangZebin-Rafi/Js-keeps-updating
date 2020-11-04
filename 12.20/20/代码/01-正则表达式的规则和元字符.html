@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-符号  |  表示或者的关系 */
+        let reg1 = /a|b|c/;
+
+        /* 002-符号 []  表示或者的关系 ex[3-9] [a-z] [A-Z]*/
+        let reg2 = /a|b|c|d|e|f/;
+        let reg3 = /[a-f]/
+
+        /* 003-量词 {min,max} */
+        // let reg4 = /[0-9]{3}/;  //三个数字
+        // let reg4 = /[0-9]{3,4}/; //三个或者是四个数字
+        //let reg4 = /[0-9]{0,3}/; //低于四个数字 0 1 2 3 => let reg5 = /[0-9]{,3}/
+        // let reg4 = /[0-9]{3,}/
+
+        /* 004-元字符： */
+        /* \w 数字、字母下划线  == [0-9a-zA-Z_]*/
+        /* \W 非数字、字母下划线 */
+        /* \d 数字            == [0-9]*/
+        /* \D 非数字 */
+        /* \s 空格 */
+        /* \S 非空格 */
+        /* .  除换行以外的字符 */
+        /* 问题：如果要匹配所有的字符那怎么办？ [\w\W] [\d\D] [\s\S]*/
+
+        // let reg5 = /\w/;
+        // let reg5 = /\d/;
+        // let reg5 = /\s/;
+        // console.log(reg5.test(" "));
+
+        /* 005-位置限定符  */
+        /* ^  限定的是开头位置 */
+        /* $  限制的是结尾位置 */
+        // let reg6 = /^abc/; //字符串是否以abc开头
+        // console.log(reg6.test("1245abc")); //false
+
+        // let reg6 = /^abc/; //字符串是否以abc开头
+        // console.log(reg6.test("abc1245")); //true
+
+        // let reg6 = /abc$/; //字符串是否以abc结尾
+        // console.log(reg6.test("1245abc"));
+
+        // let reg6 = /^abc$/; //字符串是否以abc开头和结尾
+        // console.log(reg6.test("abc3"));
+
+        /* 006-非 ^ 如果在[]里面表示非 */
+        // let reg7 = /[\d]abc/; //匹配的0abc 1abc 2abc 3abc 。。。
+        let reg7 = /[^\d]abc/; //abc前面不能是数字，别的都可以
+        console.log(reg7.test("!abc2356"));
+
+        /* 007-量词存在简写形式 */
+        /* +  == {1,}   1个或者是多个*/
+        /* ？ == {0，1}  0个或者是1个*/
+        /* *  == {0，}   0个或者是多个 */
+    </script>
+</body>
+
+</html>

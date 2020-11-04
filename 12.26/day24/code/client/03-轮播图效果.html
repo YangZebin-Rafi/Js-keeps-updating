@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./lib/jquery-3.4.1.js"></script>
+    <script src="./lib/Manager.js"></script>
+</head>
+
+<body>
+    <!-- <div class="slider">
+        <ul class="slider-box" style="left: -700px;">
+            <li class="slider-box-item" style="background: rgb(103, 186, 142);"><img src="./src/1.jpg"></li>
+            <li class="slider-box-item" style="background: rgb(75, 0, 163);"><img src="./src/2.jpg"></li>
+            <li class="slider-box-item" style="background: rgb(118, 232, 159);"><img src="./src/3.jpg"></li>
+            <li class="slider-box-item" style="background: rgb(107, 97, 4);"><img src="./src/4.jpg"></li>
+            <li class="slider-box-item" style="background: rgb(31, 193, 210);"><img src="./src/5.jpg"></li>
+            <li class="slider-box-item" style="background: rgb(161, 55, 235);"><img src="./src/6.jpg"></li>
+        </ul>
+        <div class="slider-control"><span class="prev">&lt;</span> <span class="next">&gt;</span></div>
+        <ol class="slider-nav">
+            <li class="slider-nav-item">1</li>
+            <li class="slider-nav-item active">2</li>
+            <li class="slider-nav-item">3</li>
+            <li class="slider-nav-item">4</li>
+            <li class="slider-nav-item">5</li>
+            <li class="slider-nav-item">6</li>
+        </ol>
+    </div> -->
+
+    <script>
+        /* 001 先发请求获取数据 */
+        window.onload = () => {
+
+            (new Manager(["https://img4.yesmyimg.com/2019/5/11/20190611143003776.jpg",
+                "https://img3.yesmyimg.com/2019/5/11/20190611144030277.jpg", "https://img2.yesmyimg.com/2019/4/28/20190528161603916.jpg"
+            ])).init();
+
+            $.ajax({
+                type: "get",
+                url: "../server/02-getData.php",
+                dataType: "json",
+                success: function(data) {
+                    console.log(data);
+
+                    /* 002-根据数据来渲染页面 */
+                    (new Manager(data)).init();
+                }
+            });
+
+
+        }
+
+        /* this */
+        /* 函数的调用方式 */
+        /* [1] 普通函数调用   fn()       this->window  this->undefined*/
+        /* [2] 以对象的方法调用 obj.fn()  this->obj */
+        /* [3] 以构造函数调用   new fn()  this-> 内部新创建的实例对象*/
+        /* [4] 函数上下文调用   apply|call|bind   this->第一个参数 */
+        /* [5] 箭头函数调用     箭头函数中没有this,利用变量和作用域的访问规则，箭头函数的this是外层离他最近的那个this */
+
+        function fn() {
+            console.log(this);
+        }
+
+        // fn();
+
+        // let o = {
+        //     name: "zs"
+        // };
+        // o.fn = fn;
+        // o.fn();
+
+        // new fn();
+
+        // fn.call([10, 20])
+        // fn.call({
+        //     age: 19
+        // })
+    </script>
+</body>
+
+</html>

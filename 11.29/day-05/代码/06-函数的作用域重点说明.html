@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 作用域：变量起作用(可以被访问)的范围。 */
+        /* 全局作用域：整个页面共享的大的作用域 */
+        /* 局部作用域：函数可以创建局部作用域。 */
+        /* 全局变量：在全局作用域中声明的变量,任何位置都可以访问全局变量。*/
+        /* 局部变量：在函数中声明的变量，局部变量只在当前作用域中有效，只在当前作用域中可以访问。 */
+
+        var a = 10; //声明了全局变量a
+
+        // function f1() {
+        //     var b = 123;
+        //     console.log("f1");
+        //     console.log(a, b);
+        // }
+
+        // function f2() {
+        //     console.log("f2");
+        //     console.log(a, b); //报错：Uncaught ReferenceError: b is not defined
+        // }
+
+
+        // f1();
+        // f2();
+        // console.log(a);
+        // console.log(b); //在此处不能访问局部变量b,报错： Uncaught ReferenceError: b is not defined
+    </script>
+    <script>
+        /* 作用域链的访问规则： */
+        /* (1) 内层作用域可以访问外层的作用域空间，反之则不行 */
+        /* (2) 就近原则：当我们在作用域中访问变量的时候，会先在自己的作用域中进行查找，如果找到那么就直接使用，否则就检查上层作用域，如果找到那么就直接
+            使用，如果没有找到，那么就继续向上层查找....直到找到为止，如果找到了全局作用域还是没有找到，那么就报错
+         */
+        var n1 = 1;
+
+        function f1() {
+            // var n1 = 4;
+            n1 = 4;
+            var n2 = 2;
+            console.log("f1", n1, n2);
+
+            function f2() {
+                var n3 = 3;
+                console.log("f2", n1, n2, n3);
+            }
+            f2();
+            n1 = 5;
+        }
+
+        f1();
+        console.log(n1);
+    </script>
+</body>
+
+</html>

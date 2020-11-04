@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 正则表达式相关方法的使用(replace\split\match\search)
+        /* 字符串中可以使用正则表达式的方法： */
+        /* str.replace(str|regExp,"") */
+        /* str.split(str|regExg) */
+        /* str.search()  搜索*/
+
+        /* 简单字符串 */
+        // let str = "西瓜,傻瓜,南瓜,冬瓜,北瓜";
+        // let arr = str.split(",");
+        // console.log(arr);
+
+        /* 复杂字符串 */
+        // let str = "西瓜,傻瓜,南瓜,冬瓜，北瓜";
+        // // let arr = str.split(",");
+        // let arr = str.split(/[,，]/);
+        // console.log(arr);
+
+        // let str = "西瓜,     傻瓜, 南瓜#冬瓜，北瓜|黄瓜     ,青瓜";
+        // let arr = str.split(/\s*[,，#|]\s*/);
+        // /* [a-z]+ */
+        // console.log(arr);
+
+        // let str1 = " 春天来了，动物们又到了交配的季节，我也是动物";
+        // console.log(str1.search("动物")); //5 在字符串中匹配指定的子串，如果匹配成功那么就返回索引，如果失败那么返回-1
+        // console.log(str1.search(/动物$/)); //20
+        // console.log(str1.search(/^春天/)); //-1
+
+        /* 字符串的方法：match */
+        /* 语法：str.match(str|reg) */
+        let str1 = "春天来了，动物们又到了交配的季节,动物都很开心！";
+        console.log(str1.match("动物"));
+        //["动物", index: 5, input: "春天来了，动物们又到了交配的季节", groups: undefined]
+        console.log(str1.match(/动物/));
+        // ["动物", index: 5, input: "春天来了，动物们又到了交配的季节", groups: undefined]
+        console.log(str1.match(/动物/g)); //["动物", "动物"]
+
+        /* 数据提取 */
+        let str2 = "萨德红薯粉和234特供酒让对方510000单号顺丰白色655331衣服djehfsrfjrs";
+        console.log(str2.match(/\d{6}/g)); //["510000", "655331"]
+    </script>
+</body>
+
+</html>

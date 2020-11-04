@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 数字类型：number */
+        /* 001-整型的数据(整数) */
+        var num1 = 100;
+
+        /* 002-浮点型的数据(小数) */
+        var num2 = 100.8;
+
+        console.log(num1, num2, typeof num1, typeof num2); /* 100 100.8 "number" "number" */
+        /* 003-科学记数法 当数字特别大或者是特别小的时候，可以使用科学记数法 */
+        var num3 = 283440000000000;
+        var num4 = 2.8344e14;
+        var num5 = 0.0000000000987;
+        var num6 = 9.87e-11;
+        console.log(num3, num4, num3 == num4);
+        console.log(num5, num6);
+
+        /* 004-注意点1*/
+        console.log(0.1 + 0.1 == 0.2); /* true */
+        console.log(0.1 + 0.2 == 0.3); /* false */
+        console.log(0.1 + 0.2); /* 0.30000000000000004 */
+
+        /* 005-注意点2 */
+        /* 在JavaScript中，在写小数的时候，如果小数点前面只有一个0，那么可以省略不写 */
+        var num7 = .8;
+        console.log(num7, 0.8 == .8)
+    </script>
+</body>
+
+</html>

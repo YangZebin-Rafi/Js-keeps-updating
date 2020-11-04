@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            overflow: hidden
+        }
+        
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 82px
+        }
+        
+        .right {
+            transform: rotateY(180deg)
+        }
+        
+        .top {
+            transform: rotateZ(45deg)
+        }
+        
+        .bottom {
+            transform: rotateZ(-45deg)
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./img/bird.jpg" alt="">
+    <script>
+        /* 001-先获取小鸟标签 */
+        var oImg = document.querySelector("img");
+
+        /* 002-监听键盘的事件(按下了按键[上下左右]) */
+        document.onkeydown = function(e) {
+            e = e || window.event;
+            /* 003-当监听到按下按键的时候，判断是哪个按键 */
+            var code = e.keyCode || e.which;
+            console.log(e.which, e.keyCode);
+            var offset = 10;
+            /* 004-根据按键来设置标签的样式 */
+            switch (code) {
+                case 37:
+                    oImg.className = "";
+                    oImg.style.left = oImg.offsetLeft - offset + "px";
+                    break;
+                case 38:
+                    oImg.className = "top";
+                    oImg.style.top = oImg.offsetTop - offset + "px";
+                    break;
+                case 39:
+                    oImg.className = "right";
+                    // console.log(oImg.offsetWidth, oImg.offsetHeight, oImg.offsetLeft, oImg.offsetTop);
+                    oImg.style.left = oImg.offsetLeft + offset + "px";
+                    break;
+                case 40:
+                    oImg.className = "bottom";
+                    oImg.style.top = oImg.offsetTop + offset + "px";
+                    break;
+                default:
+                    console.log("当前小鸟不支持该操作!");
+                    break;
+            }
+
+            /* 005-临界值的检查 */
+            if (oImg.offsetLeft <= -oImg.offsetWidth) {
+                oImg.style.left = window.innerWidth + "px";
+                console.log("oImg=", oImg.style.left);
+            } else if (oImg.offsetLeft >= window.innerWidth) {
+                oImg.style.left = -oImg.offsetWidth + "px";
+            }
+
+
+            if (oImg.offsetTop <= -oImg.offsetHeight) {
+                oImg.style.top = window.innerHeight + "px";
+                // console.log("oImg=", oImg.style.top);
+            } else if (oImg.offsetTop > window.innerHeight) {
+                oImg.style.top = -oImg.offsetHeight + "px";
+
+                // console.log("oImg=", oImg.style.top);
+                // console.log(oImg.offsetHeight);
+                // console.log(oImg.style.top, "++", oImg.offsetHeight);
+            }
+
+
+        };
+    </script>
+</body>
+
+</html>

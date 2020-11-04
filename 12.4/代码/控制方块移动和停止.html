@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>作业：移动的小方块</title>
+    <script src="js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+        }
+
+        .box3 {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background-color: #DB7093;
+            animation: cc3 3s linear infinite;
+
+        }
+
+        .stop_move {
+            animation-play-state: paused;
+        }
+
+        .start_move {
+            animation-play-state: running;
+        }
+
+        @keyFrames cc3 {
+            0% {
+
+                transform: translate(0px, 0);
+            }
+
+            20% {
+
+                transform: translate(200px, 0);
+            }
+
+            40% {
+
+                transform: translate(400px, 0);
+            }
+
+            60% {
+
+                transform: translate(600px, 0);
+            }
+
+            80% {
+
+                transform: translate(800px, 0);
+            }
+
+            100% {
+
+                transform: translate(1000px, 0);
+            }
+
+        }
+
+        /* 保证IE浏览器兼容性 */
+        @-ms-keyFrames cc3 {
+            0% {
+
+                transform: translate(0px, 0);
+            }
+
+            20% {
+
+                transform: translate(200px, 0);
+            }
+
+            40% {
+
+                transform: translate(400px, 0);
+            }
+
+            60% {
+
+                transform: translate(600px, 0);
+            }
+
+            80% {
+
+                transform: translate(800px, 0);
+            }
+
+            100% {
+
+                transform: translate(1000px, 0);
+            }
+
+        }
+
+        .button_center {
+            position: absolute;
+            left: 47%;
+            margin-top: 260px;
+        }
+
+        .button_center>button {
+            background-color: powderblue;
+            font-size: 16px
+        }
+    </style>
+</head>
+
+<body>
+    <h3 style="text-align: center;">作业：移动的方块，用jQuery</h3>
+    <br>
+
+    <div class="box3" id="move"></div>
+
+    <div class="button_center">
+        <button type="button" class="stop_move" "stop_move()">stop</button>
+        <button type="button" class="start_move" "start_move()">start</button>
+    </div>
+
+
+    <script type="text/javascript">
+        function stop_move() {
+            $('.box3').removeClass('start_move');
+            $('.box3').addClass('stop_move');
+
+        }
+
+        function start_move() {
+            $('.box3').removeClass('stop_move');
+            $('.box3').addClass('start_move');
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <span>spanA</span>
+        <span>spanB</span>
+        <li>li-1</li>
+        <li>li-2</li>
+        <li>li-3</li>
+    </div>
+    <button>按钮</button>
+    <script>
+        /* 事件委托： */
+        /* 需求：每个li标签都添加点击事件，点击的时候要弹出索引和内容,点击按钮的时候创建新的li标签插入到页面中。*/
+        // let lis = document.querySelectorAll("li");
+        // let oBtn = document.querySelector("button");
+        // let oBox = document.querySelector(".box");
+
+        /* 方案A */
+        // for (let index = 0; index < lis.length; index++) {
+        //     const element = lis[index];
+        //     element.onclick = function() {
+        //         console.log(`${index} ${this.innerText}`);
+        //     }
+        // }
+
+        /* 方案B */
+        // oBox.onclick = function(e) {
+        //     e = e || window.event;
+        //     let target = e.target || e.srcElement;
+        //     if (target.nodeName == "LI") {
+        //         console.log(target.innerText);
+        //     }
+        // }
+
+        // oBtn.onclick = function() {
+        //     let li = document.createElement("li");
+        //     li.innerText = "new-li";
+        //     oBox.appendChild(li);
+        // }
+
+
+        /* 方案C jQuery框架中的事件委托 */
+        // $("li").click(function() {
+        //     let index = $(this).index();
+        //     let val = $(this).text();
+        //     console.log(`${index} ${val}`);
+        // })
+
+        /* 委托box这个标签给内部的li标签来添加click事件 */
+        $(".box").on("click", "li,span", function() {
+            let index = $(this).index();
+            let val = $(this).text();
+            console.log(`${index} ${val}`);
+        })
+
+        $("button").click(function() {
+            $(".box").append($("<li>new-li</li>"));
+        })
+    </script>
+</body>
+
+</html>

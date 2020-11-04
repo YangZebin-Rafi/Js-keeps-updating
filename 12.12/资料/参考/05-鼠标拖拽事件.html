@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            width: 150px;
+            position: absolute
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./img/target.jpg">
+    <script>
+        /* 001-给图片标签添加鼠标按下事件 */
+        var oImg = document.querySelector("img");
+        oImg.onmousedown = function(e) {
+            e = e || window.event;
+            e.preventDefault(); /* 阻止标签的默认行为 */
+
+            console.log("鼠标按在了图片身上");
+            var offsetX = e.offsetX;
+            var offsetY = e.offsetY;
+
+            /* 002-给页面添加鼠标移动事件 */
+            document.onmousemove = function(event) {
+                event = event || window.event;
+                console.log("鼠标移动");
+                /* 设置图片的样式 */
+                console.log(event.clientX, event.clientY);
+                oImg.style.left = event.clientX - offsetX + "px";
+                oImg.style.top = event.clientY - offsetY + "px";
+            }
+
+            /* 003-当鼠标抬起的时候，移除鼠标移动事件 */
+            document.onmouseup = function() {
+                document.onmousemove = null;
+            }
+        }
+
+        /* 重要属性： */
+        /* clientX/Y   鼠标(距离页面(可视区域)的相对距离(水平|垂直))  */
+        /* offsetX/Y   鼠标(距离当前标签的相对距离(水平|垂直))*/
+        /* pageX/Y     鼠标(距离页面的相对距离(水平|垂直)) */
+    </script>
+</body>
+
+</html>

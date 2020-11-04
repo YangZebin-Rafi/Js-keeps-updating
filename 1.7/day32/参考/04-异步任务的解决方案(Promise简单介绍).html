@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 异步任务的解决方案 */
+        /* A：回调函数   逻辑简单的情况下可以使用，但是如果逻辑非常复杂并且异步任务很多，那么就会造成回调地狱 */
+        /* B：Promise   缺点：难度比较高(语法结构非常复杂)*/
+
+        /* Promise : 承诺&&保证。 */
+        /* 本质：把异步任务包装起来变成一个实例对象。 */
+        /* 写法1 */
+        // new Promise(function(resolve, reject) {
+        //     /* resolve 代表异步任务完成(成功) */
+        //     /* reject  代表异步任务完成(失败)*/
+        //     setTimeout(() => {
+        //         console.log("task1");
+        //         /* 通过调用resolve或者是reject方法来告知任务是成功还是失败 */
+        //         reject();
+        //     }, 1000);
+
+        // }).then(function() {
+        //     /* 如果异步任务成功，那么执行此处的代码 */
+        //     console.log("success");
+
+        // }).catch(function() {
+        //     /* 如果异步任务失败，那么执行此处的代码 */
+        //     console.log("error");
+        // });
+
+
+        /* 写法B */
+        new Promise(function(resolve, reject) {
+            /* resolve 代表异步任务完成(成功) */
+            /* reject 代表异步任务完成(失败)*/
+            setTimeout(() => {
+                console.log("task1");
+                /* 通过调用resolve或者是reject方法来告知任务是成功还是失败 */
+                resolve();
+            }, 1000);
+
+        }).then(function() {
+            /* 如果异步任务成功，那么执行此处的代码 */
+            console.log("success");
+        }, function() {
+            /* 如果异步任务失败，那么执行此处的代码 */
+            console.log("error");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let xhr = new XMLHttpRequest;
+        xhr.open("get", "http://127.0.0.1/h5-1913/day25/code/server/03-server.php", true);
+        xhr.send();
+        xhr.onload = () => {
+            if (xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        }
+
+        /* 请求成功 */
+        // http://127.0.0.1/h5-1913/day25/code/client/05-a.html
+        // http://127.0.0.1/h5-1913/day25/code/server/03-server.php
+
+        /* 请求失败 */
+        // file:///Applications/MAMP/htdocs/h5-1913/day25/code/client/05-a.html
+        // http://127.0.0.1/h5-1913/day25/code/server/03-server.php
+
+        /* CORS:服务器端对响应头进行设置(允许你发送跨域的请求)。 */
+        /* Ajax无法直接跨域发请求 */
+        /* 失败：请求确实已经发送给了服务器，而且服务器也接到了，浏览器基于安全考虑把响应拦截了。 */
+    </script>
+</body>
+
+</html>

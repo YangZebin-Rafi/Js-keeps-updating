@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-keydown 按下按键 */
+        /* 002-keyup   松开按键 */
+        /* 003-keypress  按下按键(字符键) */
+        document.onkeydown = function(e) {
+            console.log("onkeydown");
+            e = e || window.event; //检查e是否为真，如果为真那么就直接返回e,否则就返回window.event
+
+            /* 键值 - 按键 */
+            /* 13- 回车键 */
+            /* 37- left */
+            /* 38- top */
+
+            // console.log(e.keyCode, e.which);
+            var code = e.keyCode || e.which;
+            console.log(code);
+
+        }
+
+        document.onkeyup = function() {
+            console.log("onkeyup");
+        }
+
+        document.onkeypress = function() {
+            console.log("onkeypress");
+        }
+
+        /* 知识点：我们需要知道用户按下了哪个按键(QWEA) , 事件对象(信息)*/
+    </script>
+</body>
+
+</html>

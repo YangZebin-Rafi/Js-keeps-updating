@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 001-合并对象 assign: ƒ assign()
+
+        // 002-创建对象并且设置原型对象 create: ƒ create()
+        // 形参个数：length: 1
+        // 函数名字：name: "Object"
+        // 原型对象 __proto__: ƒ()[[Scopes]]: Scopes[0]
+
+        // 003-获取指定对象的原型对象 getPrototypeOf: ƒ getPrototypeOf()
+        /* 总结访问原型对象的三种方式 */
+        /* [1] 构造函数.prototype */
+        /* [2] 实例对象.__proto__   ES6+ */
+        /* [3] Object.getPrototypeOf(实例对象) */
+
+        // 004-比较两个数据(等同于全等)is: ƒ is()
+
+        // 005-获取对象中指定属性的属性描述符对象 getOwnPropertyDescriptor: ƒ getOwnPropertyDescriptor()
+        // 006-获取对象中所有属性的属性描述符对象 getOwnPropertyDescriptors: ƒ getOwnPropertyDescriptors()
+        // 007-设置对象中指定属性的属性描述符对象 defineProperty: ƒ defineProperty()
+        // 008-设置对象中多个属性的属性描述符对象 defineProperties: ƒ defineProperties()
+
+        // entries: ƒ entries()
+        // freeze: ƒ freeze()
+        // fromEntries: ƒ fromEntries()
+        // getOwnPropertyNames: ƒ getOwnPropertyNames()
+        // getOwnPropertySymbols: ƒ getOwnPropertySymbols()
+        // isExtensible: ƒ isExtensible()
+        // isFrozen: ƒ isFrozen()
+        // isSealed: ƒ isSealed()
+        // keys: ƒ keys()
+        // preventExtensions: ƒ preventExtensions()
+        // seal: ƒ seal()
+        // setPrototypeOf: ƒ setPrototypeOf()
+        // values: ƒ values()
+
+        /* 语法：Object.getOwnPropertyDescriptor(对象,"属性名") */
+        /* 语法：Object.getOwnPropertyDescriptors(对象) */
+        let o = {
+            name: "zs",
+            age: 19
+        };
+        let descriptorObj = Object.getOwnPropertyDescriptor(o, "name");
+        console.log(descriptorObj);
+        /* 默认属性的描述符对象中存在四个键值对，value表示的是当前属性对应的值，其它配置项默认为true */
+        // configurable: true      当前属性是否可以被删除
+        // enumerable: true        当前属性是否可以被枚举(for..in能够打印出来)
+        // value: "zs" 
+        // writable: true          当前属性是否可以被修改
+
+        let descriptorObjs = Object.getOwnPropertyDescriptors(o);
+        console.log(descriptorObjs);
+
+        /* 语法：Object.defineProperty(对象,属性名,配置对象) */
+        /* 语法：Object.definePropertys(对象,{属性名1:配置对象,属性名2:配置对象}) */
+        // Object.defineProperty(o, "name", {
+        //     configurable: false,
+        //     enumerable: false,
+        //     value: "lw",
+        //     writable: false
+        // });
+
+        Object.defineProperties(o, {
+            name: {
+                configurable: false,
+                enumerable: false,
+                value: "lw",
+                // writable: false   如果不写，那么默认为true
+            },
+            age: {
+                configurable: true,
+                enumerable: false,
+                value: "19",
+                writable: false
+            },
+            address: {
+                value: "广州", //如果这个属性是新增的，那么配置项不写默认为false
+            }
+        })
+    </script>
+</body>
+
+</html>

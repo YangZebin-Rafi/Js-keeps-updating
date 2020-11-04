@@ -1,0 +1,55 @@
+/* 001-变量 */
+
+
+/* 002-嵌套 */
+
+
+/*  */
+
+
+/* $变量名:值 */
+
+
+/* 可以在scss文件中引入其它文件 */
+
+@import "./demo";
+$bgc:red;
+
+/* 01-提供代码块 继承 */
+
+.wAndh {
+    width: $w;
+    height: $h;
+}
+
+
+/*02-Mixin  函数 */
+
+// @mixin borderStyle {
+//     border: 1px solid #000
+// }
+@mixin borderStyle($c) {
+    border: 1px solid $c;
+}
+
+body {
+    background: $bgc;
+    // border: 1px solid #000;
+    @include borderStyle(red);
+    @extend .wAndh;
+    .box {
+        @extend .wAndh;
+        // border: 1px solid #000;
+        @include borderStyle(yellow);
+        background: #ccc;
+        span {
+            color: #f00
+        }
+        p {
+            font-size: 30px;
+            &:hover {
+                color: green;
+            }
+        }
+    }
+}

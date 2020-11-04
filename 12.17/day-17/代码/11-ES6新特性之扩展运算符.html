@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 扩展运算符：... */
+        /* 作用：展开数据为列表 */
+        console.log(Math.max(10, 203, 324, 2184, 2189, 1));
+
+        /* 需求：求数组中的最大值 */
+        var data = [10, 203, 324, 2184, 2189, 1];
+        console.log(Math.max(10, 203, 324, 2184, 2189, 1)); //正确
+        // console.log(Math.max([10, 203, 324, 2184, 2189, 1])); //NaN  该方法的参数不能是数组，只能是参数列表。
+
+        /* 方案A：先排序再把最大值取出来 */
+        // data.sort((a, b) => a - b);
+        // console.log(data[data.length - 1]);
+
+        /* 方案B：遍历然后查找 */
+        // function getMaxWithArr(arr) {
+        //     let max = arr[0];
+        //     for (let i = 0, len = arr.length; i < len; i++) {
+        //         if (arr[i] > max) {
+        //             max = arr[i];
+        //         }
+        //     }
+        //     return max;
+        // }
+        // console.log(getMaxWithArr(data));
+
+        /* 方案C */
+        let max = Math.max.apply(null, [100, 200, 300, 400, 30]); //max(100, 200, 300, 400, 30)
+        console.log(max);
+
+        /* 方案D */
+        console.log(Math.max(...data));
+
+
+        console.log("————————————");
+        /* 其它用法 */
+        /* (1) 合并数组 */
+        var arr1 = ["佩琪", "乔治"];
+        var arr2 = ["吉吉", "毛毛"];
+        var arr3 = arr1.concat(arr2, "熊大", "小奶狗");
+        console.log(arr3); //["佩琪", "乔治", "吉吉", "毛毛", "熊大", "小奶狗"]
+
+        var arr4 = [...arr1, ...arr2, 100, 200];
+        console.log(arr4); //["佩琪", "乔治", "吉吉", "毛毛", 100, 200]
+
+        /* (2) 展开字符串 */
+        var str = "Nice to meet u!";
+        console.log(str.split("").join(" "));
+        console.log(...str);
+    </script>
+</body>
+
+</html>

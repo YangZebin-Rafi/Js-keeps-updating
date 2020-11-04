@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active {
+            background: #58bc58;
+        }
+
+        #list div {
+            width: 400px;
+            height: 200px;
+            border: 1px solid white;
+            display: none;
+            /* overflow: hidden; */
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 id="title">this的指向</h1>
+    <div id="list">
+        <input type="button" class="active" value="新闻">
+        <input type="button" value="体育">
+        <input type="button" value="娱乐">
+        <input type="button" value="财经">
+        <div class="con" style="display: block">新闻</div>
+        <div class="con">体育</div>
+        <div class="con">娱乐</div>
+        <div class="con">财经</div>
+    </div>
+
+</body>
+<script>
+    (function () {
+        var list = document.getElementById('list')
+        var btns = list.getElementsByTagName('input')
+        var cons = list.getElementsByClassName('con')
+        //    console.log(cons.length);
+        for (var i = 0, len = btns.length; i < len; i++) {
+            btns[i].index=i;
+
+            btns[i].onclick = function () {
+                for (var j=0,len=btns.length;j<len;j++){
+                    btns[j].className=''
+                    cons[j].style.display='none'
+                }
+                this.className = 'active';
+                console.log( this.index);
+                cons[this.index].style.display='block'
+                
+            }
+        }
+
+    })()
+</script>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* [1] 数组的去重 */
+        let arr1 = [1, 2, 3, 4, 5, 6, 1, 2, 3, 7];
+        /* 方案A  遍历数组*/
+        function noRepeat(arr) {
+            let temp = [];
+            for (let index = 0; index < arr.length; index++) {
+                const element = arr[index];
+                // if (temp.indexOf(element) == -1) {
+                if (!temp.includes(element)) {
+                    temp.push(element);
+                }
+            }
+            return temp;
+        }
+        console.log(noRepeat(arr1));
+
+        /* 方案B Set的方法来处理 */
+        /* 提示：根据数组来创建集合 Set里面都是不重复的数组 */
+        let setData = new Set(arr1); //该方法内部会自动完成数组去重
+        /* 把集合转换为数组 */
+        /* (1) Array.form(伪数组|集合) */
+        let arr2 = Array.from(setData);
+        console.log(arr2);
+
+        /* (2) 扩展运算符(...) */
+        let arr3 = [...new Set(arr1)];
+        console.log(arr3);
+
+
+        /* [2] 字符串的去重处理 */
+        let str = "abcdefaaafescTs"; //abcdefsT
+        /* 方案A */
+        function noRepeatWithStr(strT) {
+            let target = "";
+            for (let index = 0; index < strT.length; index++) {
+                const element = strT[index];
+                if (target.indexOf(element) == -1) {
+                    target += element;
+                }
+            }
+            return target;
+        }
+        console.log(noRepeatWithStr(str)); //abcdefsT
+
+        /* 方案B */
+        /* 先把字符串转换为数组(切割) */
+        console.log(noRepeat(str.split("")).join("")); //abcdefsT
+
+        /* 方案C 根据字符串创建集合*/
+        console.log([...new Set(str)].join(""));
+        console.log((new Set(str)).toString()); //[object Set]
+
+        // console.log(arr1.join(""));
+        // console.log(Array.prototype.join.call((new Set(str)), ""));
+    </script>
+</body>
+
+</html>

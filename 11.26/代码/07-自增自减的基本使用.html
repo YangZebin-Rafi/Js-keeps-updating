@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 自增自减运算符  ++ -- */
+        var i = 0;
+        console.log(i); //0
+        i = i + 1;
+        console.log(i); //1
+        i += 1;
+        console.log(i); //2
+        i++; //表示在当前i的基础上面+1
+        console.log(i); //3
+        ++i;
+        console.log(i); //4
+        i--; //表示在当前i的基础上面-1
+        console.log(i); //3
+        --i;
+        console.log(i); //2
+
+        /* 注意点 位置不同，运算顺序也不同。*/
+        /* [1] 操作数 运算符   ex: i++ i--    在执行计算的时候，会先把i返回，然后再执行+1操作*/
+        /* [2] 运算符 操作数   ex: ++i --i    在+1，然后再返回*/
+
+        // var k = 0;
+        // var res1 = k++ + 2; // 0 + 2
+        // console.log(k, res1); //1  res1=2
+
+        // var q = 0;
+        // var res2 = ++q + 2; // 1 + 2
+        // console.log(q, res2); //1  res2 =3
+
+        var k = 0;
+        var res = k++ + ++k + k + k++;
+        /* k++ + ++k + k + k++ */
+        /* k++ + ++k + k + k++ */
+        /* [0](k=1) + [2](k=2) + [2][k=2] + [2](k=3) => 0 + 2 + 2 + 2 => 6*/
+        console.log(k, res); //3
+    </script>
+</body>
+
+</html>

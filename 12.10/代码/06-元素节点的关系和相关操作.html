@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="root">
+        <div class="box">
+            <div>div1</div>
+            <div id="demoID">div2</div>
+            <div>div3</div>
+        </div>
+    </div>
+    <script>
+        var oBox = document.querySelector(".box");
+        /* 子节点 */
+        console.log(oBox.childNodes); //获取所有的子节点(属性节点 文本节点 元素节点  注释节点...)
+        console.log(oBox.children); //获取所有的子节点(元素节点)
+
+        console.log(oBox.firstChild); //第一个子节点(属性节点 文本节点 元素节点  注释节点...)  
+        console.log(oBox.firstElementChild); //第一个子元素    <div>div1</div>
+
+        console.log(oBox.lastChild); //最后一个子节点(属性节点 文本节点 元素节点  注释节点...)  
+        console.log(oBox.lastElementChild); //最后一个子元素    <div>div3</div>
+
+
+        /* 父节点 */
+        console.log(oBox.parentNode); //获取父结点(属性节点 文本节点 元素节点  注释节点...)
+        console.log(oBox.parentElement); //获取父结点(元素节点)
+
+
+        /* 兄弟节点 */
+        var oDiv = document.querySelector("#demoID");
+        console.log(oDiv.nextElementSibling); //下一个兄弟(元素节点)
+        console.log(oDiv.nextSibling); //下一个兄弟(属性节点 文本节点 元素节点  注释节点...)
+
+        console.log(oDiv.previousElementSibling); //前一个兄弟(元素节点)
+        console.log(oDiv.previousSibling); //前一个兄弟(属性节点 文本节点 元素节点  注释节点...)
+    </script>
+</body>
+
+</html>

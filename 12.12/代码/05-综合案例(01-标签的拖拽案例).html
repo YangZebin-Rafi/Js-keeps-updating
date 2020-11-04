@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: relative
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        /* 三板斧：mousedown mousemove mouseup */
+        /* 公式：left = pageX - offsetX */
+        var oBox = document.querySelector("div");
+
+        oBox.onmousedown = function(event) {
+            event = event || window.event;
+            var offsetX = event.offsetX;
+            var offsetY = event.offsetY;
+
+            window.onmousemove = function(e) {
+                e = e || window.event;
+                console.log(e.pageX);
+                var left = e.pageX - offsetX;
+                var top = e.pageY - offsetY;
+
+                oBox.style.left = left + "px";
+                oBox.style.top = top + "px";
+            }
+
+            window.onmouseup = function() {
+                window.onmousemove = null;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="./lib/jquery-3.4.1.js"></script> -->
+    <script src="./lib/jq-1.0.2.js"></script>
+</head>
+
+<body>
+    <div id="demoID">div1</div>
+    <div class="box">div2</div>
+    <span>我是span</span>
+    <script>
+        /* 如果是函数：表示要监听页面的加载，要等页面加载完才执行函数中的代码 */
+        $(function() {
+            console.log("+++");
+
+            console.log(document.querySelector("span"));
+        })
+
+        /* 如果参数为false  false | 0 | "" | null | undefined */
+        // console.log($(""));
+        // console.log($(null));
+        // console.log($(undefined));
+        // console.log($(false));
+        // console.log($(0));
+
+        /* 如果传递的参数是 非0的数字 | true | 对象 | dom标签 */
+        console.log($(123));
+        console.log($(true));
+        console.log($({
+            name: "zs",
+            age: 19
+        }));
+        console.log($(document.querySelector("span")));
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="请输入手机号码" id="inputID">
+    <span id="infoID"></span>
+    <input type="text" placeholder="请输入6位密码" id="inputPS">
+    <span id="infoPS"></span>
+    <script>
+        /* 根据输入框中的内容来显示提示信息: */
+        /* A : 如果输入框中的是手机号码(11位的数字)，提示 手机号码正确！ */
+        /* B : 如果不满足条件，提示 请输入正确的手机号码！ */
+        /* 难点：技术细节(检查字符串是否是纯数字的字符串)   */
+        /* 方案：NaN  isNaN("122535") == false*/
+
+        /* 001-先获取页面中需要的标签 */
+        var oInput = document.getElementById("inputID");
+        var oSpan = document.getElementById("infoID");
+        var oInputPS=document.getElementById('inputPS')
+        var oInfoPS=document.getElementById('infoPS')
+
+        /* 002-监听输入框失去焦点的事件 */
+        oInput.onblur = function() {
+            /* 11位 &&  纯数字字符串 */
+            var val = oInput.value;
+            if (val.length == 11 && isNaN(val) == false) {
+                /* 设置显示提示信息 */
+                oSpan.innerText = "手机号码正确！";
+                /* 设置绿色的文字颜色 */
+                oSpan.style.color = "green";
+            } else {
+                /* 设置显示提示信息 */
+                oSpan.innerText = "请输入正确的手机号码！";
+                /* 设置绿色的文字颜色 */
+                oSpan.style.color = "red";
+            }
+        }
+
+        // 003-事件三
+        oInputPS.onblur=function(){
+            var val=oInputPS.value
+            if (val.length==6&&isNaN(val)==false) {
+                oInfoPS.innerText='密码格式正确'
+                oInfoPS.style.color='green'
+                console.log(`你输入的正确密码是${val}`);
+            }else{
+                oInfoPS.innerText='密码格式错误'
+                oInfoPS.style.color='red'
+                console.log(`你输入的错误密码是${val}`);
+            }
+            console.log(`您输入的密码长度为${val.length}`);
+        }
+        // console.log(`您输入的密码长度为${this.val.length}`);在这里写是错误的
+    </script>
+</body>
+
+</html>

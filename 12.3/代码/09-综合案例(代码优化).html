@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 200px;
+            border: 2px solid #000;
+            border-radius: 20px;
+            padding: 5px;
+        }
+        
+        * {
+            list-style: none
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <strong>本报讯.前方记者文顶顶最新消息：</strong>
+        <ul id="list">
+
+        </ul>
+    </div>
+    <input type="text" placeholder="请输入新闻标题">
+    <button>添加最新的新闻数据</button>
+    <script>
+        /* 思路： */
+        /* (1) 先获取按钮，添加点击事件 */
+        /* (2) 获取输入框的值 */
+        /* (3) 业务逻辑:A 根据当前的数据来创建一个li标签插入到最前面，把最后一个删除 B：把数据更新到数组中，重新渲染(建议)*/
+        var oBtn = document.getElementsByTagName("button")[0];
+        var oInput = document.getElementsByTagName("input")[0];
+        var oList = document.getElementById("list");
+
+
+
+        /* 数据驱动视图：核心(数据) */
+        /* 001-准备数据 */
+        var news = [
+            "今天我起床的时候看到了星星！",
+            "陈老师终于结束20多年单身生活。",
+            "今天雷雨交加，泪水打湿了双眼。",
+            // "知名记者昨晚在金丰会所拍到了田田。",
+            // "爆炸新闻，蔡童靴高调宣布进军娱乐圈。"
+        ];
+        /* 002-根据数据来创建标签(数据渲染) */
+        renderUI();
+
+        function renderUI() {
+            var res = news.map(function(item, index) {
+                return `<li><a href="">${index + 1} ${item}</a></li>`
+            }).join("");
+            oList.innerHTML = res;
+        }
+
+
+        oBtn.onclick = function() {
+            var text = oInput.value;
+            /* 更新到数组中 */
+            news.unshift(text);
+            // news.pop();  
+
+            /* 优化01-更好的写法 */
+            // news.length = 5;
+            if (news.length > 5) {
+                news.pop();
+            }
+
+            renderUI();
+        }
+    </script>
+</body>
+
+</html>

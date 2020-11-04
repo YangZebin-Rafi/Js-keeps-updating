@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 需求1：求数组中的最大值和最小值。 */
+        var arr = [1, 2, 3, -12, 39, -59];
+        /* max  = 1 */
+        /* max  = 2 */
+        /* max  = 3 */
+        /* max  = 39 */
+
+        /* 方案A */
+        // arr.sort(function(a, b) {
+        //     return a - b;
+        // })
+        // console.log(arr);
+        // var min = arr[0];
+        // var max = arr[arr.length - 1];
+        // console.log(`最小值=${min} 最大值${max}`);
+
+        /* 方案B */
+        /* 思路：遍历这个数组，假设第一个元素是最大值，总是拿当前的元素来和这个最大值进行比较，如果当前的元素超过最大值那么就更新最大值 */
+        function getMaxWithArr(arrT) {
+            // var max = arrT[0];
+            // arrT.forEach(function(item, index) {c
+            //     if (max < item) {
+            //         max = item;
+            //     }
+            // })
+
+            var max = arrT[0];
+            for (var i = 1, len = arrT.length; i < len; i++) {
+                if (max < arrT[i]) {
+                    max = arrT[i];
+                }
+            }
+            return max;
+        }
+
+        function getMinWithArr(arrT) {
+            var min = arrT[0];
+            for (var i = 1, len = arrT.length; i < len; i++) {
+                if (min > arrT[i]) {
+                    min = arrT[i];
+                }
+            }
+            return min;
+        }
+
+        console.log(getMaxWithArr([1, 2, 34, 401, 5, 9]));
+        console.log(getMinWithArr([1, 2, 34, 401, -5, 9]));
+
+
+
+        /* 需求2：封装一个函数，求一堆数据中的最大值最小值。 */
+        function getMin() {
+            var min = arguments[0];
+            for (var i = 1, len = arguments.length; i < len; i++) {
+                if (min > arguments[i]) {
+                    min = arguments[i];
+                }
+            }
+            return min
+        }
+
+        function getMax() {
+            var max = arguments[0];
+            for (var i = 1, len = arguments.length; i < len; i++) {
+                if (max < arguments[i]) {
+                    max = arguments[i];
+                }
+            }
+            return max
+        }
+        console.log(getMin(1, 2, -3, 4, 5, 66, 232)); //参数列表
+        console.log(getMin(1, 20, 3, -4));
+        console.log(getMax(1, 2, -3, 4, 5, 66, 232)); //参数列表
+
+        /* Math对象： */
+        /* Math.min() */
+        /* Math.max() */
+        console.log(Math.min(10, 20, 324035, 64, 230, 8, 435));
+        console.log(Math.max(10, 20, 324035, 64, 230, 8, 435));
+
+        /* 唐伯虎点秋香 */
+        /* [] [] [] [] [] [] [] [] */
+        /* 任务：最漂亮 | 最帅   */
+    </script>
+</body>
+
+</html>

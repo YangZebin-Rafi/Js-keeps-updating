@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 对象创建的四种方式(自定义构造函数) */
+        function createPerson(name, age, price) {
+            var personA = new Object();
+            personA.name = name;
+            personA.age = age;
+            personA.price = price;
+            personA.showName = function() {
+                console.log("姓名：" + this.name);
+            }
+            return personA;
+        }
+        var p1 = createPerson("zs", 21, 3000);
+        console.log(p1);
+
+
+        /* 自定义构造函数：是对工厂函数进行封装 */
+        /* 特点： */
+        /* (1) 函数的名字首字母大写(约定-建议) */
+        /* (2) 在调用的时候，使用new关键字来调用 */
+        /* 细节： */
+        function Person(name, age, price) {
+            /* 当使用new来调用函数的时候，内部会执行下面的代码 */
+            /* 001-默认会创建一个空对象 */
+            /* var o = new Object() */
+            /* 002-默认会把这个空对象赋值给this */
+            /* this = o; */
+            /* 003-设置this的原型对象指向构造函数的原型对象 */
+            /* this.__proto__ = Person.prototype */
+
+            /* 004-通过this来添加属性和方法 */
+            this.name = name;
+            this.age = age;
+            this.price = price;
+            this.showName = function() {
+                console.log("姓名：" + this.name);
+            };
+            /* 005-在函数的最后默认总是会把this返回 */
+            /* return this */
+        }
+
+        var person1 = new Person("zs", 19, 300);
+        var person2 = new Person("ls", 34, 100);
+        console.log(person1);
+        console.log(person2);
+    </script>
+</body>
+
+</html>

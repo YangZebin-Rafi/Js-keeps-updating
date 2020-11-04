@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 关系运算符 */
+        /* 符号：> >= < <= !=  == === */
+        /* 语法：操作数1 符号  操作数2 */
+        /* 结果：关系运算符的结果总是为一个布尔值类型的值，如果关系成立那么结果伪true,否则结果为false */
+        /* 示例：5 > 3 */
+        console.log(5 > 3); /* true */
+        console.log(5 < 3); /* false */
+        console.log(5 <= 3); /* false */
+        console.log(5 >= 3); /* true */
+
+
+        var n = 100;
+        /* 赋值符号   = */
+        /* 相等运算符 == */
+        /* 规则：比较两个操作数是否相等，如果相等那么就返回true，如果两个操作数的类型不同那么内部会转换类型。 */
+        /* 说人话：值相同 */
+        /* 全等运算符 === */
+        /* 规则：比较两个操作数是否全等，如果相等那么就返回true */
+        /* 说人话：值相同 并且 类型一样 */
+        console.log("________");
+
+        console.log(2 == 2); /* true */
+        console.log(2 == "2"); /* true */
+
+        console.log(2 === 2); /* true */
+        console.log(2 === "2"); /* false   因为类型不同*/
+
+        /* 注意：下面是错误的写法 */
+        /* 报错：Uncaught SyntaxError: Invalid left-hand side in assignment */
+        // console.log(2 = 2);
+    </script>
+</body>
+
+</html>

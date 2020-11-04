@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 数组的过滤 */
+        var data = [10, "张三丰", 40, 30, "赵敏", "哇哈哈", "黎明", false, true, 300, 20];
+        /* [30,40,300] */
+
+        /* 方案1 */
+        // var result = [];
+        // /* 思路：先初始化一个空的数组，遍历目标数组，拿到每一个元素，检查当前的元素是否满足条件，如果满足那么就保存到临时数组中。 */
+        // data.forEach(function(item, index) {
+        //     if (typeof item == "number" && item >= 25) {
+        //         result.push(item);
+        //     }
+        // })
+        // console.log(result);
+
+        /* 方案2 */
+        /* 语法：arr.filter(function(){}) */
+        /* 作用：根据函数中的过滤条件来过滤数组，会把最终的结果返回 */
+        /* 原理：该方法会先遍历数组，拿到数组的每个元素后检查当前元素是否满足回调函数中的条件，如果满足那么就保存该数据到数组。 */
+        // var res = data.filter(function(item, index) {
+        //     return typeof item == "number" && item >= 25;
+        // })
+        // console.log(res);
+
+        var res = data.filter(function(item, index) {
+            return typeof item == "string" && item.length == 3;
+        })
+        var res2=data.filter(function (item,index) {
+            return typeof item=='string'&& item.length==2
+        })
+        console.log(res,res2);
+    </script>
+</body>
+
+</html>

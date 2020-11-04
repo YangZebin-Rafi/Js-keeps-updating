@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="./lib/jquery-3.4.1.js"></script> -->
+    <script src="./lib/jq-1.0.4.js"></script>
+</head>
+
+<body>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+    <script>
+        /* 作用：把jQuery实例对象转换为数组 */
+        console.log($("div").toArray());
+        // console.log($("div"));
+
+
+        /* call|apply */
+        /* arr.slice(startIndex,endIndex) */
+        /* 作用：截取数组中的元素并且把这些元素保存到新的数组中返回 */
+        // console.log([100, 200, 300, 400].slice(1, 3)); //[200,300]
+        // console.log([100, 200, 300, 400].slice(1)); //[200,300,400]
+        // console.log([100, 200, 300, 400].slice()); //[100, 200, 300, 400]
+
+        // let likeArr = {
+        //     0: 10,
+        //     1: 20,
+        //     2: 30,
+        //     3: 40,
+        //     length: 4
+        // }
+        // console.log(Array.prototype.slice.call(likeArr)); //likeArr.slice()
+        // console.log(Array.prototype.slice.call($("div")));
+        // console.log([].slice.call($("div")));
+
+
+        /* 需求：把数组或者伪数组中的元素挨个的添加到指定的对象中，并且更新length值 */
+        /* arr.push() */
+
+        // let arr1 = ["测试"];
+        // arr1.push(10, 20, 30);
+        // console.log(arr1);
+
+        // let o = {};
+        // // [].push.call(o, 10, 20, 30); //o.push(10,20,30)
+
+        // // let t = [10, 20, 30, 40];
+        // let t = {
+        //     0: "zs",
+        //     1: "lw",
+        //     length: 2
+        // };
+        // /* 把t这个数组中的所有元素依次添加到o这个对象中，并且更新length的值 */
+        // [].push.apply(o, t)
+        // console.log(o);
+    </script>
+</body>
+
+</html>

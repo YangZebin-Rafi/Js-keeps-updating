@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 操作数组的常用方法： */
+        var arr = [10, 20];
+
+        /* [1] 在数组的后面添加元素  arr.push(ele1,ele2...) */
+        arr.push(30);
+        arr.push(40, 50, 60)
+        arr.push(233)
+        console.log(arr);
+        /* [2] 在数组的前面添加元素  arr.unshift(ele1,ele2...)*/
+        arr.unshift(3);
+        arr.unshift(88, 888);
+        arr.unshift(2333)
+        console.log(arr);
+
+        /* [3] 删除数组中最后一个元素 */
+        arr.pop();
+        arr.pop()
+        console.log(arr);
+
+        /* [4] 删除数组中第一个元素 */
+        arr.shift();
+        console.log(arr);
+
+        /* [5] 合并数组的方法 */
+        /* 语法：arr.concat(ele1|arr,ele2...) */
+
+        var arr1 = ["熊大", "熊二"];
+        var arr2 = ["佩琪", "乔治"];
+        console.log(arr1);
+        console.log(arr2);
+        var arr3 = arr1.concat(arr2);
+        console.log(arr3);
+        var arr4 = arr1.concat(arr2, [100, 200], "毛毛", "吉吉"); //["熊大", "熊二", "佩琪", "乔治", 100, 200, "毛毛", "吉吉"]
+        console.log(arr4);
+
+        /* [6] 截取数组的方法 */
+        /* 语法：arr.slice(startIndex,endIndex) */
+        /* 注意： */
+        /* (1) 该方法可以只传递一个参数，表示从这个位置开始截取直到数组的末尾 */
+        /* (2) 如果没有传递任何参数，那么表示截取整个数组 */
+        var data = ["熊大", "熊二", "佩琪", "乔治", 100, 200, "毛毛", "吉吉"];
+        var res=data.slice(5)
+        var res1 = data.slice(1, 4); // ["熊二", "佩琪", "乔治"]
+        var res2 = data.slice(1);
+        var res3 = data.slice();
+        console.log(res3);
+        console.log(res);
+    </script>
+</body>
+
+</html>

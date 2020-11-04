@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 多线程编程：开启多条线程(安全|线程切换|线程锁|并发执行) */
+        /* JavaScript是单线程。 */
+        /* 任务的执行方式： */
+        /* 同步：多个任务在执行的时候，必须要按顺序一个执行完之后再执行另外一个。 (A 5圈) - (B 5圈) - ( C 圈)*/
+        /* 同步任务：在某一个时刻，只有一个任务在执行。 */
+        /* 异步：多个任务在执行的时候，不必等当前任务执行完就执行后面的任务。    (A 先跑) - (B 5 接着跑) - ( C 接着跑)*/
+        /* 异步任务：在某一个时刻，可能有多个任务在同时执行。 */
+
+        /* 大部分任务都是同步执行的，打印操作 && for循环，有一部分任务是异步执行，ajax网络请求 && 定时器函数 */
+
+        /* 001-三个任务都是同步任务，开始执行的顺序(start-task-end) 结束执行的顺序(start-task-end) */
+        // console.log("start");
+        // console.log("task");
+        // console.log("end");
+
+        /* 002-三个异步任务要执行 开始执行的顺序(task1-task2-task3) 结束执行的顺序(?不知道) */
+        /* 谁先执行完，是不确定的，取决于这个任务的复杂程度。 */
+        // setTimeout(() => console.log("task1"), 1000);
+        // setTimeout(() => console.log("task2"), 2000);
+        // setTimeout(() => console.log("task3"), 1500);
+
+        /* 003-既有同步任务，又有异步任务 */
+        /* 逻辑：先把所有的同步任务都执行完，然后在处理异步任务 */
+        console.log("start");
+        setTimeout(() => console.log("task1"), 3000);
+        console.log("task");
+        setTimeout(() => console.log("task2"), 2000);
+        console.log("end");
+        setTimeout(() => console.log("task3"), 1500);
+
+        /* ？ */
+        /* start-task-end task3-task2-task1- */
+    </script>
+</body>
+
+</html>

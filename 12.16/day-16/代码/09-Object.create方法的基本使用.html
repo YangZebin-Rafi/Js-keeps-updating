@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* [1] 字面量 */
+        /* [2] 内置构造函数 */
+        /* [3] 工厂函数 */
+        /* [4] 自定义构造函数 */
+        /* [5] Object.create() */
+
+        /* 语法：Object.create(o,[options]) */
+        /* 作用：创建新的对象并且设置该对象的原型对象为o */
+        var t = {
+            show: function() {
+                console.log("show");
+            }
+        };
+
+        // var o1 = Object.create(t);
+        // console.log(o1);
+
+        /* 等价于 */
+        // var o1 = {};
+        // o1.__proto__ = t;
+
+
+        /* 需求：创建空对象，并且设置该对象的原型对象为Array.prototype */
+        // var obj = Object.create(Array.prototype);
+        // console.log(obj.push(1, 2, 3));
+
+
+        /* 高级用法： */
+        /* (1) 创建一个一无所有的对象。 */
+        // var obj2 = {};
+        // obj2.__proto__ = null;
+        // console.log(obj2);
+
+        // var obj2 = Object.create(null);
+        // console.log(obj2);
+
+
+        /* (2) 了解：在创建对象的时候可以设置该对象的成员 */
+        /* 对象的属性是可以配置的(是否可以被修改 + 是否可以被遍历 + 是否可以被删除) */
+        var obj3 = Object.create(t, {
+            "name": {
+                value: "zs",
+                configurable: true,
+                writable: false,
+                enumerable: true
+            },
+            "age": {
+                value: 18,
+                enumerable: true
+            }
+        });
+        console.log(obj3);
+
+        for (var key in obj3) {
+            if (obj3.hasOwnProperty(key)) {
+                console.log(key, obj3[key]);
+            }
+        }
+
+        /* 函数的名字： */
+        function fn() {}
+        console.log(fn.name);
+    </script>
+</body>
+
+</html>

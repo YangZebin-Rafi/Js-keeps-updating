@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 闭包结构A */
+        // function fn() {
+        //     let b = 123;
+        //     return function() {
+        //         return b;
+        //     };
+        // }
+        // let f = fn();
+        // let b1 = f();
+        // let b2 = f();
+        // console.log(b1, b2, b1 == b2);
+
+        /* 更复杂的情况：需要访问局部作用域中的多个私有数据 */
+        /* 方案B */
+        // function fn() {
+        //     let a = 123;
+        //     let b = 666;
+
+        //     return [
+        //         function() {
+        //             return a;
+        //         },
+        //         function() {
+        //             return b;
+        //         }
+        //     ]
+        // }
+
+        // let f = fn();
+        // console.log(f[0]());
+        // console.log(f[1]());
+
+        // /* 方案C */
+        // function fn() {
+        //     let a = 888;
+        //     let b = 666;
+
+        //     return {
+        //         getA: function() {
+        //             return a;
+        //         },
+        //         getB: function() {
+        //             return b;
+        //         }
+        //     }
+        // }
+
+        // let f = fn();
+        // console.log(f.getA());
+        // console.log(f.getB());
+
+        /* 更复杂的情况：需要(访问|修改)局部作用域中的多个私有数据 */
+        /* 方案D */
+        // function fn() {
+        //     let a = 888;
+        //     let b = 666;
+
+        //     return {
+        //         getA: function() {
+        //             return a;
+        //         },
+        //         setA: function(val) {
+        //             a = val;
+        //         },
+        //         getB: function() {
+        //             return b;
+        //         },
+        //         setB: function(val) {
+        //             b = val;
+        //         }
+        //     }
+        // }
+
+        /* 变形1 */
+        // function fn() {
+        //     let a = 888;
+        //     let b = 666;
+
+        //     return {
+        //         getA: () => a,
+        //         getB: () => b,
+        //         setA: val => a = val,
+        //         setB: val => b = val
+        //     }
+        // }
+
+        /* 变形2 */
+        // function fn() {
+        //     let a = 888;
+        //     let b = 666;
+
+        //     let getA = () => a;
+        //     let getB = () => b;
+        //     let setA = val => a = val;
+        //     let setB = val => b = val;
+        //     return {
+        //         getA,
+        //         getB,
+        //         setA,
+        //         setB
+        //     }
+        // }
+
+        // let f = fn();
+        // console.log(f.getA());
+        // console.log(f.getB());
+        // f.setA(1);
+        // f.setB(2);
+        // console.log(f.getA());
+        // console.log(f.getB());
+
+        /* 调整 => 立即执行函数(闭包) */
+        let f = (function() {
+            let a = 123;
+            return function() {
+                return a;
+            }
+        })();
+
+        console.log(f());
+    </script>
+</body>
+
+</html>

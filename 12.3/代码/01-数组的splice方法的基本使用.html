@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [100, 200, 300, 400];
+
+        /* splice方法用法 */
+        /* 添加： */
+        /* A: arr.push(ele) */
+        /* B: arr.unshift(ele) */
+        /* C: arr.splice(index,0,ele1,ele2...) */
+
+        /* (1) 演示插入操作 */
+        /* [1] 往数组中索引为1的位置插入一个元素，返回一个空数组 */
+        // var res1 = arr.splice(1, 0, "数据");
+        // console.log(res1); //[]
+       
+
+        /* [2]  往数组中索引为1的位置插入三个元素*/
+        // arr.splice(1, 0, "数据1", "数据2", "数据3");
+
+        /* (2) 演示删除操作 */
+        /* [1] 从索引为1的位置开始删除数据，删除两个元素 */
+        /* 语法：arr.splice(startIndex,deleteCount) */
+        // arr.splice(1, 2);
+        // console.log(arr);
+
+        /* [2] 从索引为2的位置开始删除数据，删除1个元素 */
+        // arr.splice(2, 1);
+
+
+        /* (3) 演示替换操作 */
+        /* 表示使用测试来替换数组中索引为1的位置的元素 */
+        arr.splice(1, 1, "测试");
+        console.log(arr); //[100, "测试", 300, 400]
+
+
+        /* 删除操作补充 */
+        var data = [10, 20, 30, 40, 50];
+
+        /* 001-splice方法 */
+        // data.splice(1, 1);
+
+        /* 002-delete关键字 */
+        // delete data["1"]; //[10,empty,30,40, 50]
+
+        /* 003-通过length属性删除 */
+        console.log(data.length); //读取数组的长度
+        // data.length = 4;  //[10, 20, 30, 40]
+
+        /* 删除数组中所有的数据 */
+        data.length = 0;
+
+        console.log(data);
+    </script>
+</body>
+
+</html>

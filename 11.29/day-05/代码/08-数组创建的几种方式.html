@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 数组：很多数据以特定的方式组织在一起，很多数组放在一起。 */
+        /* 术语： */
+        // 长度：数组中数据的个数  arr1.length 。
+        // 元素：数组中具体的某个数据，我们称之为元素(数据项)
+        // 索引：编号(从0开始依次递增) 0、1、2、3、...length-1  下标 | 角标
+
+        // var arr1 = [10, 8, 5];
+        // console.log(arr1.length);
+
+
+        /* 数组创建的几种方式： */
+        /* [1] 直接字面量方式来创建数组 */
+        var arr0 = []; //空数组(length == 0 ) 数组中没有任何数据
+        var arr1 = [1, 2, 3, 4, 5]; //拥有五个数据项的数组
+
+        /* [2] 通过Array构造函数来进行创建 */
+        var arr2 = new Array(); // []
+        var arr3 = new Array(10, 20, 30); //[10,20,0];
+        var arr4=new Array(1,2,3,4,5,6,7)
+        console.log(arr0, arr1, arr2, arr3);
+
+
+        /* 注意点： */
+        /* (1) 如果通过构造函数的方式来创建数组，没有参数要传递那么()可以被省略 */
+        var arr4 = new Array; // new Array() == [];
+        console.log(arr4);
+
+        /* (2) 如果通过构造函数的方式来创建数组，如果仅仅传递一个数字作为参数，那么这个数字表示的是长度而非数据项。 */
+        var arr5 = new Array(3); //[3] 错误的 => [null,null,null]
+        console.log(arr5);
+
+        /* (3) 如果过构造函数的方式来创建数组并且传递了参数，那么new关键字可以被省略。*/
+        var arr6 = Array("佩琪", "乔治"); //["佩琪","乔治"]
+        console.log(arr6);
+    </script>
+</body>
+
+</html>

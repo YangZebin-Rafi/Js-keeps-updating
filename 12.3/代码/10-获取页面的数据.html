@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="https://imgservice2.suning.cn/uimg1/b2c/image/_eVozqb3LrLe6I_HqDukKg.jpg_400w_400h_4e" alt="">
+    <script>
+        /* 数据结构：对象数组(本身是一个数组，数组的每个元素都是对象) */
+        // var data = [{}, {}, {}, {}, {}]
+
+        // var data = [{
+        //     src: "https://imgservice2.suning.cn/uimg1/b2c/image/_eVozqb3LrLe6I_HqDukKg.jpg_400w_400h_4e",
+        //     name: "如意三宝 蒜香小排400g 调理猪肉猪肋排袋装私房菜酒店特色菜食材",
+        //     price: "28.80",
+        //     disCount: "9700+"
+        // }, {
+        //     src: "https://imgservice4.suning.cn/uimg1/b2c/image/--_pk4CHUYEwMXZni4MAug.jpg_400w_400h_4e",
+        //     name: "如意三宝十香醉小排400g 腌制猪排骨猪肋排香辣",
+        //     price: "28.80",
+        //     disCount: "3900+"
+        // }];
+
+
+        /* 通过标签来获取网页的数据 */
+
+        /* 001-获取页面中所有应用了general这个class的标签 */
+        // var oUl = document.getElementsByClassName("general");
+        // var ul = oUl[0];
+        // /* 002-在ul标签中查找所有的li标签 */
+        // var lis = ul.getElementsByTagName("li");
+        // console.log(lis);
+        /* 003-获取第一个li标签 */
+        // var firstLi = lis[0];
+        // var src = firstLi.getElementsByTagName("img")[0].src;
+        // var name = firstLi.getElementsByTagName("img")[0].alt;
+        // var price = firstLi.getElementsByClassName("def-price")[0].innerText;
+        // var disCount = firstLi.getElementsByClassName("info-evaluate")[0].innerText;
+
+        /* 001-先分析标签的结构，试图抽取标签中的数据 */
+        var oUl = document.getElementsByClassName("general");
+        var ul = oUl[0];
+        var lis = ul.getElementsByTagName("li");
+        var arr = [];
+        for (var i = 0, len = lis.length; i < len; i++) {
+            var ele = lis[i];
+            var o = {};
+            o.src = ele.getElementsByTagName("img")[0].src;
+            o.name = ele.getElementsByTagName("img")[0].alt;
+            o.price = ele.getElementsByClassName("def-price")[0].innerText;
+            o.disCount = ele.getElementsByClassName("info-evaluate")[0] ?
+                ele.getElementsByClassName("info-evaluate")[0].innerText : "默认";
+            arr.push(o)
+        }
+
+        /* 002-数据处理 */
+        console.log(JSON.stringify(arr));
+
+        /* 003-把结果拷贝到https://tool.oschina.net/codeformat/json/ */
+
+        /* 004-点击格式化-展开 */
+    </script>
+</body>
+
+</html>

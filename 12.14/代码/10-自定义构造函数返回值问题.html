@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Person(name) {
+        //     this.name = name;
+
+        //     /* 默认：在函数的最后默认总是会把this返回 */
+        //     /* return this */
+        //     return true;
+        // }
+
+        // var p1 = new Person("zs") //? 对象
+        // var p2 = Person("zs") //? true
+        // // console.log(name, "++"); //? "zs"
+        // console.log(p1);
+
+        /* 返回值 */
+        /* 如果没有return ， 那么默认在函数的最后总是会把新创建的实例对象返回 */
+        /* 主动return */
+        /* [1] return 值类型的数据(字符串 数字 布尔值)       忽略，返回的仍然的默认返回的实例对象*/
+        /* [2] return 引用类型的数据(对象 数组 函数 日期)    直接返回*/
+
+
+        /* BOM 全局变量都会自动成为window的成员，注意全局变量污染问题。 */
+        /* window.name 要求这个属性必须是字符串类型，不允许试其它类型的数据 */
+        // var name = 12345;
+        // console.log(typeof name); //"12345"
+
+        var _name = document.createElement("div");
+        /* DOM标签 是特殊的对象 -> 字符串类型 */
+        /* 对象转换为字符串的时候都会调用内部的toString方法转换 */
+        console.log(_name); //"[object HTMLDivElement]"
+        document.body.appendChild(_name);
+    </script>
+</body>
+
+</html>

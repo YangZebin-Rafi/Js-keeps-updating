@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <span>A</span>
+    <div id="demoID">
+        1111 2222 3333
+    </div>
+    <span>B</span>
+    <script>
+        /* DOM操作： */
+        /* 获取：选择器[基本|层级|筛选|父子...] */
+        /* 设置：样式[css() addClass() removeClass() hasClass() toggleClass()] */
+        /* 设置：内容[text() html()] */
+        /* 创建： */
+        /* 插入： */
+        /* [+] A.append(B)  把B插入到A内容的后面。 == B.appendTo(A)*/
+        /* [+] A.prepend(B) 把B插入到A内容的前面。 == B.prependTo(A)*/
+        /* [-] A.insertAfter(B)*/
+        /* [-] A.insertBefore(B) */
+
+
+        let jq = $("<div class=\"box\">我是divY</div>");
+        // $("#demoID").append(jq);
+
+        // $("#demoID").prepend(jq);
+        // jq.prependTo($("#demoID"));
+
+        // jq.insertAfter($("#demoID")); //把jq这个标签插入到#demoID标签的后面
+        // jq.insertBefore($("#demoID"))
+    </script>
+</body>
+
+</html>

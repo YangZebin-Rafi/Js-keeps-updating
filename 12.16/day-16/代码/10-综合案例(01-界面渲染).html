@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./data.js"></script>
+</head>
+
+<body>
+    <script>
+        var Manager = function(data) {
+            this.data = data;
+            this.root = null;
+        }
+
+        Manager.prototype = {
+            constructor: Manager,
+            init: function() {
+                this.renderUI();
+                this.addClickEventHandler();
+                this.addMouseenterEventHandler();
+            },
+            renderUI: function() {
+                this.root = document.createElement("div");
+                this.root.className = "box";
+                var tpl = this.data.types.map(function(item, index) {
+                    return `<li class=${index==0 ? "active":"" }>${item}</li>`
+                }).join("");
+                var htmlA = `
+                    <h1>${this.data.title}</h1>
+                    <div class="tab">
+                      <ul class="tab-list">${tpl}</ul>
+                    </div>`;
+
+                var htmlB = this.data.data.map(function(item, index) {
+                    var tpl = item.map(function(ele, i) {
+                        return `
+                            <li class=${i==0?"current":""}>
+                              <p><span>${ele.index + 1}</span>${ele.name}</p>
+                              <div class="content">
+                                <img src=${ele.src}>
+                                <p>${ele.detail}</p>
+                              </div>
+                            </li>
+                            `
+                    }).join("");
+                    return ` <ul class="list ${index == 0 ? " cur":""}">${tpl}</ul>`;
+                }).join("");
+
+                this.root.innerHTML = htmlA + htmlB;
+                document.body.appendChild(this.root);
+            },
+            addClickEventHandler() {},
+            addMouseenterEventHandler() {}
+        }
+
+        var manager = new Manager(itemA);
+        manager.init();
+    </script>
+</body>
+
+</html>

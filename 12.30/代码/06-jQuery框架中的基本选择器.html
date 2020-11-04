@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div id="demoID">div1</div>
+    <div class="box1">div2</div>
+    <div class="box1">div3</div>
+    <div>div4</div>
+    <span>A</span>
+    <span>B</span>
+    <script>
+        /* 001-id选择器    #id*/
+        /* 002-class选择器 .class */
+        /* 003-标签选择器   标签名 */
+        /* 004-并集选择器   #id,.class */
+        /* 005-通配符选择器 * */
+
+        // $("#demoID").css("background", "red");
+        // $(".box1").css("background", "red");
+        // $("div").css("background", "red");
+        // $("span").css("background", "red");
+
+        // "#demoID,.box1"
+        // $("#demoID,.box1").css("background", "red");
+        $("*").css("background", "red");
+        // document.querySelectorAll(#id,.class)
+    </script>
+</body>
+
+</html>

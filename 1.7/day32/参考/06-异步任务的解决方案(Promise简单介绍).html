@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 需求：三个异步任务，控制顺序 A-B-C  ? */
+        new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    console.log("task-A");
+                    resolve();
+                }, 1000);
+
+            })
+            .then(function() {
+                console.log("taskA-ok");
+
+                return new Promise(function(resolve, reject) {
+                    setTimeout(() => {
+                        console.log("task-B");
+                        resolve();
+                    }, 1000);
+                })
+            }, function() {
+                console.log('error');
+            })
+            .then(function() {
+                console.log("taskB-oK");
+                setTimeout(() => {
+                    console.log("task-C");
+                }, 1000);
+            })
+    </script>
+</body>
+
+</html>

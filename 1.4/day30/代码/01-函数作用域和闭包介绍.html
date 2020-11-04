@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 作用域和函数 */
+        /* 作用域：变量起作用或者是有效(被访问) */
+        /* [1] 全局作用域        全局变量可以在任何位置访问*/
+        /* [2] 局部(函数)作用域   局部变量只能在当前作用域中访问*/
+
+        let a = 123;
+
+        /* 局部作用域中声明的变量(局部变量|私有变量)外部无法直接访问 */
+        /* 备注：当函数执行完，函数中的所有数据都会被销毁(释放) */
+        /* 报错：Uncaught ReferenceError: b is not defined */
+        // console.log(b);
+
+        /* 需求：想方设法的访问fn中的变量b */
+        /* 方案A：此路不通 */
+        // function fn() {
+        //     let b = [1, 2, 3];   
+        //     return b;
+        // }
+
+        // fn();
+        // let b1 = fn();
+        // console.log(b1);
+
+        // let b2 = fn();
+        // console.log(b2);
+        // console.log(b1 == b2);
+
+
+        /* 方案B */
+        /* 通过这种方法，我们可以间接的来获取函数中的私有变量，这是闭包的一种典型形式。 */
+        /* 闭包的特点：(1) 可以间接的来获取函数中的私有变量 (2) 可以延迟变量的生命周期(出生-死亡)*/
+        /* JavaScript内存管理：浏览器每隔固定的间隔时间(1s),就会扫描当前页面，如果发现当前页面中某些数据的引用计数器的值 == 0 就会自动对这些数据进行回收(销毁) */
+        /* 当我们声明一个变量的时候，计数器 == 1 ， 如果作用域被释放，那么计数器 -1 ，如果当前变量被其它作用域引用那么 + 1*/
+        /* 上帝 (🐜[0]  🐜[1]  🐜[1]  🐜[1]  🐜[1]) */
+        /* 内存管理:当应用程序运行的时候会在系统中开启进程,CPU会给进程分配资源(内存)。 */
+        function fn() {
+            let b = 123;
+
+            function temp() {
+                return b;
+            }
+            return temp;
+        }
+        let f = fn();
+
+        let b1 = f();
+        let b2 = f();
+        console.log(b1, b2, b1 == b2);
+    </script>
+</body>
+
+</html>

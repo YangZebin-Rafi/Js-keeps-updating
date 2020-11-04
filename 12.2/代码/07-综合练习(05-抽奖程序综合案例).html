@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>抽奖</button>
+    <br>
+    <br>
+    <button>四选一</button>
+    <script>
+        var data = ["300-299优惠劵", "明天的奶茶一份", "🍭一颗", "豪华双人欧洲爱情海5日游", "休闲沐足五折优惠券", "劳斯莱斯五元代金券", "谢谢参与"];
+        
+        var data2=['笔','墨','纸','砚']
+
+        /* 001-先获取页面的标签，添加点击事件 */
+        var oBtn = document.getElementsByTagName("button")[0];
+
+        /* 002-当点击的时候执行抽奖的业务逻辑，得到一份奖品 */
+        oBtn.onclick = function() {
+            /* 003-弹出信息 */
+            /* 随机得到一个编号(索引)  范围[0-length-1]*/
+            var index = getNumber(0, data.length - 1);
+            var result = data[index];
+            alert("抽奖的结果" + result);
+        }
+
+        var oBtn2=document.getElementsByTagName('button')[1]
+        oBtn2.onclick=function(){
+            var index=getNumber(0,data2.length-1)
+            var result=data2[index]
+            console.log('选择结果'+result);
+            alert(result)
+        }
+
+        function getNumber(min, max) {
+            return parseInt(Math.random() * (max - min + 1)) + min
+        }
+    </script>
+</body>
+
+</html>

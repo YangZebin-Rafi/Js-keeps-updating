@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 核心：原型对象和原型链 */
+        // function Person(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // Person.prototype.name = "名字";
+        // Person.prototype.age = 99;
+        // Person.prototype.showName = function() {
+        //     console.log("name", this.name);
+        // }
+        // Person.prototype.showAge = function() {
+        //     console.log("name", this.name);
+        // }
+        // Person.show = function() {
+        //     console.log("show", this.name);
+        // }
+        // var p1 = new Person("zs", 19);
+
+        // p1.show(); //show zs ? => 报错
+        // Person.prototype.show(); //报错
+        // Person.show(); //show Person
+
+        /* 概念 */
+        /* 构造函数：Person */
+        /* 原型对象: Person.prototype */
+        /* 实例对象：p1 */
+        // console.log(p1.name); //zs
+        // console.log(Person.prototype.name); //名字
+        // console.log(p1.age); //19
+        // console.log(Person.prototype.age); //99
+        // console.log(Person.name); //zs ? 名字？ => Person 函数是特殊的对象，函数有一个name属性
+        /* 对象在访问属性和方法的时候，先在自己身上查找，如果有那么就直接用，没有就找以下原型对象 */
+
+        // p1.showName(); //name zs
+        // Person.prototype.showName(); //name 名字 
+        // p1.__proto__.showName(); //name 名字
+        // Person.showName(); //报错    Person自己并没有showName方法，所以在这里会报错
+    </script>
+    <script>
+        function Person(name, age) {
+            var className = "1913";
+
+            function showClassName() {
+                console.log(className);
+            }
+            this.name = name;
+            this.age = age;
+            this.showInfo = function() {}
+            this.infoShow = function() {
+                return className;
+            }
+        }
+        Person.tt = "我是tt";
+        Person.prototype.name = "名字";
+        Person.prototype.age = 99;
+        Person.prototype.showName = function() {
+            console.log("name", this.name);
+        }
+        Person.prototype.showAge = function() {
+            console.log("name", this.name);
+        }
+        Person.show = function() {
+            console.log("show", this.name);
+        }
+        var p1 = new Person("zs", 19);
+        // console.log(className, p1.className); //报错，undefined 
+        // showClassName(); //Uncaught ReferenceError: showClassName is not defined
+        console.log(p1.infoShow());
+
+        /* 构造函数：Person */
+        /* 原型对象: Person.prototype */
+        /* 实例对象：p1 */
+        /* 成员：对象的属性和方法叫做成员 */
+        // 原型成员：原型对象的属性(Person.prototype.name\Person.prototype.age)和方法(Person.prototype.showName\Person.prototype.showAge)。
+        /* 实例成员：实例对象的属性( this.name \ this.age)和方法(this.showInfo)。 */
+        /* 静态成员：构造函数自己的属性(Person.tt)和方法(Person.show)。 */
+        /* 私有成员：构造函数内部声明的私有变量(className)和私有函数(showClassName函数)。 */
+        /* 特权方法：特殊的实例方法(该方法可以访问到私有成员)。 */
+        /* 实例化：构造函数创建实例对象的过程，我们叫做实例化。 */
+    </script>
+</body>
+
+</html>

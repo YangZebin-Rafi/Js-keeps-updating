@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-获取当前的日期 */
+        var date1 = new Date();
+
+        /* 002-创建日期对象(传递参数) */
+        /* 注意:设置月份的时候04表示5月 */
+        var date2 = new Date(2019, 3, 1, 10, 30, 21);
+        console.log(date2);
+
+        /* 003-创建日期对象(传递参数格式化字符串) */
+        /* 注意点：设置月份的时候04就是4月 */
+        var date3 = new Date("2019-04-03 10:30:25");
+        console.log(date3);
+
+        /* 004-创建日期对象(传递参数格式化字符串) */
+        var date4 = new Date("2019/04/03 10:30:25");
+        console.log(date4);
+
+        /* 005-创建日期对象(时间戳 - 巨大的数字) */
+        /* 时间戳：指的是纪元时间开始到指定时间中间经过了多少毫秒。 */
+        var date5 = new Date(3000);
+        console.log(date5);
+
+        /* 补充：获取当前时间的时间戳 */
+        console.log(date1.getTime());
+    </script>
+</body>
+
+</html>

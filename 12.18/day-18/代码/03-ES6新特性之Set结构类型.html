@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 对象：Object */
+        /* 数组：Array */
+        /* 函数：Function */
+        /* 日期：Date */
+        /* 集合：Set */
+
+        /* Set: 跟数组很像，特点是集合中的数据是唯一的。 */
+        let arr1 = [100, 200, 300, 100, 200, 300];
+
+        /* Set的基本操作 */
+        // 添加：add: ƒ add()
+        // 清空：clear: ƒ clear()
+        // 删除：delete: ƒ delete()
+        // 遍历：forEach: ƒ forEach()
+        // 检查：has: ƒ has()
+        // 长度：size: (...)
+        // get size: ƒ size()
+
+        /* 001-先创建实例对象 */
+        let data = new Set();
+
+        /* 002-添加数据 */
+        data.add(1000);
+        data.add("佩琪");
+        data.add("乔治");
+
+        /* 003-删除数据 */
+        // data.delete(1000);
+
+        /* 004-清空数据 */
+        // data.clear();
+
+        /* 005-检查Set中是否存在指定的数据 */
+        let has = data.has("佩琪");
+        console.log(has);
+
+        /* 006-获取长度(数据的个数) 只读*/
+        console.log(data.size);
+
+        /* 007-forEach方法遍历 */
+        data.forEach(ele => console.log(ele));
+
+        /* 008-for..of方法遍历 */
+        for (let ele of data) {
+            console.log(ele);
+        }
+        console.log(data);
+    </script>
+</body>
+
+</html>

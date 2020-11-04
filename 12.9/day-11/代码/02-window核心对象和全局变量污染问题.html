@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <iframe src="http://www.baidu.com" frameborder="0" width="500px" height="500px"></iframe> -->
+    <!-- <iframe src="http://www.qq.com" frameborder="0" width="500px" height="500px"></iframe> -->
+    <script>
+        (function() {
+
+            /* 全局变量：在全局作用域中的声明的变量被成为全局变量，任何位置都可以访问全局变量。 */
+            /* 局部变量：在局部作用域(函数)中声明的变量被成为局部变量，局部变量直到当前作用域中有效。 */
+
+            /* window:是顶级(层)对象，是BOM的核心对象。 */
+            /* 关键：我们声明的所有全局变量和函数，都会自动成为window的属性(键值对-成员)。 */
+            var a1 = 123;
+            var a2 = 234;
+            var a3 = function() {
+                console.log("a3");
+            }
+            console.log(a1, window.a1, a1 == window.a1);
+            console.log(a2, window.a2, a2 == window.a2);
+            console.log(a3, window.a3, a3 == window.a3);
+
+            /* 说明：window本身已经存在了很多的键值对 */
+            /* 包括：alert() console对象 setTimeOut() ..... */
+            /* 注意：我们在使用的时候，可以通过window.alert() window.setTimeOut() 也可以省略window（建议） */
+            // alert(123);
+            // window.alert(333)；
+
+            window.console.log("88888");
+            console.log(window.console == console); /* true */
+
+
+            /* 全局变量污染：我们发现系统提供的window对象里面已经存在了很多的键值对，而我们声明的全局变量又会成为window的属性，那么就会存在覆盖问题。 */
+            /* 声明一堆变量演示覆盖的问题 */
+            /* 下面的变量会覆盖window对象中原有的属性，下面这些变量是有意义的，ex length: 代表着当前页面中iframe标签的个数*/
+            // var name = "我是战神";
+            // var length = 100;
+            // var status = "OK";
+
+            /* 建议： */
+            /* (1) 尽量少使用全局变量。 */
+            /* (2) 在声明全局变量的时候尽量避开window的属性。 */
+
+
+            /* 方案： */
+            /* [1] 命名空间模式：在全局作用域中声明一个巨大的对象，我们把所有需要声明伪全局变量的数据否挂载到这个巨大的对象上面。 */
+            /* [2] 利用立即执行函数，把所有的代码都放在一个巨大的函数中作为这个函数的函数体来执行，这样的话那些数据就被声明局部变量。*/
+            /* [3] ES6 提供了模块化开发方式。 */
+            var App = {
+                name: "我是战神",
+                length: 100,
+                status: "OK",
+                car: {
+                    type: "Audi",
+                    number: "粤A88888",
+                    color: "red",
+                    otherInfo: {
+                        price: "998",
+                        address: "上海",
+                        des: {
+                            a: "111",
+                            b: 2222
+                        }
+                    }
+                }
+            }
+
+            console.log(App.car.otherInfo.des.b);
+
+
+        })();
+    </script>
+</body>
+
+</html>

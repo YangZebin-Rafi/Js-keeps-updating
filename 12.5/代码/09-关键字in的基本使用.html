@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-字面量方式创建对象 */
+        var o1 = {
+            name: "zs",
+            age: 19
+        }
+        console.log(o1);
+
+        /* 002-通过构造函数方式来创建 */
+        var o2 = new Object();
+
+        /* 003-对象的基本操作 */
+        /* [1] 点语法 */
+        /* [2] 中括号语法 */
+
+        /* (1) 添加新的键值对 */
+        o2.class = "H5";
+        o2.address = "北京市";
+        o2["color"] = "red";
+
+        /* (2) 修改键值对 */
+        o2.class = "HTML5";
+        o2["color"] = "green";
+        // o2.background color = "#000";  //错误
+        o2["background color"] = "#f00";
+
+        console.log(o2);
+
+        /* (3) 读取操作 */
+        console.log(o2.class, o2.address);
+        console.log(o2["class"], o2["address"]);
+
+        /* (4) 遍历(列举：把对象中所有的键值对都列举出来) */
+        for (var key in o2) {
+            /* 第一次循环的时候 var  key = "class" */
+            /* 第一次循环的时候 var  key = "address" */
+            /* 第一次循环的时候 var  key = "color" */
+            console.log(`当前的key=${key},当前的value=${o2[key]}`);
+        }
+
+        /* ? 我们在操作对象的时候可以使用点语法也可以使用[]语法，究竟选择谁呢？ 建议使用点语法 */
+        /* 有些特定的情况只能使用[]语法 */
+        /* **A 当对象的属性名是一个变量的时候，只能使用[]语法 */
+        /* **B 当属性名字比较特殊(中间存在空格) */
+    </script>
+</body>
+
+</html>

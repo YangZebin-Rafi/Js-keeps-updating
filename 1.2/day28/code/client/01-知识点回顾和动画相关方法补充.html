@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 200px;
+            background: #195
+        }
+    </style>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        /* 当鼠标移入标签的时候，展开或者收起 */
+        $(() => {
+            /* 在短时间内这个标签的事件被触发了很多次(18次)，每次触发事件的时候都会执行这个动画，但是动画执行需要时间 */
+            /* 动画队列：如果一个标签在短时间内有很多动画任务等待执行，那么这些任务会被放到动画队列中。 */
+            /* 假设：我们同一时间只能做一件事情(JavaScript是单线程的) */
+            /* 敲代码 | 烧菜 | 取快递 | 查水表 | ... */
+            $("div").mouseenter(function() {
+                $(this).stop(false, true).slideToggle(1000);
+                console.log("+++");
+            })
+        })
+    </script>
+</body>
+
+</html>

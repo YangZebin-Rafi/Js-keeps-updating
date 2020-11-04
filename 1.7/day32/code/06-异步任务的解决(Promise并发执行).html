@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/jquery/dist/jquery.js"> </script>
+</head>
+
+<body>
+    <script>
+        /* Promise并发执行多个任务 */
+        /* 1 2 3 4 | => 5 */
+        Promise.all([
+            new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    console.log("1");
+                    resolve("a");
+                }, 1)
+            }),
+            new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    console.log("2");
+                    resolve("b");
+                }, 5)
+            }),
+            new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    console.log("3");
+                    resolve("c");
+                }, 1)
+            }),
+            new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    console.log("4");
+                    resolve("d");
+                }, 10)
+            })
+        ]).then(function(data) {
+            setTimeout(() => {
+                console.log("5");
+                console.log(data);
+
+            }, 1)
+        })
+    </script>
+</body>
+
+</html>

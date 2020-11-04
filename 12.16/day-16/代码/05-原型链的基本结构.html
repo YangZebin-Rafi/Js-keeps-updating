@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* [1] 每个构造函数都有一个默认相关联的原型对象(每个人天生都有一个对象) */
+        /* [2] 所有的对象可以理解为都是由构造函数创建出来的(每个人都是妈生的)。   */
+        /* [3] 原型对象也是对象，因此原型对象也有自己的构造函数。*/
+        /* [4] 原型对象自己的构造函数，也有自己的原型对象，这个原型对象也是对象因此也有自己的构造函数，这个构造函数也应该有关联的原型对象。 */
+        /* 上面的就会形成一种链式的访问结构，称为原型链。*/
+
+        /* JavaScript原型链有顶端(Object.prototype),它的原型对象是null.*/
+        function Person() {
+            this.a = "我是a"
+            this.b = "我是b1"
+        }
+
+        Person.prototype.b = "我是b";
+        Person.prototype.c = "我是c1";
+        var p1 = new Person();
+        Object.prototype.c = "我是c"
+
+
+        console.log(p1.a); //我是a
+        console.log(p1.b); //我是b1
+        console.log(p1.c); //我是c1
+
+        /* 数组 */
+        var arr1 = [1, 2, 3];
+        var arr2 = [10, 20, 30];
+        /* arr1和arr2这两个数组并没有任何操作数据的方法，但是它们都可以调用slice和push方法 */
+        /* 因为push\slice方法都是添加到数组的原型对象(Array.prototype == arr1.__proto__)上面的 */
+
+        /* 哲学：我是谁 我从哪里来 我到哪里去？ */
+        /* var o = {} == new Object()   var arr = [1,2,3] == new Array(1,2,3) function fn(){} == new Function(){}*/
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+
+    <script>
+        /* (1) 原生 监听页面的加载，等页面加载完执行函数里面的代码 */
+        // window.onload = function() {
+        //     let oDiv = document.querySelector("div");
+        //     console.log(oDiv);
+        // }
+
+
+        /* (2) jQuery */
+        // $(document).ready(function() {
+        //     let oDiv = document.querySelector("div");
+        //     console.log(oDiv);
+        // })
+
+        /* 区别： */
+        /* [1] 监听的时机不一样 */
+        /*     window.onload监听页面(HTML + js + css + img资源)加载完毕   底层(load)*/
+        /*     jQuery监听页面(HTML)加载完毕                               底层(DOMContentLoaded)*/
+        /* [2] 监听的次数 */
+        /*     window.onload 监听N次只会触发1次(覆盖) */
+        /*     jQuery监听N次会触发N次 */
+
+        // window.onload = function() {
+        //     console.log("window--1");
+        // }
+        // window.onload = function() {
+        //     console.log("window--2");
+        // }
+        // window.onload = function() {
+        //     console.log("window--3");
+        // }
+
+        $(document).ready(function() {
+            console.log("jq---1");
+        })
+
+        $().ready(function() {
+            console.log("jq---2");
+        })
+
+        $(() => {
+            console.log("jq---3");
+        })
+
+        /* 简写形式： 省略document */
+    </script>
+    <div>div</div>
+</body>
+
+</html>

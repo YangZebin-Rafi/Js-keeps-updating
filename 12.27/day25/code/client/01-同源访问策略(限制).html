@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 浏览器的安全策略：同源访问策略(在发送请求时候只能跟相同的源[域]进行通信)
+        // 要求：协议+主机地址+端口号
+        // let xhr = new XMLHttpRequest;
+        // xhr.open("get", "../server/01-server.php", true);
+        // xhr.send();
+        // xhr.onload = () => {
+        //     if (xhr.status == 200) {
+        //         console.log("success", xhr.responseText);
+        //     } else {
+        //         console.log("error", xhr.statusText);
+        //     }
+        // }
+
+
+        let xhr = new XMLHttpRequest;
+        //客户端：http://127.0.0.1/h5-1913/day25/code/client/01-a.html
+        //服务器：http://127.0.0.1/h5-1913/day25/code/server/01-server.php
+
+
+        //服务器：http://www.baidu.com (报错：Access-Control-Allow-Origin  原因是：请求跨域)
+        //xhr.open("get", "http://127.0.0.1/h5-1913/day25/code/server/01-server.php", true);
+        xhr.open("get", "http://www.baidu.com", true)
+        xhr.send();
+        xhr.onload = () => {
+            if (xhr.status == 200) {
+                console.log("success", xhr.responseText);
+            } else {
+                console.log("error", xhr.statusText);
+            }
+        }
+
+        /* 我们在实际开发中，有些情况下确实需要跨域来发请求获取数据。 */
+        /* (1) CORS 服务器端进行配置(设置响应头) */
+        /* (2) jsonP json + padding(json的填充模式) */
+        //整站下载工具
+
+        // jsonp_1577411614720_89919({
+        //     "status": "200",
+        //     "msg": {
+        //         "noad_url": "https://order.mgtv.com/pay/pc/index.html",
+        //         "buyvip_tip": "\u8fde\u7eed\u5305\u6708\u7279\u60e0\u4ec5\u970015\u5143",
+        //         "noad_icon": "",
+        //         "promotion_tips": "\u8fde\u7eed\u5305\u6708\u7279\u60e0\u4ec5\u970015\u5143/\u6708",
+        //         "noad_title": "\u4f1a\u5458\u8df3\u8fc7\u5e7f\u544a"
+        //     },
+        //     "err": 0
+        // })
+    </script>
+</body>
+
+</html>

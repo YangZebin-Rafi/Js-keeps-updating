@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* POST请求 */
+        /* 001-如果没有参数要提交那么只需要修改请求方法 get->post */
+        // let xhr = new XMLHttpRequest;
+        // xhr.open("post", "../server/06-post.php", true);
+        // xhr.send();
+        // xhr.onreadystatechange = () => {
+        //         if (xhr.readyState == 4) {
+        //             if (xhr.status == 200) {
+        //                 console.log("成功 " + xhr.responseText);
+        //             } else {
+        //                 console.log("失败 " + xhr.statusText);
+
+        //             }
+        //         }
+        //     }
+
+
+        /* 002-如果要提交参数给服务器端*/
+        /* {1} 修改请求方法为post */
+        /* {2} 把参数以查询字符串的方式放在send方法中提交 */
+        /* {3} 设置请求头信息*/
+        /* 注意点：请注意代码的位置 */
+        let xhr = new XMLHttpRequest;
+        xhr.open("post", "../server/06-post.php", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send("num=18689428671&email=123@vip.com");
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    console.log("成功 " + xhr.responseText);
+                } else {
+                    console.log("失败 " + xhr.statusText);
+
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

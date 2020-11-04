@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+        
+        .div-class {
+            width: 400px;
+            height: 100px;
+            background: #efefef;
+            border: 1px solid #000;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /*window.onload 方法：页面加载完毕后(DOM树HTML CSS文件 javaScript文件 图片等所有资源)执行函数中的代码*/
+        /*建议：以后所有的js代码都写在onload方法里面*/
+
+        window.onload = function() {
+
+            /*01-获取标签 等页面加载完毕设置让标签居中*/
+            var oDiv = document.getElementsByClassName("div-class")[0];
+
+            /*02-获取标签的宽度和高度*/
+            var height = oDiv.offsetHeight;
+            var width = oDiv.offsetWidth;
+
+            oDiv.style.top = (window.innerHeight - height) / 2 + "px";
+            oDiv.style.left = (window.innerWidth - width) / 2 + "px";
+
+            /*03-监听页面窗口大小的改变 当窗口大小变化的时候动态的计算让标签居中*/
+            window.onresize = function() {
+                // console.log("666");
+                oDiv.style.top = (window.innerHeight - height) / 2 + "px";
+                oDiv.style.left = (window.innerWidth - width) / 2 + "px";
+            };
+
+
+            /*备注 可以通过className来控制标签的样式*/
+            console.log(oDiv.className);
+            oDiv.className = "div-class text-class"
+        }
+    </script>
+
+    <div class="div-class"></div>
+</body>
+
+</html>

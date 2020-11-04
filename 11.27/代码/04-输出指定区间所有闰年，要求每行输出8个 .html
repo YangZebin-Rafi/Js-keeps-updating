@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: #195;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /* 需求:输出指定区间所有闰年，要求每行输出8个 */
+        /* 闰年：普通年能被4整除且不能被100整除的为闰年,或者世纪年能被400整除的是闰年*/
+        /* 区间：1000-2020 */
+        var count = 0;
+        for (var i = 1000; i <= 2020; i++) {
+            if (i % 4 == 0 && i % 100 != 0 || i % 400 == 0) {
+                // console.log(i);
+                // document.write(`${i}<br>`);
+                /* 001-创建一个标签 */
+                var oSpan = document.createElement("span");
+                /* 002-设置标签的内容 */
+                oSpan.innerText = i;
+                /* 003-把创建好的标签插入到页面中 */
+                document.body.appendChild(oSpan);
+                count++;
+
+                if (count % 3 == 0) {
+                    document.body.appendChild(document.createElement("br"));
+                }
+                console.log(oSpan);
+            }
+        }
+    </script>
+</body>
+
+</html>

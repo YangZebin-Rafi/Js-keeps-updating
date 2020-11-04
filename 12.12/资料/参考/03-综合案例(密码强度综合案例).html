@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .form {
+            position: absolute;
+            width: 250px
+        }
+        
+        .level {
+            position: absolute;
+            left: 250px;
+            width: 210px;
+            height: 26px;
+            border: 3px solid #efefef;
+            border-radius: 10px
+        }
+        
+        .pwd-level-text {
+            position: absolute;
+            left: 480px;
+            height: 30px;
+            line-height: 30px
+        }
+        
+        .pwd-level {
+            width: 60px;
+            height: 16px;
+            background: #efefef;
+            display: inline-block;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+        
+        #pwd {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <label for="pwd">密码</label>
+        <input type="text" id="pwd" placeholder="请输入密码" size="30">
+    </div>
+
+    <div class="level">
+        <span class="pwd-level"></span>
+        <span class="pwd-level"></span>
+        <span class="pwd-level"></span>
+    </div>
+
+    <span class="pwd-level-text"></span>
+    <script>
+        /* 001-先获取页面中的输入框标签，注册input事件监听 */
+        /* 002-当输入框的内容发生变化的时候，密码强度模块要做出响应 */
+        /* 规则： */
+        // [1] 如果输入框中值 仅仅只有数字或者是小写字母或者是大写字母                  -> 1 弱
+        // [2] 如果输入框中值 有数字&&小写字母 || 数字&&大写字母 || 小写字母&&大写字母  -> 2 中
+        // [3] 如果输入框中值 数字 && 小写字母 && 大写字母                          -> 3 强
+        var oInput = document.querySelector("#pwd");
+        var oSpans = document.querySelectorAll(".pwd-level");
+        var oResult = document.querySelector(".pwd-level-text");
+        oInput.oninput = function() {
+            var text = this.value.trim();
+            /* 待解决的问题：检查字符串中是否存在 数字|小写字母|大写字母 */
+            /* "2134" 核心处理方案：遍历字符串，拿到字符串中每一个字符检查是否有 数字|小写字母|大写字母。*/
+            /* charCodeAt(index)   ASCII表(0-9 a-z A-Z)*/
+
+            var isHasNumber = false;
+            var isHasCharA = false;
+            var isHasCharB = false;
+
+
+            /* 去隔壁班级找：戴帽子 穿红衣服 绿头发 */
+            for (var i = 0, len = text.length; i < len; i++) {
+                var codeNumber = text.charCodeAt(i);
+                if (codeNumber >= 48 && codeNumber <= 57) {
+                    isHasNumber = true;
+                    continue;
+                }
+
+                if (codeNumber >= 65 && codeNumber <= 90) {
+                    isHasCharB = true;
+                    continue;
+                }
+
+                if (codeNumber >= 97 && codeNumber <= 122) {
+                    isHasCharA = true;
+                }
+            }
+
+            if (text.length == 0) {
+                oSpans[0].style.background = "#efefef";
+                oSpans[1].style.background = "#efefef";
+                oSpans[2].style.background = "#efefef";
+                oResult.innerText = ""
+                console.log("===");
+                return;
+            }
+
+            // console.log(`数字=${isHasNumber},小写=${isHasCharA}，大写=${isHasCharB}`);
+            if (isHasCharA && isHasCharB && isHasNumber) {
+                oSpans[0].style.background = "red";
+                oSpans[1].style.background = "green";
+                oSpans[2].style.background = "yellow";
+                oResult.innerText = "强"
+
+            } else if (isHasCharA && isHasCharB || isHasCharA && isHasNumber || isHasCharB && isHasNumber) {
+                oSpans[0].style.background = "red";
+                oSpans[1].style.background = "green";
+                oSpans[2].style.background = "#efefef";
+                oResult.innerText = "中"
+
+            } else {
+                oSpans[0].style.background = "red";
+                oSpans[1].style.background = "#efefef";
+                oSpans[2].style.background = "#efefef";
+                oResult.innerText = "差"
+            }
+
+        }
+    </script>
+</body>
+
+</html>

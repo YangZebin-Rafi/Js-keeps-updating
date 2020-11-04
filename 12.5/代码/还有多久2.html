@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        div {
+
+            height: 200px;
+            width: 400px;
+            /* border: solid 1px yellow; */
+            margin: auto;
+            margin-top: 200px;
+            /* background: green; */
+
+        }
+
+
+        span {
+            float: left;
+            display: block;
+            width: 398px;
+            height: 175px;
+            /* border: 1px black solid; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Time">
+        <input type="date" placeholder="请输入目标时间">
+        <button id="btn">开始计时</button>
+        <span style="font-size: 50px; color: skyblue; ; line-height: 175px;text-align: center; "></span>
+    </div>
+    <script>
+        // 获取标签
+        var oInput = document.getElementsByTagName("input")[0]
+
+        var oSpan = document.getElementsByTagName("span")[0]
+        var oBtn = document.getElementById("btn")
+        // 获取当前时间
+        oBtn.onclick = function () {
+            /* 获取当前时间 */
+            // 设置一个定时器
+            setInterval( function(){ 
+            var date = new Date();
+            /* 获取文本框时间 */
+            var dateB = oInput.value;
+            var dateA = new Date(dateB);
+            // console.log(dateA);
+            // 获取输入的日期
+
+            // 把两个时间转换为时间轴再相减
+            var tA = date.getTime()
+            var tB = dateA.getTime()
+            // console.log(tA, tB);
+            // 计算差值
+            var offset = Math.abs(tB - tA);
+            var count = offset;
+            // console.log(count);
+
+            // var s;
+            // var day = parseInt(count / (1000 * 60 * 60 * 24));
+            var hours = parseInt((count / (1000 * 60 * 60)));
+            var minutes = parseInt(count / (1000 * 60) % 60);
+            var seconds = parseInt(count / (1000) % 60);
+
+
+                oSpan.innerText =
+                    `${hours}小时${minutes}分${seconds}秒` },1000 )
+
+            
+            //  oSpan.innerText = (hours < 10 ? (0 + hours) : hours + ":" + minutes < 10 ? (0 + minutes) : minutes +
+            //     ":" +
+            //     seconds < 10 ? (0 + seconds) : seconds)
+
+            // return s;
+
+            //     console.log(hours)
+
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: #000;
+        }
+        
+        .car-class {
+            width: 150px;
+            position: absolute;
+            right: 0;
+            bottom: 30px;
+        }
+        
+        .line {
+            width: 99%;
+            height: 2px;
+            background: #333;
+            position: absolute;
+            bottom: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/car.png" class="car-class">
+    <div class="line"></div>
+    <script>
+        let oImg = document.querySelector("img");
+        let offset = 50;
+        let timer = setInterval(() => {
+            offset -= 2;
+            /* 临界值检查 */
+            if (offset <= 0) {
+                offset = 0;
+                clearInterval(timer);
+            }
+            let left = oImg.offsetLeft - offset;
+            oImg.style.left = left + "px"
+        }, 50)
+    </script>
+</body>
+
+</html>

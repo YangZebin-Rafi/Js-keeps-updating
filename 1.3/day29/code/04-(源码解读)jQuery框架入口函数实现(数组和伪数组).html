@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="./lib/jquery-3.4.1.js"></script> -->
+    <script src="./lib/jq-1.0.2.js"></script>
+</head>
+
+<body>
+    <div id="demoID">div1</div>
+    <div class="box">div2</div>
+    <script>
+        /* 如果是数组： */
+        console.log($([100, 200, 300]));
+
+        /* 如果是伪数组 */
+        console.log($({
+            0: "zs",
+            1: "lw",
+            length: 2
+        }));
+    </script>
+</body>
+
+</html>

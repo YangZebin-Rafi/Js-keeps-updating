@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+    <style>
+        .box {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box t1 t2 t3">我是div</div>
+    <script>
+        /* jQuery操作Class */
+        $(() => {
+            /* {1} 添加  jQ.addClass()*/
+            /* 方案1 */
+            // $("div").addClass("box1"); // oDiv.classList.add("box1")
+            // $("div").addClass("box2");
+            /* 方案2 */
+            // $("div").addClass("box1").addClass("box2");
+            /* 方案3 */
+            // $("div").addClass("box1 box2 box3 box");
+
+            /* {2} 删除 removeClass() */
+            /* 方案1 */
+            // $("div").removeClass("box");
+            // $("div").removeClass("t1");
+            // $("div").removeClass("t2");
+            /* 方案2 */
+            /* 思考：因为jQuery框架中的绝大多数方法都会把当前的实例对象返回 return this */
+            // $("div").removeClass("box").removeClass("t2");
+            /* 方案3 */
+            // $("div").removeClass("box t1 t3");
+
+            /* {3} 检查  检查标签中是否存在指定的class */
+            /* 注意：在检查的时候只支持单个class */
+            // console.log($("div").hasClass("box"));
+
+            /* {4} 切换  如果当前标签存在对应的样式那么就删除它，否则那么就添加这个样式 */
+            $("div").toggleClass("box t1 t4");
+        })
+    </script>
+</body>
+
+</html>

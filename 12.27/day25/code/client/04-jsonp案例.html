@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inputID">
+    <ul id="list">
+    </ul>
+
+    <script>
+        let _ul = document.querySelector("#list");
+
+        function fn(o) {
+            /* 005-把内容显示在页面中 */
+            // console.log(o);
+            let data = o.g || [];
+            console.log(data);
+            let html = data.map(ele => `<li>${ele.q}</li>`).join("");
+            _ul.innerHTML = html;
+        }
+    </script>
+    <script>
+        // https://www.hao123.com/
+        // https://www.baidu.com/sugrec?callback=jQuery110109588557440556327_1577414337960&prod=pc_hao123&wd=123&pre=1&p=3&ie=utf-8&json=1&from=pc_hao123&_=1577414337974
+        // 请求路径：https://www.baidu.com/sugrec?callback=fn&prod=pc_hao123&wd=wbq
+
+        window.onload = () => {
+            /* 001-先获取标签 */
+            let _input = document.querySelector("#inputID");
+
+            // let _script = document.querySelector("#testID");
+
+            /* 002-监听输入框的input事件 */
+            _input.oninput = function() {
+                /* 003-当事件触发的时候，获取输入框的内容 */
+                let val = this.value;
+
+                /* 004-利用jsonP去发请求获取百度搜索的内容 */
+                // _script.setAttribute("src", "https://www.baidu.com/sugrec?callback=fn&prod=pc_hao123&wd=" + val);
+
+                /* 先检查页面中这个标签是否已经存在，如果已经存在那么就删掉它 */
+                let oScript = document.querySelector("#testID");
+                if (oScript) {
+                    document.body.removeChild(oScript);
+                }
+
+                oScript = document.createElement("script");
+                oScript.id = "testID";
+                oScript.setAttribute("src", "https://www.baidu.com/sugrec?callback=fn&prod=pc_hao123&wd=" + val);
+                document.body.appendChild(oScript);
+            };
+        }
+    </script>
+    <!-- 这种方式存在问题(一个script只会发一次请求，即便修改了这个标签的src那么也不会重新去发请求) -->
+    <!-- <script id="testID"></script> -->
+</body>
+
+</html>

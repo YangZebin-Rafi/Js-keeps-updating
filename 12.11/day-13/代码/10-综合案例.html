@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .picShow {
+            margin: 0 auto;
+            padding: 5px;
+            width: 250px;
+            height: 250px;
+            border: 2px solid #999;
+        }
+        
+        #bigPic {
+            width: 250px;
+            height: 250px;
+        }
+        
+        #smallPic {
+            margin-top: 5px;
+        }
+        
+        #smallPic img {
+            border: 1px solid #ddd;
+            padding: 2px;
+            width: 50px;
+            height: 50px;
+        }
+        
+        #smallPic img.active {
+            border: 2px solid #f00;
+            padding: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="picShow">
+        <img src="./img/001.jpeg" id="bigPic">
+        <div id="smallPic">
+            <img src="./img/001.jpeg" class="active">
+            <img src="./img/002.jpeg">
+            <img src="./img/003.jpeg">
+            <img src="./img/004.jpeg">
+        </div>
+    </div>
+    <script>
+        /* 思路：给小图标添加鼠标移入事件，当鼠标移入的时候，设置当前小图标选中状态并且要切换显示大图 */
+        var oImgs = document.querySelector("#smallPic").children;
+        var target = document.querySelector("#bigPic");
+
+        for (var i = 0, len = oImgs.length; i < len; i++) {
+            oImgs[i].onmouseenter = function() {
+                for (var k = 0, len = oImgs.length; k < len; k++) {
+                    oImgs[k].classList.remove("active");
+                }
+                this.classList.add("active");
+
+                /* 显示大图:设置大图的图片路径为当前选中小图标的图片路径 */
+                target.src = this.getAttribute("src");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 关系 */
+        /* [1] 每个构造函数天生就有一个与之相关联的对象，这个对象只有一个constructor属性，这个对象被称为原型对象。 */
+        /* [2] 构造函数创建出来的所有实例对象，都可以访问原型对象上面的成员 */
+        /* 构造函数(爸爸-生孩子)   原型对象(妈妈)  实例对象(宝宝) */
+
+        /* 相当于每个男孩(构造函数)，天生就有老婆(原型对象)。 */
+        /* 构造函数->(构造函数.prototype  - constructor)<- 原型对象 */
+
+
+        /* 001-提供构造函数 */
+        function Person(name) {
+            this.name = name;
+        }
+
+        /* 002-设置原型对象 */
+        Person.prototype.show = function() {
+            console.log("show");
+        }
+
+        /* 003-调用构造函数 */
+        var p1 = new Person("lw");
+        var p2 = new Person("lz");
+        p1.show();
+
+        /* 访问的规则 */
+        /* 如果实例对象要访问成员，那么会优先在自己身上进行查找，如果找到那么就直接用，如果没有找到那么就继续查找原型对象。 */
+    </script>
+</body>
+
+</html>

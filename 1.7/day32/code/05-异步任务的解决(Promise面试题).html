@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 如果有三个异步任务：task1-task2-task3 */
+        console.log("1");
+        new Promise(function(resolve, reject) {
+                console.log("2");
+
+                setTimeout(function() {
+                    console.log("task1");
+                    resolve();
+                }, 1000);
+
+                console.log("3");
+            })
+            .then(function() {
+                console.log("4");
+                return new Promise(function(resolve, reject) {
+                    console.log("5");
+                    setTimeout(function() {
+                        console.log("task2");
+                        resolve();
+                    }, 1000);
+                    console.log("6");
+                })
+            })
+            .then(function() {
+                console.log("7");
+                setTimeout(function() {
+                    console.log("task3")
+                }, 1000);
+                console.log("8");
+            })
+        console.log("9");
+        /* 1  2 3 task1  4 5 6 task2  7 8 task3 */
+    </script>
+</body>
+
+</html>

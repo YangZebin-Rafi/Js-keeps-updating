@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- <style>
+        div {
+            color: red
+        }
+    </style> -->
+</head>
+
+<body>
+    <h1>我是标题</h1>
+    <div>我是div1</div>
+    <div>我是div2</div>
+
+    <!-- 001-方案一，在script标签中间编写JavaScript代码 -->
+    <!-- <script type="text/javascript"> -->
+    <!-- <script>
+        //当点击div的标签的时候，设置标签的文字为蓝色
+        // 001-先通过JavaScript代码来获取标签
+        // document.getElementsByTagName("div");  获取页面中所有的div标签
+        var oDiv = document.getElementsByTagName("div")[0];
+
+        // 002-给标签添加点击事件
+        oDiv.onclick = function() {
+            oDiv.style.color = "blue";
+        }
+    </script> -->
+
+    <!-- 002-方案2，把JavaScript代码编写到单独的文件中，引入执行文件 -->
+    <script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/* 001-变量 */
+/* 002-嵌套 */
+/*  */
+/* $变量名:值 */
+/* 可以在scss文件中引入其它文件 */
+/* 01-提供代码块 继承 */
+.wAndh, body, body .box {
+  width: 300px;
+  height: 400px;
+}
+
+/*02-Mixin  函数 */
+body {
+  background: red;
+  border: 1px solid red;
+}
+
+body .box {
+  border: 1px solid yellow;
+  background: #ccc;
+}
+
+body .box span {
+  color: #f00;
+}
+
+body .box p {
+  font-size: 30px;
+}
+
+body .box p:hover {
+  color: green;
+}

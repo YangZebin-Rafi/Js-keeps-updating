@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./data.js"></script>
+</head>
+
+<body>
+    <script>
+        /* 001-导入数据 */
+        /* 002-根据数据来生成标签完成数据渲染 */
+        function Manager(data) {
+            this.data = data;
+            this.root = null;
+        }
+
+        Manager.prototype = {
+            constructor: Manager,
+            init: function() {
+                /* (1) 先根据数据来生成UI(数据渲染) */
+                this.render();
+            },
+            render: function() {
+                /* 创建外层的div标签 */
+                this.root = document.createElement("div");
+                this.root.className = "box";
+
+                var html1 = `<h1>${itemA.title}</h1>`;
+
+                // ["电影", "电视", "综艺", "动漫"]
+                var tpl = itemA.types.map(function(ele) {
+                    return `<li class="">${ele}</li>`;
+                }).join("");
+
+                var html2 = `<div class="tab"><ul class="tab-list">${tpl}</ul></div>`;
+
+                var liHtml1 = itemA.data[0].map(function(ele) {
+                    return `
+                      <li class="current">
+                        <p><span>${ele.index + 1}</span>${ele.name}</p>
+                        <div class="content"><img src=${ele.src}>
+                          <p>${ele.detail}</p>
+                        </div>
+                      </li>
+                    `;
+                }).join("");
+                var liHtml2 = itemA.data[1].map(function(ele) {
+                    return `
+                 <li class="current">
+                   <p><span>${ele.index + 1}</span>${ele.name}</p>
+                   <div class="content"><img src=${ele.src}>
+                     <p>${ele.detail}</p>
+                   </div>
+                 </li>
+                 `;
+                }).join("");
+
+                var liHtml3 = itemA.data[2].map(function(ele) {
+                    return `
+                  <li class="current">
+                    <p><span>${ele.index + 1}</span>${ele.name}</p>
+                    <div class="content"><img src=${ele.src}>
+                      <p>${ele.detail}</p>
+                    </div>
+                  </li>
+                  `;
+                }).join("");
+
+                var liHtml4 = itemA.data[3].map(function(ele) {
+                    return `
+                 <li class="current">
+                   <p><span>${ele.index + 1}</span>${ele.name}</p>
+                   <div class="content"><img src=${ele.src}>
+                     <p>${ele.detail}</p>
+                   </div>
+                 </li>
+                 `;
+                }).join("");
+
+                var ulhtml1 = `<ul class="list">${liHtml1}</ul>`;
+                var ulhtml2 = `<ul class="list">${liHtml2}</ul>`;
+                var ulhtml3 = `<ul class="list">${liHtml3}</ul>`;
+                var ulhtml4 = `<ul class="list">${liHtml4}</ul>`;
+                var html = html1 + html2 + ulhtml1 + ulhtml2 + ulhtml3 + ulhtml4;
+                this.root.innerHTML = html;
+                console.log(this.root);
+            }
+
+        }
+
+        var manager = new Manager(itemA);
+        manager.init();
+    </script>
+</body>
+
+</html>

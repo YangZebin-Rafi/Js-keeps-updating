@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>div</div>
+    <script>
+        /* 样式相关的操作：① 设置标签的样式 | ②获取标签的样式 */
+
+        // ① 设置标签的样式
+        /* 语法：ele.style.样式名字 = 值 */
+        var oDiv = document.querySelector("div");
+        oDiv.style.width = "200px";
+        oDiv.style.height = "50px";
+        oDiv.style.border = "1px solid #000";
+
+        /*② 获取标签的样式 */
+        /* [1] 通过style来获取样式 */
+        /* 注意点：通过这种方式来获取标签的样式，只能获取内联样式 */
+        console.log("高度 = " + oDiv.style.height); //高度 = 50px
+        console.log("宽度 = " + oDiv.style.width); //宽度 = 200px
+        console.log("颜色 = " + oDiv.style.color); //颜色 =
+
+        /* [2] getComputedStyle() */
+        /* 语法：window.getComputedStyle(ele) */
+        /* 注意点：该方法存在兼容性问题，在IE老版本的浏览器中不能使用这个方法，ele.currentStyle属性 */
+        var styleObj = window.getComputedStyle(oDiv);
+        console.log(styleObj.color, styleObj.width);
+
+
+        /* 封装获取标签样式的方法(兼容性) */
+        function getStyleWithKey(ele, key) {
+            if (window.getComputedStyle) {
+                return window.getComputedStyle(ele)[key];
+            } else {
+                return ele.currentStyle[key];
+            }
+        }
+
+        console.log(getStyleWithKey(oDiv, "color"));
+        console.log(getStyleWithKey(oDiv, "height"));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">我是目标标签</div>
+    <button>按钮</button>
+    <script>
+        /* 001-复制(克隆)标签 */
+        /* 002-标签的插入操作 */
+
+        /* 当点击按钮的时候，复制div标签 */
+        var oBtn = document.querySelector("button");
+        var oBox = document.querySelector(".box");
+
+        oBtn.onclick = function() {
+
+            /* cloneNode(bool) 默认是false,如果需要拷贝标签的内容，那么请设置true*/
+            var target = oBox.cloneNode(true);
+
+            /* 需要把拷贝得到的标签插入到页面中(body) */
+            // document.querySelector("body")
+            document.body.appendChild(target)
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 001-性能不好,因为每个js文件在加载的时候都会需要发送网络请求-->
+    <!-- 002-可能存在代码覆盖的问题，导致出现很多莫名奇妙的Bug -->
+    <!-- 003-js文件中可能会存在复杂的依赖关系，下面的写法无法解决复杂文件的依赖问题 -->
+
+    <!-- index 依赖于A和B，B依赖于A -->
+    <script src="./A.js"></script>
+    <script src="./B.js"></script>
+    <script src="./index.js"></script>
+</head>
+
+<body>
+</body>
+
+</html>

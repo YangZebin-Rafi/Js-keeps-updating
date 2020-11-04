@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/jquery-3.4.1.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./widget-master/public/style/cssreset-min.css">
+    <link rel="stylesheet" type="text/css" href="./widget-master/public/style/common.css">
+    <script type="text/javascript" src="./widget-master/code/jquery.citys.js"></script>
+    <style>
+        .citys {
+            margin: 10px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo" class="citys">
+        <p>
+            <select name="province"></select>
+            <select name="city"></select>
+            <select name="area"></select>
+        </p>
+    </div>
+    <script>
+        $('#demo').citys({
+            code: 350206
+        });
+    </script>
+</body>
+
+</html>

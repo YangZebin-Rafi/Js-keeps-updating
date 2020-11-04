@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* arguments : 当实参的个数不确定的时候可以使用该变量 */
+        /* 特点：接收函数调用时候传递过来的实际参数，这个变量本身是一个伪数组(可以使用使用for循环来遍历) */
+        // function sum() {
+        //     let result = 0;
+        //     for (let i = 0, len = arguments.length; i < len; i++) {
+        //         result += arguments[i];
+        //     }
+        //     return result;
+        // }
+        // console.log(sum(1, 2));
+        // console.log(sum(1, 2, 100));
+        // console.log(sum(1, 2, 100, 40, 50, 20));
+
+
+        /* 箭头函数中没有arguments */
+        /* 因为arguments是一个伪数组，不是一个真正的数组，所以在操作的时候不太方便 */
+        /* ES6+ 剩余参数，它是一个真正的数组，因此可以直接使用数组的方法 */
+        // function sum1(...rest) {
+        //     let result = 0;
+        //     for (let i = 0, len = rest.length; i < len; i++) {
+        //         result += rest[i];
+        //     }
+        //     return result;
+        // }
+
+        // let sum1 = (...rest) => {
+        //     let result = 0;
+        //     rest.forEach((ele, index) => result += ele);
+        //     return result;
+        // }
+
+        // console.log(sum1(1, 2));
+        // console.log(sum1(1, 2, 100));
+        // console.log(sum1(1, 2, 100, 40, 50, 20));
+        function F(a, b = 100, ...rest) {
+            console.log(a, b, rest);
+        }
+        F(100, 200, 300, 400) //a = 100,b=200,rest=[300,400];
+        F(100, 200) //100 200 []
+
+
+        /* 注意： */
+        /* (1) 默认参数和剩余参数不会被计算到形参的数量中。 */
+        /* 形参意味着这是期望传递的参数个数 */
+        console.log(F.length); //2
+    </script>
+</body>
+
+</html>

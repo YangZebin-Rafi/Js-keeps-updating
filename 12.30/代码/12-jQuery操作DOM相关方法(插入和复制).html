@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <span>A</span>
+    <div id="demoID">
+        1111 2222 3333
+    </div>
+    <span>B</span>
+
+    <script>
+        /* DOM操作： */
+        /* 获取：选择器[基本|层级|筛选|父子...] */
+        /* 设置：样式[css() addClass() removeClass() hasClass() toggleClass()] */
+        /* 设置：内容[text() html()] */
+        /* 创建： */
+        /* 插入： */
+        /* [+] */
+        /* [+] */
+
+        /* 原生 */
+        // let oDiv = document.createElement("div");
+        // oDiv.innerText = "我是div";
+        // oDiv.classList.add("box");
+        // console.log(oDiv);
+
+        /* 原生：appendChild(ele) */
+
+        // let jq = $("<div></div>");
+        // jq.text("我是div");
+        // jq.addClass("box");
+        // console.log(jq[0]);
+
+        let jq = $("<div class='box'>我是divY</div>");
+        console.log(jq[0]);
+    </script>
+</body>
+
+</html>

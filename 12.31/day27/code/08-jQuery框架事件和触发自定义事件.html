@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <script>
+        $("button").click(function() {
+            console.log("click", this);
+        })
+
+        /* 有时候我们可能需要通过代码的方式模拟用户点击了按钮 */
+        /* 001-所有选中标签的点击事件都会被触发 */
+        // $("button").trigger("click"); //自动触发按钮的点击事件
+
+        /* 002-只有第一个选中标签的点击事件被触发 */
+        // $("button").triggerHandler("click");
+
+        /* 自定义事件: 我们可以通过on方法给标签添加自定义事件,自定义事件只能自动触发， */
+        /* 给按钮添加xxx事件 */
+        $("button").on("xxx", function() {
+            console.log('xxxx-----xxx');
+        });
+
+        $("button").trigger("xxx");
+    </script>
+</body>
+
+</html>

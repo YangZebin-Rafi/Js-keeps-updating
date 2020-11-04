@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 原理 -->
+    <!-- (1) 在页面中应该要先声明一个函数 -->
+    <!-- (2) 在页面中通过script标签来发请求获取服务器端返回的数据( 本质上是一个函数调用 ) -->
+
+    <script>
+        function tttt(o) {
+            console.log("fn---", o);
+        }
+
+        function mgtvcallback_sidebar(o) {
+            console.log(o);
+        }
+    </script>
+    <script src="http://127.0.0.1/h5-1913/day25/code/server/02-server.php?callback=tttt"></script>
+    <script src="https://www.mgtv.com/v/2018/pcweb_sidebar/?callback=mgtvcallback_sidebar&_support=10000000&_=1577411616197">
+    </script>
+</body>
+
+</html>

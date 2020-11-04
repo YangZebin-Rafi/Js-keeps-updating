@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <form action="http://127.0.0.1:8888/day-21/Code/php/04-form.php"> -->
+    <form action="./php/05-form.php" method="POST">
+        <label for="username">用户名</label>
+        <input id="username" placeholder="请输入用户名" name="usn">
+        <label for="password">密码</label>
+        <input id="password" placeholder="请输入密码" name="pwd">
+        <input type="submit" value="提交">
+    </form>
+
+    <!-- username = "zs"  password = "123456" -->
+    <script>
+        /* form表单特点 */
+        /* 当我们点击提交标签的时候，表单会自动的把输入框中的内容提交到action指定的路径 */
+        /* 如果不写或者action的路径为空，那么默认就是当前路径 */
+        /* 具体的用法： */
+        /* 设置action地址：(1) 相对路径 (2) 全路径 */
+        /* 参数：提交给服务器端的数据就叫做参数 */
+        /* 注意：所有的参数在进行提交的时候都需要以键值对的方式提交  key | value  通过name属性节点来指定key*/
+
+        // http://127.0.0.1:8888/day-21/Code/php/04-form.php?usn=zs&pwd=123
+        // Hi!
+
+        // 表单发送网络请求的时候默认发送的是GET请求
+
+        /* get:http://127.0.0.1:8888/day-21/Code/php/05-form.php?usn=WC&pwd=123 */
+        /* post:http://127.0.0.1:8888/day-21/Code/php/05-form.php */
+    </script>
+</body>
+
+</html>

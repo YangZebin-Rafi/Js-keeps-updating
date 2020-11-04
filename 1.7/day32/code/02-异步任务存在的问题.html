@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        /* Ajax发送网络请求是异步任务 */
+        /* 要求：要严格的控制异步任务的执行顺序 */
+        /* 必须要等第一个任务执行完才能执行第二个任务。 */
+        /* 解决方案A：回调函数的嵌套  回调地狱 */
+        /* 解决方案B: Promise结构 */
+
+        $.ajax({
+            type: "get",
+            url: "./01-data.php",
+            dataType: "json",
+            success: function(response) {
+                $("body").append($(`<div>${response.name}</div>`));
+
+                $.ajax({
+                    type: "get",
+                    url: "./02-data.php",
+                    dataType: "json",
+                    success: function(response) {
+                        $("body").append($(`<div>${response.name}</div>`));
+
+                        $.ajax({
+                            type: "get",
+                            url: "./02-data.php",
+                            dataType: "json",
+                            success: function(response) {
+                                $("body").append($(`<div>${response.name}</div>`));
+
+                                $.ajax({
+                                    type: "get",
+                                    url: "./02-data.php",
+                                    dataType: "json",
+                                    success: function(response) {
+                                        $("body").append($(`<div>${response.name}</div>`));
+                                    }
+                                });
+                            }
+                        });
+
+
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

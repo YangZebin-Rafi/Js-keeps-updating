@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* HTTP协议：在传输数据的时候，通常使用的都是HTTP或者时HTTPS协议(HTTP+SSL) ,它们是无状态的。*/
+        /* Cookie主要特征： */
+        /* (1) 用来进行身份识别(每次通信的时候，Cookie数据都会自动被提交到服务器端) */
+        /* (2) 存储数据 */
+
+
+        /* 注意点 */
+        /* (1) Cookie数据存在限制大小(4KB) 数量(<50) */
+        /* (2) Cookie不能跨浏览器 */
+        /* (3) Cookie在相同的域中可以共享，但是不同的域不能访问。 */
+        /* (4) Cookie默认有效期是当前的会话，当前会话结束那么Cookie数据就会被删除，过期时间可以通过代码来设置。 */
+        /* 当前会话： 浏览器退出(而非当前页面关闭)*/
+
+        /* 基本操作： */
+        /* (1) 如何存储Cookie */
+        document.cookie = "name=zs";
+
+        /* 获取3天之后的时间 */
+        let date = new Date();
+        date.setDate(date.getDate() + 3);
+        document.cookie = "age=19;expires=" + date;
+
+        /* (2) 如何读取Cookie */
+        console.log(document.cookie);
+    </script>
+</body>
+
+</html>

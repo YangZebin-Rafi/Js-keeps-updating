@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 001-合并对象 assign: ƒ assign()
+        // 002-创建对象并且设置原型对象 create: ƒ create()
+        // 形参个数：length: 1
+        // 函数名字：name: "Object"
+        // 原型对象 __proto__: ƒ()[[Scopes]]: Scopes[0]
+        // 003-获取指定对象的原型对象 getPrototypeOf: ƒ getPrototypeOf()
+        /* 总结访问原型对象的三种方式 */
+        /* [1] 构造函数.prototype */
+        /* [2] 实例对象.__proto__   ES6+ */
+        /* [3] Object.getPrototypeOf(实例对象) */
+        // 004-比较两个数据(等同于全等)is: ƒ is()
+
+        // defineProperties: ƒ defineProperties()
+        // defineProperty: ƒ defineProperty()
+        // entries: ƒ entries()
+        // freeze: ƒ freeze()
+        // fromEntries: ƒ fromEntries()
+        // getOwnPropertyDescriptor: ƒ getOwnPropertyDescriptor()
+        // getOwnPropertyDescriptors: ƒ getOwnPropertyDescriptors()
+        // getOwnPropertyNames: ƒ getOwnPropertyNames()
+        // getOwnPropertySymbols: ƒ getOwnPropertySymbols()
+        // isExtensible: ƒ isExtensible()
+        // isFrozen: ƒ isFrozen()
+        // isSealed: ƒ isSealed()
+        // keys: ƒ keys()
+        // preventExtensions: ƒ preventExtensions()
+        // seal: ƒ seal()
+        // setPrototypeOf: ƒ setPrototypeOf()
+        // values: ƒ values()
+
+
+        /* Object.is()方法 几乎和全等运算符功能一样，有两点区别 */
+        /* (1) 比较NaN */
+        console.log(NaN === NaN);
+        console.log(Object.is(NaN, NaN)); //true
+        console.log(Object.is(NaN, "测试" / 3));
+
+        /* (2) 比较0 */
+        console.log(+0 === -0); //true
+        console.log(Object.is(+0, -0)); //false
+    </script>
+</body>
+
+</html>

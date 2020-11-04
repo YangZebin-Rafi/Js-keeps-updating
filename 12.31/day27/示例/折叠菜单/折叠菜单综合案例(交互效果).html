@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .box {
+            border: 1px solid #aaa;
+            margin: 50px auto;
+            width: 320px;
+            /*height: 216px;*/
+            border-radius: 8px;
+        }
+        
+        .first>li {
+            text-indent: 10px;
+            line-height: 35px;
+            border-bottom: 1px solid #aaa;
+        }
+        
+        .first>li:last-child {
+            border-bottom: none;
+        }
+        
+        span {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            background: url("src/arrow_right.png");
+            position: relative;
+            top: 4px;
+            right: -280px;
+            transition: 0.3s;
+        }
+        
+        .sec {
+            display: none;
+        }
+        
+        .sec>li {
+            background: #2d2c41;
+            color: #fff;
+            border-bottom: 1px solid #aaa;
+        }
+        
+        .sec>li:hover {
+            background: #F2246C;
+        }
+        
+        .current span {
+            transform: rotate(90deg);
+        }
+    </style>
+    <script src="src/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="first">
+            <li><span></span>视频教程
+                <ul class="sec">
+                    <li>二级菜单1</li>
+                    <li>二级菜单2</li>
+                    <li>二级菜单3</li>
+                    <li>二级菜单4</li>
+                    <li>二级菜单5</li>
+                </ul>
+            </li>
+            <li><span></span>经典教材
+                <ul class="sec">
+                    <li>二级菜单1</li>
+                    <li>二级菜单2</li>
+                    <li>二级菜单3</li>
+                    <li>二级菜单4</li>
+                    <li>二级菜单5</li>
+                </ul>
+            </li>
+            <li><span></span>合作交流
+                <ul class="sec">
+                    <li>二级菜单1</li>
+                    <li>二级菜单2</li>
+                    <li>二级菜单3</li>
+                    <li>二级菜单4</li>
+                    <li>二级菜单5</li>
+                </ul>
+            </li>
+            <li><span></span>联系我们
+                <ul class="sec">
+                    <li>二级菜单1</li>
+                    <li>二级菜单2</li>
+                    <li>二级菜单3</li>
+                    <li>二级菜单4</li>
+                    <li>二级菜单5</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        $(function() {
+
+            //[1] 点击一级菜单时候
+            //[2] 具体的效果
+            //[2-1] 把当前菜单的二级菜单展开或者是收起
+            //[2-2] 箭头需要旋转
+            //[2-3] 排它处理
+
+            $('.first>li').click(function() {
+
+                // $('.sec').slideUp();
+                // $('span').removeClass('a');
+                // $(this).children('.sec').slideDown();
+                // $(this).children('span').toggleClass('a');
+
+                $(this).children(".sec").slideToggle();
+                $(this).siblings().children(".sec").slideUp();
+
+                $(this).toggleClass("current");
+                $(this).siblings().removeClass("current");
+            })
+        })
+    </script>
+</body>
+
+</html>

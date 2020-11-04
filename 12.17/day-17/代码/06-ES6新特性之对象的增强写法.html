@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var age = 24;
+        var attrName = "xxx";
+        var o1 = {
+            "name": "zs",
+            "age": age,
+            "showName": function() {},
+            "showAge": function() {}
+        }
+        console.log(o1);
+
+
+        /* 增强写法 */
+        /* 001-对象中的方法可以省略:function*/
+        /* 002-如果属性的名字和属性值相同，那么可以简写 */
+        let o2 = {
+            name: "zs",
+            age,
+            showName: function() {
+                console.log("姓名:" + this.name);
+            },
+            showAge() {
+                console.log("年龄:" + this.age);
+            },
+            [attrName]: "测试"
+        }
+        o2.showName();
+        o2.showAge();
+    </script>
+</body>
+
+</html>

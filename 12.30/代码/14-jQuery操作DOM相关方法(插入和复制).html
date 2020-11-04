@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <span>A</span>
+    <div id="demoID">
+        1111 2222 3333
+    </div>
+    <span>B</span>
+    <button>克隆</button>
+    <script>
+        /* DOM操作： */
+        /* 获取：选择器[基本|层级|筛选|父子...] */
+        /* 设置：样式[css() addClass() removeClass() hasClass() toggleClass()] */
+        /* dd设置：内容[text() html()] */
+        /* 创建： */
+        /* 插入： */
+        /* [+] A.append(B)  把B插入到A内容的后面。 == B.appendTo(A)*/
+        /* [+] A.prepend(B) 把B插入到A内容的前面。 == B.prependTo(A)*/
+        /* [-] A.insertAfter(B)x*/
+        /* [-] A.insertBefore(B) */
+        /* 删除：remove() */
+        /* 清空：empty() */
+        /* 复制：clone(true|false) */
+
+        $(() => {
+            // $("span:eq(0)").remove();
+            // $("span").remove();
+            // $("#demoID").empty();
+
+            $("#demoID").click(function() {
+                console.log("click--", this);
+            });
+
+            /* 需求：当点击按钮的时候，把div复制一份，插入到页面中 */
+            $("button").click(function() {
+                // $("#demoID").clone().appendTo($("body"));
+
+                /* 传递参数 true 表示在克隆的时候把标签的事件也一起拷贝 */
+                $("#demoID").clone(true).appendTo("body");
+            })
+        })
+    </script>
+</body>
+
+</html>

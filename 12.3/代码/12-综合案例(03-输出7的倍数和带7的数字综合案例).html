@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 0-100 综合案例(输出7的倍数[7 14 21 ]或带7的数字[17 27 71 72]综合案例) */
+        // for (var i = 1; i <= 100; i++) {
+        //     if (i % 7 == 0 || i % 10 == 7 || parseInt(i / 10) == 7) {
+        //         console.log(i);
+        //     }
+        // }
+
+
+        /* str.indexOf方法     查找字符串中指定的字符，如果找到那么就返回索引，否则返回-1*/
+        /* str.lastIndexOf方法 */
+
+        var str = "今天我去上学了,我很开心呀";
+        console.log(str.indexOf("我")); //2
+        console.log(str.indexOf("你")); //-1
+        console.log(str.lastIndexOf("我")); //8
+
+
+        for (var i = 1; i <= 100; i++) {
+            if (i % 7 == 0 || ("" + i).indexOf("7") != -1) {
+                console.log(i);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

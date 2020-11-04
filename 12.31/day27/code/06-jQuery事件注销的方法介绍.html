@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div>我是div</div>
+    <button>按钮1</button>
+    <script>
+        /* 原生写法 */
+        /* (1) ele.onclick = function(){} => ele.onclick = null; */
+        /* (2) ele.addEventListener(type,handler) => ele.removeEventListener(type,handler) */
+
+        $("div").on("mouseenter", function() {
+            console.log("mouseenter--A");
+        });
+
+        $("div").on("mouseenter", function() {
+            console.log("mouseenter--B");
+        });
+
+        function handler() {
+            console.log("mouseenter--C");
+        }
+        $("div").on("mouseenter", handler);
+
+        /* jQuery框架 */
+        /* 语法1：jQ.off(type)   表示把选中标签中指定标签的某一类事件注销*/
+        /* 语法2：jQ.off(type,handler) */
+        /* 需求：当点击按钮的时候，要把鼠标的移入事件注销掉。 */
+        $("button").on("click", function() {
+            console.log("注销div标签的事件");
+            // $("div").off("mouseenter"); //把页面中所有div标签上面的鼠标移入事件都注销
+
+            $("div").off("mouseenter", handler); //注销掉标签身上的C这个事件
+        })
+    </script>
+</body>
+
+</html>

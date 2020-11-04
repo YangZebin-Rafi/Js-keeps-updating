@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-in关键字：检查对象中是否存在指定的成员(属性和方法) */
+        /* 语法  "成员名"  in  对象 */
+
+        /* 002-Reflect.has(对象,"成员名字") */
+        var o = {
+            name: "zs",
+            showName: function() {
+                console.log(this.name);
+            }
+        }
+
+        console.log("name" in o); /* true */
+        console.log("showName" in o); /* true */
+        console.log("age" in o); /* false */
+
+        console.log(Reflect.has(o, 'name')); /* true */
+        console.log(Reflect.has(o, 'showName')); /* true */
+        console.log(Reflect.has(o, 'age')); /* false */
+
+        /* 003-hasOwnProperty() 检查指定的成员是否是实例成员。 */
+        console.log(o.hasOwnProperty("name"));
+        console.log(o.hasOwnProperty("showName"));
+        console.log(o.hasOwnProperty("age"));
+
+
+        /* in关键字和hasOwnProperty的区别 */
+        /* in关键字在检查的时候 :  实例成员 + 原型成员 */
+        /* hasOwnProperty方法 :  实例成员 */
+        function Dog(name) {
+            this.name = name;
+            this.age = 13;
+        }
+        Dog.prototype = {
+            constructor: Dog,
+            showName: function() {
+                console.log("+++");
+            }
+        }
+        var d1 = new Dog("wc");
+        /* name  实例属性 */
+        /* showName 原型方法 */
+        console.log('name' in d1); /* true */
+        console.log('showName' in d1); /* true */
+
+        console.log(d1.hasOwnProperty("name")); /* true */
+        console.log(d1.hasOwnProperty("showName")); /* false */
+
+        /* 遍历d1对象 */
+        for (var key in d1) {
+            /* 检查只有当成员是实例成员的时候才打印(排除原型成员) */
+            if (d1.hasOwnProperty(key)) {
+                console.log(key, d1[key]);
+            }
+        }
+    </script>
+</body>
+
+</html>

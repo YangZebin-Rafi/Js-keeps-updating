@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 解决方案C 闭包 */
+        let Person = (function() {
+            let _instance;
+
+            return function() {
+                if (_instance) {
+                    return _instance;
+                }
+                this.name = "张三";
+                _instance = this;
+            }
+        })();
+
+        let p1 = new Person();
+        let p2 = new Person();
+
+        console.log(p1);
+        console.log(p2);
+    </script>
+</body>
+
+</html>

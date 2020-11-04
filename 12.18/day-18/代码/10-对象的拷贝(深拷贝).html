@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let o1 = {
+            name: "zs",
+            age: 19,
+            friends: ["张思瑞", "张思明"],
+            regExp: /^1[3-9]\d{9}$/, //正则的内容会丢失
+            id: undefined //JSON数据中没有undefined这种类型
+        }
+
+        let o2 = {};
+
+        /* 深拷贝：两个对象的数据没有任何共享问题。 */
+        /* [1] JSON方式(简单方便|存在问题：某些数据在拷贝的时候会丢失或者是出错) */
+        /* 001-先把对象转换为字符串 */
+        let json = JSON.stringify(o1);
+        console.log(json);
+
+        /* 002-再把字符串转换为对象 */
+        o2 = JSON.parse(json);
+        console.log(o2);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+/* 变量 */
+/* Less是CSS预处理编程语言，因此允许我们像普通编程语言一样来声明变量和使用变量。 */
+/* 语法 */
+/* @变量名：值 */
+/* 示例 */
+
+/* 注释 */
+/* (1) 单行注释// */
+/* (2) 多行注释 */
+/* 说明：在编译之后，仅仅会保存多行注释，单行注释会被删除 */
+// 我是单行注释
+/* 我是多
+
+行注释 */
+
+@w: 200px;
+@h: 50px;
+@c1:red;
+@c2:green;
+
+/* Mixin 混入(函数) */
+.baseStyle(@c){
+  background: @c;
+  height: 100px;
+  width: 100%;
+}
+
+body{
+  .header{
+    .baseStyle(@c1);
+  }
+
+  .content{
+    .box1 {
+      width: @w;
+      height: @h;
+      line-height: @h;
+    }
+
+    .box2 {
+      width: @w;
+      height: 2*@h;
+      line-height: 2*@h;
+    }
+
+    .box3 {
+      width: @w;
+      height: 3*@h;
+      line-height: 3*@h;
+    }
+
+  }
+  .footer{
+      .baseStyle(@c2);
+  }
+}
+
+
+/* 程序员-恶意竞争 */
+/* 噩梦 懂得越多你会发现你懂的越少。 */
+/* JavaScript + java + python + oc + c++ + 算法 */
+
+/* vue react node 数据库 less sass   1w */
+/* vue react node 数据库 less sass 小程序 vue源码  1w */
+/* vue react node 数据库 less sass 小程序 vue源码  自己封装组件 路由的原理..  性能优化(20)*/
+
+/* 安卓 */
+/* iOS */

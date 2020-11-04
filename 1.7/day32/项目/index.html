@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none
+        }
+        
+        li {
+            float: left;
+            width: 240px;
+            height: 35px;
+            line-height: 35px;
+        }
+        
+        .name {
+            width: 100px;
+            height: 35px;
+            line-height: 35px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            margin: 5px;
+            background: pink;
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="list"></ul>
+
+    <script src="./data.js"></script>
+    <script>
+        let str = "杨远航	钟术红	吴文亮	蔡建浩 林梓桐	张舒娟	谢慧燕	吴裕乐 吕聪聪	谭卫聪	林龙	黄奕强 戴巍	苏亮	梁世麟	胡观保 唐明坤 薛思恒	曹华强 刁建科 林旭星	吴泽钒	李翰超 陈凌锋	邓伟权	李崇威	倪明辉 叶文浩	李悦恒	韦家福	李佳星 蔡婵娜	陈倚天	黄洪华 何青伟	张志锋	刘杰 肖壮来	陈思思	王月婷	卓木维 胡棉雄	艾晶	黄承腾	杨泽彬 李海威	姚捷	陈业菲 吴锦敬	陆展民	周长厅	缪伟诗 刘光福	廖奕浩 郭平鑫	温伟强 翁铭锴	林晓锋	黄延锋 陈航	吴朝敏 吴旋	卢琪锋	晏迎春 孙雨青	梁爽	陈昌同 张锡智	朱安琪 崔锡锋	叶国翔 邓启楷	张梓祺 	陈晓玲 陈泽舜		唐麟";
+        let arr = str.split(/\s{1,}/);
+        let html = arr.map((ele, index) => {
+            return `<li><span class="name">${ele}</span><a href=${data[index].url}>${data[index].name}</a></li>`
+        }).join("");
+        let list = document.querySelector(".list");
+        list.innerHTML = html;
+    </script>
+</body>
+
+</html>

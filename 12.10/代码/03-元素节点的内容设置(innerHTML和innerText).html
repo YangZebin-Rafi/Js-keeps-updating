@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <button>获取标签的节点内容innerHTML</button>
+    <button>设置标签的节点内容innerHTML</button>
+    <button>获取标签的文本内容innerText</button>
+    <button>设置标签的文本内容innerText</button>
+    <script>
+        /* innerHTML 操作的是节点内容(如果字符串中有标签那么会解析伪标签) */
+        /* innerText 操作的是文本内容(如果字符串中有标签那么依然以普通的文本来处理) */
+
+        var oDiv = document.querySelector("div");
+        var btns = document.querySelectorAll("button");
+        btns[0].onclick = function() {
+            /* 读取标签的节点内容 */
+            console.log(oDiv.innerHTML);
+        }
+
+        btns[1].onclick = function() {
+            // oDiv.innerHTML = "哈哈哈";
+            oDiv.innerHTML = "<h1>哈哈哈</h1>";
+        }
+
+        btns[2].onclick = function() {
+            console.log(oDiv.innerText);
+        }
+        btns[3].onclick = function() {
+            // oDiv.innerText = "嘿嘿嘿";
+            oDiv.innerText = "<h1>嘿嘿嘿</h1>";
+        }
+
+
+        /* 计算器：显示结果(文本) innerText */
+        /* 渲染页面：解析标签     innerHTML5 */
+    </script>
+</body>
+
+</html>

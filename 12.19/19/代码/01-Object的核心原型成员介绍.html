@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(Object.prototype);
+        // 001-构造器属性   constructor: ƒ Object()
+        // 002-检查实例成员 hasOwnProperty: ƒ hasOwnProperty()
+        // 003-检查当前对象是否是指定对象的原型对象 isPrototypeOf: ƒ isPrototypeOf()
+        // 004-检查属性是否可以被枚举(遍历for..in循环)出来 propertyIsEnumerable: ƒ propertyIsEnumerable()
+        // 005-返回对象自己 valueOf: ƒ valueOf()
+        // 006-转换为字符串(本地化) toLocaleString: ƒ toLocaleString()
+        // 007-转换为字符串        toString: ƒ toString()
+
+        // get __proto__: ƒ __proto__()
+        // set __proto__: ƒ __proto__()
+        // __proto__:null 访问器属性
+
+        let o = {
+            name: "zs"
+        };
+        console.log(o.hasOwnProperty("name"));
+
+        function Person() {};
+        var p1 = new Person();
+        console.log(Person.prototype.isPrototypeOf(p1)); //true
+        console.log(o.isPrototypeOf(p1)); //问p1，o是你的原型对象吗？ false
+
+        console.log(o.propertyIsEnumerable("name")); //name属性能否被遍历出来
+        /* 创建对象并且设置该对象的原型对象 */
+        let o1 = Object.create(o); //创建一个空对象，并且设置该对象的原型对象为o  var o1 = {};o1__proto__ = o;
+        console.log(o1);
+        let o2 = Object.create(null);
+        console.log(o2);
+        let o3 = Object.create({}, {
+            id: {
+                value: 100,
+                writable: true,
+                configurable: true,
+                enumerable: false
+            },
+            className: {
+                value: 1913,
+                writable: true,
+                configurable: true,
+                enumerable: true
+            }
+        });
+
+        console.log(o3);
+        for (let key in o3) {
+            console.log(key, o3[key]);
+        }
+
+        console.log(o3.propertyIsEnumerable("id")); //false
+        console.log(o3.propertyIsEnumerable("className"));
+
+        let o4 = {
+            id: 1999,
+            name: "zs"
+        }
+        console.log(o4.valueOf());
+
+        console.log(o4.toString()); //[object Object] = [对象类型 构造函数]
+        console.log(o4.toLocaleString());
+    </script>
+</body>
+
+</html>

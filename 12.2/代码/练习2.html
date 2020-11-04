@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .item{
+            width: 150px;
+            height: 200px;
+            float: left;
+            text-align: center;
+            margin-right: 5px;
+            border: 1px solid darkcyan;
+        }
+        .item img{
+            width: 100px;
+            height: 100px;
+
+        }
+    </style>
+
+</head>
+<body>
+    <div id="Box"></div>
+
+    <script>
+        let data=[
+        {
+            src: "https://imgservice3.suning.cn/uimg1/b2c/image/fuQrTuDR5vNyQNwJdDmzFQ==.jpg_400w_400h_4e",
+            title: "引爆社群",
+            author: "张三",
+            price: "10.99"
+        }, {
+            src: "https://imgservice1.suning.cn/uimg1/b2c/image/QQn4GcGIx8scB2TtBNe3_A==.png_400w_400h_4e",
+            title: "斗破苍穹",
+            author: "唐家三少",
+            price: "20.99"
+        }, {
+            src: "https://imgservice4.suning.cn/uimg1/b2c/image/cLlPfhfMoLm1klrX28WZFw.jpg_400w_400h_4e",
+            title: "唐家三少",
+            author: "赵敏",
+            price: "30.99"
+        }, {
+            src: "https://imgservice1.suning.cn/uimg1/b2c/image/rS7BiRpBmdo8h1MZCsGNdw.jpg_400w_400h_4e",
+            title: "引爆社群",
+            author: "天蚕荼毒",
+            price: "40.99"
+        }
+        ]
+
+        let oBox=document.getElementById('Box')
+        let html=data.map(function (item,index) {
+            return `
+                <div class='item'>
+                    <img src=${item.src} alt=''>
+                <div class='title'>${item.title}</div>
+                <div class='author'>${item.author}</div>
+                <div class='price'>${item.price}</div>
+                </div>
+            `
+        }).join('')
+        oBox.innerHTML=html
+
+    </script>
+
+
+</body>
+</html>

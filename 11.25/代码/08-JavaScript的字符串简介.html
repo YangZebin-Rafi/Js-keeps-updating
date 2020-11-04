@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 字符串:由0个或者是多个有序字符的组合。 */
+        /* 001-字符串必须要加上引号。 */
+        var str1 = "你好";
+        var str2 = '哈哈黑哈哈';
+        var str3 = `呵呵呵呵`;
+        console.log(str1, str2, str3, typeof str1, typeof str2, typeof str3); /* 你好 哈哈 string string */
+
+        /* 002-字符串有一个length属性，这个属性记录的是字符串中字符的个数(长度)。 */
+        console.log(str1.length, str2.length); /* 2 5 */
+
+        /* 003-方法：获取字符串中指定的某个字符 */
+        /* [1] str[index] */
+        /* [2] str.charAt(index) */
+        console.log(str1[1], str2[2]); /* 好 黑 */
+        console.log(str1.charAt(0), str2.charAt(2)); /* 你 黑 */
+
+        /* 004-拼接 */
+        /* [1] + */
+        /* [2] 模板字符串  */
+        /* [3] concat*/
+        var nameA = "张无忌";
+        var nameB = "小昭";
+        var addressA = "冰火岛";
+        var addressB = "光明顶";
+        var age = 18;
+        /* 打印一句话：张无忌出生在冰火岛，在张无忌18岁的时候他在光明顶遇见了赵敏。 */
+        var resultA = nameA + "出生在" + addressA + "，在" + nameA + age + "岁的时候他在" + addressB + "遇见了" + nameB + "。";
+        var resultB = `${nameA}出生在${addressA}，在${nameA}${age}岁的时候他在${addressB}遇见了${nameB}。`;
+        console.log(resultA);
+        console.log(resultB);
+        var resultC = "我叫".concat(nameA).concat(",我来自于").concat(addressA);
+        console.log(resultC);
+
+        /* 分号：JavaScript每条语句结束后需要加分号;这个分号是可选的，可以加也可以不写。 */
+    </script>
+</body>
+
+</html>

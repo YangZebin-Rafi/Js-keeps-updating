@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="formName">
+        <input type="file" name="xx">
+    </form>
+    <button>文件上传</button>
+    <script>
+        /* (1) 先通过表单来选择文件 */
+        /* (2) 点击按钮进行文件上传 */
+        let oBtn = document.querySelector("button");
+        oBtn.onclick = () => {
+            let data = new FormData(document.forms.namedItem("formName"));
+            let xhr = new XMLHttpRequest;
+            xhr.open("post", "../server/03-upload.php", true);
+            xhr.send(data);
+            xhr.onload = () => {
+                if (xhr.status == 200) {
+                    console.log("上传成功");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

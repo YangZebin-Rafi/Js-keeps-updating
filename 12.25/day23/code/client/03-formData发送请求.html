@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="formName">
+        <input type="text" placeholder="请输入用户名" name="usm" id="usm">
+        <input type="text" placeholder="请输入电话号码" name="num" id="num">
+    </form>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <script>
+        /* formData ： (1) 发送POST请求 (2) 文件上传 */
+        let oBtn1 = document.querySelectorAll("button")[0];
+        let oBtn2 = document.querySelectorAll("button")[1];
+
+        oBtn1.onclick = () => {
+            /* 利用formData来模拟表单数据 */
+            let data = new FormData;
+            data.set("usm", "zs");
+            data.set("num", "12347353535");
+
+            let xhr = new XMLHttpRequest;
+            xhr.open("post", "../server/02-server.php", true);
+            xhr.send(data);
+            xhr.onload = () => {
+                if (xhr.status == 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+
+        let _usm = document.querySelector("#usm");
+        let _num = document.querySelector("#num");
+        oBtn2.onclick = () => {
+            // 方案1
+            // let ele = document.querySelectorAll("form")[0];
+            // 方案2
+            // let ele = document.forms[0];
+            // 方案3
+            let ele = document.forms.namedItem("formName");
+
+            let data = new FormData(ele);
+            let xhr = new XMLHttpRequest;
+            xhr.open("post", "../server/02-server.php", true);
+            xhr.send(data);
+            xhr.onload = () => {
+                if (xhr.status == 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

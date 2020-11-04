@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="./php/06-upload.php" method="POST" enctype="multipart/form-data">
+        <input type="file" name="fileName">
+        <input type="submit" value="提交">
+    </form>
+    <script>
+        /* 网络请求的三要素 */
+        /* (1) 请求路径 action="./php/06-upload.php"*/
+        /* (2) 请求方法 method="POST"*/
+        /* (3) 请求参数 key(fileName) value(文件) */
+        /* 文件上传注意点 */
+        /* (4) 告诉服务器这是一个文件上传请求 enctype="multipart/form-data" */
+    </script>
+</body>
+
+</html>

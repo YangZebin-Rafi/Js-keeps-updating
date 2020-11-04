@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  * elementNode
+        //  * attributeNode 属性节点
+        //  * textNode 文本节点
+
+        /* 001-elementNode的创建 */
+        var elementNode = document.createElement("div");
+        console.log(elementNode);
+
+
+        /* 002-attributeNode的创建 */
+        var attributeNode = document.createAttribute("title");
+        /* 设置属性节点的值 */
+        attributeNode.nodeValue = "标题";
+        console.log(attributeNode);
+
+
+        /* 003-textNode的创建 */
+        var textNode = document.createTextNode("上坡和下坡都是坡！！！");
+        console.log(textNode);
+
+
+        // <div title="标题">上坡和下坡都是坡！！！</div>
+        /* 设置标签的属性节点：把属性节点添加到标签的身上 */
+        elementNode.setAttributeNode(attributeNode);
+        /* 设置标签的文本节点：把文本节点添加(插入)到标签的身上 */
+        elementNode.appendChild(textNode);
+        console.log(elementNode);
+
+
+        /* Node相关的属性介绍 */
+        /* nodeName  节点的名字 */
+        /* nodeValue 节点的值 */
+        /* nodeType  节点的类型 */
+        console.log(`ele:nodeName = ${elementNode.nodeName},nodeType = ${elementNode.nodeType},nodeValue =
+        ${elementNode.nodeValue}`);
+
+        console.log(`attr:nodeName = ${attributeNode.nodeName},nodeType = ${attributeNode.nodeType},nodeValue =
+         ${attributeNode.nodeValue}`);
+
+        console.log(`text:nodeName = ${textNode.nodeName},nodeType = ${textNode.nodeType},nodeValue =
+          ${textNode.nodeValue}`);
+
+        /* BUTTON */
+        // ele: nodeName = DIV,nodeType = 1,nodeValue = null
+        // attr:nodeName = title,nodeType = 2,nodeValue =标题
+        // text:nodeName = #text,nodeType = 3,nodeValue = 上坡和下坡都是坡！！！
+    </script>
+</body>
+
+</html>

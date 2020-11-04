@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            margin: 20px auto
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        /* onclick 点击 */
+        /* ondblclick 双击 */
+        /* onmouseenter 移入 */
+        /* onmouseleave 移出 */
+        /* onmousedown 按下 */
+        /* onmouseup 抬起 */
+        /* onmousemove 移动 */
+        /* onmousewheel 滚轮 */
+
+        var oDiv = document.querySelector("div");
+
+        /* click = mousedown + mouseup */
+        oDiv.onclick = function() {
+            console.log("click");
+        }
+
+        /* ondblclick  = 短时间内点击了两次click事件 */
+        oDiv.ondblclick = function() {
+            console.log("dblclick");
+        }
+
+        oDiv.onmousedown = function() {
+            console.log("onmousedown");
+        }
+
+        oDiv.onmouseup = function() {
+            console.log("onmouseup");
+        }
+
+        oDiv.onmousemove = function() {
+            console.log("onmousemove");
+        }
+
+        /* 了解？ */
+        oDiv.onmousewheel = function() {
+            console.log("监听到鼠标滚动...");
+        }
+    </script>
+</body>
+
+</html>

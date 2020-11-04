@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* isPrototypeOf和instanceOf */
+        function Animal() {};
+        var a1 = new Animal();
+
+        function Person() {};
+        var p1 = new Person();
+        /* ① instanceOf 关键字的基本使用 */
+        /* 不严谨？检查某个是否是否是指定构造函数的实例对象 */
+        /* 严谨：指定构造函数的原型对象是否在当前实例对象的原型链上 */
+        /* 错误 检查p1是否是Person的实例对象，如果是那么返回true,否则返回false */
+        /* 正确 检查Person.prototype是否在p1的原型链上 */
+        console.log(p1 instanceof Person);
+        console.log(a1 instanceof Person);
+        console.log(a1 instanceof Animal);
+
+        /* 检查Object.prototype是否在p1的原型链上 */
+        console.log(p1 instanceof Object); /* true */
+
+
+
+        /* ② isPrototypeOf方法的基本使用 */
+        console.log("______");
+        /* 问：Person.prototype是否在p1的原型链上面 */
+        console.log(Person.prototype.isPrototypeOf(p1));
+        /* 问：Person.prototype是否在a1的原型链上面 */
+        console.log(Person.prototype.isPrototypeOf(a1)); //false
+    </script>
+</body>
+
+</html>

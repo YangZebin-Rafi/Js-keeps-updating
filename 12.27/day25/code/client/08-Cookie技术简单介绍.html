@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function get(key) {
+            //"age=19; name=zs" ==> {name:"zs",age:19} 
+            let str = document.cookie;
+            let o = {};
+            let arr = str.split("; "); //["name=zs","age=19","username=rick"];
+            arr.forEach(ele => {
+                let data = ele.split("="); //["name","zs"];
+                let key = data[0];
+                let val = data[1];
+                o[key] = val; //o.name = "zs" | o.age = 19;
+            });
+            return o[key];
+        }
+
+        function set(key, val, day) {
+            if (!day) {
+                /* 默认有效期 */
+                document.cookie = `${key}=${val}`
+            } else {
+                /* 设置有效期 */
+                let date = new Date();
+                date.setDate(date.getDate() + day);
+                document.cookie = `${key}=${val};expires=` + date;
+            }
+        }
+
+        function getKeys() {
+            let str = document.cookie;
+            let arr = str.split("; ");
+            let keys = [];
+            arr.forEach(ele => {
+                let data = ele.split("="); //["name","zs"];
+                let key = data[0];
+                keys.push(key);
+            });
+            return keys;
+        }
+
+        function remove(key) {
+            set(key, null, -1);
+        }
+
+        function clear() {
+            let keys = getKeys(); // ["username", "phone"]
+            keys.forEach(ele => remove(ele));
+        }
+
+        console.log(get("name")); //读取cookie数据中的name对应的值
+        console.log(get("age")); //读取cookie数据中的name对应的值
+
+        set("password", "123456");
+        set("phone", "13823422324", 7);
+
+        remove("password");
+    </script>
+</body>
+
+</html>

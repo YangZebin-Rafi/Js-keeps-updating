@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr1 = [1, 2, 3, 4, 5, 4, 321, 1]
+
+        // 方案A
+        // function noRepeat(arr) {
+        //     let temp = []
+        //     for (let index = 0; index < arr.length; index++) {
+        //         const element = arr[index]
+        //         if (!temp.includes(element)) {
+        //             temp.push(element)
+        //         }
+        //     }
+        //     return temp
+        // }
+        // console.log(noRepeat(arr1));
+        // 方案B
+        // let setData = new Set(arr1)
+        // let arr2 = Array.from(setData)
+        // console.log(arr2);
+
+        // let arr3 = [...new Set(arr1)]
+        // console.log(arr3);
+
+        // (2)字符串去重
+        let str = [2, 3, 1, 2, 3, 1, 3, 5, 3, 5, 1, 3, 5]
+        // 方案A
+        // function noRepeatWithStr(strT) {
+        //     let target = '';
+        //     for (let index = 0; index < strT.length; index++) {
+        //         const element = strT[index];
+        //         if (target.indexOf(element) == -1) {
+        //             target += element
+        //         }
+        //     }
+        //     return target;
+        // }
+        // console.log(noRepeatWithStr(str));
+        // 方案B
+        // console.log([...new Set(str)].join(' '));
+        // console.log(str.toString());
+
+        // let mapData = new Map()
+        // // console.log();
+        // mapData.set('name', 'zs')
+        // mapData.set('age', 18)
+        // mapData.set('id', '3')
+        // console.log(mapData);
+        // console.log(mapData.has('id'), mapData.has(18));
+        // console.log(mapData.get('age'));
+        // for (let [a,b] of mapData) {
+        //     console.log(a,b);
+
+        // }
+        // console.log( mapData.size );
+        // console.log(...new Set(mapData));
+        // let attrName = 'address'
+        // let idName = 'id'
+        // let infoName = {
+        //     height: 88,
+        //     weight: 'big'
+
+        // }
+        // let XXXXName = {
+        //     title: "XXXX"
+        // }
+        
+
+        // let o1 = {
+        //     "name": "zs",
+        //     age: 18,
+        //     [idName]: 100,
+        //     [attrName]: "广州市",
+        //     [infoName]: "测试1",
+        //     [XXXXName]: "测试2"
+        // };
+        // console.log(o1[infoName]);
+        // console.log(o1[XXXXName]);
+
+        // let mapData = new Map()
+        // console.log(mapData);
+        // mapData.set('name', 'lw')
+        // mapData.set(infoName, '哈哈')
+        // mapData.set(XXXXName, '嘻嘻嘻')
+        // console.log(mapData);
+        // console.log(o1);
+        // console.log(infoName);
+        // console.log(mapData.get(infoName));
+        // let s1=Symbol()
+        // let s2=Symbol()
+        // console.log(s1,s2,s1==s2);
+        // let s3=Symbol('zs')
+        // let s4=Symbol('xl')
+        // // console.log(s3,s4);
+        // let o={
+        //     name:'zs',
+        //     age:90,
+        //     [s3]:'哈哈',
+        //     [s4]:'xi'
+        // }
+        // console.log(o);
+        // for ( let key in o){
+        //     console.log(key,o[key]);
+        // }
+        Object.create(o)
+        
+        
+    </script>
+</body>
+
+</html>

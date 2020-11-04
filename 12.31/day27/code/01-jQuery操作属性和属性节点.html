@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div id="demoID" class="box" title="标题" data-index="1" data-item="A">我是div</div>
+    <script>
+        /* 001-操作属性的方法 */
+        /* property 属性 */
+        /* 语法：jQ.prop() 读取|设置(添加|修改) */
+        /* 语法：jQ.removeProp(key) */
+        // $("#demoID").prop("a1", 111); //添加属性 a1
+        // $("#demoID").prop("a2", 222); //添加属性 a2
+        // $("#demoID").prop("a1", 333); //修改属性 
+
+        /* 002-操作属性节点的方法 */
+        /* Attribute */
+        /* 原生：ele.setAttribute(key,val) 添加|修改   ele.removeAttribute(key) */
+        /* 语法：jQ.attr() 读取|设置(添加|修改)*/
+        /* 语法：jQ.removeAttr(key) */
+        // console.log($("#demoID").attr("class"));
+        // console.log($("#demoID").attr("title"));
+
+        // $("#demoID").attr("info", "信息");
+        // $("#demoID").attr("title", "我是标题");
+        // $("#demoID").removeAttr("title");
+
+        /* 补充 */
+        /* 原生：ele.dataset.index  */
+        // let ele = document.querySelector("div");
+        // console.log(ele.dataset.index);
+
+        /* 语法：jQ.data() */
+        /* 读取 */
+        console.log($("#demoID").data()); //{item: "A", index: 1}
+        console.log($("#demoID").data().item);
+        console.log($("#demoID").data().index);
+        console.log($("#demoID").data("index"));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./data.js"></script>
+</head>
+
+<body>
+    <script>
+        /* 001-导入数据 */
+        /* 002-根据数据来生成标签完成数据渲染 */
+        function Manager(data) {
+            this.data = data;
+            this.root = null;
+        }
+
+        Manager.prototype = {
+            constructor: Manager,
+            init: function() {
+                /* (1) 先根据数据来生成UI(数据渲染) */
+                this.render();
+                /* (2) 默认设置让电影和对应的列表显示(选中状态) */
+                this.root.querySelector(".tab-list").children[0].className = "active";
+                this.root.querySelector(".list").className = "list cur";
+
+                /* (3) 给电影|电视|等标签注册事件监听 */
+                this.addClickHandler();
+            },
+            render: function() {
+                /* 创建外层的div标签 */
+                this.root = document.createElement("div");
+                this.root.className = "box";
+                var html1 = `<h1>${itemA.title}</h1>`;
+
+                // ["电影", "电视", "综艺", "动漫"]
+                var tpl = itemA.types.map(function(ele) {
+                    return `<li class="">${ele}</li>`;
+                }).join("");
+
+                var html2 = `<div class="tab"><ul class="tab-list">${tpl}</ul></div>`;
+                var html3 = "";
+                itemA.data.forEach(function(item) {
+                    var html = item.map(function(ele) {
+                        return `
+                              <li class="">
+                                <p><span>${ele.index + 1}</span>${ele.name}</p>
+                                <div class="content"><img src=${ele.src}>
+                                  <p>${ele.detail}</p>
+                                </div>
+                              </li>`;
+                    }).join("");
+                    html3 += `<ul class="list">${html}</ul>`;
+                });
+
+                this.root.innerHTML = html1 + html2 + html3;
+                document.body.appendChild(this.root);
+            },
+            addClickHandler: function() {
+                var tabList = this.root.querySelector(".tab-list").children;
+                var list = this.root.querySelectorAll(".list");
+                for (let i = 0, len = tabList.length; i < len; i++) {
+                    tabList[i].onclick = function() {
+                        // console.log(this, i);
+                        /* 001-设置当前标签为选中状态 */
+                        Array.from(tabList).forEach((ele) => ele.classList.remove("active"));
+                        this.classList.add("active");
+
+                        /* 002-切换对应的列表 */
+                        Array.from(list).forEach((ele) => ele.classList.remove("cur"));
+                        list[i].classList.add("cur");
+                    }
+                }
+            }
+        }
+
+        var manager = new Manager(itemA);
+        manager.init();
+    </script>
+</body>
+
+</html>

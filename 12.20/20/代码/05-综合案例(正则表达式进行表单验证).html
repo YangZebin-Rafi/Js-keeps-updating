@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #email,
+        #phone {
+            width: 200px;
+            margin-left: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <label for="email">用户邮箱</label>
+            <input type="text" placeholder="请输入邮箱" id="email">
+            <span id="info-email"></span>
+        </div>
+        <div>
+            <label for="phone">手机号码</label>
+            <input type="text" placeholder="请输入手机号码" id="phone">
+            <span id="info-phone"></span>
+        </div>
+        <div><input type="button" value="提交" id="btn"></div>
+    </form>
+    <script>
+        /* 核心思路：给输入框添加失去焦点的事件监听，当事件触发的时候获取输入框的值进行正则校验(成功：通过 失败：提示) */
+        let _email = document.querySelector("#email");
+        let _phone = document.querySelector("#phone");
+        let _infoEmail = document.querySelector("#info-email");
+        let _infoPhone = document.querySelector("#info-phone");
+        let emailReg = /^\w+@\w+\.[a-zA-Z]+$/;
+        let phoneReg = /^1[3-9]\d{9}$/;
+        let _btn = document.querySelector("#btn");
+
+        _email.onblur = function() {
+            console.log(this.value);
+            if (this.value.length == 0) {
+                _infoEmail.innerText = "邮箱不能为空!";
+                _infoEmail.style.color = "red";
+                return;
+            }
+
+            if (emailReg.test(this.value)) {
+                _infoEmail.innerText = "邮箱验证通过！";
+                _infoEmail.style.color = "#195";
+            } else {
+                _infoEmail.innerText = "邮箱不符合规范!";
+                _infoEmail.style.color = "red";
+            }
+        }
+
+        _phone.onblur = function() {
+
+            if (this.value.length == 0) {
+                _infoPhone.innerText = "手机号码不能为空!";
+                _infoPhone.style.color = "red";
+                return;
+            }
+
+            if (phoneReg.test(this.value)) {
+                _infoPhone.innerText = "手机号码验证通过！";
+                _infoPhone.style.color = "#195";
+            } else {
+                _infoPhone.innerText = "手机号码不符合规范!";
+                _infoPhone.style.color = "red";
+            }
+        }
+
+        _btn.onclick = function() {
+            /* 检查是否验证通过，如果通过那么就跳转 */
+            /* 如果没有通过，那么应该弹框提示 */
+            if (_infoPhone.innerText == "手机号码验证通过！" && _infoEmail.innerText == "邮箱验证通过！") {
+                window.location.href = "http://www.baidu.com";
+            } else {
+                alert("请输入正确的信息！！！")
+            }
+        }
+    </script>
+</body>
+
+</html>

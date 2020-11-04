@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <script>
+        /* 缓存问题 */
+        /* 如果我们多次发送同一个网络请求，那么浏览器可能会返回缓存数据。 */
+        /* 原因：每次发请求的时候，请求URL路径都是一样的。 */
+        /* 解决：http://127.0.0.1/h5-1913/day22/code/server/03-test.php?t=123 */
+        /* 解决：http://127.0.0.1/h5-1913/day22/code/server/03-test.php?t=124 */
+        /* 方案：给URL路径添加一个参数，这个参数可以是时间戳或者是随机数 */
+        /* 获取当前的时间戳： */
+        /* (1) var date = new Date();  date.getTime() */
+        /* (2) var date = new Date();  date.valueOf() */
+        /* (3) Date.now() */
+        let oBtn = document.querySelector("button");
+        oBtn.onclick = () => {
+            let xhr = new XMLHttpRequest;
+            // xhr.open("get", "../server/03-test.php?t=" + Date.now(), true);
+            xhr.open("get", "../server/03-test.php?t=" + Math.random(), true);
+            xhr.send();
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        console.log(xhr.responseText);
+                    } else {
+                        console.log(xhr.statusText);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

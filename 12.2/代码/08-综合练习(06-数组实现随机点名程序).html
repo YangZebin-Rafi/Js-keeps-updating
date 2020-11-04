@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            background: #195;
+            color: #fff;
+            text-align: center;
+            float: left;
+            display: inline-block;
+            margin: 2px
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <span>侯海军</span>
+    <span>吴朝敏</span> -->
+    <div>
+        <button>随机点名</button>
+    </div>
+
+    <script>
+        /* 001-先准备好数据 */
+        var str =
+            `侯海军 吴朝敏 吴旋 叶文浩 晏迎春 钟术红 林梓桐 张舒娟 谢慧燕 吴锦敬 吕聪聪 谭卫聪 林龙 黄奕强 张锡智 陈泽舜 戴巍 苏亮 梁世麟 胡观保 陈昌同 薛思恒 曹华强 崔锡锋 叶国翔 黎冠华 邓启楷 张梓祺 唐明坤 林旭星 胡棉雄 吴泽钒 李翰超 黄洪华 陈倚天 蔡婵娜 何青伟 张志锋 刘杰 肖壮来 陈思思 王月婷 卓木维 刁建科 艾晶 杨泽彬 黄承腾 江金峰 李海威 姚捷 陈业菲 吴裕乐 陆展民 周长厅 唐麟 刘光福 韦家福`;
+        var data = str.split(" ");
+        console.log(data);
+
+        /* 002-根据数据创建对应的标签，显示在页面中 */
+        for (var i = 0, len = data.length; i < len; i++) {
+            var text = data[i];
+            var ele = document.createElement("span");
+            ele.innerText = text;
+            document.body.appendChild(ele);
+        }
+
+        /* 003-当点击点名按钮的时候，随机选中一位同学的名字 */
+        var oBtn = document.getElementsByTagName("button")[0];
+        var oSpans = document.getElementsByTagName("span");
+
+        oBtn.onclick = function () {
+            /* 解决bug : 遍历所有的span标签，设置每个标签的样式为#195*/
+            for (var k = 0, len = oSpans.length; k < len; k++) {
+                oSpans[k].style.background = "#195";
+            }
+
+            var index = getNumber(0, data.length - 1);
+            oSpans[index].style.background = "red";
+        }
+
+        function getNumber(min, max) {
+            return parseInt(Math.random() * (max - min + 1)) + min
+        }
+    </script>
+</body>
+
+</html>

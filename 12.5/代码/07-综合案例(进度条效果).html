@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #loading {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 10px;
+            background: red
+        }
+        
+        span {
+            width: 80px;
+            /* background: #197; */
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            margin-left: -40px
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading"><span id="progress"></span></div>
+    <script>
+        /* 知识点 */
+        /* (1) ele.offsetWidth  获取标签的宽度，得到的是一个数字 */
+        /* (2) ele.offsetHeight 获取标签的高度，得到的是一个数字 */
+        /* (3) window.innerWith  获取页面的宽度 */
+        /* (4) window.innerHeight 获取页面的高度 */
+        /* + 取消定时器(clearInterval) */
+
+        /* 核心思路：开启一个定时器，每隔固定的时间就修改标签的宽度，并且计算加载进度。 */
+        /* 001-先获取页面的标签 */
+        var _loading = document.getElementById("loading");
+        var _progress = document.getElementById("progress");
+        var offset = 8;
+        // var i = 0;
+
+        /* 002-开启定时器 */
+        var timer = setInterval(function() {
+
+            /* 每隔固定的时间就在当前的基础上加上一个值 */
+            _loading.style.width = _loading.offsetWidth + offset + "px";
+
+
+            /* 当加载到头(标签的宽度 >= 页面的宽度)，结束 + 设置标签的宽度 == 页面的宽度 */
+            if (_loading.offsetWidth >= window.innerWidth) {
+                /* 结束定时器函数 */
+                clearInterval(timer);
+                _loading.style.width = window.innerWidth + "px";
+            }
+            // console.log(i++);
+
+            /* 计算加载的进度 = 当前标签的宽度 / 页面的宽度*/
+            var progress = (_loading.offsetWidth / window.innerWidth * 100).toFixed(2) + "%";
+            console.log(progress);
+            _progress.innerText = progress;
+
+        }, 50);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 方案A */
+        // function arrHasItem(arr, item) {
+        //     var flag = false;
+        //     /* 遍历目标数组，拿到每一个元素和目标数据进行比对，如果发现相等(匹配)，那么修改flag值为true并且结束循环。 */
+        //     for (var i = 0, len = arr.length; i < len; i++) {
+        //         if (arr[i] == item) {
+        //             flag = true;
+        //             break;
+        //         }
+        //     }
+        //     return flag;
+        // };
+
+        /* 数组的indexOf方法 */
+        /* 语法：arr.indexOf(item) */
+        /* 作用：获取数组中指定数据对应的索引(编号) */
+        /* 注意：如果指定的数据在数组中不存在，那么返回的结果总是为-1 */
+        var arr = ["哈哈", "佩琪", "狮子王", 100];
+        var res1 = arr.indexOf("佩琪");
+        var res2 = arr.indexOf("狮子王");
+        var res3 = arr.indexOf("小狗敲敲");
+        var res4=arr.indexOf('100')
+        console.log(res1, res2, res3,res4);
+
+        /* 方案B */
+        // function arrHasItem(arrT, item) {
+        //     var index = arrT.indexOf(item);
+        //     var flag = index == -1 ? false : true;
+        //     return flag;
+        // }
+
+        /* 简化 - 1*/
+        // function arrHasItem(arrT, item) {
+        //     return arrT.indexOf(item) == -1 ? false : true;
+        // }
+
+        /* 简化 - 2*/
+        function arrHasItem(arrT, item) {
+            return arrT.indexOf(item) != -1;
+        }
+
+        var resA = arrHasItem([10, 20, 30], 10); //true
+        var resB = arrHasItem([10, 20, 30], 100); //false console.log(res1, res2);
+        console.log(resA, resB);
+    </script>
+</body>
+
+</html>

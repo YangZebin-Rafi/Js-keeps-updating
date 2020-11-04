@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* Set集合：和数组很像 */
+        /* Map映射：和对象很像 */
+
+        /* 对象：对象中所有的key都必须是字符串。 */
+        /* 映射：map的key可以是任意类型，甚至可以是对象。 */
+        let attrName = "address";
+        let idName = "id";
+        let infoName = {
+            color: "red",
+            price: 123
+        }
+        let XXXXName = {
+            title: "XXXX"
+        }
+
+        let o1 = {
+            "name": "zs",
+            age: 18,
+            [idName]: 100,
+            [attrName]: "广州市",
+            [infoName]: "测试1",
+            [XXXXName]: "测试2"
+        };
+        /* 
+          let o1 = {
+                name: "zs",
+                age: 18,
+                id: 100,
+                address: "广州市",
+                被覆盖[object Object]: "测试1", => infoName.toString()
+                [object Object]: "测试2"  => xxxxName.toString()
+          }
+         */
+        console.log(o1[infoName]); //测试2
+        console.log(o1[XXXXName]); //测试2
+
+
+        let mapData = new Map();
+        mapData.set("name", "lw");
+        mapData.set(infoName, "测试3")
+        mapData.set(XXXXName, "测试4")
+        console.log(mapData);
+        console.log(mapData.get(infoName)); //测试3
+        console.log(mapData.get(XXXXName)); //测试4
+    </script>
+</body>
+
+</html>

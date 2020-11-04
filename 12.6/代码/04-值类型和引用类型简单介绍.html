@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 值类型和引用类型 */
+        /* 复习： */
+        /* [1] 相等运算符 操作数1  ==   操作数2    值 */
+        /* [2] 全等运算符 操作数1  ===  操作数2  值&&类型*/
+
+        console.log(2 == "2"); //true
+        console.log(2 === "2"); //false
+
+
+        console.log([] == []); //false
+        console.log([] === []); //false
+
+        var arr1 = [100, 200, 300];
+        var arr2 = [100, 200, 300];
+        console.log(arr1 == arr2); //false
+        /* oxfff06 == oxfff08 */
+        console.log([1, 2, 3] === [1, 2, 3]); //false
+
+        console.log({} == {}); //false
+        console.log({} === {}); //false
+
+        // console.log({name:"zs"} == {name:"zs"}); //false
+        // console.log({name:"zs"} == {name:"zs"}); //false
+
+        /* 数组和对象 是引用类型的数据，保存的内容是是地址(== 引用 )并不是真正的数据 */
+        /* 字符串 \ 数字 \ 布尔值    是值类型的数据。 */
+        var a = 123;
+        var arr = [1, 2, 3];
+    </script>
+</body>
+
+</html>

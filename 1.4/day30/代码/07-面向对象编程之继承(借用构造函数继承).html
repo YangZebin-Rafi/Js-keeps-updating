@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 004-面向对象编程之继承(借用构造函数继承) */
+        let Animal = function(color, age) {
+            this.color = color;
+            this.age = age;
+        }
+        Animal.prototype = {
+            constructor: Animal,
+            run() {
+                console.log("run");
+            },
+            eat() {
+                console.log("eat");
+            }
+        }
+
+        let Dog = function(name, color, age) {
+            this.name = name;
+            /* 借用父构造函数 */
+            /* 作用：获取了父构造函数实例成员 */
+            /* 缺陷：无法获得原型成员 */
+            Animal.call(this, color, age);
+        }
+
+        /* 原型式继承 */
+        Dog.prototype = Animal.prototype;
+        /* 组合继承：借用父构造函数继承(实例成员) + 原型式继承(原型成员) */
+        Dog.prototype.yaoRen = function() {
+            console.log("咬人");
+        }
+        let d1 = new Dog("wc", "yellow", 4);
+        console.log(d1);
+        let d2 = new Dog("xq", "green", 3);
+        console.log(d2);
+    </script>
+</body>
+
+</html>

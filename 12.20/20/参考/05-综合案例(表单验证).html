@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #email,
+        #phone {
+            width: 200px;
+            margin-left: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <label for="email">用户邮箱</label>
+            <input type="text" placeholder="请输入邮箱" id="email">
+            <span id="info-email"></span>
+        </div>
+        <div>
+            <label for="phone">手机号码</label>
+            <input type="text" placeholder="请输入手机号码" id="phone">
+            <span id="info-phone"></span>
+        </div>
+        <div><input type="button" value="提交" id="btn"></div>
+    </form>
+    <script>
+        /* 核心思路：获取输入框和输入框的值，当输入框失去焦点的时候，对输入框的值进行校验 */
+        /* 校验：检查是否为空，如果为空提示不能为空，如果不为空检查是否符合规范，符合规则那么就提示验证通过，否则提示验证不通过 */
+        window.onload = function() {
+            /* 001-获取输入框 */
+            var emailInput = document.querySelector("#email");
+            var phoneInput = document.querySelector("#phone");
+            var emailMsg = document.querySelector("#info-email");
+            var phoneMsg = document.querySelector("#info-phone");
+            var emailReg = /^\w+@\w+\.[a-zA-Z]+$/;
+            var phoneReg = /^1[3-9]\d{9}$/;
+
+            /* 002-监听输入框失去焦点的事件 */
+            emailInput.onblur = function() {
+                var emailText = this.value.trim();
+                if (emailText.length == 0) {
+                    emailMsg.innerText = "用户邮箱不能为空！"
+                    emailMsg.style.color = "red";
+                } else {
+                    if (emailReg.test(emailText)) {
+                        emailMsg.innerText = "用户邮箱验证通过！"
+                        emailMsg.style.color = "#195";
+                    } else {
+                        emailMsg.innerText = "用户邮箱不符合规范！"
+                        emailMsg.style.color = "red";
+                    }
+                }
+
+            }
+
+            phoneInput.onblur = function() {
+                var phoneText = this.value.trim();
+                if (phoneText.length == 0) {
+                    phoneMsg.innerText = "手机号码不能为空！"
+                    phoneMsg.style.color = "red";
+                } else {
+                    if (phoneReg.test(phoneText)) {
+                        phoneMsg.innerText = "手机号码验证通过！"
+                        phoneMsg.style.color = "#195";
+                    } else {
+                        phoneMsg.innerText = "手机号码不符合规范！"
+                        phoneMsg.style.color = "red";
+                    }
+                }
+
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--  001 第一种方式 直接以属性节点的方式来添加-->
+    <button onclick="alert(123)">按钮1</button>
+
+    <!-- 在字符串中可以直接写JavaScript代码，可以写多行，在这里的this指向的使当前的标签 -->
+    <button onclick="alert(this.innerText)">按钮2</button>
+    <button onclick="function sum(a,b){return a + b} var res = sum(1,4); alert(res)">按钮3</button>
+    <button onclick="handler();">按钮4</button>
+    <button onmouseover="console.log('鼠标移入'); ">按钮5</button>
+
+    <script>
+        function sum(a, b) {
+            return a + b
+        }
+
+        function handler() {
+            var res = sum(1, 40);
+            alert(res)
+        }
+    </script>
+
+    <!-- 分离：HTML/CSS分离 -->
+    <!-- 分离：HTML/JavaScript代码分离 -->
+</body>
+
+</html>

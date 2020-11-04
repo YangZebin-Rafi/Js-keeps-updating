@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 001-合并对象 assign: ƒ assign()
+
+        // 002-创建对象并且设置原型对象 create: ƒ create()
+        // 形参个数：length: 1
+        // 函数名字：name: "Object"
+        // 原型对象 __proto__: ƒ()[[Scopes]]: Scopes[0]
+
+        // 003-获取指定对象的原型对象 getPrototypeOf: ƒ getPrototypeOf()
+        // 003-设置指定对象的原型对象 setPrototypeOf: ƒ setPrototypeOf()
+        /* 总结访问原型对象的三种方式 */
+        /* [1] 构造函数.prototype */
+        /* [2] 实例对象.__proto__   ES6+ */
+        /* [3] Object.getPrototypeOf(实例对象) */
+
+        // 004-比较两个数据(等同于全等)is: ƒ is()
+
+        // 005-获取对象中指定属性的属性描述符对象 getOwnPropertyDescriptor: ƒ getOwnPropertyDescriptor()
+        // 006-获取对象中所有属性的属性描述符对象 getOwnPropertyDescriptors: ƒ getOwnPropertyDescriptors()
+        // 007-设置对象中指定属性的属性描述符对象 defineProperty: ƒ defineProperty()
+        // 008-设置对象中多个属性的属性描述符对象 defineProperties: ƒ defineProperties()
+
+
+        // 009-密封对象 seal: ƒ seal()
+        // 010-冻结对象 freeze: ƒ freeze()
+        // 011-禁止对象扩展 preventExtensions: ƒ preventExtensions()
+        // 012-检查对象是否扩展 isExtensible: ƒ isExtensible()
+        // 013-检查对象是否被冻结 isFrozen: ƒ isFrozen()
+        // 014-检查对象是否被密封 isSealed: ƒ isSealed()
+
+
+
+        /* 语法：Object.preventExtensions(对象)  禁止对象扩展(不能添加新的成员) */
+        /* 语法：Object.seal(对象)               密封对象(不能添加新的成员 && 不能删除) */
+        /* 语法：Object.freeze(对象)             冻结对象(不能添加新的成员 && 不能删除 && 不能修改)*/
+        // let o = {
+        //     name: "zs",
+        //     address: "广州"
+        // };
+        // Object.preventExtensions(o);
+        // o.age = 19; //无效的代码
+        // console.log(Object.isExtensible(o)); //false
+
+        // Object.seal(o);
+        // o.age = 19;
+        // delete o.name;
+        // o.name = "lw";
+        // console.log(Object.isSealed(o)); //true
+
+        // Object.freeze(o);
+
+
+        // 015-获取所有实例属性的名字，返回的是数组 getOwnPropertyNames: ƒ getOwnPropertyNames()
+        // 016-获取所有实例属性中的符号类型数据，返回的是数组 getOwnPropertySymbols: ƒ getOwnPropertySymbols()
+        // 017-所有的key keys: ƒ keys()
+        // 018-所有的值 values: ƒ values()
+
+        let s1 = Symbol("s1");
+        let s2 = Symbol("s2")
+        let o = {
+            name: "zs",
+            address: "广州",
+            [s1]: "符号类型的值1",
+            [s2]: "符号类型的值2"
+        };
+
+        Object.defineProperty(o, "name", {
+            enumerable: false
+        })
+        let names = Object.getOwnPropertyNames(o);
+        console.log(names); //["name","address"]
+
+        let symbols = Object.getOwnPropertySymbols(o);
+        console.log(symbols); //[Symbol(s1), Symbol(s2)]
+
+        /* ES6+ 反射(Reflect) */
+        console.log(Reflect.ownKeys(o)); // ["name", "address", Symbol(s1), Symbol(s2)]
+        console.log(Object.keys(o)); //["name", "address"]
+        console.log(Object.values(o)); //["zs", "广州"]
+
+
+        /* 对比：getOwnPropertyNames && keys() */
+        /* 区别：keys方法只能获取所有可以枚举的属性 */
+    </script>
+</body>
+
+</html>

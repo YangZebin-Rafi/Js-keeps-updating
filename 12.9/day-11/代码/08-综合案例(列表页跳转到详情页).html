@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none
+        }
+        
+        .box {
+            width: 900px;
+            /* height: 800px; */
+            /* border: 1px solid #000; */
+            margin: 10px auto
+        }
+        
+        .list-item {
+            width: 200px;
+            height: 300px;
+            border: 1px solid #aaa;
+            margin: 5px;
+            float: left;
+            text-align: center
+        }
+        
+        .list-item img {
+            margin-top: 2px;
+            width: 150px;
+        }
+        
+        .list-item .item-price {
+            color: red;
+            font-size: 20px;
+            /* text-align: left; */
+            /* margin-left: 10px; */
+        }
+        
+        .list-item .item-name {
+            color: #666;
+            font-size: 16px;
+            overflow: hidden;
+            width: 180px;
+            margin: 8px;
+            height: 30px;
+            line-height: 30px;
+            /* text-align: left; */
+            /* margin-left: 10px; */
+        }
+        
+        .list-item .item-press {
+            color: goldenrod;
+            font-size: 14px;
+            /* text-align: left; */
+            /* margin-left: 10px; */
+        }
+        
+        .list-item .item-commit {
+            color: #000;
+            font-size: 14px;
+            /* text-align: left; */
+            /* margin-left: 10px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="list">
+            <!-- <li class="list-item">
+                <img src="https://img12.360buyimg.com/n1/jfs/t18727/11/537625758/296118/938d791f/5a93c36fN44a747c0.jpg" alt="">
+                <div class="item-price">$99.8</div>
+                <div class="item-name">C语言编程从入门到放弃</div>
+                <div class="item-commit">总计9999评价</div>
+                <div class="item-press">哈哈哈出版社</div>
+            </li>
+            <li class="list-item">
+                <img src="https://img12.360buyimg.com/n1/jfs/t18727/11/537625758/296118/938d791f/5a93c36fN44a747c0.jpg" alt="">
+                <div class="item-price">$99.8</div>
+                <div class="item-name">C语言编程从入门到放弃</div>
+                <div class="item-commit">总计9999评价</div>
+                <div class="item-press">哈哈哈出版社</div>
+            </li>
+            <li class="list-item">
+                <img src="https://img12.360buyimg.com/n1/jfs/t18727/11/537625758/296118/938d791f/5a93c36fN44a747c0.jpg" alt="">
+                <div class="item-price">$99.8</div>
+                <div class="item-name">C语言编程从入门到放弃</div>
+                <div class="item-commit">总计9999评价</div>
+                <div class="item-press">哈哈哈出版社</div>
+            </li>
+            <li class="list-item">
+                <img src="https://img12.360buyimg.com/n1/jfs/t18727/11/537625758/296118/938d791f/5a93c36fN44a747c0.jpg" alt="">
+                <div class="item-price">$99.8</div>
+                <div class="item-name">C语言编程从入门到放弃</div>
+                <div class="item-commit">总计9999评价</div>
+                <div class="item-press">哈哈哈出版社</div>
+            </li> -->
+        </ul>
+    </div>
+
+    <!-- 001 引入数据 -->
+    <script src="./data.js"></script>
+    <script>
+        /* 002-获取页面中的ul标签 */
+        var oUl = document.getElementsByClassName("list")[0];
+        console.log(oUl);
+
+        /* 003-数据渲染 */
+        var res = books.map(function(item, index) {
+            var html = `
+              <li class="list-item">
+                <img src=${item.src} alt="" title=${item.title}>
+                <div class="item-price">${item.price}</div>
+                <div class="item-name" title=${item.title}>${item.name}</div>
+                <div class="item-commit">${item.commit}</div>
+                <div class="item-press">${item.press}</div>
+              </li>`
+            return html;
+        }).join("");
+        // console.log(res);
+
+        /* 004-设置显示在页面中 */
+        oUl.innerHTML = res;
+
+
+        /* 两个核心点： */
+        /* (1) 给标签添加点击事件，点击事件触发的时候，加载新的页面(详情页)  */
+        var lis = document.getElementsByTagName("li");
+        for (var i = 0, len = lis.length; i < len; i++) {
+            lis[i].index = i; //把当前的索引值保存到这个标签身上。
+            lis[i].onclick = function() {
+
+                /* 打开新的页面？ */
+                /* [1] window.open(url) 不建议 */
+                /* [2] window.location.replace(url) */
+                /* [3] window.location.href = url   */
+                // window.open("./08-detail.html");
+                // window.location.replace("./08-detail.html")
+
+                /* (2) 把指定的数据传递给第二个页面 */
+                /* (当前页面) A->B(detail页面) */
+
+                // 获取数据
+                /* 方案A：先获取当前标签然后把当前标签中的数据抽取出来(麻烦) */
+                // console.log(this);
+                // var src = this.getElementsByTagName("img")[0].src;
+                // console.log(src);
+
+                /* 方案B：当点击li标签的时候获取当前的索引，通过这个索引去books数组中就可以把对应的数据取出来。 */
+                // console.log(this, this.index);
+                // console.log();
+                var data = books[this.index];
+                // console.log(data);
+                /* 对象->查询字符串 */
+                window.location.href = "./08-detail.html?" + obj2QueryString(data);
+            }
+        }
+
+        function obj2QueryString(obj) {
+            //var o = {name:"zs",age:10};
+            //name=zs&age=10;
+            var arr = [];
+            for (var key in obj) {
+                arr.push(`${key}=${obj[key]}`);
+            }
+            return arr.join("&")
+        }
+    </script>
+</body>
+
+</html>

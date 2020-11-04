@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 要求： */
+        /* 001-遍历数组|伪数组|对象 */
+        /* 002-支持中途退出 */
+        /* 003-绑定this */
+
+        let likeArray = {
+            0: "zs",
+            1: "ls",
+            2: "ww",
+            length: 3
+        };
+
+        function isLikeArr(likeArr) {
+            /* 001-本身是对象 */
+            /* 002-拥有length属性 */
+            /* 003-拥有length-1这个键值对 */
+            return typeof likeArr == "object" && likeArr != null && "length" in likeArr && likeArr.length - 1 in likeArr;
+        }
+        console.log(isLikeArr(likeArray));
+
+        function each(target, callBack) {
+            if (Array.isArray(target) || isLikeArr(target)) {
+                /* 数组或伪数组 */
+                for (let i = 0, len = target.length; i < len; i++) {
+                    let flag = callBack.call(target[i], i, target[i]);
+                    if (flag == false) break;
+                }
+            } else {
+                /* 对象 */
+                for (const key in target) {
+                    if (target.hasOwnProperty(key)) {
+                        let flag = callBack.call(target[key], key, target[key]);
+                        if (flag == false) break;
+                    }
+                }
+            }
+        }
+
+        each([100, 200, 300, 400, 500], function(key, val) {
+            console.log(key, val, this);
+            if (val == 200) return false;
+        });
+
+
+        each(likeArray, function(key, val) {
+            console.log(key, val, this);
+        });
+
+        each({
+            name: "zs",
+            age: 19
+        }, function(key, val) {
+            console.log(key, val, this);
+        });
+    </script>
+</body>
+
+</html>

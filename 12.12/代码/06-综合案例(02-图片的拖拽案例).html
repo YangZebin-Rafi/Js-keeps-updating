@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            width: 250px;
+            height: 250px;
+            position: relative
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./img/target.jpg" alt="">
+    <script>
+        /* 三板斧：mousedown mousemove mouseup */
+        /* 公式：left = pageX - offsetX */
+        var oImg = document.querySelector("img");
+
+        oImg.onmousedown = function(event) {
+            /* 图片在拖拽的时候有默认行为，我们需要调用下面的代码来阻止默认行为 */
+            event.preventDefault();
+            event = event || window.event;
+            var offsetX = event.offsetX;
+            var offsetY = event.offsetY;
+
+            window.onmousemove = function(e) {
+                e = e || window.event;
+                console.log(e.pageX);
+                var left = e.pageX - offsetX;
+                var top = e.pageY - offsetY;
+
+                oImg.style.left = left + "px";
+                oImg.style.top = top + "px";
+            }
+
+            window.onmouseup = function() {
+                window.onmousemove = null;
+            }
+        }
+    </script>
+</body>
+
+</html>

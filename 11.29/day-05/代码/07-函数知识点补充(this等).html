@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <script>
+        /* 001-函数和this */
+        /* 在函数的内部存在隐藏的参数arguments = 用来接收实参，在函数的内部还存在this,this总是指向一个对象。 */
+        /* (1) 如果以普通的方式来调用函数，那么函数内部的this默认指向的是window  xx() this->window*/
+        /* (2) 如果是标签的事件处理函数，那么函数内部的this默认指向的是当前的标签  oBtn.fxx() this->当前的标签*/
+        // function f() {
+        //     console.log("f", this);   //window
+        // }
+        // f();
+
+        // var oBtn = document.getElementsByTagName("button")[0];
+        // oBtn.onclick = function() {
+        //     console.log(this); //<button>按钮</button>
+        // }
+
+        /* 002-函数的name */
+        /* 注意点：函数的名字是不可以被修改的 */
+        function test() {}
+        console.log(test.name); //test
+        test.name = "xxx";
+        console.log(test.name);
+
+        var obj = {
+            name: "zs"
+        };
+        console.log(obj.name);
+        obj.name = "sss";
+        console.log(obj.name);
+
+        /* 003-函数的length属性 */
+        /* 说明：该函数的形参个数 */
+        function fn(a, b, c, d) {}
+        console.log(fn.length);
+
+        /* 004-创建函数的几种方式 */
+        /* [1] 直接声明函数  function 函数名(参数1，参数2.){函数体} */
+        /* [2] 函数表达式   
+         命名函数表达式 var 函数f1 = function 函数f2(参数1，参数2.){函数体}     调用的时候应该使用f1() 错误的写法f2() 
+         匿名函数表达式 var 函数f1 = function (参数1，参数2.){函数体}
+        */
+
+        // var f1 = function hhh() {
+        //     console.log("====");
+        // }
+        // f1();
+
+        // // hhh();   错误的
+        // var fn1 = function() {
+        //     console.log("++++++");
+        // }
+        // fn1();
+
+        /* [3] 使用Function构造函数来创建函数对象 */
+        var f = new Function(); //== function f(){}
+        /* 需求：创建一个接收两个参数，求和的函数。 */
+        // function sum(a, b) {
+        //     return a + b;
+        // }
+        var sum = new Function("a", "b", "return a + b;");
+        var res = sum(100, 200);
+        console.log(res);
+       
+    </script>
+</body>
+
+</html>

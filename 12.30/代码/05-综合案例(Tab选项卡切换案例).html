@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .box {
+            width: 583px;
+            height: 500px;
+            margin: 20px auto;
+            border: 1px solid #000;
+        }
+        
+        .header {
+            width: 583px;
+            height: 40px;
+            line-height: 40px;
+        }
+        
+        .header li {
+            width: 140px;
+            float: left;
+            text-align: center
+        }
+        
+        img {
+            width: 583px;
+            /* height: 40px; */
+        }
+        
+        .content div {
+            display: none
+        }
+        
+        .content .current {
+            display: block
+        }
+        
+        .active {
+            color: red;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="header">
+            <ul>
+                <li class="active">酷玩电器</li>
+                <li>联想电脑</li>
+                <li>戴尔台机</li>
+                <li>惠普笔记本</li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="current"><img src="./img/01.webp" alt=""></div>
+            <div><img src="./img/02.webp" alt=""></div>
+            <div><img src="./img/03.webp" alt=""></div>
+            <div><img src="./img/04.webp" alt=""></div>
+        </div>
+    </div>
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        $(() => {
+            /* 001- 添加鼠标移入事件*/
+            /* 002- 当鼠标移入的时候 */
+            /* (1) 设置当前标签的选中状态(排他) */
+            /* (2) 设置显示的内容切换(排他) */
+            $("li").mouseenter(function() {
+                // console.log(this, $(this).index());
+                $(this).addClass("active").siblings().removeClass("active");
+                $(".content").children().eq($(this).index()).addClass("current").siblings().removeClass("current");
+            })
+        })
+    </script>
+</body>
+
+</html>

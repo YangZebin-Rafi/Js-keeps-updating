@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 默认参数 */
+        // function point(x, y) {
+        //     x = x || 0; //检查x是否有值，如果有那么就直接用，否则x = 0;
+        //     y = y || 0;
+        //     return `(${x},${y})`;
+        // }
+
+        function point(x = 1000, y = 1000) {
+            return `(${x},${y})`;
+        }
+
+        let a = point(10, 20); //"(10,20)"
+        console.log(a);
+        let b = point(100);
+        console.log(b); //"(100,0)"
+        let c = point();
+        console.log(c); //"(0,0)"
+    </script>
+</body>
+
+</html>

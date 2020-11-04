@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 基本数据类型：null string number boolean symbol undefined*/
+        /* 复杂数据类型：对象类型(Object Function RegExp Array Date Set Map FormData ...) */
+
+        /* 基本包装类型：Number Boolean String */
+        /* 为了方便的来操作数字、字符串和布尔值，系统为我们提供了基本包装类型。 */
+        // let str = "nice";
+
+        /* 思考：字符串为什么可以访问length属性，为什么可以调用slice方法呢？ */
+        /* 常识：只有对象才会有属性和方法 */
+
+        /* 中间都发生了什么？ */
+        /* 在处理的时候，系统会自动提供一个对应的包装类型的对象。 */
+        /* 细节： */
+        /* (1) 当基本数据类型的值(string number boolean)在访问属性或者调用方法的时候*/
+        /* 001 先根据当前的数据来创建一个包装类型的对象 */
+        /* 002 使用该临时对象来访问属性来调用方法，把结果返回*/
+        /* 003 把临时的包装对象销毁 */
+        /* 补充：字符串的诸多方法都在String.prototype上面被实现。 */
+        /*let temp = new String(str);  */
+        /*    temp.length => 4 */
+        /*    temp = null; */
+        // console.log(str.length);
+        // console.log(str.slice(2));
+
+
+        let str1 = "abc"; //普通的字符串
+        let str2 = new String("abc"); //字符串对象
+        let str3 = new Object("abc");
+
+        console.log(str1, str2, str3);
+        console.log(typeof str1, typeof str2); //string object
+
+        console.log(str1 == str2, str1 === str2); //true false
+        console.log(str2 == str3, str2 === str3, [] == []); //false false
+
+
+        /* 基本包装类型的笔试题： */
+        // let o = new String("abcd");
+        // o.name = "zs";
+        // o.age = 19;
+        // o.showName = function() {
+        //     console.log('showName', this.name);
+        // }
+        // console.log(o.name); //"zs"
+        // // console.log(o.age); //19
+
+
+        let str = "abcd";
+        /* let temp  = new String(str) */
+        /* temp.name = "zs" */
+        /* temp = null */
+        str.name = "zs";
+
+        /* let temp = new String(str) */
+        /* temp.name ? "undefined" */
+        /* temp = null */
+        console.log(str.name); //"undefined"
+
+        str.age = 19;
+        console.log(str.age); // "undefined"
+    </script>
+</body>
+
+</html>

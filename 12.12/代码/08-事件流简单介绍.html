@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <script>
+        /* 事件流：指的是事件发生的时候在标签和页面中传递的顺序。 */
+        /* [1] 事件冒泡流(IE) */
+        /* [2] 事件捕获流(网景) */
+        /* DOM标准规定标准的事件流：(1)事件捕获 (2) 处于目标 (3) 事件冒泡 */
+        var oBtn = document.querySelector("button");
+        oBtn.onclick = function() {
+            console.log("click");
+        }
+    </script>
+</body>
+
+</html>

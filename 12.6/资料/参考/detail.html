@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>商品详情页</h3>
+    <div class="name"></div>
+    <div class="price"></div>
+    <img>
+    <script>
+        /* 001-先获取商品列表页面传入的参数数据 */
+        var search = decodeURI(window.location.search.slice(1));
+
+        /* src=./img/7.jpg&name=%E5%B0%8F%E7%8E%8B%E5%AD%90&price=%EF%BF%A5%2043.00 */
+        console.log(search);
+
+        function queryString2Obj(str) {
+            var arr = str.split("&");
+            // ["name=zs", "age=19"]
+            // console.log(arr);
+            var o = {};
+            arr.forEach(function(ele) {
+                var tmpArr = ele.split("=");
+                var key = tmpArr[0];
+                var val = tmpArr[1];
+                o[key] = val;
+            })
+            return o;
+        }
+
+        var obj = queryString2Obj(search);
+        var oName = document.getElementsByTagName("div")[0];
+        var oPrice = document.getElementsByTagName("div")[1];
+        var oImg = document.getElementsByTagName("img")[0];
+        oName.innerText = "商品名称 " + obj.name;
+        oPrice.innerText = "商品价格 " + obj.price;
+        oImg.src = obj.src;
+    </script>
+</body>
+
+</html>

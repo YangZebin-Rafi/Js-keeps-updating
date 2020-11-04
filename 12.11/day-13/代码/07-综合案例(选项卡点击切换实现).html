@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 300px;
+            /* border: 1px solid #ccc; */
+            margin: 50px auto;
+        }
+        
+        span {
+            width: 80px;
+            height: 30px;
+            border: 1px solid #ccc;
+            display: inline-block;
+            text-align: center;
+            line-height: 30px;
+        }
+        
+        .body {
+            margin-top: 5px;
+            width: 450px;
+            border: 1px solid #ccc;
+            height: 250px;
+            background: #eee;
+        }
+        
+        .current {
+            color: red;
+            background: #555;
+        }
+        
+        .body div {
+            display: none;
+            text-align: center;
+            line-height: 250px;
+        }
+        
+        .body .active {
+            display: block
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="box">
+        <div class="header">
+            <span class="current">关注</span>
+            <span>推荐</span>
+            <span>热点</span>
+            <span>本地</span>
+            <span>段子</span>
+        </div>
+        <div class="body">
+            <div class="active">关注：双色球中奖了没？</div>
+            <div>推荐：双12的单身狗不过节买什么东西？</div>
+            <div>热点：老田终于不用再单身节了。</div>
+            <div>本地：昨晚广州警方开展了大规模的扫黄打非活动。</div>
+            <div>段子：段友出征，寸草不生。</div>
+        </div>
+    </div>
+    <script>
+        /* 核心思路： */
+        /* 001-先给选项添加点击事件 */
+        /* 002-当点击事件触发的时候 */
+        /* 002-1 设置当前标签为选中状态(排他处理) */
+        /* 002-2 切换显示对应的内容 */
+        var spans = document.querySelectorAll("span");
+        var divs = document.querySelector(".body").children;
+
+        for (var i = 0, len = spans.length; i < len; i++) {
+            spans[i].index = i;
+            spans[i].onclick = function() {
+
+                /* 遍历获取每一个span标签，删除所有标签上面的current样式 */
+                for (var k = 0, len = spans.length; k < len; k++) {
+                    spans[k].classList.remove("current");
+                }
+                /* 给当前的标签添加样式 */
+                this.classList.add("current");
+
+                for (var k = 0, len = divs.length; k < len; k++) {
+                    divs[k].classList.remove("active");
+                }
+                divs[this.index].classList.add("active");
+            }
+        }
+    </script>
+</body>
+
+</html>

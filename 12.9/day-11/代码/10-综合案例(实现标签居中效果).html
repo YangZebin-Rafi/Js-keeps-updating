@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+
+        #demoID {
+            background: #195;
+            height: 40px;
+            width: 200px;
+            line-height: 40px;
+            text-align: center;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demoID">我是div</div>
+    <script>
+        /* 当页面大小改变的时候，设置标签总是在页面的中间 */
+        window.onload = function() {
+
+            var oDiv = document.getElementById("demoID");
+            window.onresize = function() {
+                /* 大小发生变化的时候，设置标签的样式(在页面的中心) */
+                /* 计算top = (页面的高度 - 标签的高度)/2  */
+                /* 计算left= (页面的宽度 - 标签的高度)/2 */
+                oDiv.style.left = (window.innerWidth - oDiv.offsetWidth) / 2 + "px";
+                oDiv.style.top = (window.innerHeight - oDiv.offsetHeight) / 2 + "px";
+            }
+        }
+    </script>
+</body>
+
+</html>

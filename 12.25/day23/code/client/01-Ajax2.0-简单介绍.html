@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* (1) onload方法  监听到网络请求完成 */
+        /* (2) timeout | ontimeout */
+        let xhr = new XMLHttpRequest;
+        xhr.open("get", "../server/01-test.php", true);
+        xhr.timeout = 1; //设置请求超时时间为1ms
+        /* 如果请求超时那么就会触发该事件 */
+        xhr.ontimeout = (e) => {
+            alert("请检查您的网络");
+            console.log(e); //事件对象
+        }
+        xhr.send();
+
+        // xhr.onreadystatechange = () => {
+        //     if (xhr.readyState == 4) {
+        //         if (xhr.status == 200) {
+        //             console.log("success ", xhr.responseText);
+        //         } else {
+        //             console.log("error ", xhr.statusText);
+        //         }
+        //     }
+        // }
+
+        xhr.onload = () => {
+            if (xhr.status == 200) {
+                console.log("success ", xhr.responseText);
+            } else {
+                console.log("error ", xhr.statusText);
+            }
+        }
+
+        /* load方法处理完执行该方法 */
+        xhr.onloadend = () => {
+            console.log("onloadend");
+
+        }
+    </script>
+</body>
+
+</html>

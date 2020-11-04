@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* URL：统一资源定位符(网页的路径) */
+        var url = "https://search.jd.com/Search?keyword=bb&enc=utf-8&wq=bb&pvid=fcfe7e8849464abda1c7f6e31d35c5d8";
+        /* 需求：设计一个函数，该函数接收一个url路径作为参数，该函数的作用是把这个字符串中的参数提取出来保存到对象中返回。 */
+        // var obj ={
+        //   keyword:"bb",
+        //   enc:"utf-8",
+        //   wq:"bb",
+        //   pvid:"fcfe7e8849464abda1c7f6e31d35c5d8"
+        // }
+
+        function getArgWithURL(urlString) {
+            var obj = {};
+            var index = urlString.indexOf("?") + 1;
+            var queryString = urlString.slice(index);
+            // keyword=bb&enc=utf-8&wq=bb&pvid=fcfe7e8849464abda1c7f6e31d35c5d8
+            var argArr = queryString.split("&");
+
+            /* ["keyword=bb","enc=utf-8","wq=bb","pvid=fcfe7e8849464abda1c7f6e31d35c5d8"] */
+            // console.log(argArr);
+            for (var i = 0, len = argArr.length; i < len; i++) {
+                var ele = argArr[i]; //"keyword=bb"
+                var data = ele.split("="); //["keyword","bb"]
+                var key = data[0];
+                var val = data[1];
+
+                /* 给对象添加键值对  obj.keyword = "bb" */
+                obj[key] = val;
+            }
+
+            return obj;
+        }
+
+        var o = getArgWithURL(url);
+        console.log(o);
+    </script>
+</body>
+
+</html>

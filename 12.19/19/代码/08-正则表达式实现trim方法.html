@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = "   a  bac   ";
+
+        /* 清理空格 */
+        // console.log(str.trim());
+        /* 注意：ES5(2009年)+ ES6(2015)  */
+
+        /* 语法：str.replace("要替换的字符串","目标字符串") */
+        /* 注意：该方法只会替换一次 */
+        console.log(str.replace("a", "x")); // xbc
+        console.log(str.replace(/a/, "x"));
+        console.log(str.replace(" ", ""));
+
+        /* 匹配的内容：字符串前面和后面的N个空格 */
+        /* \s  空格 */
+        /* \s+ 1个或者是多个空格 */
+        /* ^   匹配开头 */
+        /* $   匹配结尾 */
+        console.log(str.replace(/^\s+|\s+$/g, ""));;
+    </script>
+</body>
+
+</html>

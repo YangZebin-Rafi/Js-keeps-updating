@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demoID">div1</div>
+    <div class="box1">div2</div>
+    <div class="box1">div3</div>
+    <p>我是p1</p>
+    <script>
+        /* 001-querySelectorAll() 根据条件获取页面中所有的标签*/
+        /* 注意：返回值总是一个数组(伪) */
+        var ele1 = document.querySelectorAll("#demoID");
+        var ele2 = document.querySelectorAll(".box1");
+        var ele3 = document.querySelectorAll("div");
+
+        console.log(ele1);
+        console.log(ele2);
+        console.log(ele3);
+        console.log(ele3[0], ele3[1]);
+
+
+        /* 002-querySelector() 根据条件获取页面中所有匹配标签中的第一个*/
+        /* 注意：返回值总是单个标签 */
+        var ele4 = document.querySelector("#demoID");
+        var ele5 = document.querySelector(".box1");
+        var ele6 = document.querySelector("div");
+        console.log(ele4);
+        console.log(ele5);
+        console.log(ele6);
+    </script>
+</body>
+
+</html>

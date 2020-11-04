@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table {
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px
+        }
+        
+        td {
+            border: 1px solid #000;
+            padding: 3px 5px;
+        }
+        
+        .odd {
+            background-color: #f99;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // 获取元素
+            var row = document.getElementById('row');
+            var col = document.getElementById('col');
+            var output = document.getElementById('output');
+            var btn = output.previousElementSibling;
+
+
+            // 点击生成表格
+            btn.onclick = function() {
+                // 获取输入的行列(string)
+                var _row = row.value;
+                var _col = col.value;
+
+                // 创建表格
+                var table = document.createElement('table');
+                var tbody = document.createElement('tbody');
+
+                // 写入tr
+                for (var i = 0; i < _row; i++) {
+                    // 创建tr
+                    var tr = document.createElement('tr');
+
+                    // 更行换色
+                    if (i % 2 === 0) {
+                        tr.className = 'odd';
+                    }
+
+                    // tr写入tbody
+                    tbody.appendChild(tr);
+
+                    // 写入td
+                    for (var j = 0; j < _col; j++) {
+                        // 创建td
+                        var td = document.createElement('td');
+                        td.innerHTML = '单元格' + i + j;
+
+                        // td写入tr
+                        tr.appendChild(td);
+                    }
+                }
+
+                // tbody写入table
+                table.appendChild(tbody);
+
+                // 添加前先清空#output
+                output.innerHTML = '';
+
+                // table写入页面#output
+                output.appendChild(table);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <label for="row">行：</label><input type="text" id="row">
+    <label for="col">列：</label><input type="text" id="col">
+    <button class="btn">生成表格</button>
+    <div id="output">未亡人</div>
+    <!-- 撒打算 -->
+</body>
+
+</html>

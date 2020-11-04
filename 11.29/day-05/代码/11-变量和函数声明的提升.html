@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // console.log(a); //undefined
+        // var a = 123;
+        // console.log(`a = ${a}`); //a = 123;
+
+        /* 模拟声明的提升 */
+        // var a;
+        // console.log(a); //undefined
+        // a = 123;
+        // console.log(`a = ${a}`); //a = 123;
+
+
+        /* 说明 */
+        /* JavaScript代码运行的时候被分成两个阶段 */
+        /* [1] 预解析阶段    代码运行前的优化工作(变量和函数声明的提升)*/
+        /* [2] 代码的执行阶段 */
+        /* 在预解析阶段，系统会先对JavaScript代码进行变量和函数声明的提升，会把变量的声明和函数的声明提升到当前作用域的最顶端 */
+
+        // console.log("____");
+
+        // function sum(a, b) {
+        //     console.log(a + b);
+        // }
+        // sum(1, 2);
+
+
+        /* 模拟函数声明提升过程 */
+        function sum(a, b) {
+            console.log(a + b);
+        }
+
+        console.log("____");
+        sum(1, 2);
+    </script>
+    <script>
+        f();
+
+        function f() {
+            console.log("1");
+        }
+        f();
+
+        function f() {
+            console.log("2");
+        }
+        f();
+
+        function f() {
+            console.log("3");
+        }
+        f();
+
+        function f() {
+            console.log("4");
+        }
+        f();
+
+        function f() {
+            console.log("5");
+        }
+        f();
+    </script>
+</body>
+
+</html>

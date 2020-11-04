@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>li1</li>
+        <li>li2</li>
+        <li class="test">li3</li>
+        <div>div1</div>
+        <div class="test">div2</div>
+    </ul>
+    <button>按钮</button>
+    <script>
+        /* 当点击按钮的时候，创建li标签并且插入到页面中 */
+        var oBtn = document.querySelector("button");
+        var oUl = document.querySelector("ul");
+        oBtn.onclick = function() {
+            var li = document.createElement("li");
+            li.innerText = "li4";
+            oUl.appendChild(li);
+        }
+
+        /* 如果li标签使以后才会被创建，这种标签的点击事件无法处理。 */
+        var lis = document.querySelectorAll("li");
+        // for (var i = 0; i < lis.length; i++) {
+        //     lis[i].onclick = function() {
+        //         console.log(this.innerText);
+        //     }
+        // }
+
+        /* 事件委托： */
+        oUl.onclick = function(e) {
+            // console.log(this.innerHTML); //注意：这里的this指向的是ul标签。
+            /* 事件委托：通过事件对象来获取真正被点击的那个标签。*/
+            e = e || window.event;
+            var ele = e.target || e.srcElement;
+
+            /* 1 只有当点击div标签的时候才打印 */
+            // if (ele.nodeName == "DIV") {
+            //     console.log(ele.innerText);
+            // }
+            /* 2 只有当点击了class为test的标签的时候时候才打印 */
+            if (ele.className == "test") {
+                console.log(ele.innerText);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 002-面向对象编程之继承(原型式继承) */
+        let Animal = function(color, age) {
+            this.color = color;
+            this.age = age;
+        }
+        Animal.prototype = {
+            constructor: Animal,
+            run() {
+                console.log("run");
+            },
+            eat() {
+                console.log("eat");
+            }
+        }
+
+        let Dog = function(name) {
+            this.name = name;
+        }
+
+        /* 原型式继承 */
+        /* 作用：能够继承(获取)父构造函数原型对象上面的成员 */
+        /* 缺陷：仅仅能够获取父构造函数原型成员 无法获取实例成员 && d1.constructor == Dog => false */
+        Dog.prototype = Animal.prototype;
+        let d1 = new Dog("wc");
+        console.log(d1);
+    </script>
+</body>
+
+</html>

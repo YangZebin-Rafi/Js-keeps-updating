@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(Object.prototype);
+        // 001-构造器属性   constructor: ƒ Object()
+        // 002-检查实例成员 hasOwnProperty: ƒ hasOwnProperty()
+        // 003-检查当前对象是否是指定对象的原型对象 isPrototypeOf: ƒ isPrototypeOf()
+        // 004-检查属性是否可以被枚举(遍历for..in循环)出来 propertyIsEnumerable: ƒ propertyIsEnumerable()
+        // 005-返回对象自己 valueOf: ƒ valueOf()
+        // 006-转换为字符串(本地化) toLocaleString: ƒ toLocaleString()
+        // 007-转换为字符串        toString: ƒ toString()
+
+        /* valueOf() */
+        /* toString() */
+        let o = {
+            name: "zs"
+        };
+        let arr = [10, 20, 30];
+        console.log(o.toString()); //"[object Object]"
+
+        console.log(arr.toString()); //"10,20,30" == arr.join(",");
+        console.log(arr.join());
+        console.log(arr.join(","));
+
+        /* 问题1：都是toString方法，为什么做的事情很不一样？ */
+        /* 答案：它们其实并不是同一个方法？ */
+        /* o.toString == Object.prototype.toString */
+        /* arr.toString = Array.prototype.toString */
+        console.log(o.toString == Object.prototype.toString, arr.toString == Array.prototype.toString); //true true
+        console.log(o.toString == arr.toString); //false
+
+        /* 问题2：如果数组就是要调用Object.prototype.toString方法？ */
+        console.log(Object.prototype.toString.call(arr)); //"[object Array]"
+        //ES5 +Array.isArray()
+        function isArray(arrT) {
+            if (Array.isArray) {
+                return Array.isArray(arrT);
+            } else {
+                return Object.prototype.toString.call(arrT) == "[object Array]";
+            }
+        }
+
+        /* 问题3：日期类型.toString == Date.prototype.toString    */
+        let date = new Date();
+        console.log(date.toString()); //Thu Dec 19 2019 14:33:14 GMT+0800 (中国标准时间)
+        console.log(Object.prototype.toString.call(date)); //"[object Date]"
+
+        /* 扩展：数字也可以调用toString方法 */
+        /* 此处的toString == Number.prototype.toString() */
+        console.log((10).toString()); //10
+        console.log((10).toString(2)); //1010  以二进制的方式来表示数字10
+        console.log((10).toString(8)); //12 = 2 * 8^0 + 1 * 8^1 = 2 + 8 == 10
+        console.log((10).toString(16)); //a
+        console.log((20).toString(3)); //三进制：202 2 * 3^0+0*3^1+2*3^2 = 2 + 0 + 18 => 20
+
+
+        /* 问题4：valueOf() */
+        /* 对象.valueOf() 返回的是对象本身   ==> Object.prototype.valueOf()*/
+        /* 日期.valueOf() 返回的是时间戳     ==> Date.prototype.valueOf()*/
+        console.log(date.valueOf() == date.getTime()); /* 1576737639818 true*/
+    </script>
+</body>
+
+</html>

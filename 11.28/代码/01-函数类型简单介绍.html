@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 数值类型：number */
+        /* 函数类型：function */
+        /* 函数是什么呢？一种工具，这个工具会提供对应的功能，类似于(手机-打电话)(打印机-打印|复印)(锤子-敲钉子)  */
+        /* 函数用法：先获取工具 + 使用工具。 */
+        /* (1) 需要先拥有这个工具。   购买一部手机(生产一部手机) */
+        /* (2) 当我需要打电话的时候，我就把手机拿出来使用。 */
+
+        /* 工具(函数) */
+        /* [1] JavaScript语言默认提供的函数(工具)  console.log()  alert() */
+        /* [2] 自己创建的函数(工具) */
+
+        /* 需求1：打印 I like u  打印10次。*/
+        // for (var i = 0; i < 10; i++) {
+        //     console.log("I like u");
+        // }
+
+        for(var i=0;i<10;i++){
+            console.log('金金');
+        }
+
+        /* 需求2：① 打印 I like u  打印10次 ② 打印一行下划线 ③打印 I like u  打印10次 ④ 打印一行#号 ⑤ 打印 I like u  打印10次 */
+        /* 缺点：[1] 重复代码过多(冗余度)  [2] 可维护性和可扩展性不好*/
+        /* 优化：如果一份代码在多个地方用到需要用到很多次，那么可以考虑把这部分代码封装到函数中，然后在需要执行这部分代码的位置调用这个函数即可 */
+        // for (var i = 0; i < 10; i++) {
+        //     console.log("I love u");
+        // }
+        // console.log("___________");
+        // for (var i = 0; i < 10; i++) {
+        //     console.log("I love u");
+        // }
+        // console.log("###########");
+        // for (var i = 0; i < 10; i++) {
+        //     console.log("I love u");
+        // }
+            
+
+
+        /* 函数封装 */
+        /* 001-函数声明(创建一个函数) */
+        function logString() {
+            for (var i = 0; i < 3; i++) {
+                console.log("heheda");
+            }
+        }
+
+        /* 002-函数调用(使用函数) */
+        logString();
+        console.log("___________");
+        logString();
+        console.log("###########");
+        logString();
+        console.log("$$$$$$$$$$$");
+        logString();
+
+        
+        let num=[1,2,3,4]
+        function test() {
+            for (let i = 0; i < num.length; i++) {
+                const element =num[i];
+                console.log(element);
+                console.log('金金你好');
+            }
+            console.log('我不好');
+        }
+        test()
+        console.log('我真的不怎么好');
+    </script>
+</body>
+
+</html>

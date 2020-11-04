@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 最简单的正则：完全匹配 */
+        let reg1 = /123/; //匹配123
+
+        /* | 或者 */
+        /* 匹配a或者b或者c或者d 只要字符串中出现这四个字符中的某一个就成功 */
+        let reg2 = /a|b|c|d/;
+        let reg4 = /0|1|2|3|4|5|6|7|8|9/;
+
+        console.log(reg2.test("2424a"));
+        console.log(reg2.test("242b24"));
+        console.log(reg2.test("2424325"));
+
+        /* [] 搭配 - 使用 或者 */
+        let reg3 = /[abcd]/;
+        let reg5 = /[0123456789]/;
+        let reg6 = /[0-9]/;
+        let reg7 = /[a-z]/; //匹配26个小写字母中的任意一个
+        let reg8 = /[A-Z]/; //匹配26个小写字母中的任意一个
+        // let reg9 = /[Z-A]/;  //错误的写法 ASCII值
+        console.log(reg3.test("2424a"));
+        console.log(reg3.test("242b24"));
+        console.log(reg3.test("2424325"));
+
+        console.log(reg6.test("asdgaf1gdsfs"));
+
+        /* 量词 {3} {min,max}*/
+
+        /* 匹配3个数字 */
+        // let regA = /[0-9]/;
+        // let regA = /[0-9][0-9]/;
+        // let regA = /[0-9][0-9][0-9][0-9][0-9]/;
+        let regB = /[0-9]{5}/;
+        let regC = /[0-9]{2,5}/; //匹配2个|3个|4|5个
+        console.log(regB.test("asdafdd2345jj"));
+    </script>
+</body>
+
+</html>

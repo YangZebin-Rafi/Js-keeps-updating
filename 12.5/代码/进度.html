@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #loading{
+            position: absolute;
+            height: 10px;
+            background: orange;
+            width: 5px;
+            left: 0;
+            top: 0;
+        }
+        #progress{
+            width: 80px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            margin-left: -40px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="loading">
+        <span id="progress"></span>
+    </div>
+    <script>
+        var _loading = document.getElementById('loading')
+        var _progress = document.getElementById('progress')
+        var offset = 8;
+        // 开启定时器
+        var timer = setInterval(function () {
+            // 每隔固定时间就在当前的基础上加一个直
+            _loading.style.width = _loading.offsetWidth + offset + "px";
+            // 当加载到头
+            if (_loading.offsetWidth>=window.innerWidth ){
+                // 结束定时器
+                clearInterval(timer);
+                _loading.style.width=window.innerWidth+"px";
+
+            }
+
+            var progress=(_loading.offsetWidth/window.innerWidth*100 ).toFixed(2)+"%";
+            console.log(progress);
+            _progress.innerText=progress
+            
+
+        })
+    </script>
+
+
+</body>
+
+</html>

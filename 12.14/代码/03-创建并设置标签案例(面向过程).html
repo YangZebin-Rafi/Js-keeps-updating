@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*[1] 创建1个div标签，设置内容，设置标签的宽度和高度和边框，插入到页面中。*/
+
+        /* 001-创建1个div标签 */
+        var oDiv = document.createElement("div");
+
+        /* 002-设置内容 */
+        oDiv.innerText = "我是div1标签";
+
+        /* 003-设置样式 */
+        oDiv.style.width = "100px";
+        oDiv.style.height = "100px";
+        oDiv.style.border = "1px solid #000";
+
+        /* 004-插入到页面中 */
+        document.body.appendChild(oDiv)
+
+
+        /*[2] 创建1个p标签，设置内容，设置标签的宽度和高度和边框，插入到页面中。*/
+        var oP = document.createElement("p");
+        oP.innerText = "我是p";
+        oP.style.width = "100px";
+        oP.style.height = "100px";
+        oP.style.border = "1px solid #000";
+        document.body.appendChild(oP);
+
+
+
+        /*[2] 创建1个div标签，设置内容，设置标签的宽度和高度和边框，插入到页面中。*/
+        var oDiv2 = document.createElement("div");
+        oDiv2.innerText = "我是div2标签";
+        oDiv2.style.width = "200px";
+        oDiv2.style.height = "50px";
+        oDiv2.style.border = "1px solid #195";
+        document.body.appendChild(oDiv2);
+    </script>
+</body>
+
+</html>

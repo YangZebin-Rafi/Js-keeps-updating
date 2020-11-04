@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>我是div</div>
+    <button>按钮</button>
+    <script>
+        /* div标签原本有一个鼠标移入事件，当点击按钮的时候需要把这个事件注销掉 */
+
+        var oDiv = document.querySelector("div");
+        var oBtn = document.querySelector("button");
+
+        // oDiv.onmouseenter = function() {
+        //     console.log("onmouseenter", this);
+        // }
+
+        // var arr1 = [1,2,3];
+        // var arr2 = [1,2,3];
+
+        function handler() {
+            console.log("onmouseenter--A");
+        }
+
+        oDiv.addEventListener("mouseenter", handler);
+
+        oDiv.addEventListener("mouseenter", function() {
+            console.log("onmouseenter--B");
+        })
+
+        /* 给按钮添加点击事件 */
+        oBtn.onclick = function() {
+            console.log("点击了按钮");
+            /* 001-如果通过 oDiv.onmouseenter  = fn 添加的事件*/
+            // oDiv.onmouseenter = null;
+
+            /* 002-如果通过 oDiv.addEventListener 添加的事件 */
+            /*错误的演示 */
+            // oDiv.removeEventListener("mouseenter", function() {
+            //     console.log("onmouseenter--A");
+            // });
+
+            oDiv.removeEventListener("mouseenter", handler);
+        }
+    </script>
+</body>
+
+</html>

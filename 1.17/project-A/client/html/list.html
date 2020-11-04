@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/Cookie.js"></script>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/list.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/listEx.css">
+    <link rel="stylesheet" href="../css/base.css">
+</head>
+
+<body>
+
+    <div class="box">
+        <span class="login-status">未登录</span> <span class="off">注销</span>
+        <div class="btn-class">
+            <span class="typeBtn" data-type="default">默认</span>
+            <span class="typeBtn" data-type="dsc">按照价格从高到低</span>
+            <span class="typeBtn" data-type="asc">按照价格从低到高</span>
+        </div>
+        <ul class="box-list">
+            <!-- <li class="item">
+                <div class="item-box">
+                    <img src="https://imgservice5.suning.cn/uimg1/b2c/atmosphere/-iGTYma1mOadwdtkeFkAvw.jpg_400w_400h_4e">
+                    <div class="price ">￥ 999</div>
+                    <div class="title ">渔鼎鲜2088型进口海鲜大礼包</div>
+                    <div class="dis ">23万+评价</div>
+                    <div class="storeName ">苏宁自营</div>
+                </div>
+                <div class="addCart">加入购物车</div>
+            </li> -->
+        </ul>
+    </div>
+    <div id="page" class="page">
+        <!-- <a href="javascript:;" class="active">1</a> -->
+    </div>
+    <div class="sn-sidebar" sap-modid="hWIP3" style="display: block;">
+        <div class="sn-sidebar-tab-dacu-box">
+            <a href="javascript:;"><img src="//image.suning.cn/uimg/cms/img/157784703978933838.png" class="sn-sidebar-tab-dacu-img sn-sidebar-tab-js hide" data-type="dacu" style="display: inline; right: 315px;"></a>
+        </div>
+        <div class="sn-sidebar-bg" style="display: block;"></div>
+        <div class="sn-sidebar-tabs sn-sidebar-middle-tabs" style="top: 30%; height: 307px;">
+            <div class="sn-sidebar-tabs sn-sidebar-middle-tabs-top">
+                <div class="sn-sidebar-tab sn-sidebar-tab-member sn-sidebar-tab-js" data-type="member" style="visibility: hidden;"><a href="javascript:;" name="public0_none_cblnew_huiyuan"><i
+                        class="tab-icon tab-icon-member"></i><i class="tab-icon-tip"></i></a></div>
+                <div class="sn-sidebar-tab sn-sidebar-tab-cart sn-sidebar-tab-js sn-sidebar-tab-click" data-type="cart">
+                    <a href="javascript:;" name="public0_none_cblnew_gouwuche">
+                        <div class="tab-cart-tip-warp-box">
+                            <div class="tab-cart-tip-warp"><i class="tab-icon  tab-icon-cart"></i><i class="tab-icon-tip tab-icon-cart-tip"></i><span class="tab-cart-tip">购物车</span><span class="tab-cart-num J_cart_total_num">0</span></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="sn-sidebar-tab sn-sidebar-tab-message sn-sidebar-tab-js" data-type="message"><a href="//snwm.suning.com/" target="_blank" name="public0_none_cblnew_message"><i
+                        class="tab-icon tab-icon-msg"></i><i class="tab-icon-tip"></i><span
+                        class="tab-tip">消息</span></a></div>
+            </div>
+            <div class="sn-sidebar-tabs sn-sidebar-middle-tabs-bottom hide">
+                <div class="sn-sidebar-tab sn-sidebar-tab-finance sn-sidebar-tab-js hide" data-type="finance"><a href="javascript:;" name="public0_none_cblnew_jinrong"><i class="tab-icon tab-icon-finance"></i><i
+                        class="tab-icon-tip"></i><span class="tab-tip">理财</span></a></div>
+                <div class="sn-sidebar-tab sn-sidebar-tab-history sn-sidebar-tab-js hide" data-type="history"><a href="javascript:;" name="public0_none_cblnew_zuji"><i class="tab-icon tab-icon-history"></i><i
+                        class="tab-icon-tip"></i><span class="tab-tip">足迹</span></a></div>
+                <div class="sn-sidebar-tab sn-sidebar-tab-sign sn-sidebar-tab-js hide" data-type="sign"><a name="public0_none_cblnew_qiandao" href="//vip.suning.com/sign/welcome.do" target="_blank"><i
+                        class="tab-icon tab-icon-sign"></i><i class="tab-icon-tip"></i><span
+                        class="tab-tip">签到</span></a></div>
+            </div>
+        </div>
+        <div class="sn-sidebar-tabs sn-sidebar-bottom-tabs">
+            <div class="sn-sidebar-tab sn-sidebar-wider-tab sn-sidebar-service sn-sidebar-tab-js hide" id="sn-sidebar-change-service" data-type="servicebox"><a href="javascript:;" name="public0_none_cblnew_kefu"><i class="tab-icon tab-icon-service"></i><i
+                    class="tab-icon-tip"></i><span class="tab-tip tab-tip-wider">在线咨询</span></a></div>
+            <div class="sn-sidebar-tab sn-sidebar-wider-tab sn-sidebar-feedback sn-sidebar-tab-js hide" id="sn-sidebar-change-feedback"><a href="//s.suning.com/report/custom/search.htm" target="_blank" name="public0_none_cblnew_wenjuan"><i class="tab-icon tab-icon-feedback"></i><span
+                    class="tab-tip tab-tip-wider">意见反馈</span></a></div>
+            <div class="sn-sidebar-tab sn-sidebar-wider-tab sn-sidebar-code sn-sidebar-tab-js hide"><a href="javascript:;"><i class="tab-icon-tip tab-icon-code-tip"></i><i
+                    class="tab-icon tab-icon-code"></i></a></div>
+            <div class="sn-sidebar-tab sn-sidebar-wider-tab sn-sidebar-to-top sn-sidebar-tab-js"><a href="javascript:void(0);" name="public0_none_cblnew_back"><i class="tab-icon tab-icon-to-top"></i><span
+                    class="tab-tip tab-tip-wider">返回顶部</span></a></div>
+        </div>
+        <div class="tab-tip-code-warp" id="sn-sidebar-change-code" style="display: none; left: 0px;"><img class="tab-tip-code-warp-img" src="//image.suning.cn/public/v3/images/new-down-img.png?v=st0001"></div>
+        <div class="sn-sidebar-member-wrap member-white"></div>
+        <div class="sn-sidebar-contents sn-sidebar-contents-show" style="right: 35px;">
+            <div class="sn-sidebar-content sn-sidebar-cart" style="top: 0px; display: block; z-index: 0;">
+                <div class="ng-sidebar-cart-wrapper">
+                    <div class="ng-min-cart" id="myCart">
+                        <div class="g-cart-top">
+                            <div class="g-cart-info mt10">
+                                <input type="checkbox" id="J_cart_checked_all" name="public0_none_cblgwc_quanx02">
+                                <p>
+                                    <span>全选或反选</span>
+                                    <a href="//shopping.suning.com/cart.do"><span class="r check-all">查看全部</span></a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="g-cart-list-box g-sidebar-scrollbox" id="snCartList" style="height: 414px;">
+
+                            <!-- 
+                            <dl class="g-cart-store ">
+                                <dt class="g-cart-store-title clearfix">
+                                <div class="store-info clearfix">
+                                    <input class="sn-sidebar-minicart-sn-store" type="checkbox"
+                                        name="public0_none_cblgwc_quanx01" id="J_cart_checked_store_all">
+                                    <label for="J_cart_checked_store_all_01">苏宁自营</label>
+                                    <span class="r price">¥<em>0.00</em></span>
+                                </div>
+                            </dt>
+                                <dd class="g-cart-td fisrt">
+                                    <div class="g-cart-item ">
+                                        <div class="g-cart-close">
+                                            <a class="g-cart-del-handle" href="javascript:;" title="删除" name="public0_none_cblgwc_shancsp" exdata="100000076466987852944953"></a>
+                                        </div>
+                                        <div class="g-cart-checkbox l">
+                                            <input type="checkbox" class="sn-sidebar-minicart-one-goods" name="public0_none_cblgwc_danxuan">
+                                        </div>
+                                        <div class="g-cart-td-images l">
+                                            <a target="_blank" href="//product.suning.com/0000000000/10508245995.html" title="禧美海产 厄瓜多尔白虾（ASC认证）1800g 盒装 90-108只 原装进口 海鲜水产" name="public0_none_cblgwc_shangptp">
+                                                <img src="//imgservice.suning.cn/uimg1/b2c/image/87i7RIzHiGjCQwYUCzpRHg.jpg_100w_100h_4e" alt="禧美海产 厄瓜多尔白虾（ASC认证）1800g 盒装 90-108只 原装进口 海鲜水产">
+                                            </a>
+                                        </div>
+                                        <div class="g-cart-td-msg">
+                                            <p>
+                                                <a target="_blank" href="//product.suning.com/0000000000/10508245995.html" title="禧美海产 厄瓜多尔白虾（ASC认证）1800g 盒装 90-108只 原装进口 海鲜水产" name="public0_none_cblgwc_shangpmc">
+                                                禧美海产 厄瓜多尔白虾（ASC认证）1800g 盒装 90-108只 原装进口 海鲜水产
+                                            </a>
+                                            </p>
+                                            <div class="clearfix">
+                                                <span class="price r">¥
+                                                <em>178.00</em>
+                                            </span>
+                                                <div class="g-cart-cout l ">
+                                                    <a href="javascript:;" class="g-cart-cout-btnl g-cart-cout-btnl-disabled" name="public0_none_cblgwc_shulzj"></a>
+                                                    <input type="text" maxlength="2" value="1" class="g-cart-cout-input" name="public0_none_cblgwc_shulsr">
+                                                    <a href="javascript:;" class="g-cart-cout-btnr " name="public0_none_cblgwc_shuljs"></a>
+
+                                                </div>
+                                                <div class="g-cart-cout-text l">1</div>
+                                            </div>
+                                        </div>
+                                        <div class="opacity"></div>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl class="g-cart-store ">
+                                <dt class="g-cart-store-title  clearfix">
+                                <div class="store-info clearfix ">
+                                    <input class="sn-sidebar-minicart-c-store" type="checkbox"
+                                        name="public0_none_cblgwc_quanx01" id="J_cart_checked_store_all_0070935545"
+                                        checked="checked">
+                                    <label for="J_cart_checked_store_all_01"> <a
+                                            href="//shop.suning.com/70935545/index.html">鲨鱼小子生鲜旗舰店</a></label>
+                                    <span class="r price">¥<em>89.00</em></span>
+                                </div>
+                            </dt>
+                                <dd class="g-cart-td">
+                                    <div class="g-cart-item ">
+                                        <div class="g-cart-close">
+                                            <a class="g-cart-del-handle" href="javascript:;" title="删除" name="public0_none_cblgwc_shancsp" exdata="100000076467301385561714"></a>
+                                        </div>
+                                        <div class="g-cart-checkbox l">
+                                            <input type="checkbox" class="sn-sidebar-minicart-one-goods" name="public0_none_cblgwc_danxuan" checked="checked">
+                                        </div>
+                                        <div class="g-cart-td-images l">
+                                            <a target="_blank" href="//product.suning.com/0070935545/11346278987.html" title="【进口大虾！4斤仅89元】厄瓜多尔虾 （80-110只） 原装进口 海鲜基围虾白虾 （净重2.8-3.2斤）" name="public0_none_cblgwc_shangptp">
+                                                <img src="//imgservice.suning.cn/uimg1/b2c/image/fBsr_wnxXgkurt3NMmaP2w.jpg_100w_100h_4e" alt="【进口大虾！4斤仅89元】厄瓜多尔虾 （80-110只） 原装进口 海鲜基围虾白虾 （净重2.8-3.2斤）">
+                                            </a>
+                                        </div>
+                                        <div class="g-cart-td-msg">
+                                            <p>
+                                                <a target="_blank" href="//product.suning.com/0070935545/11346278987.html" title="【进口大虾！4斤仅89元】厄瓜多尔虾 （80-110只） 原装进口 海鲜基围虾白虾 （净重2.8-3.2斤）" name="public0_none_cblgwc_shangpmc">
+                                                【进口大虾！4斤仅89元】厄瓜多尔虾 （80-110只） 原装进口 海鲜基围虾白虾 （净重2.8-3.2斤）
+                                            </a>
+                                            </p>
+                                            <div class="clearfix">
+                                                <span class="price r">¥
+                                                <em>89.00</em>
+                                            </span>
+                                                <div class="g-cart-cout l ">
+                                                    <a href="javascript:;" class="g-cart-cout-btnl g-cart-cout-btnl-disabled" name="public0_none_cblgwc_shulzj"></a>
+                                                    <input type="text" maxlength="2" value="1" class="g-cart-cout-input" name="public0_none_cblgwc_shulsr">
+                                                    <a href="javascript:;" class="g-cart-cout-btnr " name="public0_none_cblgwc_shuljs"></a>
+
+                                                </div>
+                                                <div class="g-cart-cout-text l">1</div>
+                                            </div>
+                                        </div>
+                                        <div class="opacity"></div>
+                                    </div>
+                                </dd>
+                            </dl> -->
+
+                        </div>
+                        <div class="g-cart-bottom">
+                            <div class="g-cart-info">
+                                <div class="l">
+                                    <p>已选<em class="J_cart_checked_num" id="totalCount">0</em>件</p>
+                                    <p>总价：<em class="J_cart_selected_money price" id="totalPrice">0元</em></p>
+                                </div>
+                                <a class="g-cart-checkout-btn r" href="//shopping.suning.com/cart.do" name="public0_none_cblnew_gouwuche_gotogwc">去购物车结算<b></b></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

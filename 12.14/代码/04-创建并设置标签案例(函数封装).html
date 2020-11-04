@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*[1] 创建1个div标签，设置内容，设置标签的宽度和高度和边框，插入到页面中。*/
+        var oDiv = createEle("div", "我是div1标签");
+        setStyle(oDiv, "100px", "100px", "1px solid #000")
+        insertEle(oDiv);
+
+
+        /*[2] 创建1个p标签，设置内容，设置标签的宽度和高度和边框，插入到页面中。*/
+        var oP = createEle("p", "我是p");
+        setStyle(oP, "100px", "100px", "1px solid #000")
+        insertEle(oP);
+
+
+        /*[2] 创建1个div标签，设置内容，设置标签的宽度和高度和边框，插入到页面中。*/
+        var oDiv2 = createEle("div", "我是div2标签");
+        setStyle(oDiv2, "500px", "40px", "1px solid red")
+        insertEle(oDiv2);
+
+
+        function createEle(type, text) {
+            var ele = document.createElement(type);
+            ele.innerText = text;
+            return ele;
+        }
+
+        function setStyle(ele, w, h, b) {
+            ele.style.width = w;
+            ele.style.height = h;
+            ele.style.border = b;
+        }
+
+        function insertEle(ele) {
+            document.body.appendChild(ele);
+        }
+    </script>
+</body>
+
+</html>

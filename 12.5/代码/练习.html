@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!----------------练习1-------------- -->
+    <!-- <script>
+        // 设置时间的相关方法
+        // Gmt格林你只时间
+        var date=new Date
+        console.log(date);
+        // 设置日期
+        date.setDate(7)
+        // 设置年
+        date.setFullYear(2020)
+        // 设置月
+        date.setMonth(0)
+        console.log(date);
+        
+
+        
+        
+    </script> -->
+
+
+    <!-- -------------练习2------------- -->
+
+    <!-- <input type="date">
+    <input type="text" placeholder="请输入日期">
+    <button>点击查看指定日期</button>
+    <span></span>
+
+    <script>
+        // 想获取页面中的标签
+        var oBtn = document.getElementsByTagName("button")[0]
+        var oInputA = document.getElementsByTagName("input")[0]
+        var oInputB = document.getElementsByTagName("input")[1]
+        var oSpan = document.getElementsByTagName("span")[0]
+
+        // 点击按键
+        oBtn.onclick = function () {
+
+            // 获取日期
+            var dateText = oInputA.value
+            var dayCount = oInputB.value * 1
+            console.log(dateText, dayCount);
+            // 计算出目标日期
+            // 想获得当前日期,后的Data类型对象
+            var a = new Date(dateText)
+            var currentDate = a.getDate()
+
+            a.setDate(currentDate + dayCount)
+            console.log(a);
+
+            // 显示
+            var week = a.getDay()
+            oSpan.innerText = "星期" + "日一二三四五六".charAt(week)
+
+        }
+    </script> -->
+
+    <!-- -----------------练习3----------------- -->
+
+    <!-- <script>
+        var date1=new Date
+        var date2=new Date("2019-5-10 10:10:10")
+        console.log(date1)
+        console.log(date2);
+
+        // 时间戳
+        var date5= Date.now()
+        console.log(date5)
+
+        console.log(date1.getTime())
+     
+    </script> -->
+
+    <!-- ----------------练习5---------------- -->
+    <!-- <input type="text">
+    <input type="text">
+    <button>相减</button>
+    <span></span>
+    <script>
+        var dateA = document.getElementsByTagName("input")[0]
+        var dateB = document.getElementsByTagName("input")[1]
+        var oBtn = document.getElementsByTagName("button")[0]
+        var oSpan = document.getElementsByTagName("span")[0]
+        oBtn.onclick = function () {
+            // 获取两个输入框的时间
+            var timerA = dateA.value
+            var timerB = dateB.value
+            console.log(timerA, timerB);
+
+            // 转化为时间戳
+            var tA = (new Date(timerA)).getTime()
+            var tB = (new Date(timerB)).getTime()
+            console.log(tA, tB);
+            // 计算差值
+            var offset = Math.abs(tB - tA)
+            // 转换为天数
+            var count=offset/1000/60/60/24;
+            oSpan.innerText=count;
+
+        } -->
+
+        
+
+    <!-- </script> -->
+    <!-- --------------练习6-------------- -->
+    <!-- <script>
+            var date=new Date()
+            console.log(date.toDateString());
+            console.log(date.toISOString() );
+            // 获取时间轴
+            console.log(date.valueOf());
+
+            console.log(date.getTime());
+            console.log(date.getFullYear());
+            
+            
+            
+        </script> -->
+
+        <!-- ------------练习7------------ -->
+
+        
+
+</body>
+
+</html>

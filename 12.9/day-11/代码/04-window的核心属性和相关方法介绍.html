@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            width: 2000px;
+            height: 2000px;
+        }
+        
+        .box {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>标题</h1>
+    <div class="box">点击我返回顶部</div>
+    <script>
+        /* 建议在使用的时候加上window前缀 */
+        /* innerWidth|innerHeight:页面可视区域的宽度|高度 */
+        /* outerWidth|outerHeight:窗口区域的宽度|高度 */
+        /* scrollX: 水平滚动条的位置(只读)*/
+        /* scrollY: 垂直滚动条的位置(只读)*/
+        /* scrollTo(x,y) 设置让页面滚动到指定的目标位置 */
+        /* scrollBy(offsetX,offsetY)  设置让页面从当前位置开始滚动多少*/
+        /* 典型应用：吸顶效果 && 楼层效果。 */
+
+        var oBox = document.getElementsByClassName("box")[0];
+        oBox.onclick = function() {
+            /* 当单击当前标签的时候，滚动到页面的顶部 */
+            window.scrollTo(0, 0);
+        }
+
+        console.log(innerWidth);
+    </script>
+</body>
+
+</html>

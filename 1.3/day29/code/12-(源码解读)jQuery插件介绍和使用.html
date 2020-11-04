@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/jquery-3.4.1.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./widget-master/public/style/cssreset-min.css">
+    <link rel="stylesheet" type="text/css" href="./widget-master/public/style/common.css">
+    <script type="text/javascript" src="./widget-master/code/jquery.colorpicker.js"></script>
+    <style>
+        .panel {
+            margin-bottom: 20px;
+        }
+        
+        .panel p {
+            line-height: 26px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="panel">
+        <p>系统默认颜色选择扩展</p>
+        <p><input type="color" value="#fc0000" /></p>
+    </div>
+    <script>
+        $('input[type="color"]').colorpicker({
+            hoverChange: true
+        });
+    </script>
+</body>
+
+</html>

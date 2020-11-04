@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            list-style: none
+        }
+        
+        li {
+            width: 200px;
+            height: 280px;
+            border: 1px solid #999;
+            float: left;
+            margin-right: 10px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .name {
+            text-align: center
+        }
+        
+        .price {
+            text-align: center;
+            color: red;
+            font-size: 20px
+        }
+    </style>
+    <script src="./data.js"></script>
+</head>
+
+<body>
+    <ul class="list">
+        <!-- <li>
+            <img src="./img/1.jpg" alt="">
+            <div class="name">白夜行</div>
+            <div class="price">￥ 23.00</div>
+            <div class="press">出版社：新经典文化出版社</div>
+        </li>
+        <li>
+            <img src="./img/2.jpg" alt="">
+            <div class="name">白夜行</div>
+            <div class="price">￥ 23.00</div>
+            <div class="press">出版社：新经典文化出版社</div>
+        </li> -->
+    </ul>
+    <script>
+        /* 001-根据数据动态渲染UI */
+        var oUl = document.getElementsByClassName("list")[0];
+
+        /* [1] 遍历数组，每循环一次就根据当前数据来创建标签并且把标签插入到页面中 */
+        // data.forEach(function(ele) {
+        //     console.log(ele);
+        //     var oLi = document.createElement("li");
+        //     var html = `
+        //     <img src=${ele.src} alt="">
+        //     <div class="name">${ele.name}</div>
+        //     <div class="price">${ele.price}</div>
+        //     <div class="press">出版社：新经典文化出版社</div>
+        //     `
+        //     oLi.innerHTML = html;
+        //     oUl.appendChild(oLi);
+        // })
+
+
+        /* [2] 遍历数组利用 map */
+        oUl.innerHTML = data.map(function(ele) {
+            return `
+            <li>
+              <img src=${ele.src} alt="">
+              <div class="name">${ele.name}</div>
+              <div class="price">${ele.price}</div>
+              <div class="press">出版社：新经典文化出版社</div>
+            </li>
+            `
+        }).join("");
+
+        /* 002-给所有的标签都添加点击事件 */
+        /* 思路：遍历数组(所有li标签)，获取每一个li标签来添加点击事件 */
+        var oLis = document.getElementsByTagName("li");
+        console.log(oLis);
+        for (var i = 0, len = oLis.length; i < len; i++) {
+            var ele = oLis[i];
+            ele.index = i;
+            ele.onclick = function() {
+
+                /* 003-当点击标签的时候跳转到详情页面 */
+                console.log(this.index, data[this.index]);
+                var item = data[this.index];
+
+                window.location.href = "./detail.html?" + obj2QueryString(item);
+            }
+        }
+
+        function obj2QueryString(o) {
+            /* {name:"小王子",price:12} => name=小王子&price=12 */
+            var arr = [];
+            for (var key in o) {
+                arr.push(`${key}=${o[key]}`)
+            }
+            return arr.join("&");
+        }
+        //https://search.jd.com/Search?keyword=手机&enc=utf-8&suggest=2.def.0.V13--12s0,20s0,38s0&wq=s&pvid=62c5a309972f498da0117dfe91fd30b6
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 数组的遍历操作： */
+        var data = [100, 200, "佩琪", "张三丰", "赵敏"];
+        var data2=['金金','娜美','罗宾','索隆']
+
+        /* [1] 通过for循环遍历 */
+        for (var i = 0, len = data.length; i < len; i++) {
+            console.log(i, data[i]);
+        }
+
+        console.log('___________');
+        /* [2] 通过forEach方法 */
+        data.forEach(function(item, index) {
+            console.log(index, item);
+        });
+        console.log('______________________');
+        // 也可以
+        data2.forEach(function hehe(item,index) {
+            console.log(index,item);
+        })
+
+
+        /* 思考：forEach方法的内部实现原理？ */
+        /* 要求：设计一个forEachT函数，该函数要能够提供跟forEach方法一样的功能 */
+        console.log('___________');
+
+        /* 声明函数 */
+        function forEachT(callBack) {
+            for (var i = 0, len = data.length; i < len; i++) {
+                callBack(data[i], i);
+            }
+        }
+        console.log('__________');
+        /* 调用 */
+        forEachT(function(item, index) {
+            console.log(index, item);
+        });
+
+        console.log('________________');
+        // 试一下回调函数
+        function forEach2(callback) {
+            for (let i = 0; i < data2.length; i++) {
+                // const element = array[i];
+                callback(data2[i],i)
+            }
+        }
+        forEach2(
+            function (item,index) {
+                console.log(index,item);
+            }
+        )
+
+
+
+        // /* 函数的参数？ */
+        // function fn(a, b) {
+        //     console.log(a, b);
+        //     b(); //调用b这个函数
+        // }
+
+        // // fn(10, 20);   参数是数字
+        // // fn("abc", "哈哈哈"); 参数是字符串
+        // // fn([1, 2, 3], [3, 2, 1]) 参数是数组
+        // /* 函数的参数可以是任意类型的数据，因此函数的参数可以也是函数。 */
+        // // function t() {
+        // //     console.log('我是函数t');
+        // // }
+        // /* 函数调用的时候执行两件操作 */
+        // /* [1] 会把实参的值赋值给形参 a = 100 , b = t;*/
+        // /* [2] 会执行函数体中的代码 */
+        // /* 如果一个函数作为其它函数的参数，那么该函数被成为回调函数 callBack */
+        // fn(100, function() {
+        //     console.log('我是函数t1');
+        // });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../lib/jquery-3.4.1.js"></script>
+    <script src="../lib/md5.js"></script>
+    <script src="../lib/login.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div id="login">
+            <div class="header">
+                <div class="main-content clearfix">
+                    <a class="logo fl"><img src="../img/logo_jk.png" alt="logo"></a>
+                    <div class="register-link fr"><span>还没有账号？</span> <a href="/user/register" class="button register">立即注册</a>
+                    </div>
+                </div>
+            </div>
+            <div class="article" style="background: url('../img/bg.jpg')">
+                <div class="main-content clearfix">
+                    <a class="aside fl"><img src="../img/app.png" alt="" style="margin-top:35px;"></a>
+                    <div class="login-form fr">
+                        <!---->
+                        <div class="tab-login">
+                            <div class="tab-login-item active">手机号快捷登录</div>
+                            <div class="tab-login-item ">账号密码登录</div>
+                        </div>
+                        <div class="login-main-content">
+                            <div class="SmsValid loginView  loginViewCurrent">
+                                <div class="form-item phone"><span class="label">手机号码</span>
+                                    <div class="content"><input type="text" maxlength="11" name="phoneNum" placeholder="请输入您的手机号" value="">
+                                        <span class="form-group__message">手机号码不能为空</span>
+                                    </div>
+                                </div>
+                                <div class="form-item image-code"><span class="label">验证码</span>
+                                    <div class="content"><input type="text" maxlength="6" placeholder="请输入验证码">
+                                        <div class="image-code-box">
+                                            <canvas width="160" height="45" id="captcha"></canvas>
+                                        </div>
+                                        <div class="form-group__message">请输入图形验证码</div>
+                                    </div>
+                                </div>
+                                <div class="form-item phone-code"><span class="label">短信验证码</span>
+                                    <div class="content">
+                                        <div class="phone-code-content"><input type="text" maxlength="6" placeholder="请输入短信验证码" value="">
+                                            <span class="button code-sms" style="display:;">获取短信验证码</span> <span class="button code-sms" style="display:none;">重试0</span></div>
+                                        <div class="form-group__message">短信验证码不能为空</div>
+                                    </div>
+                                </div>
+                                <div class="mask modal" style="display:none;" data-v-89a55570="" data-v-5b324de8="">
+                                    <div class="alert-message section" data-v-89a55570="" data-v-5b324de8="">
+                                        <div class="header clearfix" data-v-89a55570="" data-v-5b324de8=""><span class="fl" data-v-89a55570="" data-v-5b324de8="">提示</span> <i class="fr" data-v-89a55570="" data-v-5b324de8=""></i></div>
+                                        <div class="article" data-v-89a55570="" data-v-5b324de8="">
+                                            <span class="alert-content" data-v-89a55570="">
+                                            <h3 data-v-89a55570="">该手机号已被注册</h3>
+                                            <p data-v-89a55570="">你可以选择：</p>
+                                            <p data-v-89a55570="">1.将该手机号账户与当前账号关联，关联成功后：</p>
+                                            <p data-v-89a55570="">·您可以将原有账号订单信息、优惠券、红包、积分等合并叠加优惠更多；</p>
+                                            <p data-v-89a55570="">·您可以将原有的个人信息、收货地址合并，免于重新填写。</p>
+                                            <p data-v-89a55570="">2.您可以绑定一个新的手机号</p>
+                                          </span>
+                                        </div>
+                                        <div class="footer" data-v-89a55570="" data-v-5b324de8="">
+                                            <div class="btn ok" data-v-89a55570="" data-v-5b324de8="">绑定新手机号</div>
+                                            <div class="btn cancel" data-v-89a55570="" data-v-5b324de8="">关联</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="login-pwd loginView">
+                                <div class="form-item phone">
+                                    <div class="content"><input id="username-ID" type="text" maxlength="20" name="loginName" placeholder="请输入用户名"> <span class="form-group__message">用户名不能为空</span></div>
+                                </div>
+                                <div class="form-item phone">
+                                    <div class="content"><input id="password-ID" type="password" maxlength="20" name="password" placeholder="请输入密码"> <span class="form-group__message">密码不能为空</span></div>
+                                </div> <a href="/user/account/password/forget" class="forget-pwd-link">忘记密码？</a>
+                            </div>
+                            <!---->
+                            <div class="form-item"><button class="logon button" id="loginBtn">立即登录</button></div>
+                            <div class="agree form-item"><input name="protocol" id="protocol" type="checkbox" checked="checked"> <label for="protocol">我已阅读并同意</label> <a href="http://www.jianke.com/help/trading.html" target="_blank">《健客网用户使用条款》</a>
+                                <!---->
+                            </div>
+                            <dl class="other-login">
+                                <dt class="other-login-title">你也可以使用以下账号登录</dt>
+                                <dd>
+                                    <a onclick="_hmt.push(['_setCustomVar', 2, 'visitor', 'qq', 1]);" href="javascript:;" title="QQ账号" class="qq"></a>
+                                    <a onclick="_hmt.push(['_setCustomVar', 2, 'visitor', 'wb', 1]);" href="javascript:;" title="新浪微博账号" class="sina"></a>
+                                </dd>
+                            </dl>
+                            <p class="service">如有账号问题，请咨询客服<a href="javascript:void(0);">400 6666 800</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <p>健客网－国家药监局认证的合法网上药店，致力于打造优质、低价、便捷的网上药店和最值得信赖的健康服务平台</p>
+                <p>版权所有 Copyright©2006-2014 www.jianke.com All rights reserved </p>
+                <p><a href="http://www.jianke.com/help/jiaoyi.html" target="_blank" title="互联网药品交易服务资格证书" rel="nofollow">互联网药品交易服务资格证书</a> <a href="http://www.jianke.com/help/yingye.html" target="_blank" title="企业营业执照" rel="nofollow">企业营业执照</a> <a href="http://www.jianke.com/help/xinxi.html"
+                        target="_blank" title="互联网药品信息服务资格证书" rel="nofollow">互联网药品信息服务资格证书</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

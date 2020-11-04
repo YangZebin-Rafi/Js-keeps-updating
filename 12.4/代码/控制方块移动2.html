@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #my {
+            position: absolute;
+            left: 50px;
+            top: 100px;
+            background: darkcyan;
+            width: 200px;
+            height: 200px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        a:focus {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="my"></div>
+    <div id="ss"></div>
+    <button id="ms">开始</button>
+    <button id="mr">停止</button>
+    <script>
+        setTimeout(() => {
+
+            var my = document.getElementById("my");
+            var ss = document.getElementById("ss");
+            var handle = 0;
+            var lPos = 0;
+            var nul = null;
+
+            function renderLoop() { //右边移动
+                my.style.left = (lPos += 1) + "px";
+                handle = window.requestAnimationFrame(renderLoop);
+            }
+
+            function rightLoop() { //左边移动
+                my.style.left = (lPos -= 1) + "px";
+                handle = window.requestAnimationFrame(rightLoop);
+            }
+            document.getElementById("ms").addEventListener("click", function () {
+                renderLoop();
+            });
+            document.getElementById("mr").addEventListener("click", function () {
+                rightLoop();
+            });
+            ss.addEventListener("click", function () { //监听暂停按钮，然后停止循环，再点击暂停按钮的时候往左边移动
+                if (handle) {
+                    window.cancelAnimationFrame(handle);
+                    handle = null;
+                }
+                //        else{
+                //            renderLoop();//这块是向右边移动 那么问题来了 。如果点击左边移动，暂停会判断向右移动。
+                //        }
+            });
+
+        }, 3000);
+    </script>
+</body>
+
+</html>

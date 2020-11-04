@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="box"><span>A</span></div>
+    <div class="box"><span>B</span></div>
+
+    <button>text</button>
+    <button>html</button>
+    <script>
+        /* 如何操作标签的内容 */
+        /* innerHTML  节点内容*/
+        /* innerText  文本内容*/
+        // let oDiv = document.querySelector(".box");
+        // oDiv.innerText = "<h1>标题</h1>"
+
+        /* [1] jq.text([val]) 获取|设置标签的文本内容*/
+        /* [2] jq.html([val]) 获取|设置标签的节点内容*/
+        $(() => {
+            /* 获取页面中所有的按钮给它们添加点击事件 */
+            // $("button").click(function() {
+            //     console.log("--click--", this);
+            // })
+
+            /* 第一个按钮的点击事件 */
+            $("button:first").click(function() {
+                // console.log("--click1", this);
+                /* 001-读取标签的文本内容 */
+                /* 如果选中了多个标签，那么会把多个标签的内容拼在一起返回 AB */
+                console.log($(".box").text());
+
+                /* 002-设置标签的内容 */
+                /* 如果选中了多个标签，那么会遍历设置每个标签的文本内容 */
+                $(".box").text("<h1>标题1</h1>")
+            })
+
+            $("button:last").click(function() {
+                // console.log("--click2", this);
+
+                /* 001-读取标签的节点内容 */
+                /* 如果选中了多个标签，那么只会读取第一个标签的节点内容 */
+                console.log($(".box").html()); /* <span>A</span> */
+
+                /* 如果选中了多个标签，那么会遍历设置每个标签的节点内容 */
+                $(".box").html("<h1>标题2</h1>")
+            })
+        })
+    </script>
+</body>
+
+</html>

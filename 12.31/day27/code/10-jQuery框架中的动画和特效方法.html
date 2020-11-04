@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 300px;
+            background: red;
+            position: relative;
+            left: 0px;
+            top: 0px
+            /* margin: 50px auto */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <button>show</button>
+    <button>hide</button>
+    <button>toggle</button>
+    <button>slideDown</button>
+    <button>slideUp</button>
+    <button>slideToggle</button>
+    <button>fadeIn</button>
+    <button>fadeOut</button>
+    <button>fadeToggle</button>
+    <button>fadeTo</button>
+    <button>animate</button>
+    <script>
+        /* 语法：jq.xxx(time,callBack) */
+        /* 显示和隐藏动画：show() hide() toggle() */
+        /* 展开和收起动画：slideDown() slideUp() slideToggle() */
+        /* 淡入和淡出动画：fadeIn() fadeOut() fadeTo() fadeToggle() */
+        /* 自定义动画：animate() */
+
+        /* 注意点：时间可以是数字(毫秒) 也可以是字符串(默认提供了三个时间) */
+        /* “slow” “normal” “fast”  0.6 - 0.4 - 0.2 */
+        /* 本质：设置标签的宽度、高度和透明度 */
+        $("button").first().click(() => $(".box").show("slow", () => console.log("show-end")))
+        $("button").eq(1).click(() => $(".box").hide(2000, () => console.log("hide-end")))
+        $("button").eq(2).click(() => $(".box").toggle(1000, () => console.log("toggle-end")))
+
+        /* 本质：设置标签的高度 */
+        $("button").eq(3).click(() => $(".box").slideDown(2000, () => console.log("slideDown-end")))
+        $("button").eq(4).click(() => $(".box").slideUp(2000, () => console.log("slideUp-end")))
+        $("button").eq(5).click(() => $(".box").slideToggle(2000, () => console.log("slideToggle-end")))
+
+
+        /* 本质：设置标签的透明度 opacity 0-1  */
+        $("button").eq(6).click(() => $(".box").fadeIn(3000, () => console.log("fadeIn-end")))
+        $("button").eq(7).click(() => $(".box").fadeOut(3000, () => console.log("fadeOut-end")))
+        $("button").eq(8).click(() => $(".box").fadeToggle(3000, () => console.log("fadeToggle-end")))
+        $("button").eq(9).click(() => $(".box").fadeTo(3000, 0.5, () => console.log("fadeTo-end")))
+
+        /* 语法：JQ.animate({},time,callBack) */
+        $("button").last().click(() => {
+            $(".box")
+                .animate({
+                    width: "200px",
+                    height: "200px"
+                }, 1000)
+                .animate({
+                    width: "50px",
+                    height: "50px"
+                }, 50)
+                .animate({
+                    width: "800px",
+                }, 3000)
+                .animate({
+                    width: "50px",
+                }, 3000)
+                .animate({
+                    left: "500px",
+                }, 3000)
+                .animate({
+                    top: "200px",
+                }, 3000)
+                .delay(2000)
+                .animate({
+                    top: "0px",
+                    left: "0px",
+                }, 3000)
+
+        })
+    </script>
+</body>
+
+</html>

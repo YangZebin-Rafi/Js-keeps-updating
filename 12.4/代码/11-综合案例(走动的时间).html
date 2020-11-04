@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dateId {
+            color: red;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dateId"></div>
+    <script>
+        var oDiv = document.getElementById("dateId");
+        oDiv.innerText = "当前的时间：" + getTime();
+
+        function getTime() {
+            var date = new Date();
+            var y = date.getFullYear();
+            var m = date.getMonth() + 1; /* 月份[0-11] */
+            var d = date.getDate();
+            var h = date.getHours();
+            var f = date.getMinutes();
+            var s = date.getSeconds();
+            return `${y}年${ fn(m) }月${fn(d)}日 ${fn(h)}点${fn(f)}分${fn(s)}秒`;
+        }
+
+        /* 方案A */
+        // function fn(n) {
+        //     return n < 10 ? "0" + n : n;
+        // }
+
+        /* 方案B */
+        function fn(n) {
+            /* n = 8 */
+            /* n = 12 */
+            return ("0000000000" + n).slice(-2);
+        }
+
+        /* 需求：2019年12月4日 17点11分40秒 */
+        /* 思路：开启一个定时器，每隔一秒钟就获取当前的时间，把具体的年月日时分秒取出来拼接为指定格式的字符串，并且显示在页面中。 */
+        /* 注意：在使用定时器的时候，需要设置时间，如果不设置时间，那么默认时间间隔是4ms */
+        setInterval(function() {
+            var timer = getTime();
+            oDiv.innerText = "当前的时间：" + timer;
+            console.log("+++");
+
+        }, 1000);
+    </script>
+</body>
+
+</html>

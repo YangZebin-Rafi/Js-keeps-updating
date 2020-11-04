@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* ES6+新特性 */
+        /* (1) 替换原有的语法  let const ...rest   Class */
+        /* (2) 新增的东西      Array.from()  模板字符串  */
+
+
+
+
+        /* Class (类) |  C++ java object-C swift */
+        /* JavaScript =  C + java + self + schema   ES6+ Class */
+
+        /* Class用来取代构造函数和原型对象 */
+        /* 写法A */
+        // function Person(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        // }
+
+        // /* 静态方法 */
+        // Person.showInfo = function() {
+        //     console.log("info", this.name);
+        // };
+
+        // /* 原型方法 */
+        // Person.prototype.showName = function() {
+        //     console.log("姓名-", this.name);
+        // }
+        // Person.prototype.showAge = function() {
+        //     console.log("年龄-", this.age);
+        // };
+        // /* 如果调用构造函数的时候没有传递参数，那么()可以省略 */
+        // var p1 = new Person("zs", 19);
+        // console.log(p1);
+        // p1.showInfo();   //报错？？？ p1.showInfo is not a function
+        // Person.showInfo(); //info Person
+        /* p1就是要调用showInfo方法 */
+        /* A */
+        // Person.showInfo.call(p1); //info zs
+        /* B */
+        // p1.constructor.showInfo(); //info Person
+        // p1.__proto__.constructor.showInfo();
+
+
+        /* 写法B */
+        class Person {
+            /* 设置实例成员 */
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            } /* 设置原型成员 */
+            showName() {
+                console.log("姓名-", this.name);
+            }
+            showAge() {
+                console.log("年龄-", this.age);
+            } /* 设置静态方法 */
+            static showInfo() {
+                console.log("info-", this.name);
+            }
+        }
+
+        let p1 = new Person("lw", 99);
+        console.log(p1);
+    </script>
+</body>
+
+</html>

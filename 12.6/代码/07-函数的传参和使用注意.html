@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-函数的参数 */
+        function sum(a, b, c) {
+            console.log(a, b, c);
+            return a + b + c;
+        }
+
+        /* 函数调用： */
+        /* [1] 赋值  var a = 1,b = 2 , c ;*/
+        /* [2] 执行函数体   console.log(a, b, c); return a + b + c; => 1 + 2 + undefined => 1 + 2 + NaN */
+        // var res = sum(1, 2);
+        // console.log(res, "++++"); // 
+
+        /* [1] 赋值  var a = 1,b = 2 , c = 3;*/
+        /* [2] 执行函数体   console.log(a, b, c); return a + b + c; => 1 + 2 + 3 => 1 + 2 + 3 */
+        var res = sum(1, 2, 3, 4);
+        console.log(res, "++++");
+
+        /* (1) 如果形式参数的个数和实际参数的个数不匹配会怎么样？ */
+        /* A: 实参个数 < 形参个数  没有传递对应数据的形参默认值是undefined*/
+        /* B: 实参个数 > 形参个数  超出的情况，超出的数据就直接忽略。*/
+
+
+        /* (2) 函数的参数可以是任意类型(字符串、数字、布尔值、数组、对象、函数)的数据 */
+        // function f(a, b, c, d, e) {
+        //   console.log(a,b,c,d,e);
+        // }
+
+        // f("春天","100",true,[100,200],{name:"zs"});
+        /* 注意：如果参数是值类型|引用类型的数据 */
+
+        /* 0001-值类型的数据作为函数的参数 */
+        // var name = "阳春白雪";
+
+        // function fn(str) {
+        //     console.log(str);
+        //     str = "哈哈哈哈";
+        //     console.log(str);
+        // }
+
+        // /* [1] 赋值      var str = name; => str = "阳春白雪"; */
+        // /* [2] 执行函数体 console.log(str);str = "哈哈哈哈"; console.log(str); */
+        // fn(name);
+        // console.log(name); //"阳春白雪"
+
+        /* 0002-引用类型的数据作为函数的参数 */
+        var obj = {
+            name: "lw"
+        };
+
+        function fn(o) {
+            console.log(o.name); //lw
+            o.name = "旺财";
+            console.log(o.name); //旺财
+        }
+
+        /* [1] 赋值 var o = obj;   => o = oxffff001; */
+        /* [2] 执行函数体    */
+        fn(obj);
+        console.log(obj.name); // ? 旺财
+
+        // 总结：
+        // 如果是值类型的数据作为函数的参数，在函数内部修改形参对外部的实参没有影响，因为它们是独立的两个不同的数据。
+        // 如果是引用类型的数据作为函数的参数，在函数内部修改形参对外部的实参会产生影响，因为它们是共享的。
+    </script>
+</body>
+
+</html>

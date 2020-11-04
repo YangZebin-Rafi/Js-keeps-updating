@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            height: 2000px;
+        }
+
+        .picShow {
+            margin: 0 auto;
+            padding: 5px;
+            width: 250px;
+            height: 250px;
+            border: 2px solid #999;
+        }
+
+        #bigPic {
+            width: 250px;
+            height: 250px;
+        }
+
+        #smallPic {
+            margin-top: 5px;
+        }
+
+        #smallPic img {
+            border: 1px solid #ddd;
+            padding: 2px;
+            width: 50px;
+            height: 50px;
+        }
+
+        #smallPic img.active {
+            border: 2px solid #f00;
+            padding: 1px;
+        }
+
+        .imgbox {
+            width: 450px;
+            height: 450px;
+            border: solid 1px #2F0;
+            margin: 100px auto;
+            position: relative;
+            /* box-sizing: border-box; */
+        }
+
+        .minImg,
+        .minImg img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .maxImg {
+            width: 355.55px;
+            height: 355.55px;
+            /* height: 500px;
+            width: 500px;*/
+            overflow: hidden;
+            border: 1px solid red;
+            position: absolute;
+            /*right: -450px;*/
+            left: 450px;
+            box-sizing: border-box;
+            top: 0;
+        }
+
+        .img-mask {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 0, 0, .5);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+        }
+
+        .maxImg img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="picShow">
+
+        <div class="imgbox">
+            <div class="maxImg" style="display:none">
+                <img src="./img/001.jpeg" id="bigPic">
+            </div>
+            <div class="minImg">
+                <img src="./images/min1.jpg">
+                <div class="img-mask" style="display:none"></div>
+            </div>
+        </div>
+
+        <div id="smallPic">
+            <img src="./img/001.jpeg" class="active">
+            <img src="./img/002.jpeg">
+            <img src="./img/003.jpeg">
+            <img src="./img/004.jpeg">
+        </div>
+    </div>
+    <script>
+        /* 思路：给小图标添加鼠标移入事件，当鼠标移入的时候，设置当前小图标选中状态并且要切换显示大图 */
+        var oImgs = document.querySelector("#smallPic").children;
+        var target = document.querySelector("#bigPic");
+
+        for (var i = 0, len = oImgs.length; i < len; i++) {
+            oImgs[i].onmouseenter = function () {
+                for (var k = 0, len = oImgs.length; k < len; k++) {
+                    oImgs[k].classList.remove("active");
+                }
+                this.classList.add("active");
+
+                /* 显示大图:设置大图的图片路径为当前选中小图标的图片路径 */
+                target.src = this.getAttribute("src");
+            }
+        }
+    </script>
+
+    <!-- 
+        要使放大区域正常 需满足： 遮罩的宽高/小图的宽高 = 可见局域的宽高/大图的宽高
+        200 / 450 *800= ？
+     -->
+    <script>
+        var imgBox = document.querySelector('.imgbox');
+        var minBox = document.querySelector('.minImg');
+        var minImg = document.querySelector('.minImg img');
+        var mask = document.querySelector('.img-mask');
+        var maxBox = document.querySelector('.maxImg');
+        var maxImg = document.querySelector('.maxImg img');
+
+        // 小图片盒子绑定鼠标移入事件
+
+        minBox.onmouseenter = function () {
+            mask.style.display = "block";
+            maxBox.style.display = "block";
+        }
+
+        minBox.onmousemove = function (ev) {
+            // 为什么不用ev.clientY而用ev.pageY
+            console.log(ev.clientY, imgBox.offsetTop);
+            var moveX = ev.pageX - imgBox.offsetLeft - mask.offsetWidth / 2;
+            var moveY = ev.pageY - imgBox.offsetTop - mask.offsetHeight / 2;
+
+            // 遮罩可以运动的最大X方向的距离
+            var maxX = minBox.offsetWidth - mask.offsetWidth;
+            // 遮罩可以运动的最大Y方向的距离
+            var maxY = minBox.offsetHeight - mask.offsetHeight;
+
+            // 设置最大可以移动距离
+            if (moveX >= maxX) {
+                moveX = maxX;
+            }
+            if (moveY >= maxY) {
+                moveY = maxY;
+            }
+
+            // 设置最小可以移动距离
+            if (moveX <= 0) {
+                moveX = 0;
+            }
+
+            if (moveY <= 0) {
+                moveY = 0;
+            }
+            // 大图片可以移动的最大距离
+            var biliX = (maxImg.offsetWidth - maxBox.offsetWidth) / maxX;
+            // 这个比例相当于是 遮罩移动一像素，大图片需要移动的距离
+            var biliY = (maxImg.offsetHeight - maxBox.offsetHeight) / maxY;
+
+            // 给遮罩添加移动
+            mask.style.top = moveY + 'px';
+            mask.style.left = moveX + 'px';
+
+            // 因为大图片移动的方向是相反的所以要加负号
+            maxImg.style.top = -moveY * biliY + 'px';
+            maxImg.style.left = -moveX * biliX + 'px';
+
+        }
+        minBox.onmouseleave = function () {
+            mask.style.display = "none";
+            maxBox.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inputA">
+    <select id="selectID">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+    <input type="text" id="inputB">
+    <button id="btn">计算</button>
+    <span id="result"></span>
+    <script>
+        /* 建议：先写注释再写代码 先有(思路)再有代码*/
+        /* 001-先获取页面中的标签 两个输入框 + 按钮 + 符号 + 显示结果的span */
+        var oInputA = document.getElementById("inputA");
+        var oInputB = document.getElementById("inputB");
+        var oBtn = document.getElementById("btn");
+        var oResult = document.getElementById("result");
+        var oSelect = document.getElementById("selectID");
+
+        // console.log(oInputA, oInputB, oBtn, oResult, oSelect);
+
+        /* 002-给按钮添加点击事件 */
+        oBtn.onclick = function() {
+            /* 003-当点击事件触发的时候 */
+            /* 003-1 先获取两个输入框的值，并且转换为数字 */
+            var valA = Number(oInputA.value);
+            var valB = oInputB.value * 1;
+            // console.log(valA, valB);
+
+            /* 003-2 获取进行计算的符号(+-*%*) */
+            // console.log(oSelect.value, typeof oSelect.value);
+            // console.log(valA "+" valB);
+
+            /* 003-3 执行计算操作 */
+            var res;
+            /* 如果满足条件那么就执行{}中的代码 */
+            if (oSelect.value == "+") {
+                res = valA + valB;
+            } else if (oSelect.value == "-") {
+                res = valA - valB;
+            } else if (oSelect.value == "*") {
+                res = valA * valB;
+            } else if (oSelect.value == "/") {
+                res = valA / valB;
+            } else if (oSelect.value == "%") {
+                res = valA % valB;
+            }
+
+            /* 004-把结果显示在页面中 */
+            oResult.innerText = res;
+        }
+    </script>
+</body>
+
+</html>

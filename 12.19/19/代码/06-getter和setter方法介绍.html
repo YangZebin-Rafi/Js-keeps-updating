@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="app">
+        <h1>{{message}}</h1>
+    </div>
+    <script>
+        /* getter 和 setter 访问器属性：可以监听对象属性的读取和设置操作。 */
+
+        // const APP = new Vue({
+        //     el: '#app',
+        //     data: {
+        //         message: '你今天真好看！!'
+        //     }
+        // })
+
+        // let _instance;
+        // let o = {
+        //     name: "zs",
+        //     get age() {
+        //         console.log("监听到age-读");
+        //         return _instance;
+        //     },
+        //     set age(val) {
+        //         console.log("监听到age-写");
+        //         _instance = val;
+        //     }
+        // }
+
+
+
+        /* 进阶 */
+        // let o = {
+        //         name: "zs",
+        //         age: 19,
+        //         className: "1913"
+        //     }
+        // let _instance;
+        // Object.defineProperty(o, "name", {
+        //     // value: "lw",
+        //     // writable: true,
+        //     configurable: true,
+        //     enumerable: true,
+        //     set(val) {
+        //         console.log("监听到name-写");
+        //         _instance = val;
+        //     },
+        //     get() {
+        //         console.log("监听到name-读");
+        //         return _instance;
+        //     }
+        // })
+
+
+        let o = {
+            name: "zs",
+            age: 19,
+            className: "1913",
+            id: 1
+        };
+
+        /* 为对象中所有的成员都添加监听(读和写) */
+        function Observer(target) {
+            for (const key in target) {
+                if (target.hasOwnProperty(key)) {
+                    let element = target[key];
+
+                    Object.defineProperty(target, key, {
+                        configurable: true,
+                        enumerable: true,
+                        set(val) {
+                            console.log(`监听${key}到-写`);
+                            element = val;
+                        },
+                        get() {
+                            console.log(`监听${key}到-读`);
+                            return element;
+                        }
+                    })
+                }
+            }
+        }
+        Observer(o);
+    </script>
+</body>
+
+</html>

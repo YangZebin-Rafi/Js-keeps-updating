@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>GET_A</button>
+    <button>GET_B</button>
+    <script>
+        let oBtnA = document.querySelectorAll("button")[0];
+        let oBtnB = document.querySelectorAll("button")[1];
+        oBtnA.onclick = () => {
+            /* 版本1 */
+            // get("../server/05-get_a.php?t=" + Date.now());
+            /* 版本2 */
+            // get("../server/05-get_a.php", null);
+            /* 版本3 */
+            get("../server/05-get_a.php", null,
+                (xhr) => {
+                    /* 请求成功的回调函数 */
+                    document.write(xhr.responseText);
+                },
+                (xhr) => {
+                    /* 请求失败的回调函数 */
+                    document.write(xhr.statusText);
+                }, 1000);
+        }
+
+        oBtnB.onclick = () => {
+            /* 版本1 */
+            // get("../server/05-get_b.php?username=张三&password=123456");
+
+            /* 版本2 */
+            // get("../server/05-get_b.php", {
+            //     username: "张三",
+            //     password: "123456"
+            // });
+
+            /* 版本3 */
+            get("../server/05-get_b.php", {
+                    username: "张三",
+                    password: "123456"
+                },
+                (xhr) => {
+                    alert(xhr.responseText)
+                },
+                (xhr) => {
+                    alert(xhr.statusText)
+                });
+        }
+
+        /* 需求：按钮A请求成功后需要把数据插入到页面中显示出来，按钮B请求成功后需要把结果弹出对话框。 */
+        /* 版本3 */
+        function get(url, data, success, error, time = 1000) {
+            let xhr = new XMLHttpRequest;
+            url = url + obj2QueryString(data);
+            url = encodeURI(url); //中文转码的处理
+            xhr.open("get", url, true);
+            xhr.send();
+            let timer = setTimeout(() => {
+                xhr.abort();
+                alert("请求超时");
+            }, time);
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4) {
+                    clearTimeout(timer);
+                    if (xhr.status == 200) {
+                        success(xhr);
+                    } else {
+                        error(xhr);
+                    }
+                }
+            }
+        }
+
+
+        function obj2QueryString(o) {
+            // "username=zs&password=123456"
+            if (o == null) return "?t=" + Math.random();
+
+            let arr = [];
+            for (const key in o) {
+                if (o.hasOwnProperty(key)) {
+                    const val = o[key];
+                    arr.push(`${key}=${val}`);
+                }
+            }
+            // ["username=zs","password=123456"];
+            return "?" + arr.join("&");
+        }
+
+
+        /* 版本1 */
+        // function get(url) {
+        //     let xhr = new XMLHttpRequest;
+        //     url = encodeURI(url); //中文转码的处理
+        //     xhr.open("get", url, true);
+        //     xhr.send();
+        //     xhr.onreadystatechange = () => {
+        //         if (xhr.readyState == 4) {
+        //             console.log(xhr.responseText);
+        //         }
+        //     }
+        // }
+
+
+        /* 版本2 */
+        // function get(url, data) {
+        // let xhr = new XMLHttpRequest;
+        // url = url + obj2QueryString(data);
+        // url = encodeURI(url); //中文转码的处理
+        // xhr.open("get", url, true);
+        // xhr.send();
+        // xhr.onreadystatechange = () => {
+        // if (xhr.readyState == 4) {
+        // console.log(xhr.responseText);
+        // }
+        // }
+        // }
+    </script>
+</body>
+
+</html>

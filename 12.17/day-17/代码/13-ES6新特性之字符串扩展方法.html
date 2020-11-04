@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* ES6+ */
+        /* (1) 模板字符串  `${name}`*/
+        /* (2) 新增方法 */
+        /* 001-str.includes  检查字符串中是否包含指定的字符，如果包含那么就返回true,否则就返回false.*/
+        console.log("春天来了,冬天还会远吗".indexOf("春天")); //0 返回索引 | -1
+        console.log("春天来了,冬天还会远吗".includes("夏天")); //true | false
+        /* 002-repeat() 重复字符串多少遍 */
+        console.log("我恨你 ".repeat(100));
+        /* 003-padEnd() 填充字符串到特定的长度，默认用空格填充*/
+        console.log('我恨你'.padEnd(15, "🍭"));
+        /* 004-padStart() 填充字符串到特定的长度，默认用空格填充*/
+        console.log('我喜欢你'.padStart(14, "🍭"));
+    </script>
+</body>
+
+</html>

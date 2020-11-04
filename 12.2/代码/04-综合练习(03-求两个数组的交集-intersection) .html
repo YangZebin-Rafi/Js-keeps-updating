@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 综合练习(03-求两个数组的交集-intersection) */
+        /* arr1 = [100,200,300,200,300,300] */
+        /* arr2 = [200,300,400] */
+        /* res  = [200,300] */
+
+        /* 设计函数intersection，该函数接收两个数组作为参数，返回它们的交集(数组) */
+        function intersection(arrA, arrB) {
+            /* 先对两个数组进行去重操作 */
+            arrA = noRepeat(arrA);
+            arrB = noRepeat(arrB);
+
+            var resArr = [];
+            /* 核心思路：遍历某个数组，拿到数组的每个元素之后，检查该元素在另一个数组中是否存在，如果存在那么就添加到临时数组中 */
+            for (var i = 0, len = arrA.length; i < len; i++) {
+                var currentItem = arrA[i];
+                if (arrB.indexOf(currentItem) != -1) {
+                    resArr.push(currentItem);
+                }
+            }
+            return resArr;
+        }
+
+
+// 设计一个找出交集的函数
+
+function intersection2(arrA,arrB) {
+   var arrA=noRepeat2(arrA)
+   var arrB=noRepeat2(arrB)
+   var temp =[]
+   for (let i = 0; i < arrA.length; i++) {
+    //    const element = arrA[i];
+    var container=arrA[i]
+    if (arrB.indexOf(container)!=-1) {
+        temp.push(container)
+    }
+       
+   }
+   return temp
+}
+var hehe=intersection2([11,22,33,44,55],[33,44,55,66,77])
+console.log(`hehe的交集是${hehe}`);
+
+
+
+        function noRepeat(arrT) {
+            var temp = [];
+            for (var i = 0, len = arrT.length; i < len; i++) {
+                if (temp.indexOf(arrT[i]) == -1) {
+                    temp.push(arrT[i]);
+                }
+            }
+            return temp;
+        }
+// 去重2
+        function noRepeat2(arr) {
+            var temp=[]
+            for (let i = 0; i < arr.length; i++) {
+                // const element = array[i];
+                if (temp.indexOf(arr[i]==-1)) {
+                    temp.push(arr[i])
+                }
+                
+            }
+            return temp
+        }
+
+        var res1 = intersection([100, 200, 400], [100, 300]); //[100]
+        var res2 = intersection([10, 20, 30], [10, 30, 40, 10]); //[10,30]
+        console.log(res1);
+        console.log(res2);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="box">我是div1
+        <div>
+            <span>spanA</span>
+        </div>
+        <p></p>
+    </div>
+    <div>我是div2</div>
+    <div>我是div3</div>
+    <span>spanB</span>
+    <script>
+        /* 001-jQ.get() 从jQuery实例对象中根据索引来获取指定的标签*/
+        /* 002-jQ.eq()  从jQuery实例对象中根据索引来获取指定的标签，并且包装成jQuery对象返回*/
+        console.log($("div").get(0)); //<div>我是div1</div>
+        console.log($("div").eq(0));
+        console.log($("div:eq(0)"));
+
+        /* 注意：该方法参数可以是负数：倒数 */
+        console.log($("div").get(-1)); //<div>我是div3</div>
+        console.log($("div").eq(-1));
+
+
+        /* 003-jQ.first()  == eq(0)*/
+        /* 004-jQ.last()   == eq(-1)*/
+        console.log($("div").first());
+        console.log($("div").last());
+
+        /* 005-jQ.find() 表示在当前标签的内部来进行查找 */
+        console.log($("span")); //获取页面中所有的span标签
+        console.log($(".box").find("span"));
+
+        /* 006-jQuery补充 */
+        /* $ 是函数  */
+        /* jQuery == $ */
+        console.log("_______");
+        console.log(jQuery("div"));
+        console.log($("div"));
+        console.log($ == jQuery); //true
+        /* 语法：$(selector,context) */
+        /* selector 选择器 */
+        /* context  上下文 如果没有传递这个参数，那么默认为document 表示的搜索的范围 */
+
+        console.log($("div", document)); //表示要去文档中查找所有的div标签
+        console.log($("span", document)); //表示要去文档中查找所有的span标签
+
+        console.log($("span", document.querySelector(".box")));
+        console.log($("span", ".box")); //表示在class为box的标签里面查找span标签
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>有一个从小到大排序的数组[3,5,6,20,22,33,88].现输入一个数，要求按照原来的规律将他插入数组中，并打印出新的数组</h1>
+    <input type="text" id="num">
+    <input type="button" value="输入数据" id="btn">
+    <div id="box"></div>
+
+    <script>
+        (function () {
+            var oNum = document.getElementById('num')
+            var oBtn = document.getElementById('btn')
+            var oBox = document.getElementById('box')
+            var arr = [3, 5, 6, 20, 22, 33, 88]
+            btn.onclick = function () {
+                var _num = oNum.value;
+                if (_num) {
+                    arr.push(_num)
+                    arr.sort(function (a, b) {
+                        return a - b;
+                    })
+                    oBox.innerHTML = '输入数据后： [' + arr + ']'
+                }
+            }
+
+
+        })()
+    </script>
+
+</body>
+
+</html>

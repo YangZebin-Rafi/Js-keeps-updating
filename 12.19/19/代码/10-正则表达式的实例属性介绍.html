@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 正则的主要成员： */
+        /* exec() */
+        /* test() */
+        /* flags       获取当前正则的参数*/
+        /* global      是否全局匹配*/
+        /* ignoreCase  在匹配的时候是否忽略大小写*/
+        /* multiline   再匹配的时候应用多行*/
+        /* sources     正则本身*/
+
+        /* i  忽略大小写   */
+        /* m  应用多行匹配 */
+        /* g  全局应用匹配 */
+
+        let reg1 = /a[bcd]/i; //ab 或者ac 或者ad
+        console.log(reg1.test("123ab24")); //true
+        console.log(reg1.test("123aB24"));
+        console.log(reg1.test("123aD24")); //true
+
+        let reg2 = /^javaScript/mig;
+        console.log(reg2.test("我说的都是对的！\nJavaScript是最好的语言！")); //true
+        // 我说的都是对的！
+        // JavaScript是最好的语言！
+        console.log(reg2.source); //^javaScript"
+    </script>
+</body>
+
+</html>

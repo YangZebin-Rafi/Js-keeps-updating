@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Person() {
+        //     // let o = {};
+        //     // o.__proto__ = Person.prototype;
+        //     // this = o;
+        //     this.name = "张三";
+        //     // return o;
+        // }
+
+
+        /* 实现方案A 全局变量*/
+        /* 解决思路：当我们第一次使用new来调用构造函数的时候，创建好实例对象后把这个对象保存起来，以后再需要调用该构造函数的时候，先检查是否已经创建过 */
+        /* 如果这个实例对象已经创建过了，那么就不再创建新的，直接返回之前创建的那个对象。 */
+        let _instance;
+
+        function Person() {
+            if (_instance) {
+                return _instance;
+            }
+            this.name = "张三";
+            _instance = this; //把创建好实例对象后把这个对象保存起来
+        }
+
+        let p1 = new Person();
+        let p2 = new Person();
+        console.log(p1);
+        console.log(p2);
+
+        // _instance = [10, 20, 30];
+        _instance = 123;
+        let p3 = new Person();
+        console.log(p3); //[10,20,30]  ? 
+
+
+        /* 单例模式：某个类如果实现了单例模式那么这个类永远都只有一个实例对象，不管我们在哪里创建不管我们创建多少次返回的永远都是同一个对象。 */
+
+        function F() {
+            // return [10, 203, 0]  //数组
+            return 123; //会忽略值类型的数据，总是返回内部新创建的实例对象
+        }
+        console.log(new F); //默认返回内部新创建的实例对象
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div title="标题" class="box" data-index="123" data-xx="信息"></div>
+    <script>
+        var oDiv = document.querySelector("div");
+
+        /* 操作方式1 */
+        // console.log(oDiv.getAttribute("data-index"));
+        // oDiv.setAttribute("data-index", 100);
+        // console.log(oDiv.getAttribute("data-index"));
+
+        /* 操作方式2 */
+        /* 自定义属性节点(推荐方式) */
+        console.log(oDiv.dataset.index);
+        oDiv.dataset.index = 12345;
+        console.log(oDiv.dataset.xx);
+    </script>
+</body>
+
+</html>

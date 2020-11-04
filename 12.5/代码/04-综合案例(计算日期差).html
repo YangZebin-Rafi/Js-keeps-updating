@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="date" id="dateA">
+    <input type="date" id="dateB">
+    <button>计算</button>
+    <span></span>
+    <script>
+        /* 计算两个日期中间差了多少天。 */
+        /* 001-先获取标签 */
+        var _dateA = document.getElementById("dateA");
+        var _dateB = document.getElementById("dateB");
+        var oBtn = document.getElementsByTagName("button")[0];
+        var oSpan = document.getElementsByTagName("span")[0];
+        /* 002-添加点击事件 */
+        oBtn.onclick = function() {
+                /* 003-获取两个输入框的时间 */
+                var timerA = _dateA.value;
+                var timerB = _dateB.value;
+                console.log(timerA, timerB);
+
+                /* 把事件转换伪时间戳再相减 */
+                var tA = (new Date(timerA)).getTime();
+                var tB = (new Date(timerB)).getTime();
+                console.log(tA, tB);
+
+                // /* 计算差值 */
+                var offset = Math.abs(tB - tA);
+
+                /* 转换为天数 */
+                var count = offset / 1000 / 60 / 60 / 24;
+                oSpan.innerText = count;
+
+            }
+            /* 004-计算 */
+            /* 005-显示结果 */
+    </script>
+</body>
+
+</html>

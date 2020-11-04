@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-获取当前的时间   通过构造函数来创建实例对象*/
+        var date = new Date();
+        console.log(date); /* Wed Dec 04 2019 17:03:46 GMT+0800 (中国标准时间) */
+
+        /* 002-需求：获取当前的时间并且显示成指定的格式：2019-12-3 17:04:30 */
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1; /* 月份[0-11] */
+        var d = date.getDate();
+        var h = date.getHours();
+        var f = date.getMinutes();
+        var s = date.getSeconds();
+        var ms = date.getMilliseconds();
+
+        console.log(y, m, d, h, f, s, ms);
+        var str = `${y}-${m}-${d} ${h}:${f}:${s}:${ms}`;
+        console.log(str);
+
+        /* 003-需求：2019年12月4日 17点11分40秒 */
+        /* 思路：开启一个定时器，每隔一秒钟就获取当前的时间，把具体的年月日时分秒取出来拼接为指定格式的字符串，并且显示在页面中。 */
+    </script>
+</body>
+
+</html>

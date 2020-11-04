@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="求某个数的阶乘">
+    <button>计算</button>
+    <span id="spanID"></span>
+    <script>
+        /* 阶乘：3! */
+        /* 1! = 1 */
+        /* 2! = 1 * 2 */
+        /* 3! = 1 * 2 * 3 */
+        /* 4! = 1 * 2 * 3 * 4 */
+        /* n! = 1 * 2 * 3 * 4 * ...(n) */
+
+        /* 001-先获取标签 */
+        var oInput = document.getElementsByTagName("input")[0];
+        var oBtn = document.getElementsByTagName("button")[0];
+        var oSpan = document.getElementById("spanID");
+
+        /* 002-添加点击事件 */
+        oBtn.onclick = function() {
+            /* 003-获取输入框的值，并且转换为数字 */
+            var val = oInput.value * 1;
+
+            /* 004-计算阶乘，得到结果之后显示再页面中 */
+            /* 累乘 */
+            var result = 1;
+            for (var i = 1; i <= val; i++) {
+                //result =  1 * 1
+                //result =  1 * 1 * 2
+                //result =  1 * 1 * 2 * 3
+                //result =  1 * 1 * 2 * 3 * 4
+                result = result * i;
+            }
+            console.log("result=", result);
+            oSpan.innerText = result;
+        }
+
+        /* 断点调试： */
+        /* (1) 在合适的位置添加断点(点一下) */
+        /* (2) 重新刷新页面(页面js代码执行过程中如果遇到了断点那么就会进入到中断状态) */
+    </script>
+</body>
+
+</html>

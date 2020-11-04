@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <button>按钮1</button>
+    <!-- <button>按钮2</button>
+    <button>按钮3</button> -->
+    <script>
+        /* 事件注册： */
+        /* 原生JavaScript */
+        /* (1) <button onclick="alert(123)">按钮</button>*/
+        /* (2) 通过事件属性来注册事件 */
+        // let oBtn = document.querySelector("button");
+        // oBtn.onclick = function() {
+        //     console.log("click");
+        // }
+        /* (3) 注册事件监听 */
+        // let oBtn = document.querySelector("button");
+        // oBtn.addEventListener("click", function() {
+        //     console.log("--click---1");
+        // })
+
+        /* jQuery框架 */
+        // $("button").click(function() {
+        //     console.log("--click1--");
+        // })
+
+
+        /* 多个按钮的情况： */
+        /* 需求：点击按钮的时候打印当前的索引，以及内容 */
+        // let btns = document.querySelectorAll("button");
+        // for (let i = 0; i < btns.length; i++) {
+        //     btns[i].onclick = function() {
+        //         console.log(`${i} ${this.innerText}`);
+        //     }
+        // }
+
+        /* 内部实现原理：内部会遍历选择器获取的所有标签，然后通过事件监听的方式给这些标签添加事件 */
+        // $("button").click(function() {
+        //     console.log("1");
+        //     console.log($(this).index(), $(this).text());
+        // })
+
+        // $("button").click(function() {
+        //     console.log("2");
+        //     console.log($(this).index(), $(this).text());
+        // })
+
+
+        /* jQuery事件注册 */
+        /* 001-语法：jQ.on(type,handler) */
+        /* 002-快捷方法  click mouseenter mouseleave mousemove keydown keyup change focus */
+        /* 003-语法: jQ.one(type,handler) */
+
+        // $("button").on("click", function() {
+        //     console.log("click--A", this);
+        // })
+
+        // $("button").on("click", function() {
+        //     console.log("click--B", this);
+        // })
+
+        // /* 以下代码是等价的 */
+        // $("button").on("mouseenter", function() {
+        //     console.log("mouseenter--A", this);
+        // })
+
+        // $("button").mouseenter(function() {
+        //     console.log("mouseenter--B", this);
+        // })
+
+        $("button").one("click", function() {
+            console.log("--one---");
+        })
+    </script>
+</body>
+
+</html>

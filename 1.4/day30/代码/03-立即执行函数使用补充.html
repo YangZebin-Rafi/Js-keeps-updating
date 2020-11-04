@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-立即执行函数(可以有返回值) */
+        // let f = (function() {
+        //     let a = 123;
+        //     return function() {
+        //         return a;
+        //     }
+        // })();
+
+        /* 002-立即执行函数(可以有参数) */
+        // (function(n1, n2, n3) {
+        //     let a = 123;
+        //     console.log(n1 + n2 + n3);
+        //     return function() {
+        //         return a;
+        //     }
+        // })(10, 20, 30);
+
+        /* 003-立即执行函数(可以有参数,参数也可以是函数) */
+        // (function(n1, n2, n3, callBack) {
+        //     let a = 123;
+        //     console.log(n1 + n2 + n3);
+        //     callBack();
+
+        //     return function() {
+        //         return a;
+        //     }
+        // })(10, 20, 30, function() {
+        //     console.log('我是外部传入的函数');
+        // });
+
+
+        /* 004-立即执行函数(可以有参数,参数也可以是函数,这个函数也可以有参数和返回值) */
+        (function(n1, n2, n3, callBack, count) {
+            let a = 123;
+            let result = callBack(n1 + n2 + n3);
+            console.log(result(count));
+
+            return function() {
+                return a;
+            }
+        })(10, 20, 30, function(sum) {
+            console.log('我是外部传入的函数', sum * sum);
+            // return sum * sum;
+            return function(n) {
+                return sum * sum * n;
+            }
+        }, 4);
+
+        /* 概念：如果一个函数的参数或者是返回值本身也是函数，那么这样的函数我们称为高阶函数。 */
+        /* 关于立即执行函数结构和写法补充 */
+        (function() {
+            console.log("===A===");
+        })();
+
+        (function() {
+            console.log("===B===");
+        }());
+
+        ! function() {
+            console.log("===C===");
+        }();
+
+        +
+
+        function() {
+            console.log("===D===");
+        }();
+    </script>
+</body>
+
+</html>

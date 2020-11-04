@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="请输入第一个数字">
+    <span>+</span>
+    <input type="text" placeholder="请输入第二个数字">
+    <button>计算</button>
+    <span></span>
+
+    <script>
+        // /* 加法计算(+) */
+        // console.log(100 + 200);
+        // /* 减法计算(-) */
+        // console.log(200 - 100);
+        // /* 乘法计算(*) */
+        // console.log(3 * 99);
+        // /* 除法计算(/) */
+        // console.log(100 / 5);
+        // /* 求模运算(%) */
+        // console.log(11 % 2); //11 = 2 * 5 + 1
+        // console.log(11 % 3); //11 = 3 * 3 + 2
+
+        /* 实现思路： */
+        /* 001-先获取页面中需要的标签 */
+        var oBtn = document.getElementsByTagName("button")[0];
+        var oInputA = document.getElementsByTagName("input")[0];
+        var oInputB = document.getElementsByTagName("input")[1];
+        var oSpan = document.getElementsByTagName("span")[1];
+
+        console.log(oBtn, oInputA, oInputB);
+
+        /* 002-给按钮添加点击事件 */
+        oBtn.onclick = function() {
+            /* 003-获取两个输入框中的值*/
+            var val1 = oInputA.value * 1;
+            var val2 = oInputB.value * 1;
+            console.log(val1, val2);
+
+            /* 004-计算两个值的和 */
+            var result = val1 + val2;
+
+            /* 005-把最终的结果显示在页面中 */
+            oSpan.innerText = result;
+        }
+    </script>
+</body>
+
+</html>

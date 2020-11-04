@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 40px;
+            border: 1px solid #000;
+        }
+        
+        .box1 {
+            background: pink
+        }
+        
+        .box2 {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box box1">我是个好人</div>
+    <script>
+        var oDiv = document.querySelector("div");
+
+        /* 读取值 */
+        // console.log(oDiv.className);
+
+        // /* 添加class */
+        oDiv.className = oDiv.className + " box1";
+
+        /* 移出class "box1 box"*/
+
+
+        /* classList 提供了操作class的一套方法。 */
+        /* 添加 */
+        // oDiv.classList.add("box1");
+        /* 检查:是否应用了某个样式 */
+        // console.log(oDiv.classList.contains("box"), oDiv.classList.contains("box3")); /* true false */
+        /* 删除 */
+        // oDiv.classList.remove("box");
+        /* 查询 */
+        // console.log(oDiv.classList.value); /* box box1 */
+
+        oDiv.classList.forEach(function(className, index) {
+            console.log(index, className);
+        })
+    </script>
+</body>
+
+</html>

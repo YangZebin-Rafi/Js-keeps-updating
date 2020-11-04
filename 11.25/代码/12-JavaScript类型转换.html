@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* parseInt()   解析并且提取数字(整数)*/
+        /* parseFloat() 解析并且提取数字(浮点型)*/
+        /* toFixed()    该方法得到的结果是字符串类型的，如果需要转换为数字类型*/
+
+        console.log(parseInt(100.2344)); /* 100 */
+        console.log(parseInt(100.999)); /* 100 */
+        console.log(parseInt("88324.892")); /*88324 会优先先把字符串转换伪数字，然后再提取 */
+        console.log(parseInt("223.23SDBAHF@!4")); /* 223 */
+        console.log(parseInt("ADAF223.23SDBAHF@!4")); /* NaN */
+
+
+        console.log(parseFloat(100.2344)); /* 100.2344 */
+        console.log(parseFloat(100.999)); /* 100.999 */
+        console.log(parseFloat("88324.892")); /*88324.892 会优先先把字符串转换伪数字，然后再提取 */
+        console.log(parseFloat("223.23SDBAHF@!4")); /* 223.23 */
+        console.log(parseFloat("ADAF223.23SDBAHF@!4")); /* NaN */
+
+        var num = 2142.325366;
+        console.log(num.toFixed(1)); /* 2142.3 */
+        console.log(num.toFixed(2)); /* 2142.33 */
+
+        /* [1] 强制类型转换 */
+        var resultA = num.toFixed(2);
+        var resultB = Number(resultA);
+        console.log(resultA, typeof resultA, resultB, typeof resultB); /* 2142.33 string 2142.33 number */
+
+        /* [2] 隐式类型转换 */
+        var resultC = resultA * 1;
+        console.log(resultA, typeof resultA, resultC, typeof resultC); /* 2142.33 string 2142.33 number */
+    </script>
+</body>
+
+</html>

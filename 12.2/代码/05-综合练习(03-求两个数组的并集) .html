@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 求两个数组的并集 */
+        /* arr1 = [100,200,300,200,100] */
+        /* arr2 = [300,400,500] */
+        /* res1 = [100,200,300,400,500] */
+
+        /* 方案1 */
+        // function arrConcat(arrA, arrB) {
+        //     var temp = [];
+
+        //     /* 1-把第一个数组中的数据添加到临时数组 */
+        //     for (var i = 0, len = arrA.length; i < len; i++) {
+        //         temp.push(arrA[i]);
+        //     }
+
+        //     /* 2-把第二个数组中的数据添加到临时数组 */
+        //     for (var k = 0, len = arrB.length; k < len; k++) {
+        //         temp.push(arrB[k]);
+        //     }
+
+        //     /* 3-去重处理 */
+        //     return noRepeat(temp);
+        // }
+
+        /* 方案2 */
+        function arrConcat(arrA, arrB) {
+            return noRepeat(arrA.concat(arrB));
+        }
+
+
+        function noRepeat(arrT) {
+            var temp = [];
+            for (var i = 0, len = arrT.length; i < len; i++) {
+                if (temp.indexOf(arrT[i]) == -1) {
+                    temp.push(arrT[i]);
+                }
+            }
+            return temp;
+        }
+
+        console.log(arrConcat([100, 200, 300, 200, 100], [300, 400, 500]));
+    </script>
+</body>
+
+</html>

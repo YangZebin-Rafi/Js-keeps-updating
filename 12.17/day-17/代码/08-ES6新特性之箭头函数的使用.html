@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 001-箭头函数的基本写法 */
+        var sum1 = function(a, b) {
+            return a + b;
+        };
+
+
+        let sum2 = (a, b) => {
+            return a + b;
+        }
+        console.log(sum2(20, 30));
+
+        let sum3 = (a, b) => a + b;
+        console.log(sum3(20, 30));
+
+
+        var computedA = function(a) {
+            return a * 2;
+        }
+
+        // var computedB = (a) => a * 2;
+        var computedB = a => a * 2;
+        console.log(computedB(100));
+
+        /* 简写 */
+        /* (1) 如果函数的函数体只有一行，那么{}可以省略并且return关键字也可以省略。 */
+        /* (2) 如果函数的形参只有1个，那么()可以省略 */
+
+        /* 002-箭头函数的使用注意 */
+        /* 箭头函数主要用在回调函数中 */
+        // setInterval(function() {
+        //     console.log("task");
+        // }, 1000);
+
+        setInterval(() => console.log("task"), 1000);
+    </script>
+</body>
+
+</html>

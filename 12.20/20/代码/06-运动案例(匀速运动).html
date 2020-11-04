@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bird-class {
+            width: 206px;
+            position: absolute;
+            left: 0;
+            top: 0
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/bird.gif" class="bird-class">
+    <script>
+        /* 核心：开启定时器不断的调整样式(left) */
+        let oImg = document.querySelector("img");
+        let offset = 20;
+        let timer = setInterval(() => {
+            let offsetLeft = oImg.offsetLeft + offset;
+            /* 临界值检查 */
+            if (offsetLeft >= window.innerWidth - oImg.offsetWidth) {
+                clearInterval(timer);
+            }
+            oImg.style.left = offsetLeft + "Px";
+        }, 100);
+    </script>
+</body>
+
+</html>

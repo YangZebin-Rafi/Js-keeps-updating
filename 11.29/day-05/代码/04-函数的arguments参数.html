@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 需求1:设计函数，用来计算2个数的和，并且返回结果。 */
+        // function sum(a, b) {
+        //     return a + b;
+        // }
+        // var res1 = sum(1, 2);
+        // console.log(res1);
+
+        /* 需求2:设计函数，用来计算3个数的和，并且返回结果。 */
+        // function sum(a, b, c) {
+        //     return a + b + c;
+        // }
+        // var res1 = sum(1, 2, 3);
+        // console.log(res1);
+
+        /* 需求3:设计函数，用来计算5个数的和，并且返回结果。 */
+        // function sum(a, b, c, d, e) {
+        //     return a + b + c + d + e;
+        // }
+        // var res1 = sum(1, 2, 3, 4, 5);
+        // console.log(res1);
+
+        /* 需求4:设计函数，用来计算N(n >= 2)个数的和，并且返回结果。 */
+        function sum() {
+            // arguments 接收函数调用时候传递过来的实际参数
+            // arguments 本身是一个类似于数组的结构，伪(假的)数组 , 可以使用for循环来进行遍历操作
+            // console.log(arguments);
+            var result = 0;
+            for (var i = 0, len = arguments.length; i < len; i++) {
+                // console.log(arguments[i]);
+                result += arguments[i];
+            }
+            return result;
+        }
+        console.log(sum(1, 2));
+        console.log(sum(1, 2, 3));
+        console.log(sum(1, 2, 3, 4));
+        console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 10));
+        console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 10, 100));
+        // var arr = [10, 203, 40];
+        // for (var i = 0, len = arr.length; i < len; i++) {
+        //     console.log(arr[i]);
+        // }
+    </script>
+</body>
+
+</html>

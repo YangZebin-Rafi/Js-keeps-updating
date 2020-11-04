@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <script>
+        /* 添加事件的第三种方式：事件监听 */
+        var oBtn = document.querySelector("button");
+        /* 语法：ele.addEventListener(type,handler) */
+        oBtn.addEventListener("click", function() {
+            console.log("---click1---");
+        })
+
+        oBtn.addEventListener("click", function() {
+            console.log("---click2---");
+        })
+
+        oBtn.addEventListener("click", function() {
+            console.log("---click3---");
+        })
+
+        oBtn.addEventListener("mouseenter", function() {
+            console.log("---mouseenter---");
+        })
+
+        /* 注意:该方法存在兼容性问题 */
+        /* addEventListener 方法在IE老版本的浏览器(IE678)中无法使用 */
+        // oBtn.attachEvent("onclick", function() {
+        //     console.log("---clickA---");
+        // });
+
+        // oBtn.attachEvent("onclick", function() {
+        //     console.log("---clickB---");
+        // });
+
+        /* 兼容写法 */
+        function addEvent(ele, type, handler) {
+            if (ele.addEventListener) {
+                ele.addEventListener(type, handler);
+            } else if (ele.attachEvent) {
+                /* 检查是否使IE浏览器 */
+                ele.attachEvent("on" + type, handler);
+            } else {
+                ele["on" + type] = handler;
+            }
+        }
+
+        addEvent(oBtn, "click", handler);
+    </script>
+</body>
+
+</html>

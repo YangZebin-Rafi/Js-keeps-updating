@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 游戏：屏蔽关键词 */
+        /* 网站：评论系统(关键字 竞争对手 + 一些很厉害的词汇 => **) */
+        let str = "小米手机真垃圾，我的华为P30比他牛逼多了，我真是个SB,我还不如买华为P30。";
+
+        //"小米手机真**，我的**比它**多了，我真是个**"
+        let kds = ["垃圾", "华为P30", "牛逼", "SB"];
+        for (let index = 0; index < kds.length; index++) {
+            const element = kds[index];
+            // str = str.replace(element, "**");
+            let reg = new RegExp(element, "g");
+            str = str.replace(reg, "**");
+        }
+
+        console.log(str);
+    </script>
+</body>
+
+</html>

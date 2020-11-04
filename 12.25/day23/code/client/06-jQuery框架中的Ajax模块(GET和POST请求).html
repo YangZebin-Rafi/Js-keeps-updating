@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 方式(1) -->
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
+    <!-- 方式(2) -->
+    <script src="./lib/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <button id="getID">GET请求</button>
+    <button id="postID">POST请求</button>
+    <script>
+        // let oBtn1 = document.querySelectorAll("button")[0];
+        // oBtn1.onclick = ()=>{}
+
+        /* jQuery框架中网络编程模块相关的方法 */
+        /* (1) $.get(url,successCallBack,[dataType]) */
+        /* (2) $.post(url,successCallBack,[dataType]) */
+        /* (3) $.ajax() */
+
+
+        $("#getID").click(() => {
+            console.log("click-1");
+            $.get("../server/04-jq_get.php", (data, statusText, xhr) => {
+                /* 服务器返回的具体数据(响应体)data => ok!123 */
+                /* 网络请求的状态 statusText => success*/
+                /* 请求对象本身   xhr */
+                console.log(data, statusText, xhr);
+            });
+        })
+
+        $("#postID").click(() => {
+            console.log("click-2");
+            $.post("../server/05-jq_post.php", (data, statusText, xhr) => {
+                console.log(data, statusText, xhr);
+            })
+
+        })
+    </script>
+</body>
+
+</html>

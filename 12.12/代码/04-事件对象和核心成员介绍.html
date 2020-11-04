@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0
+        }
+        
+        body {
+            width: 3000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" style="width:100px;height:100px;background:#195;margin-left:500px"></div>
+    <script>
+        var oDiv = document.querySelector("div");
+
+        /* 事件对象:所有的事件处理函数在触发的时候，都能够拿到一个事件对象，该事件对象保存着跟事件相关的详细信息。 */
+        oDiv.onclick = function(e) {
+
+            e = e || window.event;
+            var t = e.target || e.srcElement;
+
+            console.log("click");
+            console.log(e);
+            console.log(t); //目标标签
+            console.log(e.pageX, e.pageY);
+            console.log(e.clientX, e.clientY);
+
+
+        }
+
+        // oDiv.onmouseenter = function(e) {
+
+        //     e = e || window.event;
+        //     console.log("鼠标移入", e.type);
+        // }
+
+        /* 重要的属性： */
+        /* type  : 类型 */
+        /* target: 目标标签 => srcElement */
+        /* keyCode: 键码 => which*/
+        /* path   : 事件传递的路径 */
+        /* clientX|Y(可视区域) offsetX|Y(事件发生的位置相对于标签本身的偏移量) pageX|Y(事件发生的位置相对于页面的偏移量)*/
+
+        // clientX: 10
+        // clientY: 10
+        // layerX: 10
+        // layerY: 10
+        // offsetX: 3
+        // offsetY: 3
+        // pageX: 10
+        // pageY: 10
+        // screenX: 65
+        // screenY: 117
+
+        // altKey: false       事件发生的时候是否按下了键盘的alt键盘
+        // bubbles: true        
+        // button: 0           左键|右键
+        // buttons: 0
+        // cancelBubble: false 
+        // cancelable: true
+        // composed: true
+        // ctrlKey: false      事件发生的时候是否按下了键盘的ctrl键盘
+        // currentTarget: null
+        // defaultPrevented: false
+        // detail: 1
+        // eventPhase: 0
+        // fromElement: null
+        // isTrusted: true
+        // metaKey: false
+        // movementX: 0
+        // movementY: 0
+        // path: (5) [div.box, body, html, document, Window]   路径(事件)
+        // relatedTarget: null
+        // returnValue: true
+        // shiftKey: false
+        // sourceCapabilities: InputDeviceCapabilities {firesTouchEvents: false}
+        // srcElement: div.box    目标对象(标签)
+        // target: div.box        目标对象(标签)
+        // timeStamp: 5516.490000001795  标签创建好之后，间隔了多长时间才触发
+        // toElement: div.box
+        // type: "click"          事件的类型
+        // view: Window {parent: Window, postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, …}
+        // which: 1               键盘的键码
+        // x: 10
+        // y: 10
+    </script>
+
+</body>
+
+</html>

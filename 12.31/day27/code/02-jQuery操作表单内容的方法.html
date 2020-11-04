@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div>我是div</div>
+    <input type="text" id="username" placeholder="用户名">
+    <input type="checkbox" id="checkboxID">
+    <script>
+        /* div的内容和输入框的内容保持同步 */
+        /* 思路 */
+        /* 001-监听输入框内容的变化 */
+        /* 002-当内容变化的时候，获取输入框的值 */
+        /* 003-把输入框的值设置为div标签的值 */
+
+        $(() => {
+            // $("#username").keyup(function() {
+            //     /*在jQuery的事件处理函数中，this指向的是当前的标签  */
+            //     // console.log(this.value);
+
+            //     let val = $(this).val();
+            //     $("div").text(val);
+            // })
+
+
+            /* 语法：jQ.val([val])  如果没有传递参数表示获取输入框的内容，如果传递了参数表示设置输入框的内容 */
+            /* 语法：jQ.is()        $("#checkboxID").is(":checked") */
+        })
+    </script>
+</body>
+
+</html>

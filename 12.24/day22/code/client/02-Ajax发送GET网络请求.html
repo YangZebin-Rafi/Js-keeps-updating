@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="请输入用户名" id="username">
+    <input type="text" placeholder="请输入密码" id="password">
+    <button>发送GET请求</button>
+    <button>发送GET请求传递参数</button>
+    <script>
+        /* 001-先获取按钮 */
+        let oBtn = document.querySelector("button");
+
+
+        /* 002-添加点击事件 */
+        oBtn.onclick = () => {
+            /* 003-发送网络请求 */
+            /* [1] 创建请求对象 */
+            let xhr = new XMLHttpRequest;
+
+            /* [2] 设置请求对象 */
+            /* 语法：xhr.open(请求方法,请求路径,[是否异步请求])  第三个参数如果没有传递那么默认为true*/
+            xhr.open("get", "../server/01-server.php", true);
+
+            /* [3] 发送请求 */
+            xhr.send();
+
+            /* [4] 监听网络请求状态 */
+            /* 当网络请求的状态发生改变的时候会调用该方法执行里面的代码 */
+            /* 网络请求的状态？ */
+            /* (1) 0-请求还没有初始化  */
+            /* (2) 1-客户端和服务器端的链接已经建立 */
+            /* (3) 2-请求已经被服务器端接收 */
+            /* (4) 3-请求正在被处理 */
+            /* (5) 4-请求已经完成，服务器已经返回响应 */
+            xhr.onreadystatechange = () => {
+                // console.log(xhr.readyState);
+                if (xhr.readyState == 4) {
+                    /* [5]  接收服务器返回的响应并且打印出来*/
+                    console.log(xhr.responseText);
+                }
+            }
+        };
+
+        /* 003-发送网络请求传递参数给服务器 */
+        let oSend = document.querySelectorAll("button")[1];
+        let _username = document.querySelector("#username");
+        let _password = document.querySelector("#password");
+        oSend.onclick = () => {
+            let queryString = `?username=${_username.value}&password=${_password.value}`;
+            let xhr = new XMLHttpRequest;
+            xhr.open("get", "../server/02-server.php" + queryString, true);
+            xhr.send();
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4) {
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

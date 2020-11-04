@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 单向散列函数(消息摘要函数 | 指纹算法 | 哈希算法) */
+        /* 特点 */
+        /* [1] 加密的过程是单向的，是不可逆的(只能加密不能解密)。 */
+        /* [2] 对任意数据进行加密，得到的字符串都是固定长度的。 */
+        /* [3] 如果明文(原文)相同，那么密文(散列值)一定相同。 */
+        /* [4] 如果明文(原文)不同，那么密文一定不同。 */
+        /* [5] 速度快，效率高。 */
+
+        /* 经典算法 */
+        /* MD4 MD5  */
+        /* SHA SHA256 SHA512 ... */
+
+        /* 主要应用 */
+        /* [1] 版权(正版) 序列号 */
+        /* [2] 文件匹配(验证)。 */
+        /* [3] 云盘(百度|360|...) 云盘秒传 */
+        /* [4] 云盘(100个视频-违规视频)  */
+        /* [5] 注册和登录。 */
+
+        /* 核心实现：黑名单  */
+        /* 解决方案： */
+        /* 东京热.avi => 东北热.avi => 东京热.txt => X */
+        // ["dda9ac6ab9d369c38c653e84c3ab01ca", "dda9ac6ab9d369c38c653e84c3ab01ca", "dda9ac6ab9d369c38c653e84c3ab014324"]
+
+        /* 当用户在上传文件的时候，会生成一个散列值(密文：dda9ac6ab9d369c38c653e84c3ab01ca),把这个文件和散列值都存在服务器 */
+        /* 服务器 */
+        /* [1]   dda9ac6ab9d369c38c653e84c3ab01ca   文件1 */
+        /* [2]   34a9ac6ab9d369c38c653e84c3ab01ca   文件2 */
+        /* [3]   3449ac6ab9d369c38c653e84c3ab01ca   文件3 */
+        /* 文件1 第一次上传 */
+        /* 文件2 第一次上传 */
+        /* 文件3 第一次上传 */
+        /* 文件1 先对文件1进行散列函数加密 dda9ac6ab9d369c38c653e84c3ab01ca  */
+
+        /* 代码演示 */
+        /* $ echo -n "I love u" | md5  */
+        /* 原文："I love u" */
+        /* 密文：dda9ac6ab9d369c38c653e84c3ab01ca */
+        /* $ echo -n "123" | md5 */
+        /* 原文："123 */
+        /* 密文：202cb962ac59075b964b07152d234b70 */
+
+
+        // 123 - > 32 位字符 "ewdhsrfbhjgbdgdgngh"
+        // abc - > 32 位字符 "ewdhsrfbhjgbdgdgngh"
+        // 2GB - > 32 位字符 "ewdhsrfbhjgbdgdgngh"
+
+        // 1 dfsrgtyhtyfhthrewdhsrfbhjgbdgdgngh
+        // 2 ewdhsrfbhjgbdgdgnghgtyhtyfhthrewdh
+
+
+        /* 注册 */
+        /* username=zs&password=123456  ->    服务器*/
+        /* 用户输入的信息    username=zs&password=123456*/
+        /* 提交给服务器信息  username=zs&password=e10adc3949ba59abbe56e057f20f883e*/
+        /* 服务器收到的信息  username=zs&password=e10adc3949ba59abbe56e057f20f883e*/
+        /* 关键：服务器并不知道用户的密码究竟是什么？因为服务器接收和保存到数据库中的密码数据其实是加密之后的结果。 */
+        /* 忘记密码: 先验证你的身份，验证通过之后提供重置密码的功能。*/
+
+        /* 登录 */
+        /* 用户输入的信息    username=zs&password=12345*/
+        /* 提交给服务器信息  username=zs&password=827ccb0eea8a706c4c34a16891f84e7b*/
+    </script>
+    <script src="./md5.js"></script>
+    <script>
+        // e10adc3949ba59abbe56e057f20f883e
+        // let result = md5(md5(md5("123456")));
+        // console.log(result);
+
+        /* 简单MD5加密其实并不是特别安全： */
+        /* 加密模型复杂化 */
+        /* (0) 单次MD5加密 ★*/
+        /* (1) 多次MD5加密 ★★*/
+        /* (2) MD5 + salt 加盐 ★★★*/
+        /* (3) MD5加密截取字符串 ★★★★★*/
+
+        /* salt QQ */
+        /* 用户1 密码  123456 */
+        /*      原文  123456QQ  密文 e178d01137cecc7828b36700a408d2a6 */
+        /*      破解  123456QQ  登录失败*/
+        /* 用户2 密码  loveYY */
+        /*      原文  loveYYQQ  密文 dd6cfe31316a80e7ce282a0ed704e8a2 */
+        /*      破解  loveYYQQ */
+
+
+        console.log(md5("123456"));
+        /* 用户输入的是：666888 */
+        /* MD5加密：75e266f182b4fa3625d4a4f4f779af54 */
+        /* 提交给服务器的数据: 75e266f182 */
+    </script>
+
+</body>
+
+</html>

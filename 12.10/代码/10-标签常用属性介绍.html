@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>页面</title>
+</head>
+
+<body>
+    <!-- <img src="" alt=""> -->
+    <div id="demoID" class="box" title="我是标题" xx="信息">111</div>
+    <script>
+        /* 为了方便我们操作，系统为标签提供了常用的属性 。*/
+
+        /* 操作class或者是title */
+        var oDiv = document.querySelector("div");
+        // oDiv.getAttribute("title");
+        // oDiv.setAttribute("title","xxxx");
+
+        console.log(oDiv.title);
+        console.log(oDiv.id);
+        console.log(oDiv.className);
+        /* 其它的常用属性 */
+        /* oImg.src */
+        /* oImg.alt */
+
+        // document也提供了很多访问标签的快捷方法(属性)
+        /* document.body */
+        /* document.head */
+        /* document.title */
+        /* document.documentElement   获取根节点(html)*/
+        /* document.contentType       获取页面的类型(text/html) */
+        /* document.images            获取页面中所有的图片 */
+        /* document.links             获取页面中所有a标签 */
+    </script>
+
+</body>
+
+</html>

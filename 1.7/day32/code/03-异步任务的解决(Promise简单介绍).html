@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* Promise  承诺|保证。*/
+        /* 作用：控制多个异步任务按照固定的顺序来执行。 */
+        /* 本质：就是把异步任务包装成一个Promise实例对象。 */
+        // setTimeout(() => {
+        //     console.log("1")
+
+        //     setTimeout(() => {
+        //         console.log("2")
+        //     }, 1000);
+        // }, 1000);
+
+        /* Promise构造函数的参数本身是一个函数，这个函数提供了两个形参，这两个形参本身也是函数 */
+        /* reject  异步任务失败*/
+        /* resolve 异步任务成功 */
+
+        /* 如果异步任务执行成功，那么需要主动的调用resolve方法，如果执行失败那么需要主动调用reject */
+        /* 如果调用resolve()方法，那么程序会转到then方法执行，如果调用reject方法，那么程序会转到catch执行*/
+
+
+        /* 下面的代码可以控制必须等task1执行完再执行task2 */
+        /* 写法1 如果resolve（）那么转到then,如果reject那么就转到catch*/
+        // new Promise(function(resolve, reject) {
+
+        //     setTimeout(function() {
+        //         console.log("task1");
+        //         resolve();
+        //     }, 1000);
+
+        // }).then(function() {
+
+        //     setTimeout(function() {
+        //         console.log("task2");
+        //     }, 1000);
+
+        // }).catch(function() {});
+
+
+        /* 第二种写法 */
+        new Promise(function(resolve, reject) {
+
+            setTimeout(function() {
+                console.log("task1");
+                resolve();
+            }, 1000);
+
+        }).then(function() {
+            console.log("1");
+        }, function() {
+            console.log("2");
+        });
+    </script>
+</body>
+
+</html>

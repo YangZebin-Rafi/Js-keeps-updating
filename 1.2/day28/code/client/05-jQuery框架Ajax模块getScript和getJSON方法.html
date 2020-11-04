@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <button>getScript</button>
+    <button>getJSON</button>
+    <script>
+        $(() => {
+            $("button").eq(0).click(function() {
+                // $.ajax({
+                //     type: "get",
+                //     url: "../server/07-index.js",
+                //     success: function(response) {
+                //         console.log(response);
+                //     }
+                // });
+
+                $.getScript("../server/07-index.js");
+            })
+            $("button").eq(1).click(function() {
+                // $.ajax({
+                //     type: "get",
+                //     url: "../server/08-getJSON.php",
+                //     dataType: "json",
+                //     success: function(response) {
+                //         console.log(response);
+                //     }
+                // });
+
+                $.getJSON("../server/06-data.json", (json) => {
+                    console.log(json)
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

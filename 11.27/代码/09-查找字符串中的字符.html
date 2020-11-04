@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = "nice to meet u";
+
+        //for (var i = 0; i < str.length; i++) {
+        for (var i = 0, len = str.length; i < len; i++) {
+            console.log("当前的字符 = " + str.charAt(i));
+            if (str.charAt(i) == "e") {
+                console.log("ok", i);
+                break;
+            }
+        }
+
+        /* 一次性声明两个变量 */
+        var a = 1;
+        var b = 2;
+        var c = 3;
+        console.log(a, b, c);
+        var a1 = 10,
+            a2 = 20,
+            a3 = 30;
+    </script>
+</body>
+
+</html>

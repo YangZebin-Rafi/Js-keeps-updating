@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 同步和异步任务的执行： */
+        /* 同步：必须要等当前任务执行完才会执行后面的任务。 */
+        /* 异步：不必等当前任务执行完就可以执行后面的任务。 */
+
+        /* 多个任务： */
+        /* 3个同步任务：开始执行的顺序(1-2-3) 结束执行的顺序(1-2-3) */
+        // console.log("1");
+        // console.log("2");
+        // console.log("3");
+
+        /* 3个异步任务：开始执行的顺序(1-2-3) 结束执行的顺序(3-2-1) */
+        // setTimeout(() => console.log("1"), 2000);
+        // setTimeout(() => console.log("2"), 1000);
+        // setTimeout(() => console.log("3"), 500);
+
+        /* 混合情况： */
+        /* 开始执行的顺序(a-1-b-2-c-3) 结束执行的顺序(a-b-c-3-2-1) */
+        /* 总结：先按顺序把同步执行完，然后才是异步任务 */
+        console.log("a");
+        setTimeout(() => console.log("1"), 2000);
+        console.log("b");
+        setTimeout(() => console.log("2"), 1000);
+        console.log("c");
+        setTimeout(() => console.log("3"), 500);
+
+
+        /* 异步任务执行： */
+    </script>
+</body>
+
+</html>

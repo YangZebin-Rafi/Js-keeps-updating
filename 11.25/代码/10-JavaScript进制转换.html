@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 进制和进制的转换 */
+        /* 001-进制 */
+        // [1] 二进制   0b 0B
+        // [2] 八进制   0o 0O
+        // [3] 十六进制 0x 0X
+        // [4] 默认     十进制
+
+        var num0 = 111;
+        var num1 = 0B111;
+        console.log(num0); /* 111 */
+        console.log(num1); /* 7 = 1 * 2^0 + 1 * 2^1 + 1 *2^2 */
+
+        var num2 = 327;
+        var num3 = 0O327;
+        console.log(num2, num3); /* 327 215 = 7 * 8^0 + 2*8^1 + 3*8^2  = 7 + 16 + 192*/
+
+        /* 十六进制：0123456789A(10)B(11)C(12)D(13)E(14)F(15) */
+        var num4 = 0xf00;
+        console.log(num4); /* 3840  = 0 * 16^0 + 0*16^1 + 15*16^2**/
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/Cookie.js"></script>
+</head>
+
+<body>
+    <h1>登录页面</h1>
+    <input type="text" placeholder="请输入用户名" id="user">
+    <input type="text" placeholder="请输入密码" id="password">
+    <button>登录</button>
+
+    <script>
+        $("button").click(function() {
+            $.ajax({
+                type: "get",
+                url: "../../server/login.php",
+                data: `username=${$("#user").val()}&password=${$("#password").val()}`,
+                dataType: "json",
+                success: function(response) {
+                    console.log(response);
+                    if (response.status == "success") {
+                        /* 把用户名和用户的id保存起来(存到Cookie中)，并且跳转到列表页面 */
+                        Cookie.setItem("user_name", $("#user").val());
+                        Cookie.setItem("user_id", response.id);
+                        window.location.href = "./list.html";
+                    }
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

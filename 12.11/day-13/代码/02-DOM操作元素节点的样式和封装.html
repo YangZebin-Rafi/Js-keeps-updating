@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1200px;
+            height: 800px;
+            margin: 50px auto
+        }
+        
+        tr,
+        th,
+        td {
+            border: 1px solid #000;
+            text-align: center;
+        }
+        
+        table,
+        thead {
+            margin-top: 100px;
+            width: 1000px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="box">
+
+        <label for="name">姓名</label>
+        <input type="text" id="name">
+
+        <label for="classID">门派</label>
+        <input type="text" id="classID">
+
+        <label for="gfID">大招</label>
+        <input type="text" id="gfID">
+
+        <label for="addressID">地盘</label>
+        <input type="text" id="addressID">
+
+        <label for="sortID">排行</label>
+        <input type="text" id="sortID">
+        <button>添加</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>门派</th>
+                    <th>大招</th>
+                    <th>地盘</th>
+                    <th>排行</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>张三丰</td>
+                    <td>武当派</td>
+                    <td>太极拳</td>
+                    <td>武当山</td>
+                    <td>1</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        /* 001-先获取页面的标签 */
+        var oBtn = document.querySelector("button");
+        var _name = document.querySelector("#name");
+        var _class = document.querySelector("#classID");
+        var _address = document.querySelector("#addressID");
+        var _gongFu = document.querySelector("#gfID");
+        var _sort = document.querySelector("#sortID");
+        var _tbody = document.querySelector("tbody");
+
+
+        /* 002-添加点击事件 */
+        /* 方案1 */
+        // oBtn.onclick = function() {
+        //     /* 003-获取对应的数据 */
+        //     var _nameText = _name.value,
+        //         _classText = _class.value,
+        //         _addressText =
+        //         _address.value,
+        //         _gongFuText = _gongFu.value,
+        //         _sortText = _sort.value;
+
+        //     /* 004-创建tr标签并且设置内容 */
+        //     var _tr = document.createElement("tr");
+        // _tr.innerHTML = `<td>${_nameText}</td>
+        //   <td>${_classText}</td>
+        //   <td>${_addressText}</td>
+        //   <td>${_gongFuText}</td>
+        //   <td>${_sortText}</td>`;
+
+        //     /* 005-插入标签到页面中 */
+        //     _tbody.appendChild(_tr);
+        // }
+
+        /* 方案2 */
+        var data = [];
+        oBtn.onclick = function() {
+            var o = {};
+            o.name = _name.value;
+            o.class = _class.value;
+            o.address = _address.value;
+            o.gongFu = _gongFu.value;
+            o.sort = _sort.value;
+            data.push(o)
+            renderUI(data);
+        }
+
+        function renderUI(_data) {
+            var html = _data.map(function(item, index) {
+                return `<tr><td>${item.name}</td>
+              <td>${item.class}</td>
+              <td>${item.address}</td>
+              <td>${item.gongFu}</td>
+              <td>${item.sort}</td></tr>`
+            }).join("");
+            _tbody.innerHTML = html;
+        }
+    </script>
+</body>
+
+</html>

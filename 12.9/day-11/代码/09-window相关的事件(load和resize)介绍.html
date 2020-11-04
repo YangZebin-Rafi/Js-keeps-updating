@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            width: 2000px;
+            height: 2000PX;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>我是标题</h1>
+    <script>
+        /* 001-window.onload 监听页面的加载，等页面加载完才会执行函数中的代码 */
+        window.onload = function() {
+
+            var oDiv = document.getElementById("demoID");
+            console.log(oDiv);
+
+            /* 002-window.onresize() 监听页面大的变化，当页面大小发生变化的时候会触发该方法 */
+            window.onresize = function() {
+                console.log("+++resize+++", window.innerWidth, window.innerHeight);
+            }
+
+            /* 003-window.onscroll() 监听页面滚动，当页面滚动的时候触发该方法 */
+            window.onscroll = function() {
+                console.log("监听到页面滚动", window.scrollX, window.scrollY);
+            }
+        }
+    </script>
+
+    <div id="demoID">我是div</div>
+    <!-- null -->
+
+</body>
+
+</html>

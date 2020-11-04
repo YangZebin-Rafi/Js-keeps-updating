@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none
+        }
+        
+        .box {
+            background: #f5f5f5;
+            width: 1226px;
+            height: 686px;
+            margin: 20px auto;
+        }
+        
+        .box-header {
+            width: 100%;
+            height: 58px;
+            position: relative
+            /* border: 1px solid #000; */
+        }
+        
+        .box-header .title {
+            font-size: 30px;
+            font-weight: bold;
+            height: 58px;
+            line-height: 58px;
+            width: 200px;
+        }
+        
+        .box-header-list {
+            position: absolute;
+            float: right;
+            top: 0px;
+            right: 0px;
+            height: 58px;
+            line-height: 58px;
+        }
+        
+        .box-header-list li {
+            width: 70px;
+            float: left;
+            text-align: center
+        }
+        
+        .box-content {
+            width: 100%;
+            height: 628px;
+            /* border: 1px solid #000; */
+            position: relative
+        }
+        
+        .left {
+            width: 245px;
+            height: 628px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        
+        .left li,
+        .left li img {
+            width: 245px;
+            height: 300px;
+            margin: 0px 0px 15px 0px;
+        }
+        
+        .right {
+            width: 978px;
+            height: 628px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding-left: 10px;
+        }
+        
+        .list {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .list-item {
+            width: 232px;
+            margin: 5px;
+            height: 260px;
+            float: left;
+            text-align: center;
+            background: #fff;
+            padding: 20px 0px;
+        }
+        
+        .list-item img {
+            width: 160px;
+            height: 160px;
+        }
+        
+        .title {
+            margin: 0 20px 3px;
+            font-size: 14px;
+            font-weight: 400;
+            text-overflow: ellipsis;
+            color: #212121;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .desc {
+            height: 18px;
+            margin: 0 20px 12px;
+            font-size: 12px;
+            text-overflow: ellipsis;
+            color: #b0b0b0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .price {
+            margin: 0;
+            color: #ff6709;
+        }
+        
+        .price del {
+            color: #b0b0b0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box-header">
+            <h2 class="title">智能</h2>
+            <ul class="box-header-list">
+                <li class="">热门</li>
+                <li class="">出行</li>
+                <li class="">健康</li>
+                <li class="">酷玩</li>
+                <li class="tab-active">路由器</li>
+            </ul>
+        </div>
+        <div class="box-content">
+            <div class="left">
+                <li><img src="https://i1.mifile.cn/a4/xmad_15608266264545_qWIRv.jpg" alt=""></li>
+                <li><img src="https://i1.mifile.cn/a4/xmad_15608266614476_wdGNy.jpg" alt=""></li>
+            </div>
+            <div class="right">
+                <ul class="list">
+                    <li class="list-item">
+                        <img src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1571038766.41824452.jpg">
+                        <h3 class="title">MIJOY 抽纸青春版 24包/箱</h3>
+                        <p class="desc">精选原生竹浆，健康环保</p>
+                        <p class="price">
+                            <span>27.9</span>元
+                        </p>
+                    </li>
+                    <li class="list-item">
+                        <img src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1571038766.41824452.jpg">
+                        <h3 class="title">MIJOY 抽纸青春版 24包/箱</h3>
+                        <p class="desc">精选原生竹浆，健康环保</p>
+                        <p class="price">
+                            <span>27.9</span>元
+                        </p>
+                    </li>
+                    <li class="list-item">
+                        <img src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1571038766.41824452.jpg">
+                        <h3 class="title">MIJOY 抽纸青春版 24包/箱</h3>
+                        <p class="desc">精选原生竹浆，健康环保</p>
+                        <p class="price">
+                            <span>27.9</span>元
+                        </p>
+                    </li>
+                    <li class="list-item">
+                        <img src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1571038766.41824452.jpg">
+                        <h3 class="title">MIJOY 抽纸青春版 24包/箱</h3>
+                        <p class="desc">精选原生竹浆，健康环保</p>
+                        <p class="price">
+                            <span>27.9</span>元
+                        </p>
+                    </li>
+                    <li class="list-item">
+                        <img src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1571038766.41824452.jpg">
+                        <h3 class="title">MIJOY 抽纸青春版 24包/箱</h3>
+                        <p class="desc">精选原生竹浆，健康环保</p>
+                        <p class="price">
+                            <span>27.9</span>元
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

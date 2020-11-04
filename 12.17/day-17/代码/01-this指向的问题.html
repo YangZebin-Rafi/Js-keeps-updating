@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>我是div</div>
+    <script>
+        "use strict";
+        // console.log(this);  //this->window
+
+        function fn() {
+            console.log("fn", this);
+        }
+
+        /* this的指向取决于函数的调用方式： */
+        /* 001-普通函数调用    函数名();       this->window(非严格) this->undefined(严格)*/
+        /* 002-以对象方法调用  对象.函数名()    this->对象*/
+        /* 003-以构造函数调用  new 函数名()    this->内部新创建的实例对象*/
+        /* 004-函数上下文调用(call方法和apply方法|bind方法)  this->第一个参数  */
+        /* 005-箭头函数     */
+
+
+        // fn();
+        // var o = {
+        //     name: "zs"
+        // };
+        // o.fn = fn;
+        // o.fn();
+
+        // var oDiv = document.querySelector("div");
+        // oDiv.onclick = function() {
+        //     console.log(this);
+        // }
+
+        new fn();
+    </script>
+</body>
+
+</html>

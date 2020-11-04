@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 函数的返回值 return 值；*/
+        /* 要求：设计一个函数，这个函数支持计算三个数字的和。 */
+        /* 有的函数是需要返回值，在函数的最后我们可以通过return关键字把结果返回。 */
+        /* 思考：为什么有的函数需要返回值，有的函数不需要返回值 */
+        function sum(a, b, c) {
+            var result = a + b + c;
+            return result;
+        }
+
+        var res1 = sum(1, 2, 3);
+        console.log(res1);
+
+        var res2 = sum(23234325, 23432, 23429724);
+        console.log(res2);
+
+        function name(a,b,c) {
+            let total=a+b+c
+            return total
+        }
+        let res3=name(4,5,6)
+        console.log(res3);
+        
+
+
+        // * [1] 自己设计一个函数，该函数根据传入参数不同支持加减乘除和求模等5种运算，计算后把结果返回。
+        // computed(5,2,"+"); //7
+        // computed(5,2,"*"); //10
+        // computed(5,2,"/"); //2.5
+        // computed(5,2,"%"); //1
+        // computed(5,2,"-"); //3
+    </script>
+</body>
+
+</html>

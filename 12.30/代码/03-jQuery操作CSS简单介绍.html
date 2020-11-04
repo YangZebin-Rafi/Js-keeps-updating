@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div>我是div</div>
+    <script>
+        /* jQuery操作CSS简单介绍 */
+        $(() => {
+            /* 读取：jQ.css(key) */
+            /* 设置：jQ.css(key,val)*/
+
+            console.log($("div").css("width"));
+            console.log($("div").css("height"));
+
+
+            /* 方案1：单个设置 */
+            // $("div").css("color", "red");
+            // $("div").css("background", "#666");
+
+            /* 方案2：链式编程 */
+            // $("div").css("color", "red").css("background", "#666").css("width", "200px");
+
+            /* 方案3：以对象作为参数 */
+            $("div").css({
+                color: "green",
+                border: "1px solid #000"
+            })
+        })
+    </script>
+</body>
+
+</html>

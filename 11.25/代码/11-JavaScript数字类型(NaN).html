@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 特殊的值：NaN */
+        /* 全称：Not a Number  不是一个数字 */
+        /* 问题：什么情况变量的值会等于NaN呢？当我们需要一个数字，但是却无法得到一个数字的时候，得到的结果就是NaN */
+        /* 注意 */
+        /* [1] NaN和任何的数进行计算得到的结果都是NaN */
+        /* [2] NaN和任何数据来进行比较都不相等，包括自己。 */
+        /* [3] 如何检查一个数据是否是NaN呢？ isNaN */
+        var num = 2;
+        var res1 = num * 10;
+        var res2 = num * "牛粪";
+        console.log(res1, res2);
+
+        var res3 = NaN + 123;
+        var res4 = NaN + NaN;
+        console.log(res3, res4); /* NaN NaN */
+
+        console.log(NaN == NaN); /* false */
+        console.log(isNaN(NaN)); /* true */
+        console.log(isNaN(123)); /* false */
+    </script>
+</body>
+
+</html>

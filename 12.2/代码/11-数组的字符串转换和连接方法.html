@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* (1) 数组转换为字符串的方法 */
+        /* 001-toString() */
+        /* 语法：arr.toString() */
+        /* 作用：把数组的每个元素都连接起来组成一个完整的字符串，在链接的时候采用逗号链接。 */
+        var arr = [true, 100, "哈哈", false, "牛人"];
+        var res1 = arr.toString();
+        console.log(res1); /* true,100,哈哈,false,牛人 */
+
+        /* 002-toLocalString() */
+        /* 作用：同toString()一样 */
+        var res2 = arr.toLocaleString();
+        console.log(res2);
+
+        /* 003-join() */
+        /* 语法：arr.join([ele]) */
+        /* 作用：把数组的每个元素都连接起来组成一个完整的字符串，在链接的时候默认采用逗号链接，否则就采用指定的字符来链接*/
+        var res3 = arr.join();
+        console.log(res3);
+        var res4 = arr.join("|");
+        console.log(res4); /* true|100|哈哈|false|牛人 */
+        var res5 = arr.join(" ");
+        console.log(res5); /* true 100 哈哈 false 牛人 */
+
+        /*(2) 字符串转换为数组的方法*/
+        /* 语法:str.split(ele) */
+        /* 作用：根据指定的字符来切割字符串，把切割之后的结果保存为数组返回 */
+        var data = res5.split(" ");
+        console.log(data);
+    </script>
+</body>
+
+</html>

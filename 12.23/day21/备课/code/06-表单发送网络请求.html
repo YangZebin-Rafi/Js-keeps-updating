@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 当点击提交按钮的时候需要把用户名和密码提交到PHP文件 -->
+    <!-- 表单发送网络请求 -->
+    <!-- 01-设置请求请求URL  通过设置action来设置请求路径-->
+    <!-- 02-请求方法：GET | POST  如果不设置，那么默认发送的就是GET请求-->
+    <!-- 03-请求的参数：参数就是提交给服务器的数据,因为参数可能会有多个，因此在提交的时候需要以键值对的方式提交 -->
+    <!-- key(需要通过name属性节点来单独设置) value(输入框中的值就是value) -->
+    <!-- 当点击提交的时候就会自动把表单数据提交给php文件 -->
+    <!-- <form action="http://127.0.0.1/code/day-21/code/api/01-test.php"> -->
+
+    <form action="./api/01-test.php" method="GET">
+        <label for="username"></label>
+        <input type="text" placeholder="请输入用户号" id="username" name="usm">
+
+        <label for="password"></label>
+        <input type="text" placeholder="请输入密码" id="password" name="psw">
+        <input type="submit" value="提交">
+    </form>
+</body>
+
+</html>

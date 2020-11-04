@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/ajax.js"></script>
+</head>
+
+<body>
+    <button>GET_A</button>
+    <button>GET_B</button>
+    <button>POST_A</button>
+    <script>
+        let oBtnA = document.querySelectorAll("button")[0];
+        let oBtnB = document.querySelectorAll("button")[1];
+        let oBtnC = document.querySelectorAll("button")[2];
+        oBtnA.onclick = () => {
+            // get("../server/05-get_a.php", null,
+            //     (xhr) => document.write(xhr.responseText),
+            //     (xhr) => document.write(xhr.statusText), 1000);
+
+            ajax("get", "../server/05-get_a.php", null,
+                (xhr) => document.write(xhr.responseText),
+                (xhr) => document.write(xhr.statusText), 1000);
+        }
+
+        oBtnB.onclick = () => {
+            get("../server/05-get_b.php", {
+                    username: "张三",
+                    password: "123456"
+                },
+                (xhr) => alert(xhr.responseText),
+                (xhr) => alert(xhr.statusText));
+        }
+
+        oBtnC.onclick = () => {
+            // post("../server/06-post.php", {
+            //         num: "11111",
+            //         email: "123456@vip.com"
+            //     },
+            //     (xhr) => console.log(xhr.responseText),
+            //     (xhr) => console.log(xhr.statusText));
+
+
+            /* 现在调用这个方法的时候，传参顺序非常重要 */
+            // ajax("../server/06-post.php", "post", {
+            //         num: "22222",
+            //         email: "123456@vip.com"
+            //     },
+            //     (xhr) => console.log(xhr.responseText),
+            //     (xhr) => console.log(xhr.statusText));
+
+            // ajax({
+            //     type: "post",
+            //     url: "../server/06-post.php",
+            //     data: {
+            //         num: "8888888",
+            //         email: "123456@vip.com"
+            //     },
+            //     time: 1000,
+            //     success(xhr) {
+            //         console.log(xhr.responseText)
+            //     },
+            //     error(xhr) {
+            //         console.log(xhr.statusText);
+            //     }
+            // });
+
+            post({
+                url: "../server/06-post.php",
+                data: {
+                    num: "9999",
+                    email: "123456@vip.com"
+                },
+                time: 1000,
+                success(xhr) {
+                    console.log(xhr.responseText)
+                },
+                error(xhr) {
+                    console.log(xhr.statusText);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
