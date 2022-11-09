@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="./css/base.css"> -->
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .box {
+      position: relative;
+      margin-top: 20px;
+      margin-left: 40px;
+    }
+
+    .left {
+      /* border: 1px solid #000; */
+      width: 400px;
+      height:300px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: url(./images/hero.png);
+      background-size: 100% 100%;
+      cursor: move;
+      position: relative;
+    }
+
+    .right {
+      /* border: 1px solid #000; */
+      width: 400px;
+      height: 300px;
+      margin-top: 20px;
+      margin-left: 40px;
+      position: absolute;
+      top: 0;
+      left: 400px;
+      background: url(./images/hero.png) no-repeat;
+      background-position-x: 0;
+      background-position-y: 0;
+    }
+
+    .mark {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background-color: pink;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="left">
+      <div class="mark"></div>
+    </div>
+    <div class="right"></div>
+  </div>
+
+  <script>
+    //获取元素
+    var box = document.querySelector(".box");
+    var left = document.querySelector(".left");
+    var mark = document.querySelector(".mark");
+    var right = document.querySelector(".right");
+    //
+    var boxleft = box.offsetLeft;
+    var boxtop = box.offsetTop;
+    
+
+
+    //鼠标移入显示
+    function lover() {
+      mark.style.display = "block";
+      right.style.display = "block";
+    }
+    left.addEventListener("mouseover", lover);
+    //鼠标移除隐藏
+    function lout() {
+      mark.style.display = "none";
+      right.style.display = "none";
+    }
+    left.addEventListener("mouseout", lout);
+    //鼠标移动
+    function mmove(e) {
+      //计算滑块移动的距离
+      var markleft = e.clientX - boxleft - mark.offsetWidth / 2;
+      var marktop = e.clientY - boxtop - mark.offsetHeight / 2;
+      //计算放大图片移动的距离
+      var rLeft = markleft * 2160 / (left.offsetWidth - mark.offsetWidth);
+      var rTop = marktop * 940 / (box.offsetHeight - mark.offsetHeight);
+      // 设置滑块移动的距离
+      mark.style.left = markleft + "px";
+      mark.style.top = marktop + "px";
+
+      // 设置放大图片移动的距离
+      //公式：大图的移动距离=（遮罩层的最大移动距离*大图最大移动距离）/遮罩层最大移动距离
+      right.style.backgroundPositionX = -rLeft + "px";
+      right.style.backgroundPositionY = -rTop + "px";
+      //判断滑块移动的范围
+      //左边界
+      if (mark.offsetLeft <= 0) {
+        markleft = 0;
+      }
+      // 右边界
+      if (mark.offsetLeft > left.offsetWidth - mark.offsetWidth) {
+        markleft = left.offsetWidth - mark.offsetWidth;
+      }
+      // 上边界
+      if (mark.offsetTop < 0) {
+        marktop = 0;
+      }
+      // 下边界
+      if (mark.offsetTop > box.offsetHeight - mark.offsetHeight) {
+        marktop = left.offsetHeight - mark.offsetHeight;
+      }
+      mark.style.left = markleft + "px";
+      mark.style.top = marktop + "px";
+    }
+    left.addEventListener("mousemove", mmove);
+  </script>
+
+</body>
+
+</html>
